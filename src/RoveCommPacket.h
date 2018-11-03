@@ -10,6 +10,8 @@
 #define ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE    4
 
 //////////////////////////////////////////////////////
+//Carrys RoveComm packet data
+//Used to return RoveComm::read() values as a struct
 struct rovecomm_packet
 {
   uint16_t data_id;
@@ -20,7 +22,8 @@ struct rovecomm_packet
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 namespace roveware
 {
-  enum data_type_t { INT8_T, UINT8_T, INT16_T, UINT16_T, INT32_T, UINT32_T };
+  //DataType RoveComm encoding
+  enum data_type_t { INT8_T=0, UINT8_T=1, INT16_T=2, UINT16_T=3, INT32_T=4, UINT32_T=5};
 
   ////////////////////////////////////////////////
   // The RoveComm udp packet header is 4 bytes long:
@@ -28,6 +31,7 @@ namespace roveware
   // uint8_t  data_type
   // uint8_t  data_count
 
+  //Carrys Udp packet data
   struct udp_packet
   {
     uint8_t bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + sizeof(int) * ROVECOMM_ETHERNET_UDP_MAX_DATA_COUNT];
