@@ -24,11 +24,15 @@ const int ROVECOMM_UNSUBSCRIBE_REQUEST_DATA_ID = 2;
 
 
 //Board IP Address////////////////////////////
-const uint8_t DRIVEBOARD_FOURTH_OCTET   = 130;
-const uint8_t SCIENCEBOARD_FOURTH_OCTET = 135;
-const uint8_t DRILLBOARD_FOURTH_OCTET   = 139;
-const uint8_t CAMERABOARD_FOURTH_OCTET  = 140;
-const uint8_t GIMBALBOARD_FOURTH_OCTET  = 134;
+const uint8_t DRIVEBOARD_FOURTH_OCTET       = 130;
+const uint8_t ARMBOARD_FOURTH_OCTET         = 131;
+const uint8_t POWERBOARD_FOURTH_OCTET       = 132;
+const uint8_t SHIMBLEBOARD_FOURTH_OCTET     = 134;
+const uint8_t SCIENCEBOARD_FOURTH_OCTET     = 135;
+const uint8_t lIGHTINGBOARD_FOURTH_OCTET    = 137;
+const uint8_t SCIENCEACTUATION_FOURTH_OCTET = 139;
+const uint8_t CAMERABOARD_FOURTH_OCTET      = 140;
+const uint8_t EXAMPLE_FOURTH_OCTET          = 141;
 
 ///////////////////////////////////////////
 //              RED Controller           //
@@ -40,6 +44,11 @@ const int16_t RED_MAX_REVERSE =  -1000;
 ///////////////////////////////////////////
 //              Data IDs                 //
 ///////////////////////////////////////////
+//Example Data IDs////////////////////////
+const uint16_t SINGLE_VALUE_EXAMPLE_ID = 11;
+const uint16_t ARRAY_ENTRY_EXAMPLE_ID  = 12;
+const uint16_t ARRAY_READ_EXAMPLE_ID   = 13;
+
 //RoveComm Data IDs/////////////////////////////
 const uint16_t ROVECOMM_SUBSCRIBE_REQUEST   = 3;
 const uint16_t ROVECOMM_UNSUBSCRIBE_REQUEST = 4;
