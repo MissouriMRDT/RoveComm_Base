@@ -23,7 +23,8 @@ class RoveCommEthernetUdp
 	/////write////////////////////////////////////////////////////////////////////////
 	//Single-value write
 	//Overloaded for each data type
-    void write(const int      data_id, const int     data_count, const int      data);
+    //Causes bug when doing:RoveComm.write(SINGLE_VALUE_EXAMPLE_ID, 1, analogRead(A0));
+	//void write(const uint16_t data_id, const int     data_count, const int      data);
     void write(const uint16_t data_id, const uint8_t data_count, const uint8_t  data);
     void write(const uint16_t data_id, const uint8_t data_count, const uint16_t data);
     void write(const uint16_t data_id, const uint8_t data_count, const uint32_t data);
@@ -33,7 +34,7 @@ class RoveCommEthernetUdp
 
     //Array entry write
 	//Overloaded for each data type
-    void write(const int      data_id, const int     data_count, const int      *data);
+    void write(const uint16_t data_id, const int     data_count, const int      *data);
     void write(const uint16_t data_id, const uint8_t data_count, const uint8_t  *data);
     void write(const uint16_t data_id, const uint8_t data_count, const uint16_t *data);
     void write(const uint16_t data_id, const uint8_t data_count, const uint32_t *data);

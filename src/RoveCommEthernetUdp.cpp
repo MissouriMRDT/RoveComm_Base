@@ -125,11 +125,11 @@ void RoveCommEthernetUdp::_writeTo(const uint8_t data_type_length, const rovewar
 //Overloaded write////////////////////////////////////////////////////////////////////////////////////////////////////
 //Single-value write
 //handles the data->pointer conversion for user
-void RoveCommEthernetUdp::write(        const  int      data_id, const  int    data_count, const  int     data ) 
-{                  int data_p[1];
-                   data_p[0] = data;
-                   this->_write( 4,  roveware::INT32_T, data_id,               data_count,        (void*) data_p ); }
-
+//void RoveCommEthernetUdp::write(        const  uint16_t      data_id, const  int    data_count, const  int     data ) 
+//{                  int data_p[1];
+//                   data_p[0] = data;
+//                   this->_write( 4,  roveware::INT32_T, data_id,               data_count,        (void*) data_p ); }
+//
 void RoveCommEthernetUdp::write(        const uint16_t  data_id, const uint8_t data_count, const  int32_t data )
 {                  int32_t data_p[1];
                    data_p[0] = data;
@@ -160,9 +160,9 @@ void RoveCommEthernetUdp::write(        const uint16_t  data_id, const uint8_t d
                    data_p[0] = data;
                    this->_write( 1,  roveware::UINT8_T, data_id,               data_count,        (void*) data_p ); }
 //Array-Entry write///////////////////////////////////
-void RoveCommEthernetUdp::write(        const  int      data_id, const  int    data_count, const  int     *data ) 
-{                  this->_write( 4,  roveware::INT32_T, data_id,               data_count,        (void*) data ); }
-
+//void RoveCommEthernetUdp::write(        const  int      data_id, const  int    data_count, const  int     *data ) 
+//{                  this->_write( 4,  roveware::INT32_T, data_id,               data_count,        (void*) data ); }
+//
 void RoveCommEthernetUdp::write(        const uint16_t  data_id, const uint8_t data_count, const  int32_t *data )
 {                  this->_write( 4,  roveware::INT32_T, data_id,               data_count,        (void*) data ); }
 
