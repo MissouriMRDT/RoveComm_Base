@@ -87,36 +87,69 @@ namespace roveware
     data_type_t data_type  =  (data_type_t)udp_packet_bytes[3];
 
 	//Unpack data based on data_type
-    if(( data_type ==  INT32_T )
-    || ( data_type == UINT32_T ))
+    if(data_type ==  INT32_T)
     { 
       uint16_t  index    = 0;
       for(int i=0; i < 4*data_count; i+=4 )
       { 
-        rovecomm_packet.data[index] = (udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i]     << 24)
+        int32_t data = (udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i]     << 24)
                                     | (udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i + 1] << 16)
                                     | (udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i + 2] << 8)
                                     |  udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i + 3];
-        index++;
+        rovecomm_packet.data[index] = data;
+		index++;
       }
-    } else if(( data_type ==  INT16_T )
-           || ( data_type == UINT16_T ))
+    } else if(data_type ==  UINT32_T )
+    { 
+      uint16_t  index    = 0;
+      for(int i=0; i < 4*data_count; i+=4 )
+      { 
+        uint32_t data = (udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i]     << 24)
+                                    | (udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i + 1] << 16)
+                                    | (udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i + 2] << 8)
+                                    |  udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i + 3];
+        rovecomm_packet.data[index] = data;
+		index++;
+      }
+    } 
+	
+	else if(data_type ==  INT16_T)
     { 
       uint16_t  index    = 0;
       for(int i=0; i < 2*data_count; i+=2 )
       { 
-        rovecomm_packet.data[index] = (udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i    ] << 8)
-                                    |  udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i + 1];
-        index++;
+        int16_t data = (udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i    ] << 8)
+                     |  udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i + 1];
+        rovecomm_packet.data[index] = data;
+		index++;
       }
-    } else if(( data_type ==  INT8_T )
-           || ( data_type == UINT8_T ))
+    } else if(data_type == UINT16_T)
+    { 
+      uint16_t  index    = 0;
+      for(int i=0; i < 2*data_count; i+=2 )
+      { 
+        uint16_t data = (udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i    ] << 8)
+                      |  udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i + 1];
+        rovecomm_packet.data[index] = data;
+		index++;
+      }
+    } 
+	
+	else if(data_type ==  INT8_T )
     {
       for(int i=0; i < 1*data_count; i+=1 )
       { 
-        rovecomm_packet.data[i] = udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i];
+		int8_t data = udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i];
+		rovecomm_packet.data[i] = data;
       }
-     } else
+     } else if(data_type ==  UINT8_T )
+    {
+      for(int i=0; i < 1*data_count; i+=1 )
+      { 
+		uint8_t data = udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i];
+		rovecomm_packet.data[i] = data;
+      }
+    } else
     { 
       data_count = 0; // invalid_data
     }
