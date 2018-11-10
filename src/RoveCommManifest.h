@@ -52,6 +52,7 @@ const uint16_t ARRAY_READ_EXAMPLE_ID   = 13;
 //RoveComm Data IDs/////////////////////////////
 const uint16_t ROVECOMM_SUBSCRIBE_REQUEST   = 3;
 const uint16_t ROVECOMM_UNSUBSCRIBE_REQUEST = 4;
+const uint16_t ROVECOMM_INVALID_VERSION_DATA_ID = 42;
 //DriveBoard Data IDs////////////////////
 const uint16_t DRIVE_LEFT_RIGHT  = 528;
 const uint16_t UNDERGLOW_COLOR   = 2320;

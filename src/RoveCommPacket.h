@@ -3,11 +3,13 @@
 
 #include <stdint.h>
 #include <stddef.h>
+#include "RoveCommManifest.h"
 
 //////////////////////////////////////////////////////
 #define ROVECOMM_ETHERNET_UDP_MAX_SUBSCRIBERS      10
 #define ROVECOMM_ETHERNET_UDP_MAX_DATA_COUNT      255
-#define ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE    4
+#define ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE    5
+#define ROVECOMM_VERSION    2
 
 //////////////////////////////////////////////////////
 //Carrys RoveComm packet data
@@ -15,8 +17,8 @@
 struct rovecomm_packet
 {
   uint16_t data_id;
-   uint8_t data_count;
-       int data[ROVECOMM_ETHERNET_UDP_MAX_DATA_COUNT];
+  uint8_t data_count;
+  int data[ROVECOMM_ETHERNET_UDP_MAX_DATA_COUNT];
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -26,7 +28,8 @@ namespace roveware
   enum data_type_t { INT8_T=0, UINT8_T=1, INT16_T=2, UINT16_T=3, INT32_T=4, UINT32_T=5};
 
   ////////////////////////////////////////////////
-  // The RoveComm udp packet header is 4 bytes long:
+  // The RoveComm udp packet header is 5 bytes long:
+  // uint8_t rovecomm_version
   // uint16_t data_id   
   // uint8_t  data_type
   // uint8_t  data_count

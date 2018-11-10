@@ -19,10 +19,11 @@ namespace roveware
     struct udp_packet udp_packet;
     
 	//Pack upd packt with header data
-    udp_packet.bytes[0] = data_id  >> 8;
-    udp_packet.bytes[1] = data_id;
-    udp_packet.bytes[2] = data_count;
-    udp_packet.bytes[3] = data_type;
+	udp_packet.bytes[0] = ROVECOMM_VERSION;
+    udp_packet.bytes[1] = data_id  >> 8;
+    udp_packet.bytes[2] = data_id;
+    udp_packet.bytes[3] = data_count;
+    udp_packet.bytes[4] = data_type;
     
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	//Pack data according to data_type
@@ -77,16 +78,26 @@ namespace roveware
   ///////////////////////////////////////////////////////////////////////////////////////////////////////
   struct rovecomm_packet unpackUdpPacket(const uint8_t udp_packet_bytes[])
   {
-	//create new RoveComm packet
-    struct rovecomm_packet rovecomm_packet = {0};
-	//Unpack header
-	//Todo: Why don't we pass these directly into the rovecomm_packet we just made?
-    uint16_t data_id   =(udp_packet_bytes[0] << 8)
-                       | udp_packet_bytes[1];
-    uint8_t data_count = udp_packet_bytes[2];
-    data_type_t data_type  =  (data_type_t)udp_packet_bytes[3];
+    //for if we encounter an incompatible rovecomm message
+    if(udp_packet_bytes[0] != ROVECOMM_VERSION)
+    {
+     struct rovecomm_packet invalid_version_packet = {0};
+	 invalid_version_packet.data_id = ROVECOMM_INVALID_VERSION_DATA_ID;
+	 invalid_version_packet.data_count = 1;
+	 invalid_version_packet.data[1] = {0};
+     return invalid_version_packet;
+    }
 
-	//Unpack data based on data_type
+    //create new RoveComm packet
+    struct rovecomm_packet rovecomm_packet = {0};
+    //Unpack header
+    //Todo: Why don't we pass these directly into the rovecomm_packet we just made?
+    uint16_t data_id   =(udp_packet_bytes[1] << 8)
+                       | udp_packet_bytes[2];
+    uint8_t data_count = udp_packet_bytes[3];
+    data_type_t data_type  =  (data_type_t)udp_packet_bytes[4];
+
+    //Unpack data based on data_type
     if(data_type ==  INT32_T)
     { 
       uint16_t  index    = 0;
