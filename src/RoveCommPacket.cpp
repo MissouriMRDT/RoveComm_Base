@@ -13,17 +13,17 @@ namespace roveware
 {
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //Packs data into a RoveComm packet
-  struct udp_packet packUdpPacket(const uint16_t data_id, const uint8_t data_count, const data_type_t data_type, const void* data)
+  struct _packet packUdpPacket(const uint16_t data_id, const uint8_t data_count, const data_type_t data_type, const void* data)
   {
-	//create a new udp_packet
-    struct udp_packet udp_packet;
+	//create a new _packet
+    struct _packet packet;
     
 	//Pack upd packt with header data
-	udp_packet.bytes[0] = ROVECOMM_VERSION;
-    udp_packet.bytes[1] = data_id  >> 8;
-    udp_packet.bytes[2] = data_id;
-    udp_packet.bytes[3] = data_count;
-    udp_packet.bytes[4] = data_type;
+	packet.bytes[0] = ROVECOMM_VERSION;
+    packet.bytes[1] = data_id  >> 8;
+    packet.bytes[2] = data_id;
+    packet.bytes[3] = data_count;
+    packet.bytes[4] = data_type;
     
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	//Pack data according to data_type
@@ -36,10 +36,10 @@ namespace roveware
       for(int i=0; i < 4 * data_count; i+=4)
       { 
 		//Pack values into packet bytes
-        udp_packet.bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i    ] = data_32t[index] >> 24;
-        udp_packet.bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i + 1] = data_32t[index] >> 16;
-        udp_packet.bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i + 2] = data_32t[index] >> 8;
-        udp_packet.bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i + 3] = data_32t[index];
+        packet.bytes[ROVECOMM_PACKET_HEADER_SIZE + i    ] = data_32t[index] >> 24;
+        packet.bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 1] = data_32t[index] >> 16;
+        packet.bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 2] = data_32t[index] >> 8;
+        packet.bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 3] = data_32t[index];
         index++;
       }
     } else if(( data_type == INT16_T )
@@ -51,8 +51,8 @@ namespace roveware
       for(int i=0; i < 2 * data_count; i+=2)
       { 
 		//Pack values into packet bytes
-        udp_packet.bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i    ] = data_16t[index] >> 8;
-        udp_packet.bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i + 1] = data_16t[index];
+        packet.bytes[ROVECOMM_PACKET_HEADER_SIZE + i    ] = data_16t[index] >> 8;
+        packet.bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 1] = data_16t[index];
         index++;
       }
 
@@ -64,22 +64,22 @@ namespace roveware
       for(int i=0; i < 1 * data_count; i+=1)
       { 
 		//Pack values into packet bytes
-        udp_packet.bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i]     = data_8t[i];
+        packet.bytes[ROVECOMM_PACKET_HEADER_SIZE + i]     = data_8t[i];
       }
 
     } else // invalid => set data_count = 0
     { 
-      struct udp_packet udp_packet_INVALID = { 0 };
-      return udp_packet_INVALID; 
+      struct _packet PACKET_INVALID = { 0 };
+      return PACKET_INVALID; 
     } 
-    return udp_packet;
+    return packet;
   }
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////////
-  struct rovecomm_packet unpackUdpPacket(const uint8_t udp_packet_bytes[])
+  struct rovecomm_packet unpackUdpPacket(const uint8_t _packet_bytes[])
   {
     //for if we encounter an incompatible rovecomm message
-    if(udp_packet_bytes[0] != ROVECOMM_VERSION)
+    if(_packet_bytes[0] != ROVECOMM_VERSION)
     {
      struct rovecomm_packet invalid_version_packet = {0};
 	 invalid_version_packet.data_id = ROVECOMM_INVALID_VERSION_DATA_ID;
@@ -92,10 +92,10 @@ namespace roveware
     struct rovecomm_packet rovecomm_packet = {0};
     //Unpack header
     //Todo: Why don't we pass these directly into the rovecomm_packet we just made?
-    uint16_t data_id   =(udp_packet_bytes[1] << 8)
-                       | udp_packet_bytes[2];
-    uint8_t data_count = udp_packet_bytes[3];
-    data_type_t data_type  =  (data_type_t)udp_packet_bytes[4];
+    uint16_t data_id   =(_packet_bytes[1] << 8)
+                       | _packet_bytes[2];
+    uint8_t data_count = _packet_bytes[3];
+    data_type_t data_type  =  (data_type_t)_packet_bytes[4];
 
     //Unpack data based on data_type
     if(data_type ==  INT32_T)
@@ -103,10 +103,10 @@ namespace roveware
       uint16_t  index    = 0;
       for(int i=0; i < 4*data_count; i+=4 )
       { 
-        int32_t data = (udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i]     << 24)
-                                    | (udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i + 1] << 16)
-                                    | (udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i + 2] << 8)
-                                    |  udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i + 3];
+        int32_t data = (_packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i]     << 24)
+                                    | (_packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 1] << 16)
+                                    | (_packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 2] << 8)
+                                    |  _packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 3];
         rovecomm_packet.data[index] = data;
 		index++;
       }
@@ -115,10 +115,10 @@ namespace roveware
       uint16_t  index    = 0;
       for(int i=0; i < 4*data_count; i+=4 )
       { 
-        uint32_t data = (udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i]     << 24)
-                                    | (udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i + 1] << 16)
-                                    | (udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i + 2] << 8)
-                                    |  udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i + 3];
+        uint32_t data = (_packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i]     << 24)
+                                    | (_packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 1] << 16)
+                                    | (_packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 2] << 8)
+                                    |  _packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 3];
         rovecomm_packet.data[index] = data;
 		index++;
       }
@@ -129,8 +129,8 @@ namespace roveware
       uint16_t  index    = 0;
       for(int i=0; i < 2*data_count; i+=2 )
       { 
-        int16_t data = (udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i    ] << 8)
-                     |  udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i + 1];
+        int16_t data = (_packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i    ] << 8)
+                     |  _packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 1];
         rovecomm_packet.data[index] = data;
 		index++;
       }
@@ -139,8 +139,8 @@ namespace roveware
       uint16_t  index    = 0;
       for(int i=0; i < 2*data_count; i+=2 )
       { 
-        uint16_t data = (udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i    ] << 8)
-                      |  udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i + 1];
+        uint16_t data = (_packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i    ] << 8)
+                      |  _packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 1];
         rovecomm_packet.data[index] = data;
 		index++;
       }
@@ -150,14 +150,14 @@ namespace roveware
     {
       for(int i=0; i < 1*data_count; i+=1 )
       { 
-		int8_t data = udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i];
+		int8_t data = _packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i];
 		rovecomm_packet.data[i] = data;
       }
      } else if(data_type ==  UINT8_T )
     {
       for(int i=0; i < 1*data_count; i+=1 )
       { 
-		uint8_t data = udp_packet_bytes[ROVECOMM_ETHERNET_UDP_PACKET_HEADER_SIZE + i];
+		uint8_t data = _packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i];
 		rovecomm_packet.data[i] = data;
       }
     } else

@@ -1,7 +1,5 @@
 
-#include "RoveCommPacket.h"
-#include "RoveCommManifest.h"
-#include "RoveCommEthernetUdp.h"
+#include "RoveComm.h"
 
 ////////////////////////////////////////////////
 RoveCommEthernetUdp RoveComm;

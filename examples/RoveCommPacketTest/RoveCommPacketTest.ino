@@ -3,7 +3,7 @@
 //Reads array entry from RoveComm
 //Andrew Van Horn, 11/2018
 
-#include "RoveCommEthernetUdp.h"
+#include "RoveComm.h"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 RoveCommEthernetUdp RoveComm;
 struct rovecomm_packet rovecomm_read_packet;
