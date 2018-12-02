@@ -5,13 +5,9 @@
 #include          <SPI.h>         // Energia/master/hardware/lm4f/libraries/SPI
 #include          <Energia.h>
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void RoveCommSerial::begin(HardwareSerial &S_Tx, HardwareSerial &S_Rx, int baud)
+void RoveCommSerial::begin(Stream *serialObject)
 {
-  _Ser_Tx = S_Tx;
-  _Ser_Rx = S_Rx;
-
-  _Ser_Tx.begin(baud);
-  _Ser_Rx.begin(baud);
+  _Serial = serialObject;
   
   delay(10);
 }
@@ -21,11 +17,9 @@ void RoveCommSerial::begin(HardwareSerial &S_Tx, HardwareSerial &S_Rx, int baud)
 struct rovecomm_packet RoveCommSerial::read() 
 { 
   //Create new RoveCommPacket
-  Serial.println("In read");
   struct rovecomm_packet rovecomm_packet = { 0 };
-  if(_Ser_Rx.available())
+  if(_Serial->available())
   {    
-    Serial.println("I'm in");
     //Todo: Why don't we pass these directly into the rovecomm_packet we just made?
     uint16_t data_id    =  0;
     roveware::data_type_t data_type;
@@ -36,10 +30,9 @@ struct rovecomm_packet RoveCommSerial::read()
     
 	//Read packet
 	int i = 0;
-	while(_Ser_Rx.available())
+	while(_Serial->available())
 	{
-	  _packet[i] = _Ser_Rx.read();
-	  Serial.println(_packet[i]);
+	  _packet[i] = _Serial->read();
 	  i++;
 	}
     
@@ -48,7 +41,6 @@ struct rovecomm_packet RoveCommSerial::read()
 	//return the packet
 	return rovecomm_packet;
   }
-  Serial.println("Ser Not Avail");
   return rovecomm_packet;
 }
 
@@ -59,7 +51,7 @@ void RoveCommSerial::_write(const uint8_t data_type_length, const roveware::data
   struct roveware::_packet _packet = roveware::packUdpPacket(data_id, data_count, data_type, data);
   
   int packet_length = ROVECOMM_PACKET_HEADER_SIZE + data_type_length * data_count;
-  _Ser_Tx.write(_packet.bytes, packet_length);
+  _Serial->write(_packet.bytes, packet_length);
 }
 
 //Overloaded write////////////////////////////////////////////////////////////////////////////////////////////////////

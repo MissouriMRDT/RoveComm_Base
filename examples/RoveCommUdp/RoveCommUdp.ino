@@ -9,7 +9,7 @@
  * const uint16_t ARRAY_READ_EXAMPLE_ID   = 12;
  */
 
-#include "RoveCommEthernetUdp.h"
+#include "RoveComm.h"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 RoveCommEthernetUdp RoveComm;
 struct rovecomm_packet rovecomm_read_packet;

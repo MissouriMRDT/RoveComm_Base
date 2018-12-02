@@ -12,8 +12,7 @@
 class RoveCommSerial
 {
   private:
-    HardwareSerial _Ser_Tx;
-	HardwareSerial _Ser_Rx;
+    Stream *_Serial;
 	
     //Called by overloaded write functions
     void _write(  const uint8_t  data_type_length, const roveware::data_type_t data_type, 
@@ -21,7 +20,7 @@ class RoveCommSerial
 
   public:
     /////begin///////////////////////////
-	void begin(HardwareSerial &S_Tx, HardwareSerial &S_Rx, int baud = 9600);
+	void begin(Stream *serialObject);
     
 	/////Read/////////////////////
 	struct rovecomm_packet read();
