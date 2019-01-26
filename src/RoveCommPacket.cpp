@@ -13,7 +13,7 @@ namespace roveware
 {
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //Packs data into a RoveComm packet
-  struct _packet packUdpPacket(const uint16_t data_id, const uint8_t data_count, const data_type_t data_type, const void* data)
+  struct _packet packPacket(const uint16_t data_id, const uint8_t data_count, const data_type_t data_type, const void* data)
   {
 	//create a new _packet
     struct _packet packet;
@@ -76,7 +76,7 @@ namespace roveware
   }
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////////
-  struct rovecomm_packet unpackUdpPacket(const uint8_t _packet_bytes[])
+  struct rovecomm_packet unpackPacket(const uint8_t _packet_bytes[])
   {
     //for if we encounter an incompatible rovecomm message
     if(_packet_bytes[0] != ROVECOMM_VERSION)

@@ -40,8 +40,8 @@ namespace roveware
     uint8_t bytes[ROVECOMM_PACKET_HEADER_SIZE + sizeof(int) * ROVECOMM_ETHERNET_UDP_MAX_DATA_COUNT];
   };
 
-  struct _packet        packUdpPacket(const uint16_t data_id, const uint8_t data_count, const data_type_t data_type, const void* data);
-  struct rovecomm_packet unpackUdpPacket(const uint8_t  _packet[]);
+  struct _packet        packPacket(const uint16_t data_id, const uint8_t data_count, const data_type_t data_type, const void* data);
+  struct rovecomm_packet unpackPacket(const uint8_t  _packet[]);
 }// end namespace/////////////////////////////////////////////////////////////////////////////////////////////////
 
 #endif // ROVECOMM_PACKET_H

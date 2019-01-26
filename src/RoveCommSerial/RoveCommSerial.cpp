@@ -37,7 +37,7 @@ struct rovecomm_packet RoveCommSerial::read()
 	}
     
 	//Unpack RoveComm Packet
-    rovecomm_packet = roveware::unpackUdpPacket(_packet); 
+    rovecomm_packet = roveware::unpackPacket(_packet); 
 	//return the packet
 	return rovecomm_packet;
   }
@@ -48,7 +48,7 @@ struct rovecomm_packet RoveCommSerial::read()
 void RoveCommSerial::_write(const uint8_t data_type_length, const roveware::data_type_t data_type, const uint16_t data_id, const uint8_t data_count, const void* data)
 { 
   //Creat packed udp packet
-  struct roveware::_packet _packet = roveware::packUdpPacket(data_id, data_count, data_type, data);
+  struct roveware::_packet _packet = roveware::packPacket(data_id, data_count, data_type, data);
   
   int packet_length = ROVECOMM_PACKET_HEADER_SIZE + data_type_length * data_count;
   _Serial->write(_packet.bytes, packet_length);
