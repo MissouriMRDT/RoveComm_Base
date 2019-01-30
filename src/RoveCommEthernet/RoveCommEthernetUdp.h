@@ -3,6 +3,9 @@
 
 #include <stdint.h>
 #include <stddef.h>
+#include <Energia.h>
+#include <Ethernet.h>
+#include <EthernetUdp.h>
 
 #include "RoveCommManifest.h"
 #include "RoveCommPacket.h"
@@ -97,6 +100,9 @@ class RoveCommEthernetUdp
     void _writeTo(const uint8_t  data_type_length, const roveware::data_type_t data_type,
                   const uint16_t data_id,    const uint8_t data_count, const void* data,
                   const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port);
+     void _writeTo(const uint8_t  data_type_length, const roveware::data_type_t data_type,
+                  const uint16_t data_id,    const uint8_t data_count, const void* data,
+                  IPAddress ipaddress, const uint16_t port);
 };
 
 #endif // RoveEthernetUdp_h

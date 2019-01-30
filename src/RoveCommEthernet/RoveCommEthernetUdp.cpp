@@ -84,8 +84,13 @@ struct rovecomm_packet RoveCommEthernetUdp::read()
         }
       }
     }  
+  else if (rovecomm_packet.data_id == RC_ROVECOMM_PING_DATA_ID)
+    {
+      uint8_t data_p[1];
+      data_p[0] = 1;
+      this->_writeTo( 1,  roveware::UINT8_T, RC_ROVECOMM_PING_REPLY_DATA_ID, 1, (void*) data_p, ReadFromIp, RC_ROVECOMM_ETHERNET_UDP_PORT);
+    }  
   }
-  //ToDo: Add ping support
   //return the packet
   return rovecomm_packet;
 }
@@ -120,6 +125,19 @@ void RoveCommEthernetUdp::_writeTo(const uint8_t data_type_length, const rovewar
   
   //Write to that IP
   EthernetUdp.beginPacket(WriteToIp, port);
+  EthernetUdp.write(      _packet.bytes, (ROVECOMM_PACKET_HEADER_SIZE + (data_type_length * data_count)));
+  EthernetUdp.endPacket(); 
+}
+
+void RoveCommEthernetUdp::_writeTo(const uint8_t  data_type_length, const roveware::data_type_t data_type,
+                  const uint16_t data_id,    const uint8_t data_count, const void* data,
+                  IPAddress ipaddress, const uint16_t port)
+{
+  //create packed udp packet
+  struct roveware::_packet _packet = roveware::packPacket(data_id, data_count, data_type, data);
+  
+  //Write to that IP
+  EthernetUdp.beginPacket(ipaddress, port);
   EthernetUdp.write(      _packet.bytes, (ROVECOMM_PACKET_HEADER_SIZE + (data_type_length * data_count)));
   EthernetUdp.endPacket(); 
 }
