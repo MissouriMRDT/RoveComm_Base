@@ -1,4 +1,4 @@
-#ifndef _RoveComm.h
+#ifndef _RoveComm
 #define _RoveComm
 
 #include "RoveCommEthernet/RoveCommEthernetUdp.h"

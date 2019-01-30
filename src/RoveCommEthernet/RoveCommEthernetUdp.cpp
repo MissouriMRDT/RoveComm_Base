@@ -13,7 +13,7 @@ IPAddress RoveComm_EthernetUdpSubscriberIps[ROVECOMM_ETHERNET_UDP_MAX_SUBSCRIBER
 void RoveCommEthernetUdp::begin(const int board_ip_octet) 
 {
   //begin using default IP Address
-  this->begin(ROVECOMM_SUBNET_IP_FIRST_OCTET, ROVECOMM_SUBNET_IP_SECOND_OCTET, ROVECOMM_SUBNET_IP_THIRD_OCTET, (uint8_t)board_ip_octet);
+  this->begin(RC_ROVECOMM_SUBNET_IP_FIRST_OCTET, RC_ROVECOMM_SUBNET_IP_SECOND_OCTET, RC_ROVECOMM_SUBNET_IP_THIRD_OCTET, (uint8_t)board_ip_octet);
 }
 void RoveCommEthernetUdp::begin(const uint8_t ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4)
 { 
@@ -24,7 +24,7 @@ void RoveCommEthernetUdp::begin(const uint8_t ip_octet_1, const uint8_t ip_octet
   Ethernet.enableLinkLed(); 
   //Set up Ethernet Udp
   Ethernet.begin(   0, LocalIp);
-  EthernetUdp.begin(ROVECOMM_ETHERNET_UDP_PORT); 
+  EthernetUdp.begin(RC_ROVECOMM_ETHERNET_UDP_PORT); 
   delay(1);
 }
 
@@ -40,6 +40,7 @@ struct rovecomm_packet RoveCommEthernetUdp::read()
   uint8_t data_count =  0;
    
   int packet_size = EthernetUdp.parsePacket();
+  Serial.println(packet_size);
   if (packet_size > 0)
   {       
 	//Create arreay to take packet
@@ -54,7 +55,7 @@ struct rovecomm_packet RoveCommEthernetUdp::read()
     
 	//Parse special data_ids/////////////////////////////////////////////////////////
 	//Subscribe Request
-    if (rovecomm_packet.data_id == ROVECOMM_SUBSCRIBE_REQUEST_DATA_ID)
+    if (rovecomm_packet.data_id == RC_ROVECOMM_SUBSCRIBE_REQUEST_DATA_ID)
     {
       for (int i=0; i < ROVECOMM_ETHERNET_UDP_MAX_SUBSCRIBERS; i++) 
       {
@@ -72,7 +73,7 @@ struct rovecomm_packet RoveCommEthernetUdp::read()
       }
     } 
 	//Unsubscribe Request
-	else if (rovecomm_packet.data_id == ROVECOMM_UNSUBSCRIBE_REQUEST_DATA_ID)
+	else if (rovecomm_packet.data_id == RC_ROVECOMM_UNSUBSCRIBE_REQUEST_DATA_ID)
     {
       for (int i=0; i < ROVECOMM_ETHERNET_UDP_MAX_SUBSCRIBERS; i++)
       {
@@ -100,7 +101,7 @@ void RoveCommEthernetUdp::_write(const uint8_t data_type_length, const roveware:
   {
     if (RoveComm_EthernetUdpSubscriberIps[i] != INADDR_NONE)
     {       
-      EthernetUdp.beginPacket(RoveComm_EthernetUdpSubscriberIps[i], ROVECOMM_ETHERNET_UDP_PORT);
+      EthernetUdp.beginPacket(RoveComm_EthernetUdpSubscriberIps[i], RC_ROVECOMM_ETHERNET_UDP_PORT);
       EthernetUdp.write(      _packet.bytes, (ROVECOMM_PACKET_HEADER_SIZE + (data_type_length * data_count))); 
       EthernetUdp.endPacket();
     }
