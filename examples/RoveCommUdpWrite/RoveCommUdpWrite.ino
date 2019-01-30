@@ -1,4 +1,4 @@
-//Example usage of RoveCommWrite for sending Telemetry
+//Example usage of RoveComm.write for sending Telemetry
 //Example of array and single-valued telemetry using BMSBoard as an example
 //Andrew Van Horn
 //2019-01-29

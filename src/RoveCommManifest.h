@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include "RoveCommPacket.h"
 
-#define RC_ROVECOMM_ETHERNET_UDP_PORT      	 248 // todo Skelton Port Masking
+#define RC_ROVECOMM_ETHERNET_UDP_PORT      	 1100 // todo Skelton Port Masking
 
 //IP Addresses
 #define RC_ROVECOMM_SUBNET_IP_FIRST_OCTET     192
@@ -113,13 +113,6 @@
 #define RC_BMSBOARD_FANEN_FAN2BIT		   		1
 #define RC_BMSBOARD_FANEN_FAN3BIT		   		2
 #define RC_BMSBOARD_FANEN_FAN4BIT		   		3
-
-#define RC_BMSBOARD_BUZZEREN_DATAID            	02+_TYPE_COMMAND+_BMSBOARD_BOARDNUMBER
-#define RC_BMSBOARD_BUZZEREN_DATATYPE          	uint8_t
-#define RC_BMSBOARD_BUZZEREN_DATACOUNT        	1	
-#define RC_BMSBOARD_BUZZEREN_HEADER				RC_BMSBOARD_BUZZEREN_DATAID,RC_BMSBOARD_BUZZEREN_DATACOUNT			
-#define RC_BMSBOARD_BUZZEREN_ENABLED   			1
-#define RC_BMSBOARD_BUZZEREN_DISABLED         	0
 
 //Telemetry//////////////////////////////////////////////////////////////////////////////////////////////
 #define RC_BMSBOARD_MAINIMEASmA_DATAID          00+_TYPE_TELEMETRY+_BMSBOARD_BOARDNUMBER
