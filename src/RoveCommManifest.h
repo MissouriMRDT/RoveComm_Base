@@ -111,14 +111,10 @@
 //Fan Enable
 #define RC_BMSBOARD_FANEN_DATAID            	01+_TYPE_COMMAND+_BMSBOARD_BOARDNUMBER
 #define RC_BMSBOARD_FANEN_DATATYPE          	uint8_t
-#define RC_BMSBOARD_FANEN_DATACOUNT        		1		//[Fan1, Fan2, Fan3, Fan4, 0000]
+#define RC_BMSBOARD_FANEN_DATACOUNT        		1	//one bit enables or disables all four fans
 #define RC_BMSBOARD_FANEN_HEADER				RC_BMSBOARD_FANEN_DATAID,RC_BMSBOARD_FANEN_DATACOUNT	
 #define RC_BMSBOARD_FANEN_ENABLED   			1
 #define RC_BMSBOARD_FANEN_DISABLED         		0
-#define RC_BMSBOARD_FANEN_FAN1BIT		   		0
-#define RC_BMSBOARD_FANEN_FAN2BIT		   		1
-#define RC_BMSBOARD_FANEN_FAN3BIT		   		2
-#define RC_BMSBOARD_FANEN_FAN4BIT		   		3
 
 //Telemetry//////////////////////////////////////////////////////////////////////////////////////////////
 //Main I_Meas
@@ -147,6 +143,24 @@
 #define RC_BMSBOARD_TEMPMEASmDEGC_DATATYPE      uint16_t	//Temperature Reading in mDeg Celcius
 #define RC_BMSBOARD_TEMPMEASmDEGC_DATACOUNT     1
 #define RC_BMSBOARD_TEMPMEASmDEGC_HEADER		RC_BMSBOARD_TEMPMEASmDEGC_DATAID,RC_TEMPMEASmDEGC_MAINIMEASmA_DATACOUNT				
+
+//Event Report
+#define RC_BMSBOARD_EVENT_DATAID				03+_TYPE_TELEMETRY+_BMSBOARD_BOARDNUMBER
+#define RC_BMSBOARD_EVENT_DATATYPE				uint16_t	
+#define RC_BMSBOARD_EVENT_DATACOUNT				10	//If any index position constains a 1, the corresponding event has occurred
+#define RC_BMSBOARD_EVENT_HEADER				RC_BMSBOARD_EVENT_DATAID,RC_BMSBOARD_EVENT_DATACOUNT
+#define RC_BMSBOARD_EVENT_HASNOTOCCURED			0
+#define RC_BMSBOARD_EVENT_OCCURED				1
+#define RC_BMSBOARD_EVENT_PACKOVERCURRENT		0
+#define RC_BMSBOARD_EVENT_PACKUNDERVOLT			1
+#define RC_BMSBOARD_EVENT_C1UNDERVOLT			2
+#define RC_BMSBOARD_EVENT_C2UNDERVOLT			3
+#define RC_BMSBOARD_EVENT_C3UNDERVOLT			4
+#define RC_BMSBOARD_EVENT_C4UNDERVOLT			5
+#define RC_BMSBOARD_EVENT_C5UNDERVOLT			6
+#define RC_BMSBOARD_EVENT_C6UNDERVOLT			7
+#define RC_BMSBOARD_EVENT_C7UNDERVOLT			8
+#define RC_BMSBOARD_EVENT_C8UNDERVOLT			9
 
 ///////////////////////////////////////////////////
 //                PowerBoard                     //
