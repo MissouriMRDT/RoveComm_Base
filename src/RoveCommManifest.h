@@ -108,14 +108,6 @@
 #define RC_BMSBOARD_SWESTOPs_DATACOUNT        	1		
 #define RC_BMSBOARD_SWESTOPs_HEADER				RC_BMSBOARD_SWESTOPs_DATAID,RC_BMSBOARD_SWESTOPs_DATACOUNT		
 
-//Fan Enable
-#define RC_BMSBOARD_FANEN_DATAID            	01+_TYPE_COMMAND+_BMSBOARD_BOARDNUMBER
-#define RC_BMSBOARD_FANEN_DATATYPE          	uint8_t
-#define RC_BMSBOARD_FANEN_DATACOUNT        		1	//one bit enables or disables all four fans
-#define RC_BMSBOARD_FANEN_HEADER				RC_BMSBOARD_FANEN_DATAID,RC_BMSBOARD_FANEN_DATACOUNT	
-#define RC_BMSBOARD_FANEN_ENABLED   			1
-#define RC_BMSBOARD_FANEN_DISABLED         		0
-
 //Telemetry//////////////////////////////////////////////////////////////////////////////////////////////
 //Main I_Meas
 #define RC_BMSBOARD_MAINIMEASmA_DATAID          00+_TYPE_TELEMETRY+_BMSBOARD_BOARDNUMBER
@@ -129,14 +121,14 @@
 #define RC_BMSBOARD_VMEASmV_DATACOUNT        	9	
 #define RC_BMSBOARD_VMEASmV_HEADER				RC_BMSBOARD_VMEASmV_DATAID,RC_BMSBOARD_VMEASmV_DATACOUNT
 #define RC_BMSBOARD_VMEASmV_PACKENTRY			0			
-#define RC_BMSBOARD_VMEASmV_C1GENTRY			1
-#define RC_BMSBOARD_VMEASmV_C21ENTRY			2
-#define RC_BMSBOARD_VMEASmV_C32ENTRY			3
-#define RC_BMSBOARD_VMEASmV_C43ENTRY			4
-#define RC_BMSBOARD_VMEASmV_C54ENTRY			5
-#define RC_BMSBOARD_VMEASmV_C65ENTRY			6
-#define RC_BMSBOARD_VMEASmV_C76ENTRY			7
-#define RC_BMSBOARD_VMEASmV_C87ENTRY			8
+#define RC_BMSBOARD_VMEASmV_C1ENTRY				1
+#define RC_BMSBOARD_VMEASmV_C2ENTRY				2
+#define RC_BMSBOARD_VMEASmV_C3ENTRY				3
+#define RC_BMSBOARD_VMEASmV_C4ENTRY				4
+#define RC_BMSBOARD_VMEASmV_C5ENTRY				5
+#define RC_BMSBOARD_VMEASmV_C6ENTRY				6
+#define RC_BMSBOARD_VMEASmV_C7ENTRY				7
+#define RC_BMSBOARD_VMEASmV_C8ENTRY				8
 
 //Temp_Meas
 #define RC_BMSBOARD_TEMPMEASmDEGC_DATAID        02+_TYPE_TELEMETRY+_BMSBOARD_BOARDNUMBER
@@ -147,21 +139,21 @@
 //Error Report
 #define RC_BMSBOARD_ERROR_DATAID				03+_TYPE_TELEMETRY+_BMSBOARD_BOARDNUMBER
 #define RC_BMSBOARD_ERROR_DATATYPE				uint8_t	
-#define RC_BMSBOARD_ERROR_DATACOUNT				10	
+#define RC_BMSBOARD_ERROR_DATACOUNT				9	
 #define RC_BMSBOARD_ERROR_HEADER				RC_BMSBOARD_ERROR_DATAID,RC_BMSBOARD_ERROR_DATACOUNT
-#define RC_BMSBOARD_ERROR_HASNOTOCCURED			0
-#define RC_BMSBOARD_ERROR_OCCURED				1 //If any index position constains a 1, the corresponding error has occurred
-#define	RC_BMSBOARD_ERROR_PINFAULT				2 //Pin Fault if a voltage measurment reads as 0V. Since it is unlikely a cell can physically reach 0V, it will bw assumed that the pin, trace, or component involved in the measurement is damaged. 
-#define RC_BMSBOARD_ERROR_PACKUNDERVOLT			0
-#define RC_BMSBOARD_ERROR_C1UNDERVOLT			1
-#define RC_BMSBOARD_ERROR_C2UNDERVOLT			2
-#define RC_BMSBOARD_ERROR_C3UNDERVOLT			3
-#define RC_BMSBOARD_ERROR_C4UNDERVOLT			4
-#define RC_BMSBOARD_ERROR_C5UNDERVOLT			5
-#define RC_BMSBOARD_ERROR_C6UNDERVOLT			6
-#define RC_BMSBOARD_ERROR_C7UNDERVOLT			7
-#define RC_BMSBOARD_ERROR_C8UNDERVOLT			8
-#define RC_BMSBOARD_ERROR_PACKOVERCURRENT		9
+#define RC_BMSBOARD_ERROR_NOERROR				0
+#define RC_BMSBOARD_ERROR_UNDERVOLTAGE			1
+#define RC_BMSBOARD_ERROR_OVERCURRENT 			2
+#define	RC_BMSBOARD_ERROR_PINFAULT				3 //Pin Fault if a voltage measurment reads as 0V. Since it is unlikely a cell can physically reach 0V, it will bw assumed that the pin, trace, or component involved in the measurement is damaged. 
+#define RC_BMSBOARD_ERROR_PACKENTRY				0
+#define RC_BMSBOARD_ERROR_C1ENTRY				1
+#define RC_BMSBOARD_ERROR_C2ENTRY				2
+#define RC_BMSBOARD_ERROR_C3ENTRY				3
+#define RC_BMSBOARD_ERROR_C4ENTRY				4
+#define RC_BMSBOARD_ERROR_C5ENTRY				5
+#define RC_BMSBOARD_ERROR_C6ENTRY				6
+#define RC_BMSBOARD_ERROR_C7ENTRY				7
+#define RC_BMSBOARD_ERROR_C8ENTRY				8
 
 ///////////////////////////////////////////////////
 //                PowerBoard                     //
