@@ -262,6 +262,14 @@
 #define RC_NAVBOARD_IMUPYR_YAWENTRY				1
 #define RC_NAVBOARD_IMUPYR_ROLLENTRY			2
 
+//LIDAR INFO
+#define LIDAR_DISTANCE_DATA_ID					02+_TYPE_TELEMETRY+_NAVBOARD_BOARDNUMBER
+#define LIDAR_DISTANCE_DATA_DATATYPE			uint16_t
+#define LIDAR_DISTANCE_DATA_DATACOUNT			2
+#define LIDAR_DISTANCE_DATA_HEADER				LIDAR_DISTANCE_DATA_DATAID,LIDAR_DISTANCE_DATA_DATACOUNT
+#define LIDAR_DISTANCE_DATA_DISTANCEENTRY		0
+#define LIDAR_DISTANCE_DATA_ENABLEDENTRY		1
+
 ///////////////////////////////////////////////////
 //                ShimbleBoard                   //
 ///////////////////////////////////////////////////
