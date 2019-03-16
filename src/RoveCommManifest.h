@@ -1,5 +1,6 @@
 #ifndef RoveCommManifest_h
 #define RoveCommManifest_h
+//RC:2.1
 
 #include <stdint.h>
 #include "RoveCommPacket.h"
@@ -163,7 +164,7 @@
 //Commands//////////////////////////////////////////////////////////////////////////////////////////////
 //Bus_Enabe
 #define RC_POWERBOARD_BUSENABLE_DATAID          00+_TYPE_COMMAND+_POWERBOARD_BOARDNUMBER
-#define RC_POWERBOARD_BUSENABLE_DATATYPE        uint8_t		//[Act, Log, Comm, 0 0000], [M1, M2, M3, M4, M5, M6, M7, Aux]
+#define RC_POWERBOARD_BUSENABLE_DATATYPE        uint8_t		//[Act, Log, Comm, 0 0000], [M1, M2, M3, M4, M5, M6, M7, Aux], [Enable/Disable]
 #define RC_POWERBOARD_BUSENABLE_DATACOUNT       2		
 #define RC_POWERBOARD_BUSENABLE_HEADER			RC_POWERBOARD_BUSENABLE_DATAID,RC_POWERBOARD_BUSENABLE_DATACOUNT		
 #define RC_POWERBOARD_BUSENABLE_ENABLE			1
