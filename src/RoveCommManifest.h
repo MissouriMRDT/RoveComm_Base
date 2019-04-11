@@ -250,7 +250,7 @@
 //Telemetry//////////////////////////////////////////////////////////////////////////////////////////////
 //GPS Lat Lon
 #define RC_NAVBOARD_GPSLATLON_DATAID        	00+_TYPE_TELEMETRY+_NAVBOARD_BOARDNUMBER
-#define RC_NAVBOARD_GPSLATLON_DATATYPE      	int32_t	//Latitude longitude in udeg
+#define RC_NAVBOARD_GPSLATLON_DATATYPE      	int64_t	//Latitude longitude in udeg
 #define RC_NAVBOARD_GPSLATLON_DATACOUNT			2	//[lat][lon]
 #define RC_NAVBOARD_GPSLATLON_HEADER			RCNAVBOARD_GPSLATLON_DATAID,RC_NAVBOARD_GPSLATLON_DATACOUNT				
 #define RC_NAVBOARD_GPSLATLON_LATENTRY			0
@@ -258,7 +258,7 @@
 
 //IMU PYR
 #define RC_NAVBOARD_IMUPYR_DATAID          		01+_TYPE_TELEMETRY+_NAVBOARD_BOARDNUMBER
-#define RC_NAVBOARD_IMUPYR_DATATYPE        		int16_t	//PYR in deg-1
+#define RC_NAVBOARD_IMUPYR_DATATYPE        		int16_t	//PYR in radians
 #define RC_NAVBOARD_IMUPYR_DATACOUNT			3		//[pitch][yaw][roll]
 #define RC_NAVBOARD_IMUPYR_HEADER				RC_NAVBOARD_IMUPYR_DATAID,RC_NAVBOARD_IMUPYR_DATACOUNT				
 #define RC_NAVBOARD_IMUPYR_PITCHENTRY			0
