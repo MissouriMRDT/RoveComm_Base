@@ -32,6 +32,7 @@
 #define RC_SRASENSORSBOARD_FOURTHOCTET         138
 #define RC_AUTONOMY_FOURTHOCTET                139
 #define RC_BLACKBOX_FOURTHOCTET       		   140
+#define RC_NETWORKTESTER_FOURTOCTET            141
         
 #define RC_GRANDSTREAM1_FOURTHOCTET            226
 #define RC_GRANDSTREAM2_FOURTHOCTET            227
@@ -265,12 +266,12 @@
 #define RC_NAVBOARD_IMUPYR_ROLLENTRY			2
 
 //LIDAR INFO
-#define LIDAR_DISTANCE_DATA_ID					02+_TYPE_TELEMETRY+_NAVBOARD_BOARDNUMBER
-#define LIDAR_DISTANCE_DATA_DATATYPE			uint16_t
-#define LIDAR_DISTANCE_DATA_DATACOUNT			2
-#define LIDAR_DISTANCE_DATA_HEADER				LIDAR_DISTANCE_DATA_DATAID,LIDAR_DISTANCE_DATA_DATACOUNT
-#define LIDAR_DISTANCE_DATA_DISTANCEENTRY		0
-#define LIDAR_DISTANCE_DATA_ENABLEDENTRY		1
+#define RC_LIDAR_DISTANCE_DATAID				02+_TYPE_TELEMETRY+_NAVBOARD_BOARDNUMBER
+#define RC_LIDAR_DISTANCE_DATATYPE			    uint16_t
+#define RC_LIDAR_DISTANCE_DATACOUNT			    2
+#define RC_LIDAR_DISTANCE_HEADER				RC_LIDAR_DISTANCE_DATAID,RC_LIDAR_DISTANCE_DATACOUNT
+#define RC_LIDAR_DISTANCE_DISTANCEENTRY		    0
+#define RC_LIDAR_DISTANCE_ENABLEDENTRY		    1
 
 ///////////////////////////////////////////////////
 //                ShimbleBoard                   //
@@ -652,5 +653,4 @@
 //Waypoint Reached? Telemetry?
 //Telemetry////////////////////////////////////////////////////////////////////////////////////////////
 //To be added, need to determine telemetry wanted/needed by RED for Autonomy and the format for it too.
-
 #endif // RoveCommManifest_h
