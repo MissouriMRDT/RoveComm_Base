@@ -282,6 +282,14 @@
 #define RC_LIDAR_DISTANCE_DISTANCEENTRY		    0
 #define RC_LIDAR_DISTANCE_ENABLEDENTRY		    1
 
+//GPS Aditional Information
+#define RC_NAVBOARD_GPSADD_DATAID				03+_TYPE_TELEMETRY+_NAVBOARD_BOARDNUMBER
+#define RC_NAVBOARD_GPSADD_DATATYPE				uint8_t
+#define RC_NAVBOARD_GPSADD_DATACOUNT			2
+#define RC_NAVBOARD_GPSADD_HEADER				RC_NAVBOARD_GPSADD_DATAID,RC_NAVBOARD_GPSADD_DATACOUNT
+#define RC_NAVBOARD_GPSADD_QUALITY				0
+#define RC_NAVBOARD_GPSADD_COUNT				1
+
 ///////////////////////////////////////////////////
 //                ShimbleBoard                   //
 ///////////////////////////////////////////////////
