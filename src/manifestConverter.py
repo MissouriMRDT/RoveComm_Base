@@ -1,10 +1,20 @@
 import os
+import datetime
 
 with open("RoveCommManifest.h") as f:
 	lines = f.readlines()
 	
 output = open("RoveCommManifest.py", "w+")
-
+output.write("#Compiled at " + str(datetime.datetime.now()) + "\n" + 
+				"uint8_t = 'B'\n" + 
+				"int8_t = 'b'\n" + 
+				"uint16_t = 'H'\n" + 
+				"int16_t = 'h'\n" + 
+				"uint32_t = 'L'\n" + 
+				"int32_t = 'l'\n" + 
+				"uint64_t = 'Q'\n" + 
+				"int64_t = 'q'\n"
+				)
 lines = lines[2:]
 lines = lines[:-1]
 	
@@ -12,8 +22,6 @@ for line in lines:
 	line = line.replace("	", " ")
 	if "#define" in line:
 		line = line.replace("#define ", "", 1).replace(" ", "=", 1)
-		if "DATATYPE" in line:
-			line = "#" + line
 			
 	
 	line = line.replace(" 01", " 1")
