@@ -28,7 +28,7 @@ namespace roveware
 
   ////////////////////////////////////////////////
   // The RoveComm udp packet header is 5 bytes long:
-  // uint8_t rovecomm_version
+  // uint8_t  rovecomm_version
   // uint16_t data_id   
   // uint8_t  data_type
   // uint8_t  data_count
@@ -40,7 +40,11 @@ namespace roveware
   };
 
   struct _packet        packPacket(const uint16_t data_id, const uint8_t data_count, const data_type_t data_type, const void* data);
+  //for UDP packets, of known size
   struct rovecomm_packet unpackPacket(const uint8_t  _packet[]);
+  //for TCP packets, where we read in the number of bytes defined by the header
+  struct rovecomm_packet unpackPacket(EthernetClient client);
+
 }// end namespace/////////////////////////////////////////////////////////////////////////////////////////////////
 
 #endif // ROVECOMM_PACKET_H

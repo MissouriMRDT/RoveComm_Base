@@ -5,7 +5,10 @@
 #include <stdint.h>
 #include "RoveCommPacket.h"
 
-#define RC_ROVECOMM_ETHERNET_UDP_PORT      	 11000 // todo Skelton Port Masking
+#define RC_ROVECOMM_ETHERNET_UDP_PORT      	                 11000 
+#define RC_ROVECOMM_ETHERNET_ARMBOARD_RELIABLE_PORT      	 11001
+#define RC_ROVECOMM_ETHERNET_AUTONOMY_RELIABLE_PORT          11002
+
 
 //IP Addresses
 #define RC_ROVECOMM_SUBNET_IP_FIRST_OCTET     192
@@ -19,8 +22,6 @@
 #define RC_ROCKETROVER24_FOURTHOCTET           86
 #define RC_ROCKETROVERSPARE_FOURTHOCTET        87
         
-#define RC_FOREARM_FOURTHOCTET                 128
-#define RC_BICEP_FOURTHOCTET                   129
 #define RC_OPEN_FOURTHOCTET                    130
 #define RC_ARMBOARD_FOURTHOCTET                131
 #define RC_POWERBOARD_FOURTHOCTET              132
@@ -63,6 +64,8 @@
 //Command Types
 #define _TYPE_COMMAND     0*100
 #define _TYPE_TELEMETRY   1*100
+#define _TYPE_ERROR       2*100
+
 
 
 ///////////////////////////////////////////////////
@@ -72,7 +75,9 @@
 #define RC_ROVECOMM_PING_REPLY_DATA_ID				2
 #define RC_ROVECOMM_SUBSCRIBE_REQUEST_DATA_ID		3
 #define	RC_ROVECOMM_UNSUBSCRIBE_REQUEST_DATA_ID 	4
-#define	ROVECOMM_INVALID_VERSION_DATA_ID			5		
+#define	ROVECOMM_INVALID_VERSION_DATA_ID			5
+#define	ROVECOMM_NO_DATA_DATA_ID			        6		
+
 
 ///////////////////////////////////////////////////
 //                DriveBoard                     //
@@ -647,11 +652,9 @@
 #define RC_ARMBOARD_IKVALUE_YAW_ENTRY		4
 #define RC_ARMBOARD_IKVALUE_ROLL_ENTRY		5
 
-//Arm Fault
-#define RC_ARMBOARD_ARMFAULT_DATAID      	06+_TYPE_TELEMETRY+_ARMBOARD_BOARDNUMBER
-#define RC_ARMBOARD_ARMFAULT_DATATYPE    	int16_t	
-#define RC_ARMBOARD_ARMFAULT_DATACOUNT  	1	//enum
-#define RC_ARMBOARD_ARMFAULT_HEADER			RC_ARMBOARD_ARMFAULT_DATAID,RC_ARMBOARD_ARMFAULT_DATACOUNT
+//Commands//////////////////////////////////////////////////////////////////////////////////////////////
+//Common Error States
+#define RC_ARMBOARD_ERROR_DATAID      	06+_TYPE_TELEMETRY+_ARMBOARD_BOARDNUMBER
 
 ///////////////////////////////////////////////////
 //                SRASensorsBoard                //

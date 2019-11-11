@@ -16,14 +16,14 @@ namespace roveware
   struct _packet packPacket(const uint16_t data_id, const uint8_t data_count, const data_type_t data_type, const void* data)
   {
 	//create a new _packet
-    struct _packet packet;
+  struct _packet packet;
     
 	//Pack upd packt with header data
 	packet.bytes[0] = ROVECOMM_VERSION;
-    packet.bytes[1] = data_id  >> 8;
-    packet.bytes[2] = data_id;
-    packet.bytes[3] = data_count;
-    packet.bytes[4] = data_type;
+  packet.bytes[1] = data_id  >> 8;
+  packet.bytes[2] = data_id;
+  packet.bytes[3] = data_count;
+  packet.bytes[4] = data_type;
     
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	//Pack data according to data_type
@@ -171,5 +171,148 @@ namespace roveware
     return rovecomm_packet;
   }
 
-}// end namespace/////////////////////////////////////////////////////////////////////////////////////////////////
 
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////
+  struct rovecomm_packet unpackPacket(EthernetClient client)
+    {
+
+    //array of bytes that form the header
+    uint8_t header[5];
+
+    //read in the header (standard size of 5 bytes)
+    for(uint8_t i = 0; i < 5; i++)
+      {
+      header[i] = client.read();
+      }
+
+    //for if we encounter an incompatible rovecomm message
+    if(header[0] != ROVECOMM_VERSION)
+      {
+      struct rovecomm_packet invalid_version_packet = {0};
+      invalid_version_packet.data_id = ROVECOMM_INVALID_VERSION_DATA_ID;
+      invalid_version_packet.data_count = 1;
+      invalid_version_packet.data[1] = {0};
+      return invalid_version_packet;
+      }
+
+    //create new RoveComm packet
+    struct rovecomm_packet rovecomm_packet = {0};
+
+    //Unpack header
+    uint16_t data_id  = (header[1] << 8)
+                       | header[2];
+    uint8_t data_count = header[3];
+    data_type_t data_type  =  (data_type_t)header[4];
+
+    //Unpack data based on data_type
+    if(data_type ==  INT32_T)
+      { 
+      uint16_t  index    = 0;
+      for(int i=0; i < data_count; i++ )
+        { 
+        uint8_t dataElem[4];
+
+        for(int j=0;j<4;j++)
+        {
+          dataElem[j] = client.read();
+        }
+
+        int32_t data = (dataElem[0] << 24)
+                     | (dataElem[1] << 16)
+                     | (dataElem[2] << 8)
+                     |  dataElem[3];
+        rovecomm_packet.data[index] = data;
+        index++;
+        }
+      }  
+    else if(data_type ==  UINT32_T )
+    { 
+      uint16_t  index    = 0;
+      for(int i=0; i < data_count; i++ )
+        { 
+        uint8_t dataElem[4];
+
+        for(int j=0;j<4;j++)
+        {
+          dataElem[j] = client.read();
+        }
+
+        uint32_t data = (dataElem[0] << 24)
+                      | (dataElem[1] << 16)
+                      | (dataElem[2] << 8)
+                      |  dataElem[3];
+        rovecomm_packet.data[index] = data;
+        index++;
+        }
+    } 
+    else if(data_type ==  INT16_T)
+      { 
+      uint16_t  index    = 0;
+      for(int i=0; i < data_count; i++ )
+        { 
+        uint8_t dataElem[2];
+
+        for(int j=0;j<2;j++)
+        {
+          dataElem[j] = client.read();
+        }
+
+        int16_t data = (dataElem[0] << 8)
+                      | dataElem[1];
+        rovecomm_packet.data[index] = data;
+        index++;
+        }
+      } 
+    else if(data_type == UINT16_T)
+      { 
+      uint16_t  index    = 0;
+      for(int i=0; i < data_count; i++ )
+        { 
+        uint8_t dataElem[2];
+
+        for(int j=0;j<2;j++)
+        {
+          dataElem[j] = client.read();
+        }
+        uint16_t data = (dataElem[0] << 8)
+                      |  dataElem[1];
+        rovecomm_packet.data[index] = data;
+        index++;
+        }
+      } 
+
+    else if(data_type ==  INT8_T )
+      {
+      for(int i=0; i < data_count; i++ )
+        { 
+        uint8_t dataElem;
+
+        dataElem = client.read();
+
+        int8_t data = dataElem;
+        rovecomm_packet.data[i] = data;
+        }
+      } 
+    else if(data_type ==  UINT8_T )
+      {
+      for(int i=0; i < data_count; i++ )
+        { 
+        uint8_t dataElem;
+
+        dataElem = client.read();
+
+        uint8_t data = dataElem;
+        rovecomm_packet.data[i] = data;
+        }
+      } 
+    else
+      { 
+      data_count = 0; // invalid_data
+      } 
+
+    //Pack data into packet
+    rovecomm_packet.data_count = data_count;
+    rovecomm_packet.data_id    = data_id;
+    return rovecomm_packet;
+  }
+}// end namespace/////////////////////////////////////////////////////////////////////////////////////////////////
