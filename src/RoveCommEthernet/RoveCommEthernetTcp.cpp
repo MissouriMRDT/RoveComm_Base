@@ -7,32 +7,32 @@
 #include          <Ethernet.h>
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void RoveCommEthernetTcp::begin(const int client_ip_octet, const int server_ip_octet, const int port) 
+void RoveCommEthernetTcp::begin(uint8_t server_ip_octet, const int port)
 {
-  //begin using default IP Address
-  this->begin(RC_ROVECOMM_SUBNET_IP_FIRST_OCTET, RC_ROVECOMM_SUBNET_IP_SECOND_OCTET, RC_ROVECOMM_SUBNET_IP_THIRD_OCTET, (uint8_t)board_ip_octet);
+  byte server_ip[4] = {192, 168, 1, server_ip_octet};
+  this->begin(server_ip, port);
 }
 
-void RoveCommEthernetTcp::begin(byte client_ip[4], byte server_ip[4], const int port)
+void RoveCommEthernetTcp::begin(byte server_ip[4], const int port)
 { 
   //Set IP
   Ethernet.enableActivityLed();
   Ethernet.enableLinkLed(); 
 
   //Set up Ethernet
-  Ethernet.begin(   0, client_ip);
+  Ethernet.begin(   0, server_ip);
 
   //Set up server with correct port, and start listening for clients
-  server = EthernetServer(port);
-  server.begin();
+  Server = EthernetServer(port);
+  Server.begin();
 
   //grab available client
-  EthernetClient client = server.available();
+  EthernetClient Client = Server.available();
 
   //flush the buffers for the available client
-  if (client == true)
+  if (Client == true)
     {
-    client.flush();
+    Client.flush();
     }
 
   delay(1);
@@ -51,12 +51,23 @@ struct rovecomm_packet RoveCommEthernetTcp::read()
   uint8_t data_count =  0;
 
   //check if there is a message from client
-  EthernetClient client = server.available();
+  EthernetClient Client = Server.available();
 
   //if there is a message from the client, parse it
-  if(client == true)
+  if(Client == true)
     {
-    rovecomm_packet = roveware::unpackPacket(_packet); 
+    //array of bytes that represent the max size of packet
+    uint8_t packet[ROVECOMM_PACKET_HEADER_SIZE + sizeof(int) * ROVECOMM_PACKET_MAX_DATA_COUNT];
+    
+    //read in the packet while there is data available
+    uint8_t last_byte = Client.read();
+    for(uint8_t i = 0; last_byte != -1 && i < (ROVECOMM_PACKET_HEADER_SIZE + sizeof(int) * ROVECOMM_PACKET_MAX_DATA_COUNT); i++)
+      {
+      packet[i] = last_byte;
+      last_byte = Client.read();
+      }
+
+    rovecomm_packet = roveware::unpackPacket(packet); 
     }
   //if there is no message, just return that there is no data to read
   else
