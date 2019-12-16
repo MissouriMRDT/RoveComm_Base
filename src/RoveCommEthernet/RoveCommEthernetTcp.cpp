@@ -56,18 +56,7 @@ struct rovecomm_packet RoveCommEthernetTcp::read()
   //if there is a message from the client, parse it
   if(Client == true)
     {
-    //array of bytes that represent the max size of packet
-    uint8_t packet[ROVECOMM_PACKET_HEADER_SIZE + sizeof(int) * ROVECOMM_PACKET_MAX_DATA_COUNT];
-    
-    //read in the packet while there is data available
-    uint8_t last_byte = Client.read();
-    for(uint8_t i = 0; last_byte != -1 && i < (ROVECOMM_PACKET_HEADER_SIZE + sizeof(int) * ROVECOMM_PACKET_MAX_DATA_COUNT); i++)
-      {
-      packet[i] = last_byte;
-      last_byte = Client.read();
-      }
-
-    rovecomm_packet = roveware::unpackPacket(packet); 
+    rovecomm_packet = roveware::unpackPacket(Client); 
     }
   //if there is no message, just return that there is no data to read
   else
