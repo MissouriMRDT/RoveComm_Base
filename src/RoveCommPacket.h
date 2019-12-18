@@ -42,7 +42,7 @@ namespace roveware
   struct _packet        packPacket(const uint16_t data_id, const uint8_t data_count, const data_type_t data_type, const void* data);
   //for UDP packets, of known size
   struct rovecomm_packet unpackPacket(const uint8_t  _packet[]);
-  //for TCP packets, where we read in the number of bytes defined by the header
+  //for TCP, where we read streams of data, with size determined by parsing header
   struct rovecomm_packet unpackPacket(EthernetClient client);
 
 }// end namespace/////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,5 +1,5 @@
-#ifndef RoveEthernetTcp_h
-#define RoveEthernetTcp_h
+#ifndef RoveCommEthernetTCPServer
+#define RoveCommEthernetTCPServer
 
 #include <stdint.h>
 #include <stddef.h>
@@ -10,7 +10,7 @@
 #include "RoveCommPacket.h"
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-class RoveCommEthernetTcp
+class RoveCommEthernetTCPServer
 {
   public:
     EthernetServer Server;
@@ -20,12 +20,16 @@ class RoveCommEthernetTcp
     /////begin/////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Overloaded begin
 	  //Default ip address = 192.168.1.XXX
-    //For the purposes of TCP, the board is treated as the server, where Base Station is the client
+    //This TCP server will be configured with an IP and port from the RoveComm manifest and allow other boards and base-station
+    //to securely communicate with it
 	  void begin(uint8_t server_ip_octet, const int port);
     void begin(byte server_ip[4], const int port);
+    //used when we have already set up the boards IP
+    void begin(const int port);
+
 
 	  /////writeReliable////////////////////////////////////////////////////////////////////////
-	  //Single-value writeReliable
+	  //Single-value writeReliable which ensures delivery
 	  //Overloaded for each data type
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const uint8_t  data);
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const uint16_t data);
@@ -34,7 +38,7 @@ class RoveCommEthernetTcp
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int16_t  data);
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int32_t  data);
 
-    //Array entry writeReliable
+    //Array entry writeReliable which ensures delivery
 	  //Overloaded for each data type
     void writeReliable(const uint16_t data_id, const int     data_count, const int      *data);
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const uint8_t  *data);
@@ -50,4 +54,4 @@ class RoveCommEthernetTcp
                           const uint16_t data_id,    const uint8_t data_count, const void* data);
 };
 
-#endif // RoveCommEthernetTcp_h
+#endif // RoveCommEthernetTCP_h

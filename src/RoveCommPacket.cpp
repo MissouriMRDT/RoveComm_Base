@@ -174,7 +174,7 @@ namespace roveware
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////////
   struct rovecomm_packet unpackPacket(EthernetClient client)
-    {
+  {
 
     //array of bytes that form the header
     uint8_t header[5];
