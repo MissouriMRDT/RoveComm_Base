@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <stddef.h>
 #include "RoveCommManifest.h"
+#include "Ethernet.h"
 
 //////////////////////////////////////////////////////
 #define ROVECOMM_ETHERNET_UDP_MAX_SUBSCRIBERS      10

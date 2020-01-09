@@ -55,6 +55,8 @@ void RoveCommEthernetTCPClient::begin(byte dest_ip[4], const int port)
 /////////////////////////////////////////////////////////////////////////////////
 struct rovecomm_packet RoveCommEthernetTCPClient::read() 
 { 
+  //Create new RoveCommPacket
+  struct rovecomm_packet rovecomm_packet = { 0 };
 
   //if there is a message from the client, parse it
   if(Client.available())

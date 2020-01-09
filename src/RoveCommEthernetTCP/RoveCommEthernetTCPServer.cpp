@@ -7,6 +7,11 @@
 #include          <Ethernet.h>
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+RoveCommEthernetTCPServer::RoveCommEthernetTCPServer()
+{
+  return;
+}
+
 void RoveCommEthernetTCPServer::begin(uint8_t server_ip_octet, const int port)
 {
   byte server_ip[4] = {192, 168, 1, server_ip_octet};
@@ -23,11 +28,11 @@ void RoveCommEthernetTCPServer::begin(byte server_ip[4], const int port)
   Ethernet.begin(   0, server_ip);
 
   //Set up server with correct port, and start listening for clients
-  Server = EthernetServer(port);
-  Server.begin();
+  Server = new EthernetServer(port);
+  Server->begin();
 
   //grab available client
-  EthernetClient Client = Server.available();
+  EthernetClient Client = Server->available();
 
   //flush the buffers for the available client
   if (Client == true)
@@ -41,11 +46,11 @@ void RoveCommEthernetTCPServer::begin(byte server_ip[4], const int port)
 void RoveCommEthernetTCPServer::begin(const int port)
 {
   //Set up server with correct port, and start listening for clients
-  Server = EthernetServer(port);
-  Server.begin();
+  Server = new EthernetServer(port);
+  Server->begin();
 
   //grab available client
-  EthernetClient Client = Server.available();
+  EthernetClient Client = Server->available();
 
   //flush the buffers for the available client
   if (Client == true)
@@ -63,13 +68,8 @@ struct rovecomm_packet RoveCommEthernetTCPServer::read()
   //Create new RoveCommPacket
   struct rovecomm_packet rovecomm_packet = { 0 };
 
-  //individual components of header
-  uint16_t data_id    =  0;
-  roveware::data_type_t data_type;
-  uint8_t data_count =  0;
-
   //check if there is a message from client
-  EthernetClient Client = Server.available();
+  EthernetClient Client = Server->available();
 
   //if there is a message from the client, parse it
   if(Client == true)
@@ -96,7 +96,7 @@ void RoveCommEthernetTCPServer::_writeReliable(const uint8_t data_type_length, c
   struct roveware::_packet _packet = roveware::packPacket(data_id, data_count, data_type, data);
   
   //write to all available clients
-  Server.write( _packet.bytes, (ROVECOMM_PACKET_HEADER_SIZE + (data_type_length * data_count))); 
+  Server->write( _packet.bytes, (ROVECOMM_PACKET_HEADER_SIZE + (data_type_length * data_count))); 
 }
 
 //Overloaded writeReliable////////////////////////////////////////////////////////////////////////////////////////////////////

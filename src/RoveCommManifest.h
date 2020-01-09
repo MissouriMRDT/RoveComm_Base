@@ -5,9 +5,11 @@
 #include <stdint.h>
 #include "RoveCommPacket.h"
 
+
+//RoveComm Port IDs
 #define RC_ROVECOMM_ETHERNET_UDP_PORT      	                 11000 
 #define RC_ROVECOMM_ETHERNET_ARMBOARD_RELIABLE_PORT      	 11001
-#define RC_ROVECOMM_ETHERNET_AUTONOMY_RELIABLE_PORT          11002
+#define RC_ROVECOMM_ETHERNET_POWERBOARD_RELIABLE_PORT        11002
 
 
 //IP Addresses
