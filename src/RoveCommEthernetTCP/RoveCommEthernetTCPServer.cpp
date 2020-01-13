@@ -28,65 +28,61 @@ void RoveCommEthernetTCPServer::begin(byte server_ip[4], const int port)
   Ethernet.begin(   0, server_ip);
 
   //Set up server with correct port, and start listening for clients
-  Server = new EthernetServer(port);
-  Server->begin();
+  Server = EthernetServer(port);
+  Server.begin();
 
-  //grab available client
-  EthernetClient Client = Server->available();
-
-  //flush the buffers for the available client
-  if (Client == true)
-    {
-    Client.flush();
-    }
-
-  delay(1);
+  return;
 }
 
 void RoveCommEthernetTCPServer::begin(const int port)
 {
   //Set up server with correct port, and start listening for clients
-  Server = new EthernetServer(port);
-  Server->begin();
+  Server = EthernetServer(port);
+  Server.begin();
 
-  //grab available client
-  EthernetClient Client = Server->available();
 
-  //flush the buffers for the available client
-  if (Client == true)
-    {
-    Client.flush();
-    }
-
-  delay(1);
+  delay(10);
+  return;
+}
+/////////////////////////////////////////////////////////////////////////////////
+bool RoveCommEthernetTCPServer::available()
+{
+  //check if there is a message from client
+  EthernetClient Client = Server.available();
+  //if there is a message from the client, return true
+  if(Client && Client.peek() != -1)
+  {
+    return true;
+  }
+  return false; 
 }
 
 /////////////////////////////////////////////////////////////////////////////////
 struct rovecomm_packet RoveCommEthernetTCPServer::read() 
 { 
-
   //Create new RoveCommPacket
-  struct rovecomm_packet rovecomm_packet = { 0 };
+  rovecomm_packet packet = { 0 };
 
   //check if there is a message from client
-  EthernetClient Client = Server->available();
+  EthernetClient client = Server.available();
+  delay(10);
 
-  //if there is a message from the client, parse it
-  if(Client == true)
+  //if there is a message from the client and there is something to read
+  if(client && client.peek() != -1)
     {
-    rovecomm_packet = roveware::unpackPacket(Client); 
+      packet = roveware::unpackPacket(client); 
     }
   //if there is no message, just return that there is no data to read
   else
     {
-    rovecomm_packet.data_id = ROVECOMM_NO_DATA_DATA_ID;
-    rovecomm_packet.data_count = 1;
-    rovecomm_packet.data[1] = {0};
+    packet.data_id = ROVECOMM_NO_DATA_DATA_ID;
+    packet.data_count = 1;
+    packet.data[1] = {0};
     }
   
 	
   //return the packet
-  return rovecomm_packet;
+  return packet;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -96,7 +92,7 @@ void RoveCommEthernetTCPServer::_writeReliable(const uint8_t data_type_length, c
   struct roveware::_packet _packet = roveware::packPacket(data_id, data_count, data_type, data);
   
   //write to all available clients
-  Server->write( _packet.bytes, (ROVECOMM_PACKET_HEADER_SIZE + (data_type_length * data_count))); 
+  Server.write( _packet.bytes, (ROVECOMM_PACKET_HEADER_SIZE + (data_type_length * data_count))); 
 }
 
 //Overloaded writeReliable////////////////////////////////////////////////////////////////////////////////////////////////////

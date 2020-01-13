@@ -13,8 +13,7 @@
 class RoveCommEthernetTCPServer
 {
   public:
-    EthernetServer* Server;
-
+    EthernetServer Server = EthernetServer(99);
     struct rovecomm_packet read();
 
     RoveCommEthernetTCPServer();
@@ -29,6 +28,9 @@ class RoveCommEthernetTCPServer
     //used when we have already set up the boards IP, and a new 
     void begin(const int port);
 
+    /////available/////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //returns whether or not there is any data available for reading from the server
+    bool available();
 
 	  /////writeReliable////////////////////////////////////////////////////////////////////////
 	  //Single-value writeReliable which ensures delivery

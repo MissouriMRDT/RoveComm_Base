@@ -11,15 +11,21 @@
 #include "RoveCommEthernetTCPServer.h"
 #include "RoveCommEthernetTCPClient.h"
 
+struct RoveCommClient 
+{
+    RoveCommEthernetTCPClient client;
+    IPAddress dest_ip;
+};
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class RoveCommEthernetTCP
 {
   public:
-    RoveCommEthernetTCPServer* TCPServer;
+    RoveCommEthernetTCPServer TCPServer;
+    RoveCommClient Clients[10];
 
     struct rovecomm_packet read();
 
-    RoveCommEthernetTCP();
 
     /////begin/////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Overloaded begin
@@ -27,12 +33,13 @@ class RoveCommEthernetTCP
     //This TCP server will be configured with an IP and port from the RoveComm manifest and allow other boards and base-station
     //to securely communicate with it
 	void begin(uint8_t server_ip_octet, const int port);
-    void begin(byte server_ip[4], const int port);
+    void begin(const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const int port);
 
     /////connect/////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Allows for creating a new connection to a target IP
-    //Returns a RoveComm TCP Client entity that has its own read() and write()
-    RoveCommEthernetTCPClient* connect(byte dest_ip[4], const int port);
+    //checks for whether we have already connected to the dest_ip and port, or otherwise grabs an available ethernet
+    //client and connects it to the dest_ip and port
+    void connect(const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const int port);
 
 	/////writeReliable////////////////////////////////////////////////////////////////////////
 	//Single-value writeReliable which ensures delivery
@@ -53,6 +60,55 @@ class RoveCommEthernetTCP
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int8_t   *data);
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int16_t  *data);
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int32_t  *data);
+
+    ////writeReliableTo////////////////////////////////////////////////////////////////////////
+	//Single-value writeReliableTo which ensures delivery
+	//Overloaded for each data type
+    void writeReliableTo(const uint16_t data_id,    const uint8_t data_count, const uint8_t  data,
+                         const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3,
+                         const uint8_t ip_octet_4,  const uint16_t port);
+    void writeReliableTo(const uint16_t data_id,    const uint8_t data_count, const uint16_t data,
+                         const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3,
+                         const uint8_t ip_octet_4,  const uint16_t port);
+    void writeReliableTo(const uint16_t data_id,    const uint8_t data_count, const uint32_t data,
+                         const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3,
+                         const uint8_t ip_octet_4,  const uint16_t port);
+    void writeReliableTo(const uint16_t data_id,    const uint8_t data_count, const int8_t   data,
+                         const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3,
+                         const uint8_t ip_octet_4,  const uint16_t port);
+    void writeReliableTo(const uint16_t data_id,    const uint8_t data_count, const int16_t  data,
+                         const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3,
+                         const uint8_t ip_octet_4,  const uint16_t port);
+    void writeReliableTo(const uint16_t data_id,    const uint8_t data_count, const int32_t  data,
+                         const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3,
+                         const uint8_t ip_octet_4,  const uint16_t port);
+
+    //Array entry writeReliableTo which ensures delivery
+	//Overloaded for each data type
+    void writeReliableTo(const uint16_t data_id,    const int     data_count, const int      *data,
+                         const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3,
+                         const uint8_t ip_octet_4,  const uint16_t port);
+    void writeReliableTo(const uint16_t data_id,    const uint8_t data_count, const uint8_t  *data,
+                         const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3,
+                         const uint8_t ip_octet_4,  const uint16_t port);
+    void writeReliableTo(const uint16_t data_id,    const uint8_t data_count, const uint16_t *data,
+                         const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3,
+                         const uint8_t ip_octet_4,  const uint16_t port);
+    void writeReliableTo(const uint16_t data_id,    const uint8_t data_count, const uint32_t *data,
+                         const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3,
+                         const uint8_t ip_octet_4,  const uint16_t port);
+    void writeReliableTo(const uint16_t data_id,    const uint8_t data_count, const int8_t   *data,
+                         const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3,
+                         const uint8_t ip_octet_4,  const uint16_t port);
+    void writeReliableTo(const uint16_t data_id,    const uint8_t data_count, const int16_t  *data,
+                         const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3,
+                         const uint8_t ip_octet_4,  const uint16_t port);
+    void writeReliableTo(const uint16_t data_id,    const uint8_t data_count, const int32_t  *data,
+                         const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3,
+                         const uint8_t ip_octet_4,  const uint16_t port);
+  private:
+    const uint8_t MAX_NUM_TCP_CLIENTS = 10;
+    uint8_t num_clients = 0;
 };
 
 #endif // RoveCommEthernetTCP_h

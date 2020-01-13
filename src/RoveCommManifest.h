@@ -66,8 +66,6 @@
 //Command Types
 #define _TYPE_COMMAND     0*100
 #define _TYPE_TELEMETRY   1*100
-#define _TYPE_ERROR       2*100
-
 
 
 ///////////////////////////////////////////////////

@@ -7,80 +7,242 @@
 #include          <Ethernet.h>
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-RoveCommEthernetTCP::RoveCommEthernetTCP()
-{
-    return;
-}
-
 void RoveCommEthernetTCP::begin(uint8_t server_ip_octet, const int port)
 {
-  byte server_ip[4] = {192, 168, 1, server_ip_octet};
-  this->begin(server_ip, port);
+  TCPServer.begin(server_ip_octet, port);
 }
 
-void RoveCommEthernetTCP::begin(byte server_ip[4], const int port)
+void RoveCommEthernetTCP::begin(const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const int port)
 { 
-  //Set IP
-  Ethernet.enableActivityLed();
-  Ethernet.enableLinkLed(); 
-
-  //Set up Ethernet
-  Ethernet.begin(   0, server_ip);
-
-  TCPServer = new RoveCommEthernetTCPServer();
-
-  TCPServer->begin(port);
+  byte server_ip[4] = {ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4};
+  TCPServer.begin(server_ip, port);
 }
 
 /////////////////////////////////////////////////////////////////////////////////
 struct rovecomm_packet RoveCommEthernetTCP::read() 
 { 	
-  //return the packet
-  return TCPServer->read();
+  
+  return TCPServer.read();
 }
 
-RoveCommEthernetTCPClient* RoveCommEthernetTCP::connect(byte dest_ip[4], const int port)
+void RoveCommEthernetTCP::connect(const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const int port)
 {
-    RoveCommEthernetTCPClient* client;
-    client->begin(dest_ip, port);
-    return client;
+  IPAddress dest_ip(ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4);
+  for(int i = 0; i < num_clients; i++)
+  {
+    if(Clients[i].dest_ip == dest_ip)
+    {
+      return;
+    }
+  }
+  Serial.println("Making new client");
+  Clients[num_clients].dest_ip = dest_ip;
+  Clients[num_clients].client.begin(dest_ip, port);
+  num_clients++;
+  return;
 }
 
 //Overloaded writeReliable////////////////////////////////////////////////////////////////////////////////////////////////////
 //Single-value write
 //handles the data->pointer conversion for user
 void RoveCommEthernetTCP::writeReliable(        const uint16_t  data_id, const uint8_t data_count, const  int32_t data )
-{                  TCPServer->writeReliable(data_id, data_count, data); }
+{                  TCPServer.writeReliable(data_id, data_count, data); }
 
 void RoveCommEthernetTCP::writeReliable(        const uint16_t  data_id, const uint8_t data_count, const uint32_t data )
-{                  TCPServer->writeReliable(data_id, data_count, data); }
+{                  TCPServer.writeReliable(data_id, data_count, data); }
 
 void RoveCommEthernetTCP::writeReliable(        const uint16_t  data_id, const uint8_t data_count, const  int16_t data )
-{                  TCPServer->writeReliable(data_id, data_count, data); }
+{                  TCPServer.writeReliable(data_id, data_count, data); }
 
 void RoveCommEthernetTCP::writeReliable(        const uint16_t  data_id, const uint8_t data_count, const uint16_t data )
-{                  TCPServer->writeReliable(data_id, data_count, data); }
+{                  TCPServer.writeReliable(data_id, data_count, data); }
 
 void RoveCommEthernetTCP::writeReliable(         const uint16_t data_id, const uint8_t data_count, const   int8_t data )
-{                  TCPServer->writeReliable(data_id, data_count, data); }
+{                  TCPServer.writeReliable(data_id, data_count, data); }
 
 void RoveCommEthernetTCP::writeReliable(        const uint16_t  data_id, const uint8_t data_count, const  uint8_t data )
-{                  TCPServer->writeReliable(data_id, data_count, data); }
+{                  TCPServer.writeReliable(data_id, data_count, data); }
 //Array-Entry write///////////////////////////////////
 void RoveCommEthernetTCP::writeReliable(        const uint16_t  data_id, const uint8_t data_count, const  int32_t *data )
-{                  TCPServer->writeReliable(data_id, data_count, data); }
+{                  TCPServer.writeReliable(data_id, data_count, data); }
 
 void RoveCommEthernetTCP::writeReliable(        const uint16_t  data_id, const uint8_t data_count, const uint32_t *data )
-{                  TCPServer->writeReliable(data_id, data_count, data); }
+{                  TCPServer.writeReliable(data_id, data_count, data); }
 
 void RoveCommEthernetTCP::writeReliable(        const uint16_t  data_id, const uint8_t data_count, const  int16_t *data )
-{                  TCPServer->writeReliable(data_id, data_count, data); }
+{                  TCPServer.writeReliable(data_id, data_count, data); }
 
 void RoveCommEthernetTCP::writeReliable(        const uint16_t  data_id, const uint8_t data_count, const uint16_t *data )
-{                  TCPServer->writeReliable(data_id, data_count, data); }
+{                  TCPServer.writeReliable(data_id, data_count, data); }
 
 void RoveCommEthernetTCP::writeReliable(         const uint16_t data_id, const uint8_t data_count, const   int8_t *data )
-{                  TCPServer->writeReliable(data_id, data_count, data); }
+{                  TCPServer.writeReliable(data_id, data_count, data); }
 
 void RoveCommEthernetTCP::writeReliable(        const uint16_t  data_id, const uint8_t data_count, const  uint8_t *data )
-{                  TCPServer->writeReliable(data_id, data_count, data); }
+{                  TCPServer.writeReliable(data_id, data_count, data); }
+
+//Overloaded writeReliableTo////////////////////////////////////////////////////////////////////////////////////////////////////
+void RoveCommEthernetTCP::writeReliableTo(    const uint16_t data_id,    const uint8_t data_count, const uint8_t  data,
+                                              const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4,  const uint16_t port)
+{ 
+  byte dest_ip[4] = {ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4};
+  for(int i = 0; i < num_clients; i++)
+  {
+    if(Clients[i].dest_ip == dest_ip)
+    {
+      Clients[i].client.writeReliable(data_id, data_count, data);
+    }
+  }
+};
+
+void RoveCommEthernetTCP::writeReliableTo(    const uint16_t data_id,    const uint8_t data_count, const uint16_t data,
+                                              const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4,  const uint16_t port)
+{
+  byte dest_ip[4] = {ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4};
+  for(int i = 0; i < num_clients; i++)
+  {
+    if(Clients[i].dest_ip == dest_ip)
+    {
+      Clients[i].client.writeReliable(data_id, data_count, data);
+    }
+  }
+};
+
+
+void RoveCommEthernetTCP::writeReliableTo(    const uint16_t data_id,    const uint8_t data_count, const uint32_t data,
+                                              const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4,  const uint16_t port)
+{
+  byte dest_ip[4] = {ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4};
+  for(int i = 0; i < num_clients; i++)
+  {
+    if(Clients[i].dest_ip == dest_ip)
+    {
+      Clients[i].client.writeReliable(data_id, data_count, data);
+    }
+  }
+};
+
+void RoveCommEthernetTCP::writeReliableTo(    const uint16_t data_id,    const uint8_t data_count, const int8_t   data,
+                                              const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4,  const uint16_t port)
+{
+  byte dest_ip[4] = {ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4};
+  for(int i = 0; i < num_clients; i++)
+  {
+    if(Clients[i].dest_ip == dest_ip)
+    {
+      Clients[i].client.writeReliable(data_id, data_count, data);
+    }
+  }
+};
+
+void RoveCommEthernetTCP::writeReliableTo(    const uint16_t data_id,    const uint8_t data_count, const int16_t  data,
+                                              const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4,  const uint16_t port)
+{
+  byte dest_ip[4] = {ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4};
+  for(int i = 0; i < num_clients; i++)
+  {
+    if(Clients[i].dest_ip == dest_ip)
+    {
+      Clients[i].client.writeReliable(data_id, data_count, data);
+    }
+  }
+};
+
+void RoveCommEthernetTCP::writeReliableTo(    const uint16_t data_id,    const uint8_t data_count, const int32_t  data,
+                                              const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4,  const uint16_t port)
+{
+  byte dest_ip[4] = {ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4};
+  for(int i = 0; i < num_clients; i++)
+  {
+    if(Clients[i].dest_ip == dest_ip)
+    {
+      Clients[i].client.writeReliable(data_id, data_count, data);
+    }
+  }
+};
+//Array-Entry write///////////////////////////////////
+void RoveCommEthernetTCP::writeReliableTo(   const uint16_t data_id,    const int     data_count, const int      *data,
+                        const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4,  const uint16_t port)
+{
+  byte dest_ip[4] = {ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4};
+  for(int i = 0; i < num_clients; i++)
+  {
+    if(Clients[i].dest_ip == dest_ip)
+    {
+      Clients[i].client.writeReliable(data_id, data_count, data);
+    }
+  }
+};
+void RoveCommEthernetTCP::writeReliableTo(   const uint16_t data_id,    const uint8_t data_count, const uint8_t  *data,
+                        const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4,  const uint16_t port)
+{
+  IPAddress dest_ip(ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4);
+  for(int i = 0; i < num_clients; i++)
+  {
+    if(Clients[i].dest_ip == dest_ip)
+    {
+      Serial.println(dest_ip[3]);
+      Clients[i].client.writeReliable(data_id, data_count, data);
+    }
+  }
+};
+void RoveCommEthernetTCP::writeReliableTo(   const uint16_t data_id,    const uint8_t data_count, const uint16_t *data,
+                        const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4,  const uint16_t port)
+{
+  byte dest_ip[4] = {ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4};
+  for(int i = 0; i < num_clients; i++)
+  {
+    if(Clients[i].dest_ip == dest_ip)
+    {
+      Clients[i].client.writeReliable(data_id, data_count, data);
+    }
+  }
+};
+void RoveCommEthernetTCP::writeReliableTo(   const uint16_t data_id,    const uint8_t data_count, const uint32_t *data,
+                        const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4,  const uint16_t port)
+{
+  byte dest_ip[4] = {ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4};
+  for(int i = 0; i < num_clients; i++)
+  {
+    if(Clients[i].dest_ip == dest_ip)
+    {
+      Clients[i].client.writeReliable(data_id, data_count, data);
+    }
+  }
+};
+void RoveCommEthernetTCP::writeReliableTo(   const uint16_t data_id,    const uint8_t data_count, const int8_t   *data,
+                        const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4,  const uint16_t port)
+{
+  byte dest_ip[4] = {ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4};
+  for(int i = 0; i < num_clients; i++)
+  {
+    if(Clients[i].dest_ip == dest_ip)
+    {
+      Clients[i].client.writeReliable(data_id, data_count, data);
+    }
+  }
+};
+void RoveCommEthernetTCP::writeReliableTo(   const uint16_t data_id,    const uint8_t data_count, const int16_t  *data,
+                        const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4,  const uint16_t port)
+{
+  byte dest_ip[4] = {ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4};
+  for(int i = 0; i < num_clients; i++)
+  {
+    if(Clients[i].dest_ip == dest_ip)
+    {
+      Clients[i].client.writeReliable(data_id, data_count, data);
+    }
+  }
+};
+void RoveCommEthernetTCP::writeReliableTo(   const uint16_t data_id,    const uint8_t data_count, const int32_t  *data,
+                        const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4,  const uint16_t port)
+{
+  byte dest_ip[4] = {ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4};
+  for(int i = 0; i < num_clients; i++)
+  {
+    if(Clients[i].dest_ip == dest_ip)
+    {
+      Clients[i].client.writeReliable(data_id, data_count, data);
+    }
+  }
+};

@@ -36,9 +36,18 @@ void RoveCommEthernetTCPClient::begin(byte client_ip[4], byte dest_ip[4], const 
   delay(1);
 }
 
-void RoveCommEthernetTCPClient::begin(byte dest_ip[4], const int port)
+void RoveCommEthernetTCPClient::begin(uint8_t dest_ip, const int port)
 {
+  IPAddress destination(192, 168, 1, dest_ip);
+  this->begin(destination, port);
+}
 
+void RoveCommEthernetTCPClient::begin(IPAddress dest_ip, const int port)
+{
+  Serial.println("Connecting to: ");
+  Serial.println(dest_ip[3]);
+  Serial.println(port);
+  Serial.println(Ethernet.localIP());
   //Attempt a secure connection to the target IP 
   if(Client.connect(dest_ip, port))
   {
@@ -48,8 +57,12 @@ void RoveCommEthernetTCPClient::begin(byte dest_ip[4], const int port)
   {
     Serial.println("Connection Failed");
   }
-  
-  delay(1);
+  return;
+}
+/////////////////////////////////////////////////////////////////////////////////
+bool RoveCommEthernetTCPClient::available()
+{
+  return (Client.available() && Client.peek() != -1);
 }
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -59,7 +72,7 @@ struct rovecomm_packet RoveCommEthernetTCPClient::read()
   struct rovecomm_packet rovecomm_packet = { 0 };
 
   //if there is a message from the client, parse it
-  if(Client.available())
+  if(Client.available() && Client.peek() != -1)
     {
     rovecomm_packet = roveware::unpackPacket(Client); 
     }
@@ -82,6 +95,10 @@ void RoveCommEthernetTCPClient::_writeReliable(const uint8_t data_type_length, c
   struct roveware::_packet _packet = roveware::packPacket(data_id, data_count, data_type, data);
   
   //write to all available clients
+  for(int i = 0; i < (ROVECOMM_PACKET_HEADER_SIZE + (data_type_length * data_count)); i++)
+  {
+    Serial.println(_packet.bytes[i]);
+  }
   Client.write( _packet.bytes, (ROVECOMM_PACKET_HEADER_SIZE + (data_type_length * data_count))); 
 }
 
