@@ -11,6 +11,8 @@
 #include "RoveCommEthernetTCPServer.h"
 #include "RoveCommEthernetTCPClient.h"
 
+#define MAX_NUM_TCP_CLIENTS 4
+
 struct RoveCommClient 
 {
     RoveCommEthernetTCPClient client;
@@ -20,12 +22,16 @@ struct RoveCommClient
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class RoveCommEthernetTCP
 {
+  private:
+    uint8_t num_clients = 0;
+    
   public:
     RoveCommEthernetTCPServer TCPServer;
-    RoveCommClient Clients[10];
+    RoveCommClient Clients[MAX_NUM_TCP_CLIENTS];
 
+    /////begin/////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //checks all ongoing connections for incoming packets and returns the first one as a parsed rovecomm packet
     struct rovecomm_packet read();
-
 
     /////begin/////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Overloaded begin
@@ -35,13 +41,17 @@ class RoveCommEthernetTCP
 	void begin(uint8_t server_ip_octet, const int port);
     void begin(const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const int port);
 
-    /////connect/////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////connect///////////////////////////////////////////////////////////////////////////////////////////////////////
     //Allows for creating a new connection to a target IP
     //checks for whether we have already connected to the dest_ip and port, or otherwise grabs an available ethernet
     //client and connects it to the dest_ip and port
     void connect(const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const int port);
 
-	/////writeReliable////////////////////////////////////////////////////////////////////////
+    /////connected/////////////////////////////////////////////////////////////////////////////////////////////////////
+    //Checks if there is an established and ongoing connection to the target IP
+    bool connected(const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4);
+
+	/////writeReliable/////////////////////////////////////////////////////////////////////////////////////////////////
 	//Single-value writeReliable which ensures delivery
 	//Overloaded for each data type
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const uint8_t  data);
@@ -61,7 +71,7 @@ class RoveCommEthernetTCP
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int16_t  *data);
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int32_t  *data);
 
-    ////writeReliableTo////////////////////////////////////////////////////////////////////////
+    ////writeReliableTo/////////////////////////////////////////////////////////////////////////////////////////////////
 	//Single-value writeReliableTo which ensures delivery
 	//Overloaded for each data type
     void writeReliableTo(const uint16_t data_id,    const uint8_t data_count, const uint8_t  data,
@@ -106,9 +116,6 @@ class RoveCommEthernetTCP
     void writeReliableTo(const uint16_t data_id,    const uint8_t data_count, const int32_t  *data,
                          const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3,
                          const uint8_t ip_octet_4,  const uint16_t port);
-  private:
-    const uint8_t MAX_NUM_TCP_CLIENTS = 10;
-    uint8_t num_clients = 0;
 };
 
 #endif // RoveCommEthernetTCP_h

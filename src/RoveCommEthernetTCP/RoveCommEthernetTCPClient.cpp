@@ -44,10 +44,6 @@ void RoveCommEthernetTCPClient::begin(uint8_t dest_ip, const int port)
 
 void RoveCommEthernetTCPClient::begin(IPAddress dest_ip, const int port)
 {
-  Serial.println("Connecting to: ");
-  Serial.println(dest_ip[3]);
-  Serial.println(port);
-  Serial.println(Ethernet.localIP());
   //Attempt a secure connection to the target IP 
   if(Client.connect(dest_ip, port))
   {
@@ -59,6 +55,13 @@ void RoveCommEthernetTCPClient::begin(IPAddress dest_ip, const int port)
   }
   return;
 }
+
+/////////////////////////////////////////////////////////////////////////////////
+bool RoveCommEthernetTCPClient::connected()
+{
+  return Client.connected();
+}
+
 /////////////////////////////////////////////////////////////////////////////////
 bool RoveCommEthernetTCPClient::available()
 {
@@ -94,11 +97,7 @@ void RoveCommEthernetTCPClient::_writeReliable(const uint8_t data_type_length, c
   //Creat packed udp packet
   struct roveware::_packet _packet = roveware::packPacket(data_id, data_count, data_type, data);
   
-  //write to all available clients
-  for(int i = 0; i < (ROVECOMM_PACKET_HEADER_SIZE + (data_type_length * data_count)); i++)
-  {
-    Serial.println(_packet.bytes[i]);
-  }
+  //write to client
   Client.write( _packet.bytes, (ROVECOMM_PACKET_HEADER_SIZE + (data_type_length * data_count))); 
 }
 

@@ -25,14 +25,17 @@ class RoveCommEthernetTCPClient
     void begin(byte client_ip[4], byte dest_ip[4], const int port);
     //Used for when the board has already been assigned an IP, and a new connection needs to be established
     void begin(IPAddress dest_ip, const int port);
-    void begin(uint8_t dest_ip, const int port);
+    void begin(uint8_t dest_ip_fourth_octet, const int port);
 
 
     /////available/////////////////////////////////////////////////////////////////////////////////////////////////////////
     //returns whether or not there is any data available for reading from the client
     bool available();
-    
 
+    /////connected/////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //returns whether or not the client is still connected
+    bool connected();
+    
 	  /////writeReliable////////////////////////////////////////////////////////////////////////
 	  //Single-value writeReliable
 	  //Overloaded for each data type
