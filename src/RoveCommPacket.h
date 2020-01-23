@@ -24,7 +24,7 @@ struct rovecomm_packet
 namespace roveware
 {
   //DataType RoveComm encoding
-  enum data_type_t { INT8_T=0, UINT8_T=1, INT16_T=2, UINT16_T=3, INT32_T=4, UINT32_T=5};
+  enum data_type_t { INT8_T=0, UINT8_T=1, INT16_T=2, UINT16_T=3, INT32_T=4, UINT32_T=5, FLOAT=6};
 
   ////////////////////////////////////////////////
   // The RoveComm udp packet header is 5 bytes long:
