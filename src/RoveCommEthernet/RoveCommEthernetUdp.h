@@ -46,7 +46,7 @@ class RoveCommEthernetUdp
     void write(const uint16_t data_id, const uint8_t data_count, const int8_t   *data);
     void write(const uint16_t data_id, const uint8_t data_count, const int16_t  *data);
     void write(const uint16_t data_id, const uint8_t data_count, const int32_t  *data);
-    void write(const uint16_t data_id, const uint8_t data_count, const int32_t  *data);
+    void write(const uint16_t data_id, const uint8_t data_count, const float    *data);
 
 
 	/////writeTo///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

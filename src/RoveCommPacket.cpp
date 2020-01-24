@@ -80,10 +80,10 @@ namespace roveware
         } convert;
         convert.floatVal = data_float[index];
 		    //Pack values into packet bytes
-        packet.bytes[ROVECOMM_PACKET_HEADER_SIZE + i    ] = convert.bytes[0];
-        packet.bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 1] = convert.bytes[1];
-        packet.bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 2] = convert.bytes[2];
-        packet.bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 3] = convert.bytes[3];
+        packet.bytes[ROVECOMM_PACKET_HEADER_SIZE + i    ] = convert.bytes[3];
+        packet.bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 1] = convert.bytes[2];
+        packet.bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 2] = convert.bytes[1];
+        packet.bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 3] = convert.bytes[0];
         index++;
       }
     } else // invalid => set data_count = 0
@@ -95,7 +95,7 @@ namespace roveware
   }
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////////
-  struct rovecomm_packet unpackPacket(const uint8_t _packet_bytes[])
+  struct rovecomm_packet unpackPacket(uint8_t _packet_bytes[])
   {
     //for if we encounter an incompatible rovecomm message
     if(_packet_bytes[0] != ROVECOMM_VERSION)
@@ -103,18 +103,22 @@ namespace roveware
      struct rovecomm_packet invalid_version_packet = {0};
 	   invalid_version_packet.data_id = ROVECOMM_INVALID_VERSION_DATA_ID;
 	   invalid_version_packet.data_count = 1;
-	   invalid_version_packet.data[1] = {0};
      return invalid_version_packet;
     }
 
     //create new RoveComm packet
     struct rovecomm_packet rovecomm_packet = {0};
     //Unpack header
-    //Todo: Why don't we pass these directly into the rovecomm_packet we just made?
     uint16_t data_id   =(_packet_bytes[1] << 8)
                        | _packet_bytes[2];
+
     uint8_t data_count = _packet_bytes[3];
     data_type_t data_type  =  (data_type_t)_packet_bytes[4];
+
+    //Pack data into packet
+    rovecomm_packet.data_count = data_count;
+    rovecomm_packet.data_id    = data_id;
+    rovecomm_packet.data_type = data_type;
 
     //Unpack data based on data_type
     if(data_type ==  INT32_T)
@@ -204,9 +208,6 @@ namespace roveware
       data_count = 0; // invalid_data
     }
     
-	  //Pack data into packet
-    rovecomm_packet.data_count = data_count;
-    rovecomm_packet.data_id    = data_id;
     return rovecomm_packet;
   }
 

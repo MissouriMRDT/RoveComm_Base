@@ -18,8 +18,10 @@ struct rovecomm_packet
 {
   uint16_t data_id;
   uint8_t data_count;
-  int data[ROVECOMM_PACKET_MAX_DATA_COUNT];
-};
+  uint8_t data_type;
+  float data[ROVECOMM_PACKET_MAX_DATA_COUNT];
+};  
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 namespace roveware
 {
@@ -40,7 +42,7 @@ namespace roveware
   };
 
   struct _packet        packPacket(const uint16_t data_id, const uint8_t data_count, const data_type_t data_type, const void* data);
-  struct rovecomm_packet unpackPacket(const uint8_t  _packet[]);
+  struct rovecomm_packet unpackPacket(uint8_t  _packet[]);
 }// end namespace/////////////////////////////////////////////////////////////////////////////////////////////////
 
 #endif // ROVECOMM_PACKET_H
