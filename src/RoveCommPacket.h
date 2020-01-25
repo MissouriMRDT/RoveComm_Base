@@ -19,7 +19,7 @@ struct rovecomm_packet
   uint16_t data_id;
   uint8_t data_count;
   uint8_t data_type;
-  float data[ROVECOMM_PACKET_MAX_DATA_COUNT];
+  char data[ROVECOMM_PACKET_MAX_DATA_COUNT];
 };  
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

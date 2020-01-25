@@ -123,89 +123,40 @@ namespace roveware
     //Unpack data based on data_type
     if(data_type ==  INT32_T)
     { 
-      uint16_t  index    = 0;
-      for(int i=0; i < 4*data_count; i+=4 )
-      { 
-      int32_t data = (_packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i]     << 24)
-                                    | (_packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 1] << 16)
-                                    | (_packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 2] << 8)
-                                    |  _packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 3];
-      rovecomm_packet.data[index] = data;
-		  index++;
-      }
+     memcpy(&rovecomm_packet.data, &_packet_bytes[5], data_count*4);
     } 
     else if(data_type ==  UINT32_T )
     { 
-      uint16_t  index    = 0;
-      for(int i=0; i < 4*data_count; i+=4 )
-      { 
-      uint32_t data = (_packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i]     << 24)
-                                    | (_packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 1] << 16)
-                                    | (_packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 2] << 8)
-                                    |  _packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 3];
-      rovecomm_packet.data[index] = data;
-		  index++;
-      }
+  
+     memcpy(&rovecomm_packet.data, &_packet_bytes[5], data_count*4);
+
     } 
 	  else if(data_type ==  INT16_T)
     { 
-      uint16_t  index    = 0;
-      for(int i=0; i < 2*data_count; i+=2 )
-      { 
-      int16_t data = (_packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i    ] << 8)
-                     |  _packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 1];
-      rovecomm_packet.data[index] = data;
-		  index++;
-      }
+     memcpy(&rovecomm_packet.data, &_packet_bytes[5], data_count*2);
+
     } 
     else if(data_type == UINT16_T)
     { 
-      uint16_t  index    = 0;
-      for(int i=0; i < 2*data_count; i+=2 )
-      { 
-      uint16_t data = (_packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i    ] << 8)
-                      |  _packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 1];
-      rovecomm_packet.data[index] = data;
-		  index++;
-      }
+     memcpy(&rovecomm_packet.data, &_packet_bytes[5], data_count*2);
+
     } 
 	  else if(data_type ==  INT8_T )
     {
-      for(int i=0; i < 1*data_count; i+=1 )
-      { 
-		  int8_t data = _packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i];
-		  rovecomm_packet.data[i] = data;
-      }
-     } 
+     memcpy(&rovecomm_packet.data, &_packet_bytes[5], data_count*1);
+
+    } 
     else if(data_type ==  UINT8_T )
     {
-      for(int i=0; i < 1*data_count; i+=1 )
-      { 
-		  uint8_t data = _packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i];
-		  rovecomm_packet.data[i] = data;
-      }
+     memcpy(&rovecomm_packet.data, &_packet_bytes[5], data_count*1);
     } 
     else if(data_type ==  FLOAT )
     {
-      uint16_t  index    = 0;
-      for(int i=0; i < 4*data_count; i+=4 )
-      { 
-       union {
-          float floatVal;
-          unsigned char bytes[4];
-      } convert;
-      convert.bytes[0] = _packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i];
-      convert.bytes[1] = _packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 1];
-      convert.bytes[2] = _packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 2];
-      convert.bytes[3] = _packet_bytes[ROVECOMM_PACKET_HEADER_SIZE + i + 3];
-      float data = convert.floatVal;
-      rovecomm_packet.data[index] = data;
-		  index++;
-      }
+     memcpy(&rovecomm_packet.data, &_packet_bytes[5], data_count*4);
     } 
     else
     { 
-      data_count = 0; // invalid_data
+
     }
     
     return rovecomm_packet;
