@@ -45,6 +45,8 @@ class RoveCommEthernetTCPClient
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int8_t   data);
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int16_t  data);
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int32_t  data);
+    void writeReliable(const uint16_t data_id, const uint8_t data_count, const float  data);
+
 
     //Array entry writeReliable
 	  //Overloaded for each data type
@@ -55,6 +57,7 @@ class RoveCommEthernetTCPClient
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int8_t   *data);
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int16_t  *data);
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int32_t  *data);
+    void writeReliable(const uint16_t data_id, const uint8_t data_count, const float    *data);
   
   private:
     //Called by overloaded writeReliable functions

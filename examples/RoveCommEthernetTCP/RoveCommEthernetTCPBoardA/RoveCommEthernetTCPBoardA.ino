@@ -1,10 +1,10 @@
 #include "RoveComm.h"
 
 
-byte dest_ip[] = { 192, 168, 1, 69 };//destination board ip
-int dest_port = 11002;
+//byte dest_ip[] = { 192, 168, 1, 69 };//destination board ip
+//int dest_port = 11002;
 byte server[] = { 192, 168, 1, 99 }; // Server board ip
-int server_port = 11000;
+int server_port = 11001;
 
 RoveCommEthernetTCP RoveCommTCP;
 rovecomm_packet packet;
@@ -30,5 +30,8 @@ void loop()
             Serial.println(packet.data[i]);
             }
         }
+    float data[2] = {10.6, 9.89};
+    Serial.println("Sending packet");
+    RoveCommTCP.writeReliable(9000, 2, data);
     delay(1000);
 }

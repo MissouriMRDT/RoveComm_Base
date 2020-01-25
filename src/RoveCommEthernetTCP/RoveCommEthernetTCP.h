@@ -60,6 +60,7 @@ class RoveCommEthernetTCP
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int8_t   data);
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int16_t  data);
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int32_t  data);
+    void writeReliable(const uint16_t data_id, const uint8_t data_count, const float    data);
 
     //Array entry writeReliable which ensures delivery
 	//Overloaded for each data type
@@ -70,6 +71,8 @@ class RoveCommEthernetTCP
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int8_t   *data);
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int16_t  *data);
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int32_t  *data);
+    void writeReliable(const uint16_t data_id, const uint8_t data_count, const float    *data);
+
 
     ////writeReliableTo/////////////////////////////////////////////////////////////////////////////////////////////////
 	//Single-value writeReliableTo which ensures delivery
@@ -92,6 +95,10 @@ class RoveCommEthernetTCP
     void writeReliableTo(const uint16_t data_id,    const uint8_t data_count, const int32_t  data,
                          const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3,
                          const uint8_t ip_octet_4,  const uint16_t port);
+    void writeReliableTo(const uint16_t data_id,    const uint8_t data_count, const float  data,
+                         const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3,
+                         const uint8_t ip_octet_4,  const uint16_t port);
+
 
     //Array entry writeReliableTo which ensures delivery
 	//Overloaded for each data type
@@ -114,6 +121,9 @@ class RoveCommEthernetTCP
                          const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3,
                          const uint8_t ip_octet_4,  const uint16_t port);
     void writeReliableTo(const uint16_t data_id,    const uint8_t data_count, const int32_t  *data,
+                         const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3,
+                         const uint8_t ip_octet_4,  const uint16_t port);
+    void writeReliableTo(const uint16_t data_id,    const uint8_t data_count, const float    *data,
                          const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3,
                          const uint8_t ip_octet_4,  const uint16_t port);
 };

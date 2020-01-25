@@ -127,6 +127,11 @@ void RoveCommEthernetTCPServer::writeReliable(        const uint16_t  data_id, c
 {                  uint8_t data_p[1];
                    data_p[0] = data;
                    this->_writeReliable( 1,  roveware::UINT8_T, data_id,               data_count,        (void*) data_p ); }
+
+void RoveCommEthernetTCPServer::writeReliable(        const uint16_t  data_id, const uint8_t data_count, const  float data )
+{                  float data_p[1];
+                   data_p[0] = data;
+                   this->_writeReliable( 4,  roveware::FLOAT, data_id,               data_count,        (void*) data_p ); }
 //Array-Entry write///////////////////////////////////
 void RoveCommEthernetTCPServer::writeReliable(        const uint16_t  data_id, const uint8_t data_count, const  int32_t *data )
 {                  this->_writeReliable( 4,  roveware::INT32_T, data_id,               data_count,        (void*) data ); }
@@ -145,3 +150,6 @@ void RoveCommEthernetTCPServer::writeReliable(         const uint16_t data_id, c
 
 void RoveCommEthernetTCPServer::writeReliable(        const uint16_t  data_id, const uint8_t data_count, const  uint8_t *data )
 {                  this->_writeReliable( 1,  roveware::UINT8_T, data_id,               data_count,        (void*) data ); }
+
+void RoveCommEthernetTCPServer::writeReliable(        const uint16_t  data_id, const uint8_t data_count, const  float *data )
+{                  this->_writeReliable( 4,  roveware::FLOAT, data_id,               data_count,        (void*) data ); }
