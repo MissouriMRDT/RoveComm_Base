@@ -100,7 +100,6 @@ void RoveCommEthernetUdp::_write(const uint8_t data_type_length, const roveware:
 { 
   //Creat packed udp packet
   struct roveware::_packet _packet = roveware::packPacket(data_id, data_count, data_type, data);
-  
   //Send packet to everyone in subscribers
   for (int i=0; i < ROVECOMM_ETHERNET_UDP_MAX_SUBSCRIBERS; i++)
   {
@@ -178,6 +177,10 @@ void RoveCommEthernetUdp::write(        const uint16_t  data_id, const uint8_t d
 {                  uint8_t data_p[1];
                    data_p[0] = data;
                    this->_write( 1,  roveware::UINT8_T, data_id,               data_count,        (void*) data_p ); }
+void RoveCommEthernetUdp::write(        const uint16_t  data_id, const uint8_t data_count, const  float data )
+{                  float data_p[1];
+                   data_p[0] = data;
+                   this->_write( 4,  roveware::FLOAT, data_id,               data_count,        (void*) data_p ); }
 //Array-Entry write///////////////////////////////////
 //void RoveCommEthernetUdp::write(        const  int      data_id, const  int    data_count, const  int     *data ) 
 //{                  this->_write( 4,  roveware::INT32_T, data_id,               data_count,        (void*) data ); }
@@ -199,6 +202,10 @@ void RoveCommEthernetUdp::write(         const uint16_t data_id, const uint8_t d
 
 void RoveCommEthernetUdp::write(        const uint16_t  data_id, const uint8_t data_count, const  uint8_t *data )
 {                  this->_write( 1,  roveware::UINT8_T, data_id,               data_count,        (void*) data ); }
+
+void RoveCommEthernetUdp::write(        const uint16_t  data_id, const uint8_t data_count, const  float *data )
+{              
+  this->_write( 4,  roveware::FLOAT, data_id,               data_count,        (void*) data ); }
 //Overloaded writeTo//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Single-value writeTo
 //handles the data->pointer conversion for user
@@ -245,6 +252,13 @@ void RoveCommEthernetUdp::writeTo(         const uint16_t data_id,    const uint
                    data_p[0] = data;
                    this->_writeTo( 1,  roveware::UINT8_T, data_id,                  data_count,       (void*) data_p,
 ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4, port ); }
+
+void RoveCommEthernetUdp::writeTo(         const uint16_t data_id,    const uint8_t data_count, const float data,
+                                           const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port )
+{                  float data_p[1];
+                   data_p[0] = data;
+                   this->_writeTo( 4,  roveware::FLOAT, data_id,                  data_count,       (void*) data_p,
+ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4, port ); }
 //Array-entry writeTo
 //handles the data->pointer conversion for user
 void RoveCommEthernetUdp::writeTo(         const uint16_t data_id,    const uint8_t data_count, const int *data, //handling data->pointer conversion for user
@@ -279,4 +293,9 @@ void RoveCommEthernetUdp::writeTo(         const uint16_t data_id,    const uint
 void RoveCommEthernetUdp::writeTo(         const uint16_t data_id,    const uint8_t data_count, const uint8_t *data,
                                            const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port )
 {                  this->_writeTo( 1,  roveware::UINT8_T, data_id,                  data_count,       (void*) data,
+ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4, port ); }
+
+void RoveCommEthernetUdp::writeTo(         const uint16_t data_id,    const uint8_t data_count, const float *data,
+                                           const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port )
+{                  this->_writeTo( 4,  roveware::FLOAT, data_id,                  data_count,       (void*) data,
 ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4, port ); }
