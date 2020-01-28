@@ -3,11 +3,12 @@
 
 //byte dest_ip[] = { 192, 168, 1, 69 };//destination board ip
 //int dest_port = 11002;
-byte server[] = { 192, 168, 1, 99 }; // Server board ip
-int server_port = 11001;
+byte server[] = { 192, 168, 1, 135 }; // Server board ip
+int server_port = 11006;
 
 RoveCommEthernetTCP RoveCommTCP;
 rovecomm_packet packet;
+int16_t start = 0;
 
 void setup()
 {
@@ -21,6 +22,8 @@ void setup()
 void loop()
 {
     packet = RoveCommTCP.read();
+    
+    Serial.println("Printing dataid:");
     if(packet.data_id != ROVECOMM_NO_DATA_DATA_ID)
         {
         Serial.println("New packet!");
@@ -30,8 +33,9 @@ void loop()
             Serial.println(packet.data[i]);
             }
         }
-    float data[2] = {10.6, 9.89};
-    Serial.println("Sending packet");
-    RoveCommTCP.writeReliable(9000, 2, data);
-    delay(1000);
+    
+   int16_t data[5] = {start, start, start, start, start};
+   RoveCommTCP.writeReliable(10100, 5, data);
+   Serial.println("Writing");
+   delay(10000);
 }

@@ -133,7 +133,7 @@
 //Drive Speed
 #define RC_DRIVEBOARD_DRIVE_SPEED_DATAID                00+_TYPE_TELEMETRY+_DRIVEBOARD_BOARDNUMBER
 #define RC_DRIVEBOARD_DRIVE_SPEED_DATATYPE			    int16_t //(-1000, 1000)-> (-100%, 100%)
-#define RC_DRIVEBOARD_DRIVE_SPEED_DATACOUNT         	2       //[LeftSpeed, RightSpeed] 
+#define RC_DRIVEBOARD_DRIVE_SPEED_DATACOUNT         	6      //[LF, LM, LR, RF, RM,RR]
 
 //Error////////////////////////////////////////////////////////////////////////////////////////////
 //TCP/////
