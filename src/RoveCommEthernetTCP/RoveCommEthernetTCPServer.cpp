@@ -42,6 +42,7 @@ void RoveCommEthernetTCPServer::begin(const int port)
 
 
   delay(10);
+  Serial.println("Started server");
   return;
 }
 /////////////////////////////////////////////////////////////////////////////////
@@ -62,14 +63,15 @@ struct rovecomm_packet RoveCommEthernetTCPServer::read()
 { 
   //Create new RoveCommPacket
   rovecomm_packet packet = { 0 };
-
   //check if there is a message from client
+  Serial.println("Checked for clients");
   EthernetClient client = Server.available();
   delay(10);
-
+  Serial.println("Checked for clients");
   //if there is a message from the client and there is something to read
   if(client && client.peek() != -1)
     {
+      Serial.println("There is a message");
       packet = roveware::unpackPacket(client); 
     }
   //if there is no message, just return that there is no data to read

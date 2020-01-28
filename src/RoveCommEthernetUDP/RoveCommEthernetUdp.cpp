@@ -43,7 +43,6 @@ struct rovecomm_packet RoveCommEthernetUdp::read()
   //Serial.println(packet_size);
   if (packet_size > 0)
   {       
-    Serial.println("Reading something");
 	//Create arreay to take packet
     uint8_t _packet[ packet_size];
 
