@@ -3,39 +3,43 @@
 
 //byte dest_ip[] = { 192, 168, 1, 69 };//destination board ip
 //int dest_port = 11002;
-byte server[] = { 192, 168, 1, 135 }; // Server board ip
-int server_port = 11006;
+byte server[] = { 192, 168, 1, 136 }; // Server board ip
+int server_port = 11005;
 
-RoveCommEthernetTCP RoveCommTCP;
+RoveCommEthernet RoveComm;
+//RoveCommEthernetUdp       RoveCommUDP;
 rovecomm_packet packet;
-int16_t start = 0;
+rovecomm_packet udp_packet;
+
 
 void setup()
 {
    Serial.begin(9600);
    Serial.println("Starting");
-   RoveCommTCP.begin(server[3], server_port);
+   //RoveComm.begin(server[3], server_port);
+   RoveComm.TCPServer.begin(server[3], server_port);
+   RoveComm.UDP.begin();
    Serial.println("Started server");
    delay(1000);
 }
 
 void loop()
 {
-    packet = RoveCommTCP.read();
+    packet = RoveComm.TCPServer.read();
+    udp_packet = RoveComm.UDP.read();
     
-    Serial.println("Printing dataid:");
-    if(packet.data_id != ROVECOMM_NO_DATA_DATA_ID)
+    switch(packet.data_id)
         {
-        Serial.println("New packet!");
-        Serial.println(packet.data_id);
-        for(int i = 0; i < packet.data_count; i++)
-            {
-            Serial.println(packet.data[i]);
-            }
+        case ROVECOMM_NO_DATA_DATA_ID:
+            Serial.println("No New packet!");
+            break;
+        case RC_DRIVEBOARD_DRIVELEFTRIGHT_DATAID:
+            Serial.println("Received drive packet");
+            break;
         }
-    
-   int16_t data[5] = {start, start, start, start, start};
-   RoveCommTCP.writeReliable(10100, 5, data);
+   
+   float data[3] = {1.2,2.3,3.4};
+   RoveComm.TCPServer.writeReliable((uint16_t) 10100, (uint8_t) 3, data);
    Serial.println("Writing");
-   delay(10000);
+   delay(2000);
 }

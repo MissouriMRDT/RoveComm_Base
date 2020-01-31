@@ -22,7 +22,8 @@ class RoveCommEthernetUdp
 	//Default ip address = 192.168.1.XXX
 	void begin(const int board_ip_octet);
 	void begin(const uint8_t ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4);
-    
+    void begin();
+
 	/////write////////////////////////////////////////////////////////////////////////
 	//Single-value write
 	//Overloaded for each data type

@@ -21,6 +21,6 @@ void setup()
 
 void loop()
 {
-   RoveCommTCP.writeReliableTo((uint16_t)9000, (uint8_t)2, (uint8_t)69, dest_ip[0],dest_ip[1],dest_ip[2],dest_ip[3], dest_port);
+   RoveCommTCP.writeReliable((uint16_t)9000, (uint8_t)2, (uint8_t)69, dest_ip[0],dest_ip[1],dest_ip[2],dest_ip[3], dest_port);
    delay(25000);  
 }

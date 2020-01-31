@@ -40,9 +40,6 @@ void RoveCommEthernetTCPServer::begin(const int port)
   Server = EthernetServer(port);
   Server.begin();
 
-
-  delay(10);
-  Serial.println("Started server");
   return;
 }
 /////////////////////////////////////////////////////////////////////////////////
@@ -64,10 +61,8 @@ struct rovecomm_packet RoveCommEthernetTCPServer::read()
   //Create new RoveCommPacket
   rovecomm_packet packet = { 0 };
   //check if there is a message from client
-  Serial.println("Checked for clients");
   EthernetClient client = Server.available();
   delay(10);
-  Serial.println("Checked for clients");
   //if there is a message from the client and there is something to read
   if(client && client.peek() != -1)
     {
@@ -78,11 +73,10 @@ struct rovecomm_packet RoveCommEthernetTCPServer::read()
   else
     {
     packet.data_id = ROVECOMM_NO_DATA_DATA_ID;
-    packet.data_count = 1;
-    packet.data[1] = {0};
+    packet.data_count = 0;
     }
   
-	
+	Serial.println("Returning packet");
   //return the packet
   return packet;
 }
@@ -90,9 +84,11 @@ struct rovecomm_packet RoveCommEthernetTCPServer::read()
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void RoveCommEthernetTCPServer::_writeReliable(const uint8_t data_type_length, const roveware::data_type_t data_type, const uint16_t data_id, const uint8_t data_count, const void* data)
 { 
+  //Serial.println("Got to writing part");
   //Creat packed udp packet
   struct roveware::_packet _packet = roveware::packPacket(data_id, data_count, data_type, data);
-  
+  //Serial.println("Got to packing part");
+
   //write to all available clients
   Server.write( _packet.bytes, (ROVECOMM_PACKET_HEADER_SIZE + (data_type_length * data_count))); 
 }

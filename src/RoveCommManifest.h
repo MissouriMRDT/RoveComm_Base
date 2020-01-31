@@ -41,17 +41,17 @@
 #define RC_POWERBOARD_FOURTHOCTET              133
 #define RC_CAMERABOARD_FOURTHOCTET             134
 #define RC_N3_FOURTHOCTET                      135
-#define RC_SHIMBLEBOARD_FOURTHOCTET    	   	   136
+#define RC_SHIMBLEBOARD_FOURTHOCTET            136
 #define RC_ARMBOARD_FOURTHOCTET                137
 #define RC_SRAACTUATIONBOARD_FOURTHOCTET       138
 #define RC_SRASENSORSBOARD_FOURTHOCTET         139
 #define RC_WIRELESS_ESTOP_FOURTHOCTET          140
 #define RC_PR_CONTROLLER_FOURTHOCTET           141
 #define RC_BSMS_FOURTHOCTET                    142
-#define RC_BLACKBOX_FOURTHOCTET       		   143
+#define RC_BLACKBOX_FOURTHOCTET                143
 #define RC_AUTONOMY_FOURTHOCTET                144
 
-#define RC_STREAMERPI_FOURTHOCTET 		       150
+#define RC_STREAMERPI_FOURTHOCTET              150
         
 #define RC_GRANDSTREAM1_FOURTHOCTET            226
 #define RC_GRANDSTREAM2_FOURTHOCTET            227
@@ -78,7 +78,7 @@
 #define _BSMS_BOARDNUMBER            12*1000
 #define _BLACKBOX_BOARDNUMBER        13*1000
 #define _LIGHTING_BOARDNUMBER        14*1000
-#define _AUTONOMY_BOARDNUMBER		 15*1000  
+#define _AUTONOMY_BOARDNUMBER        15*1000  
 
 //Command Types
 #define _TYPE_COMMAND     0*100
@@ -89,12 +89,12 @@
 ///////////////////////////////////////////////////
 //             RoveComm System Id's              //
 ///////////////////////////////////////////////////
-#define RC_ROVECOMM_PING_DATA_ID					1
-#define RC_ROVECOMM_PING_REPLY_DATA_ID				2
-#define RC_ROVECOMM_SUBSCRIBE_REQUEST_DATA_ID		3
-#define	RC_ROVECOMM_UNSUBSCRIBE_REQUEST_DATA_ID 	4
-#define	ROVECOMM_INVALID_VERSION_DATA_ID			5
-#define	ROVECOMM_NO_DATA_DATA_ID			        6		
+#define RC_ROVECOMM_PING_DATA_ID                    1
+#define RC_ROVECOMM_PING_REPLY_DATA_ID              2
+#define RC_ROVECOMM_SUBSCRIBE_REQUEST_DATA_ID       3
+#define	RC_ROVECOMM_UNSUBSCRIBE_REQUEST_DATA_ID     4
+#define	ROVECOMM_INVALID_VERSION_DATA_ID            5
+#define	ROVECOMM_NO_DATA_DATA_ID                    6
 
 
 ///////////////////////////////////////////////////
@@ -103,13 +103,13 @@
 //Commands//////////////////////////////////////////////////////////////////////////////////////////////
 //UDP/////
 //Drive Left Right
-#define RC_DRIVEBOARD_DRIVELEFTRIGHT_DATAID            	00+_TYPE_COMMAND+_DRIVEBOARD_BOARDNUMBER
-#define RC_DRIVEBOARD_DRIVELEFTRIGHT_DATATYPE          	int16_t			// (-1000, 1000)-->(-100%, 100%)
-#define RC_DRIVEBOARD_DRIVELEFTRIGHT_DATACOUNT        	2				//[LeftSpeed, RightSpeed]
-#define RC_DRIVEBOARD_DRIVELEFTRIGHT_DRIVEMAXFORWARD   	1000
-#define RC_DRIVEBOARD_DRIVELEFTRIGHT_DRIVEMAXREVERSE   	-1000
-#define RC_DRIVEBOARD_DRIVELEFTRIGHT_DRIVEZERO         	0
-#define RC_DRIVEBOARD_DRIVELEFTRIGHT_LEFTSPEEDENTRY    	0
+#define RC_DRIVEBOARD_DRIVELEFTRIGHT_DATAID             00+_TYPE_COMMAND+_DRIVEBOARD_BOARDNUMBER
+#define RC_DRIVEBOARD_DRIVELEFTRIGHT_DATATYPE           int16_t     // (-1000, 1000)-->(-100%, 100%)
+#define RC_DRIVEBOARD_DRIVELEFTRIGHT_DATACOUNT          2           //[LeftSpeed, RightSpeed]
+#define RC_DRIVEBOARD_DRIVELEFTRIGHT_DRIVEMAXFORWARD    1000
+#define RC_DRIVEBOARD_DRIVELEFTRIGHT_DRIVEMAXREVERSE    -1000
+#define RC_DRIVEBOARD_DRIVELEFTRIGHT_DRIVEZERO          0
+#define RC_DRIVEBOARD_DRIVELEFTRIGHT_LEFTSPEEDENTRY     0
 #define RC_DRIVEBOARD_DRIVELEFTRIGHT_RIGHTSPEEDENTRY    1
 
 //Drive Left Right
