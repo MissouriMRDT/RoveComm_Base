@@ -500,7 +500,7 @@
 //State Display
 #define RC_LIGHTINGBOARD_STATE_DISPLAY_DATAID            			03+_TYPE_COMMAND+_LIGHTINGBOARD_BOARDNUMBER
 #define RC_LIGHTINGBOARD_STATE_DISPLAY_DATATYPE          			uint8_t //command number
-#define RC_LIGHTINGBOARD_STATE_DISPLAY_DATACOUNT        			1   //(bitmasked)		
+#define RC_LIGHTINGBOARD_STATE_DISPLAY_DATACOUNT        			1   //(enum order: Solid Blue, Solid Red, Flashing Green)		
 
 ///////////////////////////////////////////////////
 //                ArmBoard                       //
