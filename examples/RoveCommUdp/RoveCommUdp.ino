@@ -6,7 +6,7 @@
 byte server[] = { 192, 168, 1, 135 }; // Server board ip
 int server_port = 11006;
 
-RoveCommEthernet RoveComm;
+RoveCommEthernetTCPServer RoveComm;
 rovecomm_packet packet;
 
 void setup()

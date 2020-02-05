@@ -1,45 +1,30 @@
+#include <SPI.h>
+#include <Ethernet.h>
 #include "RoveComm.h"
+//the IP address for this board:
+IPAddress ip(192, 168, 1, 135);
 
-
-//byte dest_ip[] = { 192, 168, 1, 69 };//destination board ip
-//int dest_port = 11002;
-byte server[] = { 192, 168, 1, 136 }; // Server board ip
-int server_port = 11005;
-
+// Rovecomm standard of port 11000
+EthernetServer TServer = EthernetServer(11006);
 RoveCommEthernet RoveComm;
-//RoveCommEthernetUdp       RoveCommUDP;
-rovecomm_packet packet;
-rovecomm_packet udp_packet;
-
+rovecomm_packet packet; 
 
 void setup()
 {
-   Serial.begin(9600);
-   Serial.println("Starting");
-   //RoveComm.begin(server[3], server_port);
-   RoveComm.TCPServer.begin(server[3], server_port);
-   RoveComm.UDP.begin();
-   Serial.println("Started server");
-   delay(1000);
+    // initialize the ethernet device
+    Serial.begin(9600);
+    RoveComm.begin(135, &TServer);
+    delay(1000);
+
 }
 
 void loop()
 {
-    packet = RoveComm.TCPServer.read();
-    udp_packet = RoveComm.UDP.read();
-    
-    switch(packet.data_id)
-        {
-        case ROVECOMM_NO_DATA_DATA_ID:
-            Serial.println("No New packet!");
-            break;
-        case RC_DRIVEBOARD_DRIVELEFTRIGHT_DATAID:
-            Serial.println("Received drive packet");
-            break;
-        }
-   
-   float data[3] = {1.2,2.3,3.4};
-   RoveComm.TCPServer.writeReliable((uint16_t) 10100, (uint8_t) 3, data);
-   Serial.println("Writing");
-   delay(2000);
-}
+  packet = RoveComm.read(&TServer);
+  if(packet.data_id != ROVECOMM_NO_DATA_DATA_ID)
+  {
+    Serial.println(packet.data_id);
+  }
+  RoveComm.writeReliable(&TServer, 9600, 1, (uint8_t)2);
+  delay(1000);
+} 
