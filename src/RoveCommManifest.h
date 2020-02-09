@@ -37,8 +37,8 @@
         
 #define RC_OPEN_FOURTHOCTET                    130
 #define RC_DRIVEBOARD_FOURTHOCTET              131
-#define RC_BMSBOARD_FOURTHOCTET                132
-#define RC_POWERBOARD_FOURTHOCTET              133
+#define RC_POWERBOARD_FOURTHOCTET              132
+#define RC_BMSBOARD_FOURTHOCTET                133
 #define RC_CAMERABOARD_FOURTHOCTET             134
 #define RC_N3_FOURTHOCTET                      135
 #define RC_SHIMBLEBOARD_FOURTHOCTET    	   	   136
