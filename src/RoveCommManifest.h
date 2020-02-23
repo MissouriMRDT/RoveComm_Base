@@ -413,7 +413,7 @@
 //TCP/////
 //Chemicals
 #define RC_SRAACTUATION_CHEMICALS_DATAID     	02+_TYPE_COMMAND+_SRAACTUATION_BOARDNUMBER
-#define RC_SRAACTUATION_CHEMICALS_DATATYPE   	uint8_t	
+#define RC_SRAACTUATION_CHEMICALS_DATATYPE   	int16_t	
 #define RC_SRAACTUATION_CHEMICALS_DATACOUNT  	3   //[Chemical 1, Chemical 2, Chemical 3]
 
 //Geneva to position
@@ -664,6 +664,13 @@
 #define RC_ARMBOARD_DOLS_HEADER		    RC_ARMBOARD_LASER_DATAID,RC_ARMBOARD_LASER_DATACOUNT
 #define RC_ARMBOARD_DOLS_DISABLE		0
 #define RC_ARMBOARD_DOLS_ENABLE		    1
+
+//Set Closed Loop Control
+#define RC_ARMBOARD_SET_CLOSED_LOOP_DATAID     	16+_TYPE_COMMAND+_ARMBOARD_BOARDNUMBER
+#define RC_ARMBOARD_SET_CLOSED_LOOP_DATATYPE   	uint8_t	//[0=disable, 1=enable]
+#define RC_ARMBOARD_SET_CLOSED_LOOP_DATACOUNT  	1	
+#define RC_ARMBOARD_SET_CLOSED_LOOP_DISABLE		0
+#define RC_ARMBOARD_SET_CLOSED_LOOP_ENABLE		1
 
 //Telemetry//////////////////////////////////////////////////////////////////////////////////////////////
 //Motor Currents
