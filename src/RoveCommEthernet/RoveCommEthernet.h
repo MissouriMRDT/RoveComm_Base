@@ -116,23 +116,23 @@ class RoveCommEthernet
     /////writeReliable/////////////////////////////////////////////////////////////////////////////////////////////////
 	  //Single-value writeReliable which ensures delivery
 	  //Overloaded for each data type
-    void writeReliable(EthernetServer *TServer, const uint16_t data_id, const uint8_t data_count, const uint8_t  data);
-    void writeReliable(EthernetServer *TServer, const uint16_t data_id, const uint8_t data_count, const uint16_t data);
-    void writeReliable(EthernetServer *TServer, const uint16_t data_id, const uint8_t data_count, const uint32_t data);
-    void writeReliable(EthernetServer *TServer, const uint16_t data_id, const uint8_t data_count, const int8_t   data);
-    void writeReliable(EthernetServer *TServer, const uint16_t data_id, const uint8_t data_count, const int16_t  data);
-    void writeReliable(EthernetServer *TServer, const uint16_t data_id, const uint8_t data_count, const int32_t  data);
-    void writeReliable(EthernetServer *TServer, const uint16_t data_id, const uint8_t data_count, const float    data);
+    void writeReliable(const uint16_t data_id, const uint8_t data_count, const uint8_t  data);
+    void writeReliable(const uint16_t data_id, const uint8_t data_count, const uint16_t data);
+    void writeReliable(const uint16_t data_id, const uint8_t data_count, const uint32_t data);
+    void writeReliable(const uint16_t data_id, const uint8_t data_count, const int8_t   data);
+    void writeReliable(const uint16_t data_id, const uint8_t data_count, const int16_t  data);
+    void writeReliable(const uint16_t data_id, const uint8_t data_count, const int32_t  data);
+    void writeReliable(const uint16_t data_id, const uint8_t data_count, const float    data);
 
     //Array entry writeReliable which ensures delivery
 	  //Overloaded for each data type
-    void writeReliable(EthernetServer *TServer, const uint16_t data_id, const uint8_t data_count, const uint8_t  *data);
-    void writeReliable(EthernetServer *TServer, const uint16_t data_id, const uint8_t data_count, const uint16_t *data);
-    void writeReliable(EthernetServer *TServer, const uint16_t data_id, const uint8_t data_count, const uint32_t *data);
-    void writeReliable(EthernetServer *TServer, const uint16_t data_id, const uint8_t data_count, const int8_t   *data);
-    void writeReliable(EthernetServer *TServer, const uint16_t data_id, const uint8_t data_count, const int16_t  *data);
-    void writeReliable(EthernetServer *TServer, const uint16_t data_id, const uint8_t data_count, const int32_t  *data);
-    void writeReliable(EthernetServer *TServer, const uint16_t data_id, const uint8_t data_count, const float    *data);
+    void writeReliable(const uint16_t data_id, const uint8_t data_count, const uint8_t  *data);
+    void writeReliable(const uint16_t data_id, const uint8_t data_count, const uint16_t *data);
+    void writeReliable(const uint16_t data_id, const uint8_t data_count, const uint32_t *data);
+    void writeReliable(const uint16_t data_id, const uint8_t data_count, const int8_t   *data);
+    void writeReliable(const uint16_t data_id, const uint8_t data_count, const int16_t  *data);
+    void writeReliable(const uint16_t data_id, const uint8_t data_count, const int32_t  *data);
+    void writeReliable(const uint16_t data_id, const uint8_t data_count, const float    *data);
 };
 
 #endif // RoveCommEthernet_h

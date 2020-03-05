@@ -172,44 +172,44 @@ void RoveCommEthernet::writeTo(const uint16_t data_id,    const uint8_t data_cou
 //Overloaded writeReliable////////////////////////////////////////////////////////////////////////////////////////////////////
 //Single-value write
 //handles the data->pointer conversion for user
-void RoveCommEthernet::writeReliable(        EthernetServer *TServer, const uint16_t  data_id, const uint8_t data_count, const  int32_t data)
-{           TCP.writeReliable(TServer, data_id, data_count, data); }
+void RoveCommEthernet::writeReliable(         const uint16_t  data_id, const uint8_t data_count, const  int32_t data)
+{           TCP.writeReliable(data_id, data_count, data); }
 
-void RoveCommEthernet::writeReliable(        EthernetServer *TServer, const uint16_t  data_id, const uint8_t data_count, const uint32_t data)
-{           TCP.writeReliable(TServer, data_id, data_count, data); }
+void RoveCommEthernet::writeReliable(         const uint16_t  data_id, const uint8_t data_count, const uint32_t data)
+{           TCP.writeReliable(data_id, data_count, data); }
 
-void RoveCommEthernet::writeReliable(        EthernetServer *TServer, const uint16_t  data_id, const uint8_t data_count, const  int16_t data)
-{           TCP.writeReliable(TServer, data_id, data_count, data); }
+void RoveCommEthernet::writeReliable(         const uint16_t  data_id, const uint8_t data_count, const  int16_t data)
+{           TCP.writeReliable(data_id, data_count, data); }
 
-void RoveCommEthernet::writeReliable(        EthernetServer *TServer, const uint16_t  data_id, const uint8_t data_count, const uint16_t data)
-{           TCP.writeReliable(TServer, data_id, data_count, data); }
+void RoveCommEthernet::writeReliable(         const uint16_t  data_id, const uint8_t data_count, const uint16_t data)
+{           TCP.writeReliable(data_id, data_count, data); }
 
-void RoveCommEthernet::writeReliable(        EthernetServer *TServer, const uint16_t data_id, const uint8_t data_count, const   int8_t data)
-{           TCP.writeReliable(TServer, data_id, data_count, data); }
+void RoveCommEthernet::writeReliable(         const uint16_t data_id, const uint8_t data_count, const   int8_t data)
+{           TCP.writeReliable(data_id, data_count, data); }
 
-void RoveCommEthernet::writeReliable(        EthernetServer *TServer, const uint16_t  data_id, const uint8_t data_count, const  uint8_t data)
-{           TCP.writeReliable(TServer, data_id, data_count, data); }
+void RoveCommEthernet::writeReliable(         const uint16_t  data_id, const uint8_t data_count, const  uint8_t data)
+{           TCP.writeReliable(data_id, data_count, data); }
 
-void RoveCommEthernet::writeReliable(        EthernetServer *TServer, const uint16_t  data_id, const uint8_t data_count, const  float   data)
-{           TCP.writeReliable(TServer, data_id, data_count, data); }
+void RoveCommEthernet::writeReliable(         const uint16_t  data_id, const uint8_t data_count, const  float   data)
+{           TCP.writeReliable(data_id, data_count, data); }
 //Array-Entry write///////////////////////////////////
-void RoveCommEthernet::writeReliable(        EthernetServer *TServer, const uint16_t  data_id, const uint8_t data_count, const  int32_t *data)
-{           TCP.writeReliable(TServer, data_id, data_count, data); }
+void RoveCommEthernet::writeReliable(         const uint16_t  data_id, const uint8_t data_count, const  int32_t *data)
+{           TCP.writeReliable(data_id, data_count, data); }
 
-void RoveCommEthernet::writeReliable(        EthernetServer *TServer, const uint16_t  data_id, const uint8_t data_count, const uint32_t *data)
-{           TCP.writeReliable(TServer, data_id, data_count, data); }
+void RoveCommEthernet::writeReliable(         const uint16_t  data_id, const uint8_t data_count, const uint32_t *data)
+{           TCP.writeReliable(data_id, data_count, data); }
 
-void RoveCommEthernet::writeReliable(        EthernetServer *TServer, const uint16_t  data_id, const uint8_t data_count, const  int16_t *data)
-{           TCP.writeReliable(TServer, data_id, data_count, data); }
+void RoveCommEthernet::writeReliable(         const uint16_t  data_id, const uint8_t data_count, const  int16_t *data)
+{           TCP.writeReliable(data_id, data_count, data); }
 
-void RoveCommEthernet::writeReliable(        EthernetServer *TServer, const uint16_t  data_id, const uint8_t data_count, const uint16_t *data)
-{           TCP.writeReliable(TServer, data_id, data_count, data); }
+void RoveCommEthernet::writeReliable(         const uint16_t  data_id, const uint8_t data_count, const uint16_t *data)
+{           TCP.writeReliable(data_id, data_count, data); }
 
-void RoveCommEthernet::writeReliable(        EthernetServer *TServer, const uint16_t data_id, const uint8_t data_count, const   int8_t *data)
-{           TCP.writeReliable(TServer, data_id, data_count, data); }
+void RoveCommEthernet::writeReliable(         const uint16_t data_id, const uint8_t data_count, const   int8_t *data)
+{           TCP.writeReliable(data_id, data_count, data); }
 
-void RoveCommEthernet::writeReliable(        EthernetServer *TServer, const uint16_t  data_id, const uint8_t data_count, const  uint8_t *data)
-{           TCP.writeReliable(TServer, data_id, data_count, data); }
+void RoveCommEthernet::writeReliable(         const uint16_t  data_id, const uint8_t data_count, const  uint8_t *data)
+{           TCP.writeReliable(data_id, data_count, data); }
 
-void RoveCommEthernet::writeReliable(        EthernetServer *TServer, const uint16_t  data_id, const uint8_t data_count, const  float   *data)
-{           TCP.writeReliable(TServer, data_id, data_count, data); }
+void RoveCommEthernet::writeReliable(         const uint16_t  data_id, const uint8_t data_count, const  float   *data)
+{           TCP.writeReliable(data_id, data_count, data); }
