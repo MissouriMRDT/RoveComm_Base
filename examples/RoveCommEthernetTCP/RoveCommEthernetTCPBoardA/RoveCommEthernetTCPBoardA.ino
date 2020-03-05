@@ -20,11 +20,9 @@ void setup()
 
 void loop()
 {
-  packet = RoveComm.read(&TServer);
-  if(packet.data_id != ROVECOMM_NO_DATA_DATA_ID)
-  {
-    Serial.println(packet.data_id);
-  }
-  RoveComm.writeReliable(&TServer, 9600, 1, (uint8_t)2);
+  packet = RoveComm.read();
+
+  Serial.println(packet.data_id);
+  RoveComm.writeReliable(9600, 1, (uint8_t)2);
   delay(1000);
 } 
