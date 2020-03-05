@@ -4,7 +4,7 @@
 //the IP address for this board:
 IPAddress ip(192, 168, 1, 135);
 
-// Rovecomm standard of port 11000
+//declare ethernet server with port number
 EthernetServer TServer = EthernetServer(11006);
 RoveCommEthernet RoveComm;
 rovecomm_packet packet; 
