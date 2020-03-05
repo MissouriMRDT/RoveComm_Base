@@ -124,31 +124,63 @@ namespace roveware
     //Unpack data based on data_type
     if(data_type ==  INT32_T)
     { 
-      memcpy(&rovecomm_packet.data, &_packet_bytes[5], data_count*4);
+      for(int i = 0; i < data_count*4; i+=4)
+      {
+        rovecomm_packet.data[i] = _packet_bytes[5+i+3];
+        rovecomm_packet.data[i+1] = _packet_bytes[5+i+2];
+        rovecomm_packet.data[i+2] = _packet_bytes[5+i+1];
+        rovecomm_packet.data[i+3] = _packet_bytes[5+i];
+      }        
     } 
     else if(data_type ==  UINT32_T )
     { 
-      memcpy(&rovecomm_packet.data, &_packet_bytes[5], data_count*4);
+      for(int i = 0; i < data_count*4; i+=4)
+      {
+        rovecomm_packet.data[i] = _packet_bytes[5+i+3];
+        rovecomm_packet.data[i+1] = _packet_bytes[5+i+2];
+        rovecomm_packet.data[i+2] = _packet_bytes[5+i+1];
+        rovecomm_packet.data[i+3] = _packet_bytes[5+i];
+      }        
     } 
 	  else if(data_type ==  INT16_T)
     { 
-      memcpy(&rovecomm_packet.data, &_packet_bytes[5], data_count*2);
-    } 
+      for(int i = 0; i < data_count*2; i+=2)
+      {
+        rovecomm_packet.data[i] = _packet_bytes[5+i+1];
+        rovecomm_packet.data[i+1] = _packet_bytes[5+i];
+      }
+    }
     else if(data_type == UINT16_T)
     { 
-      memcpy(&rovecomm_packet.data, &_packet_bytes[5], data_count*2);
+      for(int i = 0; i < data_count*2; i+=2)
+      {
+        rovecomm_packet.data[i] = _packet_bytes[5+i+1];
+        rovecomm_packet.data[i+1] = _packet_bytes[5+i];
+      }
     } 
 	  else if(data_type ==  INT8_T )
     {
-      memcpy(&rovecomm_packet.data, &_packet_bytes[5], data_count*1);
+      for(int i = 0; i < data_count; i++)
+      {
+        rovecomm_packet.data[i] = _packet_bytes[5+i];
+      }
     } 
     else if(data_type ==  UINT8_T )
     {
-      memcpy(&rovecomm_packet.data, &_packet_bytes[5], data_count*1);
+      for(int i = 0; i < data_count; i++)
+      {
+        rovecomm_packet.data[i] = _packet_bytes[5+i];
+      }    
     } 
     else if(data_type ==  FLOAT )
     {
-      memcpy(&rovecomm_packet.data, &_packet_bytes[5], data_count*4);
+      for(int i = 0; i < data_count*4; i+=4)
+      {
+        rovecomm_packet.data[i] = _packet_bytes[5+i+3];
+        rovecomm_packet.data[i+1] = _packet_bytes[5+i+2];
+        rovecomm_packet.data[i+2] = _packet_bytes[5+i+1];
+        rovecomm_packet.data[i+3] = _packet_bytes[5+i];
+      }    
     } 
     else
     { 
