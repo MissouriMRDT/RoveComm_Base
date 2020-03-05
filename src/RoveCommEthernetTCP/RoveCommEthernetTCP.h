@@ -13,12 +13,14 @@
 class RoveCommEthernetTCP
 {
   public:
+    EthernetServer *TCPServer;
+
     /////begin////////////////////////////////////////////////////////////////////////
     void begin(EthernetServer *TServer, IPAddress IP);
     void begin(EthernetServer *TServer);
 
     /////read////////////////////////////////////////////////////////////////////////
-    struct rovecomm_packet read(EthernetServer *TServer);
+    struct rovecomm_packet read();
 
     /////writeReliable////////////////////////////////////////////////////////////////////////
     //Single-value writeReliable which ensures delivery

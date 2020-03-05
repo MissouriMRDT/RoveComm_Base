@@ -17,24 +17,29 @@ void RoveCommEthernetTCP::begin(EthernetServer *TServer, IPAddress IP)
     Ethernet.begin(   0, IP);
 
     //Set up server, and start listening for clients
-    TServer->begin();
+    TCPServer = TServer;
+    TCPServer->begin();
 }
 
 void RoveCommEthernetTCP::begin(EthernetServer *TServer)
 {
     //Set up server, and start listening for clients
-    TServer->begin();
+    TCPServer = TServer;
+    TCPServer->begin();
 }
 
-struct rovecomm_packet RoveCommEthernetTCP::read(EthernetServer *TServer) 
+struct rovecomm_packet RoveCommEthernetTCP::read() 
 { 
   //Create new RoveCommPacket
+        Serial.println("Read something");
+
   rovecomm_packet packet = { 0 };
   //check if there is a message from client
-  EthernetClient client = TServer->available();
+  EthernetClient client = TCPServer->available();
   //if there is a message from the client and there is something to read
   if(client && client.peek() != -1)
     {
+      Serial.println("Read something");
       packet = roveware::unpackPacket(client); 
     }
   //if there is no message, just return that there is no data to read

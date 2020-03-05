@@ -24,17 +24,17 @@ void RoveCommEthernet::begin(const uint8_t  ip_octet_1, const uint8_t ip_octet_2
 }
 
 /////////////////////////////////////////////////////////////////////////////////
-struct rovecomm_packet RoveCommEthernet::read(EthernetServer *TServer) 
+struct rovecomm_packet RoveCommEthernet::read() 
 { 
   //check for any incoming UDP packets
   rovecomm_packet = UDP.read();
-  if(rovecomm_packet.data_id != 0)
+  if(rovecomm_packet.data_id != ROVECOMM_NO_DATA_DATA_ID)
   {
     return rovecomm_packet;
   }
   //check for any incoming TCP packets
-  rovecomm_packet = TCP.read(TServer);
-  if(rovecomm_packet.data_id != 0)
+  rovecomm_packet = TCP.read();
+  if(rovecomm_packet.data_id != ROVECOMM_NO_DATA_DATA_ID)
   {
     return rovecomm_packet;
   }
