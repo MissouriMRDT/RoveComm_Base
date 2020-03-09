@@ -367,7 +367,6 @@
 #define RC_SHIMBLEBOARD_RIGHT_MAIN_SERVOINC_DATATYPE       int16_t	//Degrees
 #define RC_SHIMBLEBOARD_RIGHT_MAIN_SERVOINC_DATACOUNT	   2		//[Pan, Tilt]
 
-//TCP/////
 //Left Drive Gimbal Absolute
 #define RC_SHIMBLEBOARD_LEFT_DRIVE_SERVOABS_DATAID         04+_TYPE_COMMAND+_SHIMBLEBOARD_BOARDNUMBER
 #define RC_SHIMBLEBOARD_LEFT_DRIVE_SERVOABS_DATATYPE       int16_t	//Degrees
@@ -387,6 +386,11 @@
 #define RC_SHIMBLEBOARD_RIGHT_MAIN_SERVOABS_DATAID         07+_TYPE_COMMAND+_SHIMBLEBOARD_BOARDNUMBER
 #define RC_SHIMBLEBOARD_RIGHT_MAIN_SERVOABS_DATATYPE       int16_t	//Degrees
 #define RC_SHIMBLEBOARD_RIGHT_MAIN_SERVOABS_DATACOUNT	   2		//[Pan, Tilt]
+
+//Initiate Startup Routine
+#define RC_SHIMBLEBOARD_STARTUP_ROUTINE_DATAID         08+_TYPE_COMMAND+_SHIMBLEBOARD_BOARDNUMBER
+#define RC_SHIMBLEBOARD_STARTUP_ROUTINE_DATATYPE       uint8_t	
+#define RC_SHIMBLEBOARD_STARTUP_ROUTINE_DATACOUNT	   1        //1 - for running startup routine again
 
 //Telemetry//////////////////////////////////////////////////////////////////////////////////////////////
 //UDP/////
@@ -476,6 +480,20 @@
 #define RC_SRASENSORSBOARD_CAPTURE_MPCC_DATA_DATAID     	03+_TYPE_COMMAND+_SRASENSORS_BOARDNUMBER
 #define RC_SRASENSORSBOARD_CAPTURE_MPCC_DATA_DATATYPE   	uint16_t	
 #define RC_SRASENSORSBOARD_CAPTURE_MPCC_DATA_DATACOUNT  	1   //number of readings
+
+//Telemetry//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Capture CO2 Concentration Data
+#define RC_SRASENSORSBOARD_CO2_CONCENTRATION_DATA_DATAID     04+_TYPE_TELEMETRY+_SRASENSORS_BOARDNUMBER
+#define RC_SRASENSORSBOARD_CO2_CONCENTRATION_DATA_DATATYPE   float	 //(ppm)
+#define RC_SRASENSORSBOARD_CO2_CONCENTRATION_DATA_DATACOUNT  1   
+
+#define RC_SRASENSORSBOARD_O2_CONCENTRATION_DATA_DATAID     05+_TYPE_TELEMETRY+_SRASENSORS_BOARDNUMBER
+#define RC_SRASENSORSBOARD_O2_CONCENTRATION_DATA_DATATYPE   float	 //(ppm)
+#define RC_SRASENSORSBOARD_O2_CONCENTRATION_DATA_DATACOUNT  1
+
+#define RC_SRASENSORSBOARD_AIR_TEMPERATURE_DATA_DATAID     	06+_TYPE_TELEMETRY+_SRASENSORS_BOARDNUMBER
+#define RC_SRASENSORSBOARD_AIR_TEMPERATURE_DATA_DATATYPE   	float	 //(C)
+#define RC_SRASENSORSBOARD_AIR_TEMPERATURE_DATA_DATACOUNT  	1
 
 ///////////////////////////////////////////////////
 //                LightingBoard                  //
