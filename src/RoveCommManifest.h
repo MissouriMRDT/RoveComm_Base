@@ -482,18 +482,14 @@
 #define RC_SRASENSORSBOARD_CAPTURE_MPCC_DATA_DATACOUNT  	1   //number of readings
 
 //Telemetry//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Capture CO2 Concentration Data
-#define RC_SRASENSORSBOARD_CO2_CONCENTRATION_DATA_DATAID     04+_TYPE_TELEMETRY+_SRASENSORS_BOARDNUMBER
-#define RC_SRASENSORSBOARD_CO2_CONCENTRATION_DATA_DATATYPE   float	 //(ppm)
-#define RC_SRASENSORSBOARD_CO2_CONCENTRATION_DATA_DATACOUNT  1   
+//Capture CO2 Data
+#define RC_SRASENSORSBOARD_CO2_DATA_DATAID     04+_TYPE_TELEMETRY+_SRASENSORS_BOARDNUMBER
+#define RC_SRASENSORSBOARD_CO2_DATA_DATATYPE   float	 
+#define RC_SRASENSORSBOARD_CO2_DATA_DATACOUNT  1         //(ppm)
 
-#define RC_SRASENSORSBOARD_O2_CONCENTRATION_DATA_DATAID     05+_TYPE_TELEMETRY+_SRASENSORS_BOARDNUMBER
-#define RC_SRASENSORSBOARD_O2_CONCENTRATION_DATA_DATATYPE   float	 //(ppm)
-#define RC_SRASENSORSBOARD_O2_CONCENTRATION_DATA_DATACOUNT  1
-
-#define RC_SRASENSORSBOARD_AIR_TEMPERATURE_DATA_DATAID     	06+_TYPE_TELEMETRY+_SRASENSORS_BOARDNUMBER
-#define RC_SRASENSORSBOARD_AIR_TEMPERATURE_DATA_DATATYPE   	float	 //(C)
-#define RC_SRASENSORSBOARD_AIR_TEMPERATURE_DATA_DATACOUNT  	1
+#define RC_SRASENSORSBOARD_O2_DATA_DATAID     05+_TYPE_TELEMETRY+_SRASENSORS_BOARDNUMBER
+#define RC_SRASENSORSBOARD_O2_DATA_DATATYPE   float	 
+#define RC_SRASENSORSBOARD_O2_DATA_DATACOUNT  4         //[partial pressure (mBar), temperature (C), concentration (ppm), barometric pressure (mBar)]
 
 ///////////////////////////////////////////////////
 //                LightingBoard                  //
