@@ -222,65 +222,68 @@ namespace roveware
                        | header[2];
     uint8_t data_count = header[3];
     data_type_t data_type  =  (data_type_t)header[4];
-
     char bytes[ROVECOMM_PACKET_MAX_DATA_COUNT*4];
 
     //Unpack data based on data_type
     if(data_type ==  INT32_T)
     { 
-      for(int i=0; i < data_count*4; i++ )
+      for(int i=0; i < data_count*4; i+=4 )
         { 
-          bytes[i] = client.read();
+          rovecomm_packet.data[i+3] = client.read();
+          rovecomm_packet.data[i+2] = client.read();
+          rovecomm_packet.data[i+1] = client.read();
+          rovecomm_packet.data[i] = client.read();        
         }
-      memcpy(&rovecomm_packet.data, &bytes, data_count*4);
     }  
     else if(data_type ==  UINT32_T )
     { 
-      for(int i=0; i < data_count*4; i++ )
+      for(int i=0; i < data_count*4; i+=4)
         { 
-          bytes[i] = client.read();
+          rovecomm_packet.data[i+3] = client.read();
+          rovecomm_packet.data[i+2] = client.read();
+          rovecomm_packet.data[i+1] = client.read();
+          rovecomm_packet.data[i] = client.read();   
         }
-      memcpy(&rovecomm_packet.data, &bytes, data_count*4);
     } 
     else if(data_type ==  INT16_T)
     { 
-     for(int i=0; i < data_count*2; i++ )
+     for(int i=0; i < data_count*2; i+=2 )
         { 
-          bytes[i] = client.read();
+          rovecomm_packet.data[i+1] = client.read();
+          rovecomm_packet.data[i] = client.read();   
         }
-      memcpy(&rovecomm_packet.data, &bytes, data_count*2);
     } 
     else if(data_type == UINT16_T)
     { 
-      for(int i=0; i < data_count*2; i++ )
+      for(int i=0; i < data_count*2; i+=2 )
         { 
-          bytes[i] = client.read();
+          rovecomm_packet.data[i+1] = client.read();
+          rovecomm_packet.data[i] = client.read(); 
         }
-      memcpy(&rovecomm_packet.data, &bytes, data_count*2);
     } 
     else if(data_type ==  INT8_T )
     {
       for(int i=0; i < data_count; i++ )
         { 
-          bytes[i] = client.read();
+          rovecomm_packet.data[i] = client.read(); 
         }
-      memcpy(&rovecomm_packet.data, &bytes, data_count);
     } 
     else if(data_type ==  UINT8_T )
     {
       for(int i=0; i < data_count; i++ )
         { 
-          bytes[i] = client.read();
+          rovecomm_packet.data[i] = client.read(); 
         }
-      memcpy(&rovecomm_packet.data, &bytes, data_count);
     } 
     else if(data_type == FLOAT )
     {
       for(int i=0; i < data_count*4; i++ )
         { 
-          bytes[i] = client.read();
+          rovecomm_packet.data[i+3] = client.read();
+          rovecomm_packet.data[i+2] = client.read();
+          rovecomm_packet.data[i+1] = client.read();
+          rovecomm_packet.data[i] = client.read();           
         }
-      memcpy(&rovecomm_packet.data, &bytes, data_count*4);
     } 
     else
       { 
