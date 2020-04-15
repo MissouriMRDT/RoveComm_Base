@@ -2,22 +2,25 @@
 
 #include "RoveComm.h"
 
-
-//byte dest_ip[] = { 192, 168, 1, 69 };//destination board ip
-//int dest_port = 11002;
-byte server[] = { 192, 168, 1, 135 }; // Server board ip
-int server_port = 11006;
-
-RoveCommEthernetTCPServer RoveComm;
+RoveCommEthernet RoveComm;
 rovecomm_packet packet;
+
+//the IP address for this board:
+IPAddress ip(192, 168, 1, RC_DRIVEBOARD_FOURTHOCTET);
+
+//declare ethernet server with port number
+EthernetServer TServer = EthernetServer(RC_ROVECOMM_ETHERNET_DRIVE_LIGHTING_BOARD_PORT);
 
 int16_t motor_speed[6] = {-500, 200, 740, -720, 10, -182};
 
 void setup() 
 {
   Serial.begin(9600);
-  RoveComm.begin(RC_DRIVEBOARD_FOURTHOCTET, RC_ROVECOMM_ETHERNET_DRIVE_LIGHTING_BOARD_PORT);
+
+  //Set up rovecomm with the correct IP and the TCP server
+  RoveComm.begin(ip, &TServer);
   delay(100);
+
   Serial.println("Started: ");
 }
 
@@ -25,7 +28,10 @@ void loop()
 {
   delay(100);
   packet = RoveComm.read();
+
+  Serial.println("Data id: ");
   Serial.println(packet.data_id);
+
   switch(packet.data_id)
   {
     case RC_DRIVEBOARD_DRIVEINDIVIDUAL_DATAID:
@@ -35,8 +41,6 @@ void loop()
       //cast the packet to the correct data type
       int16_t* speeds = (int16_t*)packet.data;
       Serial.println("We received a left/right drive command:");
-      //Serial.println(printf("Left: %d", speeds[0]));
-      //Serial.println(printf("Right: %d", speeds[1]));
 
       //set the motor speeds to the commanded speeds in RoveComm
       motor_speed[0] = speeds[0];
@@ -54,13 +58,6 @@ void loop()
 
   //Code to drive motors goes here
 
-
   //Send mock telemetry for drive speeds
   RoveComm.write(RC_DRIVEBOARD_DRIVE_SPEED_DATAID, RC_DRIVEBOARD_DRIVE_SPEED_DATACOUNT, motor_speed);
-}
-
-   int16_t data[5] = {0, 0, 0, 0, 0};
-   RoveComm.writeReliable(10100, 5, data);
-   Serial.println("Writing");
-   
 }

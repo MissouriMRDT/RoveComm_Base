@@ -6,6 +6,7 @@ IPAddress ip(192, 168, 1, 135);
 
 //declare ethernet server with port number
 EthernetServer TServer = EthernetServer(11006);
+
 //rovecomm and packet instances
 RoveCommEthernet RoveComm;
 rovecomm_packet packet; 
@@ -27,6 +28,7 @@ void loop()
   {
       //cast the data to the expected data type
       uint16_t* data = (uint16_t*)packet.data;
+      
       //now print out all of the data
       for(int i = 0; i < packet.data_count; i++)
       {
