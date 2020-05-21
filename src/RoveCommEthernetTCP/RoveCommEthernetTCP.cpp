@@ -35,20 +35,29 @@ struct rovecomm_packet RoveCommEthernetTCP::read()
 
   //check if there is a message from client
   EthernetClient client = TCPServer->available();
+  int orig_client_port = client.port();
+  int count = 0;
 
-  //if there is a message from the client and there is something to read
-  if(client && client.peek() != -1)
-    {
-      packet = roveware::unpackPacket(client); 
-    }
-  //if there is no message, just return that there is no data to read
-  else
-    {
-    packet.data_id = ROVECOMM_NO_DATA_DATA_ID;
-    packet.data_count = 0;
-    }
+  do
+  {
+    //if there is a message from the client and there is something to read
+    count++;
+    if(client && client.peek() != -1)
+      {
+      //return packet if there is incoming data from this client
+      packet = roveware::unpackPacket(client);
+      return packet; 
+      }
+    else
+      {
+      client = TCPServer->available();
+      }
+      
+  } while (client.port() != orig_client_port && count <= MAX_CLIENTS);
   
-  //return the packet
+  //return an empty packet
+  packet.data_id = ROVECOMM_NO_DATA_DATA_ID;
+  packet.data_count = 0;
   return packet;
 }
 
