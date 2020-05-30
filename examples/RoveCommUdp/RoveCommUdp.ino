@@ -8,9 +8,6 @@ rovecomm_packet packet;
 //the IP address for this board:
 IPAddress ip(192, 168, 1, RC_DRIVEBOARD_FOURTHOCTET);
 
-//declare ethernet server with port number
-EthernetServer TServer = EthernetServer(RC_ROVECOMM_ETHERNET_DRIVE_LIGHTING_BOARD_PORT);
-
 int16_t motor_speed[6] = {-500, 200, 740, -720, 10, -182};
 
 void setup() 
@@ -18,7 +15,7 @@ void setup()
   Serial.begin(9600);
 
   //Set up rovecomm with the correct IP and the TCP server
-  RoveComm.begin(ip, &TServer);
+  RoveComm.begin(ip, RC_ROVECOMM_ETHERNET_DRIVE_LIGHTING_BOARD_PORT);
   delay(100);
 
   Serial.println("Started: ");

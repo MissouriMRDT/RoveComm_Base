@@ -4,8 +4,6 @@
 //the IP address for this board:
 IPAddress ip(192, 168, 1, 135);
 
-//declare ethernet server with port number
-EthernetServer TServer = EthernetServer(11006);
 
 //rovecomm and packet instances
 RoveCommEthernet RoveComm;
@@ -15,7 +13,7 @@ void setup()
 {
     // initialize the ethernet device
     Serial.begin(9600);
-    RoveComm.begin(135, &TServer);
+    RoveComm.begin(135, 11006);
     delay(1000);
 
 }
