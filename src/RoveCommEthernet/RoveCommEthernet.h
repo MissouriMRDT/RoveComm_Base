@@ -20,7 +20,7 @@ class RoveCommEthernet
   public:
     RoveCommEthernetTCP   TCP;
     RoveCommEthernetUdp   UDP;
-    EthernetServer        tcpServer = EthernetServer(1);
+    EthernetServer        TCPServer = EthernetServer(1);
 
     struct rovecomm_packet rovecomm_packet;
 

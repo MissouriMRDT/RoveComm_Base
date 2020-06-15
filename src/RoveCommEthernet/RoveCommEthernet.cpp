@@ -12,8 +12,8 @@ void RoveCommEthernet::begin(const uint8_t ip_octet_4, const uint16_t port)
   //start UDP client and assigning board IP
   UDP.begin(192, 168, 1, ip_octet_4);
   //initializing the TCP server with the correct port
-  tcpServer = EthernetServer(port);
-  TCP.begin(&tcpServer);
+  TCPServer = EthernetServer(port);
+  TCP.begin(&TCPServer);
 }
 
 void RoveCommEthernet::begin(const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port)
@@ -21,21 +21,22 @@ void RoveCommEthernet::begin(const uint8_t  ip_octet_1, const uint8_t ip_octet_2
   //start UDP client and assigning board IP
   UDP.begin(ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4);
   //initializing the TCP server with the correct port
-  tcpServer = EthernetServer(port);
-  TCP.begin(&tcpServer);
+  TCPServer = EthernetServer(port);
+  TCP.begin(&TCPServer);
 }
 
 /////////////////////////////////////////////////////////////////////////////////
 struct rovecomm_packet RoveCommEthernet::read() 
 { 
-  //check for any incoming UDP packets
-  rovecomm_packet = UDP.read();
+  //checks for TCP packets first, as they should be infrequent and require acks
+  rovecomm_packet = TCP.read();
   if(rovecomm_packet.data_id != ROVECOMM_NO_DATA_DATA_ID)
   {
     return rovecomm_packet;
   }
-  //check for any incoming TCP packets
-  rovecomm_packet = TCP.read();
+
+  //check for UDP packets if no TCP were read
+  rovecomm_packet = UDP.read();
   if(rovecomm_packet.data_id != ROVECOMM_NO_DATA_DATA_ID)
   {
     return rovecomm_packet;
