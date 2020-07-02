@@ -1,21 +1,25 @@
 #include <SPI.h>
 #include <Ethernet.h>
 #include "RoveComm.h"
-//the IP address for this board:
-IPAddress ip(192, 168, 1, 135);
-
-
 //rovecomm and packet instances
 RoveCommEthernet RoveComm;
 rovecomm_packet packet; 
 
+//timekeeping variables
+uint32_t last_update_time;
+
+
 void setup()
 {
-    // initialize the ethernet device
+    //start up serial communication
     Serial.begin(9600);
-    RoveComm.begin(135, 11006);
-    delay(1000);
 
+    //initialize the ethernet device and rovecomm instance
+    RoveComm.begin(RC_DRIVEBOARD_FOURTHOCTET, RC_ROVECOMM_ETHERNET_DRIVE_LIGHTING_BOARD_PORT);
+    delay(100);
+
+    //update timekeeping
+    last_update_time = millis();
 }
 
 void loop()
@@ -33,7 +37,14 @@ void loop()
         Serial.println(data[i]);
       }
   }
-  //write some sample data back
-  RoveComm.writeReliable(9600, 1, (uint8_t)2);
-  delay(1000);
+
+  //Write some sample data back every 100 milliseconds, it is important that any
+  //telemetry is NOT rate limited (using delays) as this will prevent
+  //packets from arriving in a timely manner 
+ 
+  if(millis()-last_update_time >= ROVECOMM_UPDATE_RATE)
+  {
+      RoveComm.writeReliable(9600, 1, (uint8_t)2);
+      last_update_time = millis();
+  }
 } 

@@ -85,6 +85,8 @@
 #define _TYPE_TELEMETRY   1*100
 #define _TYPE_ERROR       2*100
 
+//Telemetry Update Rate
+#define ROVECOMM_UPDATE_RATE    100
 
 ///////////////////////////////////////////////////
 //             RoveComm System Id's              //

@@ -5,25 +5,27 @@
 RoveCommEthernet RoveComm;
 rovecomm_packet packet;
 
-//the IP address for this board:
-IPAddress ip(192, 168, 1, RC_DRIVEBOARD_FOURTHOCTET);
-
 int16_t motor_speed[6] = {-500, 200, 740, -720, 10, -182};
+
+//timekeeping variables
+uint32_t last_update_time;
 
 void setup() 
 {
   Serial.begin(9600);
 
   //Set up rovecomm with the correct IP and the TCP server
-  RoveComm.begin(ip, RC_ROVECOMM_ETHERNET_DRIVE_LIGHTING_BOARD_PORT);
+  RoveComm.begin(RC_DRIVEBOARD_FOURTHOCTET, RC_ROVECOMM_ETHERNET_DRIVE_LIGHTING_BOARD_PORT);
   delay(100);
 
   Serial.println("Started: ");
+  
+  //update timekeeping
+  last_update_time = millis();
 }
 
 void loop() 
 {
-  delay(100);
   packet = RoveComm.read();
 
   Serial.println("Data id: ");
@@ -55,6 +57,12 @@ void loop()
 
   //Code to drive motors goes here
 
-  //Send mock telemetry for drive speeds
-  RoveComm.write(RC_DRIVEBOARD_DRIVE_SPEED_DATAID, RC_DRIVEBOARD_DRIVE_SPEED_DATACOUNT, motor_speed);
+  //Write some mock drive speeds back every 100 milliseconds, it is important that any
+  //telemetry is NOT rate limited (using delays) as this will prevent
+  //packets from arriving in a timely manner 
+  if(millis()-last_update_time >= ROVECOMM_UPDATE_RATE)
+  {
+      RoveComm.write(RC_DRIVEBOARD_DRIVE_SPEED_DATAID, RC_DRIVEBOARD_DRIVE_SPEED_DATACOUNT, motor_speed);
+      last_update_time = millis();
+  }
 }
