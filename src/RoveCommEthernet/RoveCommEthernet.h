@@ -20,7 +20,6 @@ class RoveCommEthernet
   public:
     RoveCommEthernetTCP   TCP;
     RoveCommEthernetUdp   UDP;
-    EthernetServer        TCPServer = EthernetServer(1);
 
     struct rovecomm_packet rovecomm_packet;
 
@@ -33,8 +32,8 @@ class RoveCommEthernet
 	  //Default ip address = 192.168.1.XXX
     //This TCP server will be configured with an IP and port from the RoveComm manifest and allow other boards and base-station
     //to securely communicate with it
-    void begin(const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port);
-    void begin(const uint8_t ip_octet_4, const uint16_t port);
+    void begin(const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, EthernetServer* TCPServer);
+    void begin(const uint8_t ip_octet_4, EthernetServer* TCPServer);
 
     /////write////////////////////////////////////////////////////////////////////////
 	  //Single-value write

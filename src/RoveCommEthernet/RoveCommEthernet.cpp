@@ -7,22 +7,20 @@
 #include          <Ethernet.h>
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void RoveCommEthernet::begin(const uint8_t ip_octet_4, const uint16_t port)
+void RoveCommEthernet::begin(const uint8_t ip_octet_4, EthernetServer* TCPServer)
 { 
   //start UDP client and assigning board IP
   UDP.begin(192, 168, 1, ip_octet_4);
   //initializing the TCP server with the correct port
-  TCPServer = EthernetServer(port);
-  TCP.begin(&TCPServer);
+  TCP.begin(TCPServer);
 }
 
-void RoveCommEthernet::begin(const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port)
+void RoveCommEthernet::begin(const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, EthernetServer* TCPServer)
 { 
   //start UDP client and assigning board IP
   UDP.begin(ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4);
   //initializing the TCP server with the correct port
-  TCPServer = EthernetServer(port);
-  TCP.begin(&TCPServer);
+  TCP.begin(TCPServer);
 }
 
 /////////////////////////////////////////////////////////////////////////////////
