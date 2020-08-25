@@ -8,6 +8,8 @@ rovecomm_packet packet;
 //timekeeping variables
 uint32_t last_update_time;
 
+//declare the Ethernet Server in the top level sketch with the requisite data ID any time you want to use RoveComm
+EthernetServer TCPServer(RC_ROVECOMM_ETHERNET_DRIVE_LIGHTING_BOARD_PORT);
 
 void setup()
 {
@@ -15,7 +17,7 @@ void setup()
     Serial.begin(9600);
 
     //initialize the ethernet device and rovecomm instance
-    RoveComm.begin(RC_DRIVEBOARD_FOURTHOCTET, RC_ROVECOMM_ETHERNET_DRIVE_LIGHTING_BOARD_PORT);
+    RoveComm.begin(RC_DRIVEBOARD_FOURTHOCTET, &TCPServer);
     delay(100);
 
     //update timekeeping
@@ -44,7 +46,10 @@ void loop()
  
   if(millis()-last_update_time >= ROVECOMM_UPDATE_RATE)
   {
+      RoveComm.writeReliable(9600, 1, (uint8_t)1);
       RoveComm.writeReliable(9600, 1, (uint8_t)2);
+      RoveComm.writeReliable(9600, 1, (uint8_t)3);
+
       last_update_time = millis();
   }
 } 
