@@ -37,7 +37,7 @@ struct rovecomm_packet RoveCommEthernetTCP::read()
   //however there is no guarantee that the client returned has data to be read, therefore we do a full
   //circuit of the array and stop at the client that has data to be returned.
 
-  for(i = 0; i < MAX_CLIENTS; i++) 
+  for(uint8_t i = 0; i < MAX_CLIENTS; i++) 
   {
     EthernetClient client = TCPServer->available();
 
