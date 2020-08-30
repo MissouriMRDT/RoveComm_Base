@@ -10,7 +10,7 @@ int16_t motor_speed[6] = {-500, 200, 740, -720, 10, -182};
 //timekeeping variables
 uint32_t last_update_time;
 
-//declare the Ethernet Server in the top level sketch with the requisite data ID any time you want to use RoveComm
+//declare the Ethernet Server in the top level sketch with the requisite port ID any time you want to use RoveComm
 EthernetServer TCPServer(RC_ROVECOMM_ETHERNET_DRIVE_LIGHTING_BOARD_PORT);
 
 void setup() 
@@ -46,7 +46,7 @@ void loop()
       
       //print out speeds nicely formatted
       Serial.println("We received a left/right drive command:");
-      
+
       char buf[100];
       sprintf(buf, "Left: %d, Right: %d", speeds[0], speeds[1]);
       Serial.println(buf);
