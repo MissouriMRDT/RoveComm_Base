@@ -28,19 +28,23 @@ void RoveCommEthernetUdp::begin(const uint8_t ip_octet_1, const uint8_t ip_octet
   delay(1);
 }
 
+void RoveCommEthernetUdp::begin() 
+{
+  //Set up Ethernet UDP
+  EthernetUdp.begin(RC_ROVECOMM_ETHERNET_UDP_PORT); 
+}
+
 /////////////////////////////////////////////////////////////////////////////////
 struct rovecomm_packet RoveCommEthernetUdp::read() 
 { 
   //Create new RoveCommPacket
   struct rovecomm_packet rovecomm_packet = { 0 };
 
-  //Todo: Why don't we pass these directly into the rovecomm_packet we just made?
-  uint16_t data_id    =  0;
-  roveware::data_type_t data_type;
-  uint8_t data_count =  0;
+  //default to empty packet  
+  rovecomm_packet.data_id    =  ROVECOMM_NO_DATA_DATA_ID;
+  rovecomm_packet.data_count =  0;
    
   int packet_size = EthernetUdp.parsePacket();
-  //Serial.println(packet_size);
   if (packet_size > 0)
   {       
 	//Create arreay to take packet
