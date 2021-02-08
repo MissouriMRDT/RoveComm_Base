@@ -127,5 +127,5 @@ if __name__ == "__main__":
         # Write a couple of newlines to seperate boards
         this.header_file.write("\n\n")
 
-    this.header_file.write("# endif // RoveCommManifest_h")
+    this.header_file.write("#endif // RoveCommManifest_h")
     this.header_file.close()
