@@ -11,7 +11,7 @@ int16_t motor_speed[6] = {-500, 200, 740, -720, 10, -182};
 uint32_t last_update_time;
 
 //declare the Ethernet Server in the top level sketch with the requisite port ID any time you want to use RoveComm
-EthernetServer TCPServer(RC_ROVECOMM_ETHERNET_DRIVE_LIGHTING_BOARD_PORT);
+EthernetServer TCPServer(RC_ROVECOMM_DRIVEBOARD_PORT);
 
 void setup() 
 {
@@ -36,10 +36,10 @@ void loop()
 
   switch(packet.data_id)
   {
-    case RC_DRIVEBOARD_DRIVEINDIVIDUAL_DATAID:
+    case RC_DRIVEBOARD_DRIVEINDIVIDUAL_DATA_ID:
       Serial.println("We received an individual wheel drive command");
       break;
-    case RC_DRIVEBOARD_DRIVELEFTRIGHT_DATAID:
+    case RC_DRIVEBOARD_DRIVELEFTRIGHT_DATA_ID:
       //cast the packet to the correct data type
       int16_t* speeds;
       speeds = (int16_t*)packet.data;
@@ -72,7 +72,7 @@ void loop()
   //packets from arriving in a timely manner 
   if(millis()-last_update_time >= ROVECOMM_UPDATE_RATE)
   {
-      RoveComm.write(RC_DRIVEBOARD_DRIVE_SPEED_DATAID, RC_DRIVEBOARD_DRIVE_SPEED_DATACOUNT, motor_speed);
+      RoveComm.write(RC_DRIVEBOARD_DRIVESPEEDS_DATA_ID, RC_DRIVEBOARD_DRIVESPEEDS_DATA_COUNT, motor_speed);
       last_update_time = millis();
   }
 }
