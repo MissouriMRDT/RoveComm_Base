@@ -41,7 +41,7 @@ struct rovecomm_packet RoveCommEthernetUdp::read()
   struct rovecomm_packet rovecomm_packet = { 0 };
 
   //default to empty packet  
-  rovecomm_packet.data_id    =  ROVECOMM_NO_DATA_DATA_ID;
+  rovecomm_packet.data_id    =  RC_ROVECOMM_NO_DATA_DATA_ID;
   rovecomm_packet.data_count =  0;
    
   int packet_size = EthernetUdp.parsePacket();
@@ -59,7 +59,7 @@ struct rovecomm_packet RoveCommEthernetUdp::read()
     
 	//Parse special data_ids/////////////////////////////////////////////////////////
 	//Subscribe Request
-    if (rovecomm_packet.data_id == RC_ROVECOMM_SUBSCRIBE_REQUEST_DATA_ID)
+    if (rovecomm_packet.data_id == RC_ROVECOMM_SUBSCRIBE_DATA_ID)
     {
       for (int i=0; i < ROVECOMM_ETHERNET_UDP_MAX_SUBSCRIBERS; i++) 
       {
@@ -77,7 +77,7 @@ struct rovecomm_packet RoveCommEthernetUdp::read()
       }
     } 
 	//Unsubscribe Request
-	else if (rovecomm_packet.data_id == RC_ROVECOMM_UNSUBSCRIBE_REQUEST_DATA_ID)
+	else if (rovecomm_packet.data_id == RC_ROVECOMM_UNSUBSCRIBE_DATA_ID)
     {
       for (int i=0; i < ROVECOMM_ETHERNET_UDP_MAX_SUBSCRIBERS; i++)
       {

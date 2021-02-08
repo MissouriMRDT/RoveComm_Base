@@ -28,20 +28,20 @@ struct rovecomm_packet RoveCommEthernet::read()
 { 
   //checks for TCP packets first, as they should be infrequent and require acks
   rovecomm_packet = TCP.read();
-  if(rovecomm_packet.data_id != ROVECOMM_NO_DATA_DATA_ID)
+  if(rovecomm_packet.data_id != RC_ROVECOMM_NO_DATA_DATA_ID)
   {
     return rovecomm_packet;
   }
 
   //check for UDP packets if no TCP were read
   rovecomm_packet = UDP.read();
-  if(rovecomm_packet.data_id != ROVECOMM_NO_DATA_DATA_ID)
+  if(rovecomm_packet.data_id != RC_ROVECOMM_NO_DATA_DATA_ID)
   {
     return rovecomm_packet;
   }
 
   //otherwise just return no data
-  rovecomm_packet.data_id = ROVECOMM_NO_DATA_DATA_ID;
+  rovecomm_packet.data_id = RC_ROVECOMM_NO_DATA_DATA_ID;
   rovecomm_packet.data_count = 0;
   return rovecomm_packet;
 }

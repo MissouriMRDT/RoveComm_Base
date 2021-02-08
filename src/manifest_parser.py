@@ -52,13 +52,13 @@ def insert_messages(board, type):
 
         this.header_file.write(f"//{comments}\n")
         this.header_file.write(
-            f"{define_prefix + ' RC_'+board.upper()+'_'+message.upper()+'_DATA_ID':<70}{dataId:<10}\n"
+            f"{define_prefix + ' RC_'+board.upper()+'BOARD'+'_'+message.upper()+'_DATA_ID':<70}{dataId:<10}\n"
         )
         this.header_file.write(
-            f"{define_prefix + ' RC_'+board.upper()+'_'+message.upper()+'_DATA_COUNT':<70}{dataCount:<10}\n"
+            f"{define_prefix + ' RC_'+board.upper()+'BOARD'+'_'+message.upper()+'_DATA_COUNT':<70}{dataCount:<10}\n"
         )
         this.header_file.write(
-            f"{define_prefix + ' RC_'+board.upper()+'_'+message.upper()+'_DATA_TYPE':<70}{dataType:<10}\n"
+            f"{define_prefix + ' RC_'+board.upper()+'BOARD'+'_'+message.upper()+'_DATA_TYPE':<70}{dataType:<10}\n"
         )
         this.header_file.write("\n")
 
@@ -81,12 +81,24 @@ if __name__ == "__main__":
 
         # The < character indicates something is left aligned, in this case we are assuming that the name
         # plus #define is less than or equal to 50 characters and the PORT/IP less than 10
-        this.header_file.write(f"{define_prefix + ' RC_'+board.upper()+'_FOURTHOCTET':<50}{fourth_octet:<10}\n")
-        this.header_file.write(f"{define_prefix+' RC_ROVECOMM_'+board.upper()+'_PORT':<50}{str(port):<10}\n")
+        this.header_file.write(
+            f"{define_prefix + ' RC_'+board.upper()+'BOARD'+'_FOURTHOCTET':<50}{fourth_octet:<10}\n"
+        )
+        this.header_file.write(f"{define_prefix+' RC_ROVECOMM_'+board.upper()+'BOARD'+'_PORT':<50}{str(port):<10}\n")
 
         this.header_file.write("\n")
 
     # A couple of newlines between IP assignments and rovecomm messages
+    this.header_file.write("\n\n")
+
+    # Insert the update rate and UDP port
+    # TODO: Grab these from the json manifest when it includes them
+    this.header_file.write(f"{define_prefix + ' ROVECOMM_UPDATE_RATE':<50}{'100':<10}\n")
+    this.header_file.write(f"{define_prefix + ' RC_ROVECOMM_ETHERNET_UDP_PORT':<50}{'11000':<10}\n")
+    this.header_file.write(f"{define_prefix + ' RC_ROVECOMM_SUBNET_IP_FIRST_OCTET':<50}{'192':<10}\n")
+    this.header_file.write(f"{define_prefix + ' RC_ROVECOMM_SUBNET_IP_SECOND_OCTET':<50}{'168':<10}\n")
+    this.header_file.write(f"{define_prefix + ' RC_ROVECOMM_SUBNET_IP_THIRD_OCTET':<50}{'1':<10}\n")
+
     this.header_file.write("\n\n")
 
     # First insert the reserved System Id's
@@ -104,7 +116,7 @@ if __name__ == "__main__":
     # Now go through and write all the commands and telemetry
     for board in this.manifest:
         this.header_file.write(f"///////////////////////////////////////////////////\n")
-        this.header_file.write(f"{'////////////':<20}{board.upper():<20}{'///////////':<20}\n")
+        this.header_file.write(f"{'////////////':<20}{board.upper()+'BOARD':<20}{'///////////':<20}\n")
         this.header_file.write(f"///////////////////////////////////////////////////\n\n")
 
         # Insert the commands, telemetry and error messages for this particular board
@@ -115,4 +127,5 @@ if __name__ == "__main__":
         # Write a couple of newlines to seperate boards
         this.header_file.write("\n\n")
 
+    this.header_file.write("# endif // RoveCommManifest_h")
     this.header_file.close()

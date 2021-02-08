@@ -49,7 +49,7 @@ struct rovecomm_packet RoveCommEthernetTCP::read()
   }
   
   //return an empty packet
-  packet.data_id = ROVECOMM_NO_DATA_DATA_ID;
+  packet.data_id = RC_ROVECOMM_NO_DATA_DATA_ID;
   packet.data_count = 0;
   return packet;
 }
