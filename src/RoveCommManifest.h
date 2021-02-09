@@ -285,7 +285,7 @@
 #define RC_NAVBOARD_IMUDATA_DATA_TYPE                                 float     
 
 //[Distance, Quality]
-#define RC_NAVBOARD_LIDARDATA_DATA_ID                                 5101      
+#define RC_NAVBOARD_LIDARDATA_DATA_ID                                 5102      
 #define RC_NAVBOARD_LIDARDATA_DATA_COUNT                              2         
 #define RC_NAVBOARD_LIDARDATA_DATA_TYPE                               float     
 

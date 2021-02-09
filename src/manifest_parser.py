@@ -92,12 +92,17 @@ if __name__ == "__main__":
     this.header_file.write("\n\n")
 
     # Insert the update rate and UDP port
-    # TODO: Grab these from the json manifest when it includes them
-    this.header_file.write(f"{define_prefix + ' ROVECOMM_UPDATE_RATE':<50}{'100':<10}\n")
-    this.header_file.write(f"{define_prefix + ' RC_ROVECOMM_ETHERNET_UDP_PORT':<50}{'11000':<10}\n")
-    this.header_file.write(f"{define_prefix + ' RC_ROVECOMM_SUBNET_IP_FIRST_OCTET':<50}{'192':<10}\n")
-    this.header_file.write(f"{define_prefix + ' RC_ROVECOMM_SUBNET_IP_SECOND_OCTET':<50}{'168':<10}\n")
-    this.header_file.write(f"{define_prefix + ' RC_ROVECOMM_SUBNET_IP_THIRD_OCTET':<50}{'1':<10}\n")
+    this.update_rate = this.manifest_file["updateRate"]
+    this.header_file.write(f"{define_prefix + ' ROVECOMM_UPDATE_RATE':<50}{this.update_rate:<10}\n")
+
+    this.udp_port = this.manifest_file["ethernetUDPPort"]
+    this.header_file.write(f"{define_prefix + ' RC_ROVECOMM_ETHERNET_UDP_PORT':<50}{this.udp_port:<10}\n")
+
+    # Also grab the first 3 octets of the subnet IP
+    this.subnet_ip = this.manifest_file["subnetIP"]
+    this.header_file.write(f"{define_prefix + ' RC_ROVECOMM_SUBNET_IP_FIRST_OCTET':<50}{this.subnet_ip[0]:<10}\n")
+    this.header_file.write(f"{define_prefix + ' RC_ROVECOMM_SUBNET_IP_SECOND_OCTET':<50}{this.subnet_ip[1]:<10}\n")
+    this.header_file.write(f"{define_prefix + ' RC_ROVECOMM_SUBNET_IP_THIRD_OCTET':<50}{this.subnet_ip[2]:<10}\n")
 
     this.header_file.write("\n\n")
 
