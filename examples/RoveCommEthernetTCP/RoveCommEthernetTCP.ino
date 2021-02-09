@@ -9,7 +9,7 @@ rovecomm_packet packet;
 uint32_t last_update_time;
 
 //declare the Ethernet Server in the top level sketch with the requisite port ID any time you want to use RoveComm
-EthernetServer TCPServer(RC_ROVECOMM_ETHERNET_DRIVE_LIGHTING_BOARD_PORT);
+EthernetServer TCPServer(RC_ROVECOMM_DRIVEBOARD_PORT);
 
 void setup()
 {
@@ -28,7 +28,7 @@ void loop()
 {
   packet = RoveComm.read();
   Serial.println(packet.data_id);
-  if(packet.data_id != ROVECOMM_NO_DATA_DATA_ID)
+  if(packet.data_id != RC_ROVECOMM_NO_DATA_DATA_ID)
   {
       //cast the data to the expected data type
       uint16_t* data = (uint16_t*)packet.data;

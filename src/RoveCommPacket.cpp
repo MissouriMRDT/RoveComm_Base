@@ -102,7 +102,7 @@ namespace roveware
     if(_packet_bytes[0] != ROVECOMM_VERSION)
     {
      struct rovecomm_packet invalid_version_packet = {0};
-     invalid_version_packet.data_id = ROVECOMM_INVALID_VERSION_DATA_ID;
+     invalid_version_packet.data_id = RC_ROVECOMM_INVALID_VERSION_DATA_ID;
      invalid_version_packet.data_count = 1;
      return invalid_version_packet;
     }
@@ -208,7 +208,7 @@ namespace roveware
     if(header[0] != ROVECOMM_VERSION)
       {
       struct rovecomm_packet invalid_version_packet = {0};
-      invalid_version_packet.data_id = ROVECOMM_INVALID_VERSION_DATA_ID;
+      invalid_version_packet.data_id = RC_ROVECOMM_INVALID_VERSION_DATA_ID;
       invalid_version_packet.data_count = 1;
       invalid_version_packet.data[1] = {0};
       return invalid_version_packet;
