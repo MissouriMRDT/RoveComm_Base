@@ -595,9 +595,9 @@
 #define RC_SCIENCESENSORSBOARD_NO_DATA_TYPE                           float     
 
 //[ N2O volume (ppm)]
-#define RC_SCIENCESENSORSBOARD_N20_DATA_ID                            10105     
-#define RC_SCIENCESENSORSBOARD_N20_DATA_COUNT                         1         
-#define RC_SCIENCESENSORSBOARD_N20_DATA_TYPE                          uint16_t  
+#define RC_SCIENCESENSORSBOARD_N2O_DATA_ID                            10105     
+#define RC_SCIENCESENSORSBOARD_N2O_DATA_COUNT                         1         
+#define RC_SCIENCESENSORSBOARD_N2O_DATA_TYPE                          uint16_t  
 
 ////////////////////Error
 
