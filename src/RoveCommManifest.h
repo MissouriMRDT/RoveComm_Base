@@ -91,6 +91,11 @@
 #define RC_DRIVEBOARD_WATCHDOGOVERRIDE_DATA_COUNT                     1         
 #define RC_DRIVEBOARD_WATCHDOGOVERRIDE_DATA_TYPE                      uint8_t   
 
+//[LF, LR, RF, RR] (-1000, 1000)-> (-100%, 100%)
+#define RC_DRIVEBOARD_SETSTEERINGSPEEDS_DATA_ID                       1005      
+#define RC_DRIVEBOARD_SETSTEERINGSPEEDS_DATA_COUNT                    4         
+#define RC_DRIVEBOARD_SETSTEERINGSPEEDS_DATA_TYPE                     int16_t   
+
 ////////////////////Telemetry
 //[LF, LR, RF, RR] (-1000, 1000)-> (-100%, 100%)
 #define RC_DRIVEBOARD_DRIVESPEEDS_DATA_ID                             1100      
