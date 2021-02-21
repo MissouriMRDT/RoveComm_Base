@@ -7,6 +7,9 @@
 #define RC_DRIVEBOARD_FOURTHOCTET                 134       
 #define RC_ROVECOMM_DRIVEBOARD_PORT               11004     
 
+#define RC_STEERBOARD_FOURTHOCTET                 154       
+#define RC_ROVECOMM_STEERBOARD_PORT               11024     
+
 #define RC_BMSBOARD_FOURTHOCTET                   133       
 #define RC_ROVECOMM_BMSBOARD_PORT                 11003     
 
@@ -76,25 +79,10 @@
 #define RC_DRIVEBOARD_DRIVEINDIVIDUAL_DATA_COUNT                      4         
 #define RC_DRIVEBOARD_DRIVEINDIVIDUAL_DATA_TYPE                       int16_t   
 
-//[LF, LR, RF, RR] (0, 359)
-#define RC_DRIVEBOARD_SETSTEERINGANGLE_DATA_ID                        1002      
-#define RC_DRIVEBOARD_SETSTEERINGANGLE_DATA_COUNT                     4         
-#define RC_DRIVEBOARD_SETSTEERINGANGLE_DATA_TYPE                      int16_t   
-
-//[PointTurnSpeed] (-1000,1000) (Full speed CCW, full speed CW)
-#define RC_DRIVEBOARD_POINTTURN_DATA_ID                               1003      
-#define RC_DRIVEBOARD_POINTTURN_DATA_COUNT                            1         
-#define RC_DRIVEBOARD_POINTTURN_DATA_TYPE                             int16_t   
-
 //[0-Turn off Watchdog Override, 1-Turn on Watchdog Override]
 #define RC_DRIVEBOARD_WATCHDOGOVERRIDE_DATA_ID                        1004      
 #define RC_DRIVEBOARD_WATCHDOGOVERRIDE_DATA_COUNT                     1         
 #define RC_DRIVEBOARD_WATCHDOGOVERRIDE_DATA_TYPE                      uint8_t   
-
-//[LF, LR, RF, RR] (-1000, 1000)-> (-100%, 100%)
-#define RC_DRIVEBOARD_SETSTEERINGSPEEDS_DATA_ID                       1005      
-#define RC_DRIVEBOARD_SETSTEERINGSPEEDS_DATA_COUNT                    4         
-#define RC_DRIVEBOARD_SETSTEERINGSPEEDS_DATA_TYPE                     int16_t   
 
 ////////////////////Telemetry
 //[LF, LR, RF, RR] (-1000, 1000)-> (-100%, 100%)
@@ -102,21 +90,45 @@
 #define RC_DRIVEBOARD_DRIVESPEEDS_DATA_COUNT                          4         
 #define RC_DRIVEBOARD_DRIVESPEEDS_DATA_TYPE                           int16_t   
 
+////////////////////Error
+
+
+///////////////////////////////////////////////////
+////////////        STEERBOARD          ///////////         
+///////////////////////////////////////////////////
+
+////////////////////Commands
+//[LF, LR, RF, RR] (0, 359)
+#define RC_STEERBOARD_SETSTEERINGANGLE_DATA_ID                        1002      
+#define RC_STEERBOARD_SETSTEERINGANGLE_DATA_COUNT                     4         
+#define RC_STEERBOARD_SETSTEERINGANGLE_DATA_TYPE                      int16_t   
+
+//[PointTurnSpeed] (-1000,1000) (Full speed CCW, full speed CW)
+#define RC_STEERBOARD_POINTTURN_DATA_ID                               1003      
+#define RC_STEERBOARD_POINTTURN_DATA_COUNT                            1         
+#define RC_STEERBOARD_POINTTURN_DATA_TYPE                             int16_t   
+
+//[LF, LR, RF, RR] (-1000, 1000)-> (-100%, 100%)
+#define RC_STEERBOARD_SETSTEERINGSPEEDS_DATA_ID                       1005      
+#define RC_STEERBOARD_SETSTEERINGSPEEDS_DATA_COUNT                    4         
+#define RC_STEERBOARD_SETSTEERINGSPEEDS_DATA_TYPE                     int16_t   
+
+////////////////////Telemetry
 //[LF, LR, RF, RR] -> (0, 360)
-#define RC_DRIVEBOARD_DRIVEANGLES_DATA_ID                             1101      
-#define RC_DRIVEBOARD_DRIVEANGLES_DATA_COUNT                          4         
-#define RC_DRIVEBOARD_DRIVEANGLES_DATA_TYPE                           int16_t   
+#define RC_STEERBOARD_DRIVEANGLES_DATA_ID                             1101      
+#define RC_STEERBOARD_DRIVEANGLES_DATA_COUNT                          4         
+#define RC_STEERBOARD_DRIVEANGLES_DATA_TYPE                           int16_t   
 
 //[M1, M2, M3, M4] (A)
-#define RC_DRIVEBOARD_STEERINGMOTORCURRENTS_DATA_ID                   1102      
-#define RC_DRIVEBOARD_STEERINGMOTORCURRENTS_DATA_COUNT                4         
-#define RC_DRIVEBOARD_STEERINGMOTORCURRENTS_DATA_TYPE                 float     
+#define RC_STEERBOARD_STEERINGMOTORCURRENTS_DATA_ID                   1102      
+#define RC_STEERBOARD_STEERINGMOTORCURRENTS_DATA_COUNT                4         
+#define RC_STEERBOARD_STEERINGMOTORCURRENTS_DATA_TYPE                 float     
 
 ////////////////////Error
 //[(0-undermaxcurrent, 1-overcurrent)] [LF, LR, RF, RL (Bitmask)]
-#define RC_DRIVEBOARD_STEERINGMOTOROVERCURRENT_DATA_ID                1200      
-#define RC_DRIVEBOARD_STEERINGMOTOROVERCURRENT_DATA_COUNT             1         
-#define RC_DRIVEBOARD_STEERINGMOTOROVERCURRENT_DATA_TYPE              uint8_t   
+#define RC_STEERBOARD_STEERINGMOTOROVERCURRENT_DATA_ID                1200      
+#define RC_STEERBOARD_STEERINGMOTOROVERCURRENT_DATA_COUNT             1         
+#define RC_STEERBOARD_STEERINGMOTOROVERCURRENT_DATA_TYPE              uint8_t   
 
 
 
@@ -643,12 +655,12 @@
 #define RC_AUTONOMYBOARD_REACHEDMARKER_DATA_COUNT                     1         
 #define RC_AUTONOMYBOARD_REACHEDMARKER_DATA_TYPE                      uint8_t   
 
-////////////////////Error
 //String version of most current error log
 #define RC_AUTONOMYBOARD_CURRENTLOG_DATA_ID                           11200     
 #define RC_AUTONOMYBOARD_CURRENTLOG_DATA_COUNT                        255       
 #define RC_AUTONOMYBOARD_CURRENTLOG_DATA_TYPE                         char      
 
+////////////////////Error
 
 
 ///////////////////////////////////////////////////
