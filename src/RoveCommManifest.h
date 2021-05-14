@@ -306,6 +306,11 @@
 #define RC_NAVBOARD_LIDARDATA_DATA_COUNT                              2         
 #define RC_NAVBOARD_LIDARDATA_DATA_TYPE                               float     
 
+//[Number of satellites]
+#define RC_NAVBOARD_SATELLITECOUNTDATA_DATA_ID                        5103      
+#define RC_NAVBOARD_SATELLITECOUNTDATA_DATA_COUNT                     1         
+#define RC_NAVBOARD_SATELLITECOUNTDATA_DATA_TYPE                      uint16_t  
+
 ////////////////////Error
 //
 #define RC_NAVBOARD_GPSLOCKERROR_DATA_ID                              5200      
