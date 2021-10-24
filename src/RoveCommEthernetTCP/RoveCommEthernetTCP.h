@@ -3,7 +3,6 @@
 
 #include <stdint.h>
 #include <stddef.h>
-#include <Energia.h>
 #include <Ethernet.h>
 
 #include "RoveCommManifest.h"

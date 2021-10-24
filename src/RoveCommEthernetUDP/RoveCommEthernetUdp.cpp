@@ -3,7 +3,6 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 #include          <SPI.h>         // Energia/master/hardware/lm4f/libraries/SPI
-#include          <Energia.h>
 #include          <Ethernet.h>
 #include          <EthernetUdp.h> // EthernetClass Ethernet; => Energia alloc instance on Ethernet.cpp
 EthernetUDP        EthernetUdp; 

@@ -5,7 +5,6 @@
 #include <stdarg.h>
 #include <string.h>
 
-#include "Energia.h"
 #include "Ethernet.h"
 
 #include "RoveCommPacket.h"
