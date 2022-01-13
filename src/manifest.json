@@ -230,15 +230,15 @@
     "Blackbox": {
       "Ip": "192.168.1.146",
       "Port": 11015,
-      "Commands": {
-        "GPSLockError": {
-          "dataId": 4200,
+      "Commands": {},
+      "Telemetry": {
+        "BlackboxListening": {
+          "dataId": 4100,
           "dataType": "UINT8_T",
           "dataCount": 1,
           "comments": "[(0-Disable, 1-Enable)]"
         }
       },
-      "Telemetry": {},
       "Error": {}
     },
     "Nav": {

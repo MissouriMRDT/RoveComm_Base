@@ -250,12 +250,12 @@
 ///////////////////////////////////////////////////
 
 ////////////////////Commands
-//[(0-Disable, 1-Enable)]
-#define RC_BLACKBOXBOARD_GPSLOCKERROR_DATA_ID                         4200      
-#define RC_BLACKBOXBOARD_GPSLOCKERROR_DATA_COUNT                      1         
-#define RC_BLACKBOXBOARD_GPSLOCKERROR_DATA_TYPE                       uint8_t   
-
 ////////////////////Telemetry
+//[(0-Disable, 1-Enable)]
+#define RC_BLACKBOXBOARD_BLACKBOXLISTENING_DATA_ID                    4100      
+#define RC_BLACKBOXBOARD_BLACKBOXLISTENING_DATA_COUNT                 1         
+#define RC_BLACKBOXBOARD_BLACKBOXLISTENING_DATA_TYPE                  uint8_t   
+
 ////////////////////Error
 
 
