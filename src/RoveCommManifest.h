@@ -616,9 +616,9 @@
 
 ////////////////////Telemetry
 //[1, 2, 3] (degrees C)
-#define RC_HEATERBOARD_THERMO VALUES_DATA_ID                          15100     
-#define RC_HEATERBOARD_THERMO VALUES_DATA_COUNT                       3         
-#define RC_HEATERBOARD_THERMO VALUES_DATA_TYPE                        float     
+#define RC_HEATERBOARD_THERMO_VALUES_DATA_ID                          15100     
+#define RC_HEATERBOARD_THERMO_VALUES_DATA_COUNT                       3         
+#define RC_HEATERBOARD_THERMO_VALUES_DATA_TYPE                        float     
 
 //[1, 2, 3] (0-Disabled, 1-Enabled)
 #define RC_HEATERBOARD_HEATERENABLED_DATA_ID                          15101     
