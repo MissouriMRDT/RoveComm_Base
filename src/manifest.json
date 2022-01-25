@@ -685,7 +685,7 @@
         }
       },
       "Telemetry": {
-        "Thermo Values": {
+        "ThermoValues": {
           "dataId": 15100,
           "dataType": "FLOAT_T",
           "dataCount": 3,
