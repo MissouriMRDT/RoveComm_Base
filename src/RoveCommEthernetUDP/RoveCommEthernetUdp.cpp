@@ -2,7 +2,6 @@
 #include "RoveCommPacket.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-#include          <SPI.h>         // Energia/master/hardware/lm4f/libraries/SPI
 EthernetUDP        EthernetUdp; 
 IPAddress RoveComm_EthernetUdpSubscriberIps[ROVECOMM_ETHERNET_UDP_MAX_SUBSCRIBERS] = { INADDR_NONE };
 
