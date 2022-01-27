@@ -83,9 +83,9 @@
 #define RC_DRIVEBOARD_DRIVELEFTRIGHT_DATA_COUNT                       2         
 #define RC_DRIVEBOARD_DRIVELEFTRIGHT_DATA_TYPE                        int16_t   
 
-//[LF, LR, RF, RR] (-1000, 1000)-> (-100%, 100%)
+//[LF, LM, LR, RF, RM, RR] (-1000, 1000)-> (-100%, 100%)
 #define RC_DRIVEBOARD_DRIVEINDIVIDUAL_DATA_ID                         1001      
-#define RC_DRIVEBOARD_DRIVEINDIVIDUAL_DATA_COUNT                      4         
+#define RC_DRIVEBOARD_DRIVEINDIVIDUAL_DATA_COUNT                      6         
 #define RC_DRIVEBOARD_DRIVEINDIVIDUAL_DATA_TYPE                       int16_t   
 
 //[0-Turn off Watchdog Override, 1-Turn on Watchdog Override]
@@ -94,9 +94,9 @@
 #define RC_DRIVEBOARD_WATCHDOGOVERRIDE_DATA_TYPE                      uint8_t   
 
 ////////////////////Telemetry
-//[LF, LR, RF, RR] (-1000, 1000)-> (-100%, 100%)
+//[LF, LM, LR, RF, RM, RR] (-1000, 1000)-> (-100%, 100%)
 #define RC_DRIVEBOARD_DRIVESPEEDS_DATA_ID                             1100      
-#define RC_DRIVEBOARD_DRIVESPEEDS_DATA_COUNT                          4         
+#define RC_DRIVEBOARD_DRIVESPEEDS_DATA_COUNT                          6         
 #define RC_DRIVEBOARD_DRIVESPEEDS_DATA_TYPE                           int16_t   
 
 

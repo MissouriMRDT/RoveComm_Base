@@ -37,8 +37,8 @@
         "DriveIndividual": {
           "dataId": 1001,
           "dataType": "INT16_T",
-          "dataCount": 4,
-          "comments": "[LF, LR, RF, RR] (-1000, 1000)-> (-100%, 100%)"
+          "dataCount": 6,
+          "comments": "[LF, LM, LR, RF, RM, RR] (-1000, 1000)-> (-100%, 100%)"
         },
         "WatchdogOverride": {
           "dataId": 1002,
@@ -51,8 +51,8 @@
         "DriveSpeeds": {
           "dataId": 1100,
           "dataType": "INT16_T",
-          "dataCount": 4,
-          "comments": "[LF, LR, RF, RR] (-1000, 1000)-> (-100%, 100%)"
+          "dataCount": 6,
+          "comments": "[LF, LM, LR, RF, RM, RR] (-1000, 1000)-> (-100%, 100%)"
         }
       },
       "Error": {}
