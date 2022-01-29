@@ -165,17 +165,18 @@
 #define RC_POWERBOARD_MOTORBUSENABLE_DATA_COUNT                       1         
 #define RC_POWERBOARD_MOTORBUSENABLE_DATA_TYPE                        uint8_t   
 
-//[(0-Disable, 1-Enable)], [Gimbal-Act, Multi-Act, Science-Act (Bitmask)]
+// TODO - Remove both Aux enables on 12V when Powerboard Rev 2 is made.
+//[(0-Disable, 1-Enable)], [Gimbal-Act, Aux1(Aux_Logic on Board), Aux2(Spare on Board), Multimedia, Aux-Logic(Science-Act on board) (Bitmask)]
 #define RC_POWERBOARD_TWELVEVACTBUSENABLE_DATA_ID                     3001      
 #define RC_POWERBOARD_TWELVEVACTBUSENABLE_DATA_COUNT                  1         
 #define RC_POWERBOARD_TWELVEVACTBUSENABLE_DATA_TYPE                   uint8_t   
 
-//[(0-Disable, 1-Enable)], [Gimbal-Log, Multi-Log, Science-Log, Drive-Log, Nav, Cam1, Cam2 (Bitmask)]
+//[(0-Disable, 1-Enable)], [Gimbal-Log, Drive-Log, NetworkSwitch, Nav, Cam1, Cam2, BBB, Spare(Science-Sensor on board) (Bitmask)]
 #define RC_POWERBOARD_TWELVEVLOGICBUSENABLE_DATA_ID                   3002      
 #define RC_POWERBOARD_TWELVEVLOGICBUSENABLE_DATA_COUNT                1         
 #define RC_POWERBOARD_TWELVEVLOGICBUSENABLE_DATA_TYPE                 uint8_t   
 
-//[(0-Disable, 1-Enable)], [TwelveV, POE, Aux, Extra, Heater (Bitmask)]
+//[(0-Disable, 1-Enable)], [POE, TwelveVolt, Aux, Spare (Bitmask)]
 #define RC_POWERBOARD_THIRTYVBUSENABLE_DATA_ID                        3003      
 #define RC_POWERBOARD_THIRTYVBUSENABLE_DATA_COUNT                     1         
 #define RC_POWERBOARD_THIRTYVBUSENABLE_DATA_TYPE                      uint8_t   
@@ -186,17 +187,17 @@
 #define RC_POWERBOARD_MOTORBUSENABLED_DATA_COUNT                      1         
 #define RC_POWERBOARD_MOTORBUSENABLED_DATA_TYPE                       uint8_t   
 
-//[(0-Disabled, 1-Enabled)], [Gimbal-Act, Multi-Act, Science-Act (Bitmask)]
+//[(0-Disabled, 1-Enabled)], [Gimbal-Act, Aux1(Aux_Logic on Board), Aux2(Spare on Board), Multimedia, Aux-Logic(Science-Act on board) (Bitmask)]
 #define RC_POWERBOARD_TWELVEVACTBUSENABLED_DATA_ID                    3101      
 #define RC_POWERBOARD_TWELVEVACTBUSENABLED_DATA_COUNT                 1         
 #define RC_POWERBOARD_TWELVEVACTBUSENABLED_DATA_TYPE                  uint8_t   
 
-//[(0-Disabled, 1-Enabled)], [Gimbal-Log, Multi-Log, Science-Log, Drive-Log, Nav, Cam1, Cam2 (Bitmask)]
+//[(0-Disabled, 1-Enabled)], [Gimbal-Log, Drive-Log, NetworkSwitch, Nav, Cam1, Cam2, BBB, Spare(Science-Sensor on board) (Bitmask)]
 #define RC_POWERBOARD_TWELVEVLOGICBUSENABLED_DATA_ID                  3102      
 #define RC_POWERBOARD_TWELVEVLOGICBUSENABLED_DATA_COUNT               1         
 #define RC_POWERBOARD_TWELVEVLOGICBUSENABLED_DATA_TYPE                uint8_t   
 
-//[(0-Disabled, 1-Enabled)], [TwelveV, POE, Aux, Extra, Heater (Bitmask)]
+//[(0-Disabled, 1-Enabled)], [POE, TwelveVolt, Aux, Spare (Bitmask)]
 #define RC_POWERBOARD_THIRTYVENABLED_DATA_ID                          3103      
 #define RC_POWERBOARD_THIRTYVENABLED_DATA_COUNT                       1         
 #define RC_POWERBOARD_THIRTYVENABLED_DATA_TYPE                        uint8_t   
@@ -206,19 +207,19 @@
 #define RC_POWERBOARD_MOTORBUSCURRENT_DATA_COUNT                      7         
 #define RC_POWERBOARD_MOTORBUSCURRENT_DATA_TYPE                       float     
 
-//[Gimbal-Act, Multi-Act, Science-Act, Logic] (A)
+//[Gimbal-Act, Aux1(Aux_Logic on Board), Aux2(Spare on Board), Multimedia, Aux-Logic(Science-Act on board)] (A)
 #define RC_POWERBOARD_TWELVEVACTBUSCURRENT_DATA_ID                    3105      
-#define RC_POWERBOARD_TWELVEVACTBUSCURRENT_DATA_COUNT                 4         
+#define RC_POWERBOARD_TWELVEVACTBUSCURRENT_DATA_COUNT                 5         
 #define RC_POWERBOARD_TWELVEVACTBUSCURRENT_DATA_TYPE                  float     
 
-//[Gimbal-Log, Mulit-Log, Science-Log, Drive-Log, Nav, Cam1, Cam2] (A)
+//[Gimbal-Log, Drive-Log, NetworkSwitch, Nav, Cam1, Cam2, BBB, Spare(Science-Sensor on board)] (A)
 #define RC_POWERBOARD_TWELVEVLOGICBUSCURRENT_DATA_ID                  3106      
-#define RC_POWERBOARD_TWELVEVLOGICBUSCURRENT_DATA_COUNT               7         
+#define RC_POWERBOARD_TWELVEVLOGICBUSCURRENT_DATA_COUNT               8         
 #define RC_POWERBOARD_TWELVEVLOGICBUSCURRENT_DATA_TYPE                float     
 
-//[TwelveV, POE, Aux, Extra, Heater] (A)
+//[POE, TwelveVolt, Aux, Spare] (A)
 #define RC_POWERBOARD_THIRTYVBUSCURRENT_DATA_ID                       3107      
-#define RC_POWERBOARD_THIRTYVBUSCURRENT_DATA_COUNT                    5         
+#define RC_POWERBOARD_THIRTYVBUSCURRENT_DATA_COUNT                    4         
 #define RC_POWERBOARD_THIRTYVBUSCURRENT_DATA_TYPE                     float     
 
 ////////////////////Error
@@ -227,17 +228,17 @@
 #define RC_POWERBOARD_MOTORBUSOVERCURRENT_DATA_COUNT                  1         
 #define RC_POWERBOARD_MOTORBUSOVERCURRENT_DATA_TYPE                   uint8_t   
 
-//[(0-undermaxcurrent, 1-overcurrent)] [Gimbal-Act, Multi-Act, Science-Act (Bitmask)]
+//[(0-undermaxcurrent, 1-overcurrent)] [Gimbal-Act, Aux1(Aux_Logic on Board), Aux2(Spare on Board), Multimedia, Aux-Logic(Science-Act on board) (Bitmask)]
 #define RC_POWERBOARD_TWELVEVACTBUSOVERCURRENT_DATA_ID                3201      
 #define RC_POWERBOARD_TWELVEVACTBUSOVERCURRENT_DATA_COUNT             1         
 #define RC_POWERBOARD_TWELVEVACTBUSOVERCURRENT_DATA_TYPE              uint8_t   
 
-//[(0-undermaxcurrent, 1-overcurrent)] [TwelveV Board, POE, Aux, Extra, Heater (Bitmask)]
+//[(0-undermaxcurrent, 1-overcurrent)] [POE, TwelveVolt, Aux, Spare (Bitmask)]
 #define RC_POWERBOARD_THIRTYVBUSOVERCURRENT_DATA_ID                   3202      
 #define RC_POWERBOARD_THIRTYVBUSOVERCURRENT_DATA_COUNT                1         
 #define RC_POWERBOARD_THIRTYVBUSOVERCURRENT_DATA_TYPE                 uint8_t   
 
-//[(0-undermaxcurrent, 1-overcurrent)] [Gimbal-Log, Multi-Log, Science-Log, Drive-Log, Nav, Cam1, Cam2 (Bitmask)]
+//[(0-undermaxcurrent, 1-overcurrent)] [Gimbal-Log, Drive-Log, NetworkSwitch, Nav, Cam1, Cam2, BBB, Spare(Science-Sensor on board) (Bitmask)]
 #define RC_POWERBOARD_TWELVEVLOGICBUSOVERCURRENT_DATA_ID              3203      
 #define RC_POWERBOARD_TWELVEVLOGICBUSOVERCURRENT_DATA_COUNT           1         
 #define RC_POWERBOARD_TWELVEVLOGICBUSOVERCURRENT_DATA_TYPE            uint8_t   
