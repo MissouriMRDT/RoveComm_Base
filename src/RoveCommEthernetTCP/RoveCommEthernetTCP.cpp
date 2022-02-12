@@ -110,6 +110,16 @@ void RoveCommEthernetTCP::writeReliable(        const uint16_t  data_id, const u
 {                  float data_p[1];
                    data_p[0] = data;
                    _writeReliable(  4,  roveware::FLOAT, data_id,               data_count,        (void*) data_p ); }
+
+void RoveCommEthernetTCP::writeReliable(        const uint16_t  data_id, const uint8_t data_count, const  double data )
+{                  uint8_t data_p[1];
+                   data_p[0] = data;
+                   _writeReliable(  8,  roveware::DOUBLE, data_id,               data_count,        (void*) data_p ); }
+
+void RoveCommEthernetTCP::writeReliable(        const uint16_t  data_id, const uint8_t data_count, const  char data )
+{                  float data_p[1];
+                   data_p[0] = data;
+                   _writeReliable(  1,  roveware::CHAR, data_id,               data_count,        (void*) data_p ); }
 //Array-Entry write///////////////////////////////////
 void RoveCommEthernetTCP::writeReliable(        const uint16_t  data_id, const uint8_t data_count, const  int32_t *data )
 {                  _writeReliable(  4,  roveware::INT32_T, data_id,               data_count,        (void*) data ); }
@@ -131,3 +141,9 @@ void RoveCommEthernetTCP::writeReliable(        const uint16_t  data_id, const u
 
 void RoveCommEthernetTCP::writeReliable(        const uint16_t  data_id, const uint8_t data_count, const  float *data )
 {                  _writeReliable(  4,  roveware::FLOAT, data_id,               data_count,        (void*) data ); }
+
+void RoveCommEthernetTCP::writeReliable(        const uint16_t  data_id, const uint8_t data_count, const  double *data )
+{                  _writeReliable(  8,  roveware::DOUBLE, data_id,               data_count,        (void*) data ); }
+
+void RoveCommEthernetTCP::writeReliable(        const uint16_t  data_id, const uint8_t data_count, const  char *data )
+{                  _writeReliable(  1,  roveware::CHAR, data_id,               data_count,        (void*) data ); }

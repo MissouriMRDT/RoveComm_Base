@@ -41,7 +41,8 @@ class RoveCommEthernetUdp
     void write(const uint16_t data_id, const uint8_t data_count, const int16_t  data);
     void write(const uint16_t data_id, const uint8_t data_count, const int32_t  data);
     void write(const uint16_t data_id, const uint8_t data_count, const float    data);
-
+    void write(const uint16_t data_id, const uint8_t data_count, const double  data);
+    void write(const uint16_t data_id, const uint8_t data_count, const char    data);
 
     //Array entry write
 	//Overloaded for each data type
@@ -53,7 +54,8 @@ class RoveCommEthernetUdp
     void write(const uint16_t data_id, const uint8_t data_count, const int16_t  *data);
     void write(const uint16_t data_id, const uint8_t data_count, const int32_t  *data);
     void write(const uint16_t data_id, const uint8_t data_count, const float    *data);
-
+    void write(const uint16_t data_id, const uint8_t data_count, const double  *data);
+    void write(const uint16_t data_id, const uint8_t data_count, const char    *data);
 
 	/////writeTo///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Single-value writeTo
@@ -82,6 +84,12 @@ class RoveCommEthernetUdp
     void writeTo(const uint16_t data_id,    const uint8_t data_count, const float  data, 
                  const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port);
 
+    void writeTo(const uint16_t data_id,    const uint8_t data_count, const double  data, 
+                 const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port);
+
+    void writeTo(const uint16_t data_id,    const uint8_t data_count, const char  data, 
+                 const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port);
+
     //Array entry write
 	//Overloaded for each data type
     void writeTo(const uint16_t data_id,    const uint8_t data_count, const int  *data,
@@ -107,7 +115,13 @@ class RoveCommEthernetUdp
     
     void writeTo(const uint16_t data_id,    const uint8_t data_count, const float  *data, 
                  const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port);
-  
+
+    void writeTo(const uint16_t data_id,    const uint8_t data_count, const double  *data, 
+                 const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port);
+    
+    void writeTo(const uint16_t data_id,    const uint8_t data_count, const char  *data, 
+                 const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port);
+   
   private:
     //Called by overloaded write functions
     void _write(  const uint8_t  data_type_length, const roveware::data_type_t data_type, 

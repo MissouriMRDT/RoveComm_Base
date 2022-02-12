@@ -50,6 +50,8 @@ class RoveCommEthernet
     void write(const uint16_t data_id, const uint8_t data_count, const int16_t  data);
     void write(const uint16_t data_id, const uint8_t data_count, const int32_t  data);
     void write(const uint16_t data_id, const uint8_t data_count, const float    data);
+    void write(const uint16_t data_id, const uint8_t data_count, const double  data);
+    void write(const uint16_t data_id, const uint8_t data_count, const char    data);
 
 
     //Array entry write
@@ -62,6 +64,8 @@ class RoveCommEthernet
     void write(const uint16_t data_id, const uint8_t data_count, const int16_t  *data);
     void write(const uint16_t data_id, const uint8_t data_count, const int32_t  *data);
     void write(const uint16_t data_id, const uint8_t data_count, const float    *data);
+    void write(const uint16_t data_id, const uint8_t data_count, const double  *data);
+    void write(const uint16_t data_id, const uint8_t data_count, const char    *data);
 
 
     /////writeTo///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -91,6 +95,12 @@ class RoveCommEthernet
     void writeTo(const uint16_t data_id,    const uint8_t data_count, const float  data, 
                  const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port);
 
+    void writeTo(const uint16_t data_id,    const uint8_t data_count, const double  data, 
+                 const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port);
+
+    void writeTo(const uint16_t data_id,    const uint8_t data_count, const char  data, 
+                 const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port);
+
     //Array entry write
     //Overloaded for each data type
     void writeTo(const uint16_t data_id,    const uint8_t data_count, const int  *data,
@@ -116,6 +126,12 @@ class RoveCommEthernet
     
     void writeTo(const uint16_t data_id,    const uint8_t data_count, const float  *data, 
                  const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port);
+    
+    void writeTo(const uint16_t data_id,    const uint8_t data_count, const double  *data, 
+                 const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port);
+    
+    void writeTo(const uint16_t data_id,    const uint8_t data_count, const char  *data, 
+                 const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port);
 
     /////writeReliable/////////////////////////////////////////////////////////////////////////////////////////////////
     //Single-value writeReliable which ensures delivery
@@ -127,6 +143,8 @@ class RoveCommEthernet
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int16_t  data);
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int32_t  data);
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const float    data);
+    void writeReliable(const uint16_t data_id, const uint8_t data_count, const double  data);
+    void writeReliable(const uint16_t data_id, const uint8_t data_count, const char    data);
 
     //Array entry writeReliable which ensures delivery
     //Overloaded for each data type
@@ -137,6 +155,8 @@ class RoveCommEthernet
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int16_t  *data);
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const int32_t  *data);
     void writeReliable(const uint16_t data_id, const uint8_t data_count, const float    *data);
+    void writeReliable(const uint16_t data_id, const uint8_t data_count, const double  *data);
+    void writeReliable(const uint16_t data_id, const uint8_t data_count, const char    *data);
 };
 
 #endif // RoveCommEthernet_h

@@ -38,6 +38,9 @@ void loop()
   {
     case RC_DRIVEBOARD_DRIVEINDIVIDUAL_DATA_ID:
       Serial.println("We received an individual wheel drive command");
+      char* sped;
+      sped = (char*)packet.data;
+      Serial.println(sped[0]);
       break;
     case RC_DRIVEBOARD_DRIVELEFTRIGHT_DATA_ID:
       //cast the packet to the correct data type

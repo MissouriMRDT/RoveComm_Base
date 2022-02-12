@@ -66,7 +66,11 @@ void RoveCommEthernet::write(const uint16_t data_id, const uint8_t data_count, c
 
 void RoveCommEthernet::write(const uint16_t data_id, const uint8_t data_count, const float    data)
 {           UDP.write(data_id, data_count, data); }
+void RoveCommEthernet::write(const uint16_t data_id, const uint8_t data_count, const double  data)
+{           UDP.write(data_id, data_count, data); }
 
+void RoveCommEthernet::write(const uint16_t data_id, const uint8_t data_count, const char    data)
+{           UDP.write(data_id, data_count, data); }
 
 //Array entry write
 //Overloaded for each data type
@@ -92,6 +96,11 @@ void RoveCommEthernet::write(const uint16_t data_id, const uint8_t data_count, c
 {           UDP.write(data_id, data_count, data); }
 
 void RoveCommEthernet::write(const uint16_t data_id, const uint8_t data_count, const float    *data)
+{           UDP.write(data_id, data_count, data); }
+void RoveCommEthernet::write(const uint16_t data_id, const uint8_t data_count, const double  *data)
+{           UDP.write(data_id, data_count, data); }
+
+void RoveCommEthernet::write(const uint16_t data_id, const uint8_t data_count, const char    *data)
 {           UDP.write(data_id, data_count, data); }
 
 /////writeTo///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -131,6 +140,14 @@ void RoveCommEthernet::writeTo(const uint16_t data_id,    const uint8_t data_cou
               const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port)
 {           UDP.writeTo(data_id, data_count, data, ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4, RC_ROVECOMM_ETHERNET_UDP_PORT); }
 
+void RoveCommEthernet::writeTo(const uint16_t data_id,    const uint8_t data_count, const double  data, 
+              const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port)
+{           UDP.writeTo(data_id, data_count, data, ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4, RC_ROVECOMM_ETHERNET_UDP_PORT); }
+
+void RoveCommEthernet::writeTo(const uint16_t data_id,    const uint8_t data_count, const char  data, 
+              const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port)
+{           UDP.writeTo(data_id, data_count, data, ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4, RC_ROVECOMM_ETHERNET_UDP_PORT); }
+
 //Array entry write
 //Overloaded for each data type
 void RoveCommEthernet::writeTo(const uint16_t data_id,    const uint8_t data_count, const int  *data,
@@ -162,6 +179,14 @@ void RoveCommEthernet::writeTo(const uint16_t data_id,    const uint8_t data_cou
 {           UDP.writeTo(data_id, data_count, data, ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4, RC_ROVECOMM_ETHERNET_UDP_PORT); }
 
 void RoveCommEthernet::writeTo(const uint16_t data_id,    const uint8_t data_count, const float  *data, 
+              const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port)
+{           UDP.writeTo(data_id, data_count, data, ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4, RC_ROVECOMM_ETHERNET_UDP_PORT); }
+
+void RoveCommEthernet::writeTo(const uint16_t data_id,    const uint8_t data_count, const double  *data, 
+              const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port)
+{           UDP.writeTo(data_id, data_count, data, ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4, RC_ROVECOMM_ETHERNET_UDP_PORT); }
+
+void RoveCommEthernet::writeTo(const uint16_t data_id,    const uint8_t data_count, const char  *data, 
               const uint8_t  ip_octet_1, const uint8_t ip_octet_2, const uint8_t ip_octet_3, const uint8_t ip_octet_4, const uint16_t port)
 {           UDP.writeTo(data_id, data_count, data, ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4, RC_ROVECOMM_ETHERNET_UDP_PORT); }
 
