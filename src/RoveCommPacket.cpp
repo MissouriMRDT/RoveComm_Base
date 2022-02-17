@@ -11,7 +11,7 @@ namespace roveware
 {
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //Packs data into a RoveComm packet
-  struct _packet packPacket(const uint16_t data_id, const uint8_t data_count, const data_type_t data_type, const void* data)
+  struct _packet packPacket(const uint16_t data_id, const uint16_t data_count, const data_type_t data_type, const void* data)
   {
   //create a new _packet
   struct _packet packet;
@@ -20,8 +20,9 @@ namespace roveware
   packet.bytes[0] = ROVECOMM_VERSION;
   packet.bytes[1] = data_id  >> 8;
   packet.bytes[2] = data_id;
-  packet.bytes[3] = data_count;
-  packet.bytes[4] = data_type;
+  packet.bytes[3] = data_count >> 8;
+  packet.bytes[4] = data_count;
+  packet.bytes[5] = data_type;
     
   ////////////////////////////////////////////////////////////////////////////////////////////////
   //Pack data according to data_type
@@ -86,7 +87,7 @@ namespace roveware
       }
     } else if ( data_type == DOUBLE )
     {
-      //Convert data to float array
+      //Convert data to double array
       double* data_double = (double*)data;
       uint16_t  index    = 0;
       for(int i=0; i < 8 * data_count; i+=8)
@@ -109,7 +110,7 @@ namespace roveware
       }
     } else if ( data_type == CHAR )
     {
-      //Convert data to int8_t array
+      //Convert data to char array
       char* data_char = (char*)data;
       for(int i=0; i < 1 * data_count; i+=1)
       { 
@@ -142,8 +143,9 @@ namespace roveware
     uint16_t data_id   =(_packet_bytes[1] << 8)
                        | _packet_bytes[2];
 
-    uint8_t data_count = _packet_bytes[3];
-    data_type_t data_type  =  (data_type_t)_packet_bytes[4];
+    uint16_t data_count =(_packet_bytes[3] << 8)
+                       | _packet_bytes[4];
+    data_type_t data_type  =  (data_type_t)_packet_bytes[5];
 
     //Pack data into packet
     rovecomm_packet.data_count = data_count;
@@ -268,8 +270,9 @@ namespace roveware
     //Unpack header
     uint16_t data_id  = (header[1] << 8)
                        | header[2];
-    uint8_t data_count = header[3];
-    data_type_t data_type  =  (data_type_t)header[4];
+    uint16_t data_count = (header[3] << 8)
+                       | header[4];
+    data_type_t data_type  =  (data_type_t)header[5];
     char bytes[ROVECOMM_PACKET_MAX_DATA_COUNT*4];
 
     //Unpack data based on data_type
