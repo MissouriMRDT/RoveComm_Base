@@ -344,10 +344,11 @@
 #define RC_MULTIMEDIABOARD_LEDPATTERNS_DATA_COUNT                     1         
 #define RC_MULTIMEDIABOARD_LEDPATTERNS_DATA_TYPE                      uint8_t   
 
-//[Teleop, Autonomy, Reached Goal] (enum)
-#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_ID                       7003      
-#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_COUNT                    1         
-#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_TYPE                     uint8_t   
+//[Teleop = 0, Autonomy = 1, Reached Goal = 2] (enum)
+#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_ID                       7003
+#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_COUNT                    1
+#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_TYPE                     uint8_t
+enum DISPLAYSTATE {Teleop, Autonomy, Reached_Goal};  
 
 
 

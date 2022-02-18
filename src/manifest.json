@@ -348,7 +348,14 @@
         }
       },
       "Telemetry": {},
-      "Error": {}
+      "Error": {},
+      "Enums":{
+        "DISPLAYSTATE": {
+          "Teleop": 0,
+          "Autonomy": 1,
+          "Reached_Goal": 2
+        }
+      }
     },
     "Arm": {
       "Ip": "192.168.1.131",
