@@ -32,36 +32,49 @@ this.manifest_file = None
 this.header_file = None
 
 
-def insert_messages(board, type):
+def insert_packets(board, type):
     """
     This inserts all Ids for a given type (Command, Telemetry, Error)
     Currently adds the comments, dataId, dataCount and dataType
     """
-    messages = this.manifest[board][type]
-    this.header_file.write(f"////////////////////{type}\n")
+    if (len(this.manifest[board][type]) > 0):
+        messages = this.manifest[board][type]
+        this.header_file.write(f"////////////////////{type}\n")
 
-    for message in messages:
-        print(message)
-        dataId = this.manifest[board][type][message]["dataId"]
-        dataCount = this.manifest[board][type][message]["dataCount"]
-        comments = this.manifest[board][type][message]["comments"]
+        for message in messages:
+            print(message)
+            dataId = this.manifest[board][type][message]["dataId"]
+            dataCount = this.manifest[board][type][message]["dataCount"]
+            comments = this.manifest[board][type][message]["comments"]
 
-        # Data type doesn't exactly match the c type
-        dataType = this.manifest[board][type][message]["dataType"]
-        dataType = type_to_ctype[dataType]
+            # Data type doesn't exactly match the c type
+            dataType = this.manifest[board][type][message]["dataType"]
+            dataType = type_to_ctype[dataType]
 
-        this.header_file.write(f"//{comments}\n")
-        this.header_file.write(
-            f"{define_prefix + ' RC_'+board.upper()+'BOARD'+'_'+message.upper()+'_DATA_ID':<70}{dataId:<10}\n"
-        )
-        this.header_file.write(
-            f"{define_prefix + ' RC_'+board.upper()+'BOARD'+'_'+message.upper()+'_DATA_COUNT':<70}{dataCount:<10}\n"
-        )
-        this.header_file.write(
-            f"{define_prefix + ' RC_'+board.upper()+'BOARD'+'_'+message.upper()+'_DATA_TYPE':<70}{dataType:<10}\n"
-        )
-        this.header_file.write("\n")
+            this.header_file.write(f"//{comments}\n")
+            this.header_file.write(
+                f"{define_prefix + ' RC_'+board.upper()+'BOARD'+'_'+message.upper()+'_DATA_ID':<70}{dataId:<10}\n"
+            )
+            this.header_file.write(
+                f"{define_prefix + ' RC_'+board.upper()+'BOARD'+'_'+message.upper()+'_DATA_COUNT':<70}{dataCount:<10}\n"
+            )
+            this.header_file.write(
+                f"{define_prefix + ' RC_'+board.upper()+'BOARD'+'_'+message.upper()+'_DATA_TYPE':<70}{dataType:<10}\n"
+            )
+            this.header_file.write("\n")
 
+def insert_enums(board):
+    if ("Enums" in this.manifest[board]):
+        enums = this.manifest[board]["Enums"]
+        this.header_file.write(f"////////////////////Enums\n")
+        for enum in enums:
+            this.header_file.write(f"{'enum ' + board.upper() + 'BOARD' + '_' + enum.upper() + ' {'}")
+            output = ""
+            for value in enums[enum]:
+                print(value)
+                output += f"{value.upper() + ','}"
+            output = output[:-1] #Removing "," from the last element of the enum 
+            this.header_file.write(f"{output + '};'} \n")
 
 if __name__ == "__main__":
     # Load the json file
@@ -125,9 +138,10 @@ if __name__ == "__main__":
         this.header_file.write(f"///////////////////////////////////////////////////\n\n")
 
         # Insert the commands, telemetry and error messages for this particular board
-        insert_messages(board, "Commands")
-        insert_messages(board, "Telemetry")
-        insert_messages(board, "Error")
+        insert_packets(board, "Commands")
+        insert_packets(board, "Telemetry")
+        insert_packets(board, "Error")
+        insert_enums(board)
 
         # Write a couple of newlines to seperate boards
         this.header_file.write("\n\n")

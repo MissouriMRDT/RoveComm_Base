@@ -165,7 +165,6 @@
 #define RC_POWERBOARD_MOTORBUSENABLE_DATA_COUNT                       1         
 #define RC_POWERBOARD_MOTORBUSENABLE_DATA_TYPE                        uint8_t   
 
-// TODO - Remove both Aux enables on 12V when Powerboard Rev 2 is made.
 //[(0-Disable, 1-Enable)], [Gimbal-Act, Aux1(Aux_Logic on Board), Aux2(Spare on Board), Multimedia, Aux-Logic(Science-Act on board) (Bitmask)]
 #define RC_POWERBOARD_TWELVEVACTBUSENABLE_DATA_ID                     3001      
 #define RC_POWERBOARD_TWELVEVACTBUSENABLE_DATA_COUNT                  1         
@@ -249,7 +248,6 @@
 ////////////        BLACKBOXBOARD       ///////////         
 ///////////////////////////////////////////////////
 
-////////////////////Commands
 ////////////////////Telemetry
 //[(0-Disable, 1-Enable)]
 #define RC_BLACKBOXBOARD_BLACKBOXLISTENING_DATA_ID                    4100      
@@ -262,7 +260,6 @@
 ////////////        NAVBOARD            ///////////         
 ///////////////////////////////////////////////////
 
-////////////////////Commands
 ////////////////////Telemetry
 //[Lat, Long] [(-90, 90), (-180, 180)] (deg)
 #define RC_NAVBOARD_GPSLATLON_DATA_ID                                 5100      
@@ -344,12 +341,13 @@
 #define RC_MULTIMEDIABOARD_LEDPATTERNS_DATA_COUNT                     1         
 #define RC_MULTIMEDIABOARD_LEDPATTERNS_DATA_TYPE                      uint8_t   
 
-//[Teleop = 0, Autonomy = 1, Reached Goal = 2] (enum)
-#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_ID                       7003
-#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_COUNT                    1
-#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_TYPE                     uint8_t
-enum DISPLAYSTATE {Teleop, Autonomy, Reached_Goal};  
+//[Teleop, Autonomy, Reached Goal] (enum)
+#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_ID                       7003      
+#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_COUNT                    1         
+#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_TYPE                     uint8_t   
 
+////////////////////Enums
+enum MULTIMEDIABOARD_DISPLAYSTATE {TELEOP,AUTONOMY,REACHED_GOAL}; 
 
 
 ///////////////////////////////////////////////////
@@ -604,8 +602,6 @@ enum DISPLAYSTATE {Teleop, Autonomy, Reached_Goal};
 #define RC_AUTONOMYBOARD_CURRENTLOG_DATA_COUNT                        255       
 #define RC_AUTONOMYBOARD_CURRENTLOG_DATA_TYPE                         char      
 
-
-
 ///////////////////////////////////////////////////
 ////////////        HEATERBOARD         ///////////         
 ///////////////////////////////////////////////////
@@ -618,9 +614,9 @@ enum DISPLAYSTATE {Teleop, Autonomy, Reached_Goal};
 
 ////////////////////Telemetry
 //[1, 2, 3] (degrees C)
-#define RC_HEATERBOARD_THERMO_VALUES_DATA_ID                          15100     
-#define RC_HEATERBOARD_THERMO_VALUES_DATA_COUNT                       3         
-#define RC_HEATERBOARD_THERMO_VALUES_DATA_TYPE                        float     
+#define RC_HEATERBOARD_THERMOVALUES_DATA_ID                           15100     
+#define RC_HEATERBOARD_THERMOVALUES_DATA_COUNT                        3         
+#define RC_HEATERBOARD_THERMOVALUES_DATA_TYPE                         float     
 
 //[1, 2, 3] (0-Disabled, 1-Enabled)
 #define RC_HEATERBOARD_HEATERENABLED_DATA_ID                          15101     
@@ -632,7 +628,5 @@ enum DISPLAYSTATE {Teleop, Autonomy, Reached_Goal};
 #define RC_HEATERBOARD_OVERHEAT_DATA_ID                               15200     
 #define RC_HEATERBOARD_OVERHEAT_DATA_COUNT                            1         
 #define RC_HEATERBOARD_OVERHEAT_DATA_TYPE                             uint8_t   
-
-
 
 #endif // RoveCommManifest_h
