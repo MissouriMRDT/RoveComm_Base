@@ -271,10 +271,10 @@
 #define RC_NAVBOARD_IMUDATA_DATA_COUNT                                3         
 #define RC_NAVBOARD_IMUDATA_DATA_TYPE                                 float     
 
-//[Distance, Quality]
-#define RC_NAVBOARD_LIDARDATA_DATA_ID                                 5102      
-#define RC_NAVBOARD_LIDARDATA_DATA_COUNT                              2         
-#define RC_NAVBOARD_LIDARDATA_DATA_TYPE                               float     
+//[Heading] [ 0, 360 ]
+#define RC_NAVBOARD_COMPASSDATA_DATA_ID                               5102      
+#define RC_NAVBOARD_COMPASSDATA_DATA_COUNT                            1         
+#define RC_NAVBOARD_COMPASSDATA_DATA_TYPE                             float     
 
 //[Number of satellites]
 #define RC_NAVBOARD_SATELLITECOUNTDATA_DATA_ID                        5103      
@@ -341,11 +341,10 @@
 #define RC_MULTIMEDIABOARD_LEDPATTERNS_DATA_COUNT                     1         
 #define RC_MULTIMEDIABOARD_LEDPATTERNS_DATA_TYPE                      uint8_t   
 
-//[Teleop = 0, Autonomy = 1, Reached Goal = 2] (enum)
-#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_ID                       7003
-#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_COUNT                    1
-#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_TYPE                     uint8_t
-enum DISPLAYSTATE {Teleop, Autonomy, Reached_Goal};  
+//[Teleop, Autonomy, Reached Goal] (enum)
+#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_ID                       7003      
+#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_COUNT                    1         
+#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_TYPE                     uint8_t   
 
 ////////////////////Enums
 enum MULTIMEDIABOARD_DISPLAYSTATE {TELEOP,AUTONOMY,REACHED_GOAL}; 
