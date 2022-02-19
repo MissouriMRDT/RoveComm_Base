@@ -44,7 +44,7 @@ namespace roveware
   //Carrys Udp packet data
   struct _packet
   {
-    uint8_t bytes[ROVECOMM_PACKET_HEADER_SIZE + sizeof(int) * ROVECOMM_PACKET_MAX_DATA_COUNT];
+    uint8_t bytes[ROVECOMM_PACKET_HEADER_SIZE + sizeof(uint8_t) * ROVECOMM_PACKET_MAX_DATA_COUNT];
   };
 
   struct _packet        packPacket(const uint16_t data_id, const uint16_t data_count, const data_type_t data_type, const void* data);
