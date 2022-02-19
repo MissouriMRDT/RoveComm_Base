@@ -273,7 +273,7 @@ namespace roveware
     uint16_t data_count = (header[3] << 8)
                        | header[4];
     data_type_t data_type  =  (data_type_t)header[5];
-    char bytes[ROVECOMM_PACKET_MAX_DATA_COUNT*4];
+    char bytes[(ROVECOMM_PACKET_MAX_DATA_COUNT/257)*8];
 
     //Unpack data based on data_type
     if(data_type ==  INT32_T)
