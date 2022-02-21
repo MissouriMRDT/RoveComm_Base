@@ -577,12 +577,22 @@ enum MULTIMEDIABOARD_DISPLAYSTATE {TELEOP,AUTONOMY,REACHED_GOAL};
 #define RC_AUTONOMYBOARD_DISABLEAUTONOMY_DATA_TYPE                    uint8_t   
 
 //[Lat, Lon]
-#define RC_AUTONOMYBOARD_ADDWAYPOINTS_DATA_ID                         11002     
-#define RC_AUTONOMYBOARD_ADDWAYPOINTS_DATA_COUNT                      2         
-#define RC_AUTONOMYBOARD_ADDWAYPOINTS_DATA_TYPE                       double    
+#define RC_AUTONOMYBOARD_ADDPOSITIONLEG_DATA_ID                       11002     
+#define RC_AUTONOMYBOARD_ADDPOSITIONLEG_DATA_COUNT                    2         
+#define RC_AUTONOMYBOARD_ADDPOSITIONLEG_DATA_TYPE                     double    
+
+//[Lat, Lon]
+#define RC_AUTONOMYBOARD_ADDMARKERLEG_DATA_ID                         11003     
+#define RC_AUTONOMYBOARD_ADDMARKERLEG_DATA_COUNT                      2         
+#define RC_AUTONOMYBOARD_ADDMARKERLEG_DATA_TYPE                       double  
+
+//[Lat, Lon]
+#define RC_AUTONOMYBOARD_ADDGATELEG_DATA_ID                           11004     
+#define RC_AUTONOMYBOARD_ADDGATELEG_DATA_COUNT                        2         
+#define RC_AUTONOMYBOARD_ADDGATELEG_DATA_TYPE                         double  
 
 //
-#define RC_AUTONOMYBOARD_CLEARWAYPOINTS_DATA_ID                       11003     
+#define RC_AUTONOMYBOARD_CLEARWAYPOINTS_DATA_ID                       11005     
 #define RC_AUTONOMYBOARD_CLEARWAYPOINTS_DATA_COUNT                    1         
 #define RC_AUTONOMYBOARD_CLEARWAYPOINTS_DATA_TYPE                     uint8_t   
 
