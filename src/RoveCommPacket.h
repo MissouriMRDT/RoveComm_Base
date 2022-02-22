@@ -25,7 +25,11 @@ struct rovecomm_packet
   uint16_t data_id;
   uint16_t data_count;
   uint8_t data_type;
-  char data[(ROVECOMM_PACKET_MAX_DATA_COUNT/257)*8];
+  #if defined(ENERGIA)
+  char data[ROVECOMM_PACKET_MAX_DATA_COUNT/3*sizeof(uint8_t)]; //Tiva can only support 21,000 uint8_t at once due to memory issues
+  #elif defined(ARDUINO) && (ARDUINO>100)
+  char data[ROVECOMM_PACKET_MAX_DATA_COUNT/2*sizeof(uint8_t)];  //Teensy can only support 32,000 uint8_t at once due to memory issues
+  #endif
 };  
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -44,7 +48,11 @@ namespace roveware
   //Carrys Udp packet data
   struct _packet
   {
-    uint8_t bytes[ROVECOMM_PACKET_HEADER_SIZE + sizeof(uint8_t) * ROVECOMM_PACKET_MAX_DATA_COUNT];
+    #if defined(ENERGIA)
+    uint8_t bytes[ROVECOMM_PACKET_HEADER_SIZE + sizeof(uint8_t) * ROVECOMM_PACKET_MAX_DATA_COUNT/3];  //Tiva can only support 21,000 uint8_t at once due to memory issues
+    #elif defined(ARDUINO) && (ARDUINO>100)
+    uint8_t bytes[ROVECOMM_PACKET_HEADER_SIZE + sizeof(uint8_t) * ROVECOMM_PACKET_MAX_DATA_COUNT/2];  //Teensy can only support 32,000 uint8_t at once due to memory issues
+    #endif
   };
 
   struct _packet        packPacket(const uint16_t data_id, const uint16_t data_count, const data_type_t data_type, const void* data);
