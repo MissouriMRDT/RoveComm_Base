@@ -557,10 +557,10 @@ enum MULTIMEDIABOARD_DISPLAYSTATE {TELEOP,AUTONOMY,REACHED_GOAL};
 #define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA_DATA_COUNT             3         
 #define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA_DATA_TYPE              float     
 
-//[Gass concentration %, Temperature (C)]
-#define RC_SCIENCESENSORSBOARD_METHANE_DATA_ID                        10101     
-#define RC_SCIENCESENSORSBOARD_METHANE_DATA_COUNT                     2         
-#define RC_SCIENCESENSORSBOARD_METHANE_DATA_TYPE                      float     
+//[Gas concentration (ppm), Temperature (C)]
+#define RC_SCIENCESENSORSBOARD_CH3_DATA_ID                            10101     
+#define RC_SCIENCESENSORSBOARD_CH3_DATA_COUNT                         2         
+#define RC_SCIENCESENSORSBOARD_CH3_DATA_TYPE                          float     
 
 //[CO2 Concentration (ppm)]
 #define RC_SCIENCESENSORSBOARD_CO2_DATA_ID                            10102     
@@ -573,9 +573,9 @@ enum MULTIMEDIABOARD_DISPLAYSTATE {TELEOP,AUTONOMY,REACHED_GOAL};
 #define RC_SCIENCESENSORSBOARD_O2_DATA_TYPE                           float     
 
 //[concentration (ppm)]
-#define RC_SCIENCESENSORSBOARD_CH3_DATA_ID                            10104     
-#define RC_SCIENCESENSORSBOARD_CH3_DATA_COUNT                         1         
-#define RC_SCIENCESENSORSBOARD_CH3_DATA_TYPE                          float     
+#define RC_SCIENCESENSORSBOARD_NO_DATA_ID                             10104     
+#define RC_SCIENCESENSORSBOARD_NO_DATA_COUNT                          1         
+#define RC_SCIENCESENSORSBOARD_NO_DATA_TYPE                           float     
 
 //[ NO2 volume (ppm)]
 #define RC_SCIENCESENSORSBOARD_NO2_DATA_ID                            10105     

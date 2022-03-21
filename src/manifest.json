@@ -586,11 +586,11 @@
           "dataCount": 3,
           "comments": "[PhotoDiode 1, 2, 3] (Wavelength)"
         },
-        "Methane": {
+        "CH3": {
           "dataId": 10101,
           "dataType": "FLOAT_T",
           "dataCount": 2,
-          "comments": "[Gass concentration %, Temperature (C)]"
+          "comments": "[Gas concentration (ppm), Temperature (C)]"
         },
         "CO2": {
           "dataId": 10102,
@@ -604,7 +604,7 @@
           "dataCount": 1,
           "comments": "[concentration (ppm)]"
         },
-        "CH3": {
+        "NO": {
           "dataId": 10104,
           "dataType": "FLOAT_T",
           "dataCount": 1,
