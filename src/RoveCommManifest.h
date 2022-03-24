@@ -369,8 +369,14 @@
 #define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_COUNT                    1         
 #define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_TYPE                     uint8_t   
 
+//Set Brightness (0-255)
+#define RC_MULTIMEDIABOARD_BRIGHTNESS_DATA_ID                         7004      
+#define RC_MULTIMEDIABOARD_BRIGHTNESS_DATA_COUNT                      1         
+#define RC_MULTIMEDIABOARD_BRIGHTNESS_DATA_TYPE                       uint8_t   
+
 ////////////////////Enums
 enum MULTIMEDIABOARD_DISPLAYSTATE {TELEOP,AUTONOMY,REACHED_GOAL}; 
+enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERCIA,DIRT,DOTA,MCD,WINDOWS}; 
 
 
 ///////////////////////////////////////////////////

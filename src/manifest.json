@@ -353,6 +353,12 @@
           "dataType": "UINT8_T",
           "dataCount": 1,
           "comments": "[Teleop, Autonomy, Reached Goal] (enum)"
+        },
+        "Brightness": {
+          "dataId": 7004,
+          "dataType": "UINT8_T",
+          "dataCount": 1,
+          "comments": "Set Brightness (0-255)"
         }
       },
       "Telemetry": {},
@@ -362,6 +368,15 @@
           "Teleop": 0,
           "Autonomy": 1,
           "Reached_Goal": 2
+        },
+        "PATTERNS": {
+          "MRDT": 0,
+          "BELGIUM": 1,
+          "MERCIA": 2,
+          "DIRT": 3,
+          "DOTA": 4,
+          "MCD": 5,
+          "WINDOWS": 6
         }
       }
     },
