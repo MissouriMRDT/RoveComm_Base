@@ -530,9 +530,9 @@
         },
         "Water": {
           "dataId": 9001,
-          "dataType": "UINT16_T",
-          "dataCount": 3,
-          "comments": "[Water 1, Water 2, Water 3] (0, 1000) (m%)"
+          "dataType": "UINT8_T",
+          "dataCount": 1,
+          "comments": "Water solenoid #[3, 2, 1] (0-Closed, 1-Open)"
         },
         "LimitSwitchOverride": {
           "dataId": 9002,
@@ -745,7 +745,7 @@
           "dataId": 15101,
           "dataType": "UINT8_T",
           "dataCount": 1,
-          "comments": "[1, 2, 3] (0-Disabled, 1-Enabled)"
+          "comments": "Heater #[3, 2, 1] (0-Disabled, 1-Enabled)"
         }
       },
       "Error": {
