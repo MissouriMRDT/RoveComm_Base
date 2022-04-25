@@ -451,6 +451,12 @@
           "dataCount": 1,
           "comments": "[Base Tilt Up, Base Tilt Down, Base Twist CW, Base Twist CCW, Elbow Tilt Up, Elbow Tilt Down, Elbow  Twist CW, Elbow  Twist CCW] (0-Turn off Limit Switch Override, 1-Turn on Limit Switch Override) (bitmasked)"
         },
+        "RequestJointPositions": {
+          "dataId": 8012,
+          "dataType": "UINT8_T",
+          "dataCount": 1,
+          "comments": "Prompt arm for J1-6 positions"
+        },
         "TogglePositionTelem": {
           "dataId": 8013,
           "dataType": "UINT8_T",
