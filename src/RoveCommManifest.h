@@ -376,7 +376,7 @@
 
 ////////////////////Enums
 enum MULTIMEDIABOARD_DISPLAYSTATE {TELEOP,AUTONOMY,REACHED_GOAL}; 
-enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERCIA,DIRT,DOTA,MCD,WINDOWS}; 
+enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERICA,DIRT,DOTA,MCD,WINDOWS}; 
 
 
 ///////////////////////////////////////////////////
@@ -503,10 +503,10 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERCIA,DIRT,DOTA,MCD,WINDOWS};
 #define RC_SCIENCEACTUATIONBOARD_SENSORAXIS_DATA_COUNT                1         
 #define RC_SCIENCEACTUATIONBOARD_SENSORAXIS_DATA_TYPE                 int16_t   
 
-//[Water 1, Water 2, Water 3] (0, 1000) (m%)
+//Water solenoid #[3, 2, 1] (0-Closed, 1-Open)
 #define RC_SCIENCEACTUATIONBOARD_WATER_DATA_ID                        9001      
-#define RC_SCIENCEACTUATIONBOARD_WATER_DATA_COUNT                     3         
-#define RC_SCIENCEACTUATIONBOARD_WATER_DATA_TYPE                      uint16_t  
+#define RC_SCIENCEACTUATIONBOARD_WATER_DATA_COUNT                     1         
+#define RC_SCIENCEACTUATIONBOARD_WATER_DATA_TYPE                      uint8_t   
 
 //[Zoop-axis Top, Zoop-axis Bottom, Xoop-axis Left, Xoop-axis Right, Sensor Axis Top, Sensor Axis Bottom] (0-Turn off Limit Switch Override, 1-Turn on Limit Switch Override) (bitmasked)
 #define RC_SCIENCEACTUATIONBOARD_LIMITSWITCHOVERRIDE_DATA_ID          9002      
@@ -677,7 +677,7 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERCIA,DIRT,DOTA,MCD,WINDOWS};
 #define RC_HEATERBOARD_THERMOVALUES_DATA_COUNT                        3         
 #define RC_HEATERBOARD_THERMOVALUES_DATA_TYPE                         float     
 
-//[1, 2, 3] (0-Disabled, 1-Enabled)
+//Heater #[3, 2, 1] (0-Disabled, 1-Enabled)
 #define RC_HEATERBOARD_HEATERENABLED_DATA_ID                          15101     
 #define RC_HEATERBOARD_HEATERENABLED_DATA_COUNT                       1         
 #define RC_HEATERBOARD_HEATERENABLED_DATA_TYPE                        uint8_t   
