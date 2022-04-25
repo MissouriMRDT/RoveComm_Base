@@ -439,16 +439,6 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERICA,DIRT,DOTA,MCD,WINDOWS};
 #define RC_ARMBOARD_LIMITSWITCHOVERRIDE_DATA_COUNT                    1         
 #define RC_ARMBOARD_LIMITSWITCHOVERRIDE_DATA_TYPE                     uint8_t   
 
-//[1-Base, 2-Elbow, 3-Wrist]
-#define RC_ARMBOARD_REBOOTODRIVE_DATA_ID                              8011      
-#define RC_ARMBOARD_REBOOTODRIVE_DATA_COUNT                           1         
-#define RC_ARMBOARD_REBOOTODRIVE_DATA_TYPE                            uint8_t   
-
-//Prompt arm for J1-6 positions
-#define RC_ARMBOARD_REQUESTJOINTPOSITIONS_DATA_ID                     8012      
-#define RC_ARMBOARD_REQUESTJOINTPOSITIONS_DATA_COUNT                  1         
-#define RC_ARMBOARD_REQUESTJOINTPOSITIONS_DATA_TYPE                   uint8_t   
-
 //Start auto pushing arm J1-6 positions
 #define RC_ARMBOARD_TOGGLEPOSITIONTELEM_DATA_ID                       8013      
 #define RC_ARMBOARD_TOGGLEPOSITIONTELEM_DATA_COUNT                    1         
