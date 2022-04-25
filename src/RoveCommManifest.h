@@ -188,17 +188,17 @@
 #define RC_POWERBOARD_MOTORBUSENABLE_DATA_COUNT                       1         
 #define RC_POWERBOARD_MOTORBUSENABLE_DATA_TYPE                        uint8_t   
 
-//Gimbal-Act, Aux_Logic (Aux1), Spare (Aux2), Multimedia, Science-Act (AuxLogic)
+//Aux
 #define RC_POWERBOARD_TWELVEVACTBUSENABLE_DATA_ID                     3001      
 #define RC_POWERBOARD_TWELVEVACTBUSENABLE_DATA_COUNT                  1         
 #define RC_POWERBOARD_TWELVEVACTBUSENABLE_DATA_TYPE                   uint8_t   
 
-//Gimbal-Log, Drive-Log, NetworkSwitch, Nav, Cam1, Cam2, BBB, Science-Sensor (Spare)
+//Gimbal, Drive, Multi, Nav, Cam1, Cam2, BBB, Spare
 #define RC_POWERBOARD_TWELVEVLOGICBUSENABLE_DATA_ID                   3002      
 #define RC_POWERBOARD_TWELVEVLOGICBUSENABLE_DATA_COUNT                1         
 #define RC_POWERBOARD_TWELVEVLOGICBUSENABLE_DATA_TYPE                 uint8_t   
 
-//POE, TwelveVolt, Aux, Spare
+//Spare
 #define RC_POWERBOARD_THIRTYVBUSENABLE_DATA_ID                        3003      
 #define RC_POWERBOARD_THIRTYVBUSENABLE_DATA_COUNT                     1         
 #define RC_POWERBOARD_THIRTYVBUSENABLE_DATA_TYPE                      uint8_t   
@@ -209,17 +209,17 @@
 #define RC_POWERBOARD_MOTORBUSENABLED_DATA_COUNT                      1         
 #define RC_POWERBOARD_MOTORBUSENABLED_DATA_TYPE                       uint8_t   
 
-//Gimbal-Act, Aux_Logic (Aux1), Spare (Aux2), Multimedia, Science-Act (AuxLogic)
+//Aux
 #define RC_POWERBOARD_TWELVEVACTBUSENABLED_DATA_ID                    3101      
 #define RC_POWERBOARD_TWELVEVACTBUSENABLED_DATA_COUNT                 1         
 #define RC_POWERBOARD_TWELVEVACTBUSENABLED_DATA_TYPE                  uint8_t   
 
-//Gimbal-Log, Drive-Log, NetworkSwitch, Nav, Cam1, Cam2, BBB, Science-Sensor (Spare)
+//Gimbal, Drive, Multi, Nav, Cam1, Cam2, BBB, Spare
 #define RC_POWERBOARD_TWELVEVLOGICBUSENABLED_DATA_ID                  3102      
 #define RC_POWERBOARD_TWELVEVLOGICBUSENABLED_DATA_COUNT               1         
 #define RC_POWERBOARD_TWELVEVLOGICBUSENABLED_DATA_TYPE                uint8_t   
 
-//POE, TwelveVolt, Aux, Spare
+//Spare
 #define RC_POWERBOARD_THIRTYVENABLED_DATA_ID                          3103      
 #define RC_POWERBOARD_THIRTYVENABLED_DATA_COUNT                       1         
 #define RC_POWERBOARD_THIRTYVENABLED_DATA_TYPE                        uint8_t   
@@ -229,17 +229,17 @@
 #define RC_POWERBOARD_MOTORBUSCURRENT_DATA_COUNT                      7         
 #define RC_POWERBOARD_MOTORBUSCURRENT_DATA_TYPE                       float     
 
-//Gimbal-Act, Aux_Logic (Aux1), Spare (Aux2), Multimedia, Science-Act (AuxLogic)
+//Aux
 #define RC_POWERBOARD_TWELVEVACTBUSCURRENT_DATA_ID                    3105      
-#define RC_POWERBOARD_TWELVEVACTBUSCURRENT_DATA_COUNT                 5         
+#define RC_POWERBOARD_TWELVEVACTBUSCURRENT_DATA_COUNT                 1         
 #define RC_POWERBOARD_TWELVEVACTBUSCURRENT_DATA_TYPE                  float     
 
-//Gimbal-Log, Drive-Log, NetworkSwitch, Nav, Cam1, Cam2, BBB, Science-Sensor (Spare)
+//Gimbal, Drive, Multi, Nav, Cam1, Cam2, BBB, Spare
 #define RC_POWERBOARD_TWELVEVLOGICBUSCURRENT_DATA_ID                  3106      
 #define RC_POWERBOARD_TWELVEVLOGICBUSCURRENT_DATA_COUNT               8         
 #define RC_POWERBOARD_TWELVEVLOGICBUSCURRENT_DATA_TYPE                float     
 
-//POE, TwelveVolt, Aux, Spare
+//Spare
 #define RC_POWERBOARD_THIRTYVBUSCURRENT_DATA_ID                       3107      
 #define RC_POWERBOARD_THIRTYVBUSCURRENT_DATA_COUNT                    4         
 #define RC_POWERBOARD_THIRTYVBUSCURRENT_DATA_TYPE                     float     
@@ -250,17 +250,17 @@
 #define RC_POWERBOARD_MOTORBUSOVERCURRENT_DATA_COUNT                  1         
 #define RC_POWERBOARD_MOTORBUSOVERCURRENT_DATA_TYPE                   uint8_t   
 
-//[(0-undermaxcurrent, 1-overcurrent)] [Gimbal-Act, Aux1(Aux_Logic on Board), Aux2(Spare on Board), Multimedia, Aux-Logic(Science-Act on board) (Bitmask)]
+//[(0-undermaxcurrent, 1-overcurrent)] [Aux (Bitmask)]
 #define RC_POWERBOARD_TWELVEVACTBUSOVERCURRENT_DATA_ID                3201      
 #define RC_POWERBOARD_TWELVEVACTBUSOVERCURRENT_DATA_COUNT             1         
 #define RC_POWERBOARD_TWELVEVACTBUSOVERCURRENT_DATA_TYPE              uint8_t   
 
-//[(0-undermaxcurrent, 1-overcurrent)] [POE, TwelveVolt, Aux, Spare (Bitmask)]
+//[(0-undermaxcurrent, 1-overcurrent)] [Spare (Bitmask)]
 #define RC_POWERBOARD_THIRTYVBUSOVERCURRENT_DATA_ID                   3202      
 #define RC_POWERBOARD_THIRTYVBUSOVERCURRENT_DATA_COUNT                1         
 #define RC_POWERBOARD_THIRTYVBUSOVERCURRENT_DATA_TYPE                 uint8_t   
 
-//[(0-undermaxcurrent, 1-overcurrent)] [Gimbal-Log, Drive-Log, NetworkSwitch, Nav, Cam1, Cam2, BBB, Spare(Science-Sensor on board) (Bitmask)]
+//[(0-undermaxcurrent, 1-overcurrent)] [Gimbal, Drive, Multi, Nav, Cam1, Cam2, BBB, Spare (Bitmask)]
 #define RC_POWERBOARD_TWELVEVLOGICBUSOVERCURRENT_DATA_ID              3203      
 #define RC_POWERBOARD_TWELVEVLOGICBUSOVERCURRENT_DATA_COUNT           1         
 #define RC_POWERBOARD_TWELVEVLOGICBUSOVERCURRENT_DATA_TYPE            uint8_t   
@@ -641,6 +641,26 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERCIA,DIRT,DOTA,MCD,WINDOWS};
 #define RC_AUTONOMYBOARD_CURRENTLOG_DATA_COUNT                        255       
 #define RC_AUTONOMYBOARD_CURRENTLOG_DATA_TYPE                         char      
 
+
+
+///////////////////////////////////////////////////
+////////////        CAMERA1BOARD        ///////////         
+///////////////////////////////////////////////////
+
+
+
+///////////////////////////////////////////////////
+////////////        CAMERA2BOARD        ///////////         
+///////////////////////////////////////////////////
+
+
+
+///////////////////////////////////////////////////
+////////////        PRCONTROLLERBOARD   ///////////         
+///////////////////////////////////////////////////
+
+
+
 ///////////////////////////////////////////////////
 ////////////        HEATERBOARD         ///////////         
 ///////////////////////////////////////////////////
@@ -667,5 +687,13 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERCIA,DIRT,DOTA,MCD,WINDOWS};
 #define RC_HEATERBOARD_OVERHEAT_DATA_ID                               15200     
 #define RC_HEATERBOARD_OVERHEAT_DATA_COUNT                            1         
 #define RC_HEATERBOARD_OVERHEAT_DATA_TYPE                             uint8_t   
+
+
+
+///////////////////////////////////////////////////
+////////////        MICROPIBOARD        ///////////         
+///////////////////////////////////////////////////
+
+
 
 #endif // RoveCommManifest_h
