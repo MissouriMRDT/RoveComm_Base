@@ -498,10 +498,10 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERICA,DIRT,DOTA,MCD,WINDOWS};
 #define RC_SCIENCEACTUATIONBOARD_SENSORAXIS_DATA_COUNT                1         
 #define RC_SCIENCEACTUATIONBOARD_SENSORAXIS_DATA_TYPE                 int16_t   
 
-//Water solenoid #[3, 2, 1] (0-Closed, 1-Open)
+//Water solenoid #[9, 8, 7, 6, 5, 4, 3, 2, 1] (0-Closed, 1-Open)
 #define RC_SCIENCEACTUATIONBOARD_WATER_DATA_ID                        9001      
 #define RC_SCIENCEACTUATIONBOARD_WATER_DATA_COUNT                     1         
-#define RC_SCIENCEACTUATIONBOARD_WATER_DATA_TYPE                      uint8_t   
+#define RC_SCIENCEACTUATIONBOARD_WATER_DATA_TYPE                      uint16_t  
 
 //[Zoop-axis Top, Zoop-axis Bottom, Xoop-axis Left, Xoop-axis Right, Sensor Axis Top, Sensor Axis Bottom] (0-Turn off Limit Switch Override, 1-Turn on Limit Switch Override) (bitmasked)
 #define RC_SCIENCEACTUATIONBOARD_LIMITSWITCHOVERRIDE_DATA_ID          9002      
@@ -518,10 +518,15 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERICA,DIRT,DOTA,MCD,WINDOWS};
 #define RC_SCIENCEACTUATIONBOARD_ZOOPAXIS_DATA_COUNT                  1         
 #define RC_SCIENCEACTUATIONBOARD_ZOOPAXIS_DATA_TYPE                   int16_t   
 
-//[Position] (0,180) (degrees)
+//[Position] (0 Open, 1, Closed)
 #define RC_SCIENCEACTUATIONBOARD_SCOOPGRABBER_DATA_ID                 9005      
 #define RC_SCIENCEACTUATIONBOARD_SCOOPGRABBER_DATA_COUNT              1         
-#define RC_SCIENCEACTUATIONBOARD_SCOOPGRABBER_DATA_TYPE               int16_t   
+#define RC_SCIENCEACTUATIONBOARD_SCOOPGRABBER_DATA_TYPE               uint8_t   
+
+//[Position] (0, Group 1, 2, or 3)
+#define RC_SCIENCEACTUATIONBOARD_GOTOPOSITION_DATA_ID                 9006      
+#define RC_SCIENCEACTUATIONBOARD_GOTOPOSITION_DATA_COUNT              1         
+#define RC_SCIENCEACTUATIONBOARD_GOTOPOSITION_DATA_TYPE               uint8_t   
 
 ////////////////////Telemetry
 //[scoop z-pos, scoop x-pos, sensor z-axis] (absolute position 0-360)
