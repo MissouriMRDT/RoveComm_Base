@@ -193,12 +193,12 @@
 #define RC_POWERBOARD_TWELVEVACTBUSENABLE_DATA_COUNT                  1         
 #define RC_POWERBOARD_TWELVEVACTBUSENABLE_DATA_TYPE                   uint8_t   
 
-//Gimbal, Drive, Multi, Nav, Cam1, Cam2, BBB, Spare
+//Gimbal, Drive, Multi, Nav, Cam1, Cam2, BBB, Spare 12V
 #define RC_POWERBOARD_TWELVEVLOGICBUSENABLE_DATA_ID                   3002      
 #define RC_POWERBOARD_TWELVEVLOGICBUSENABLE_DATA_COUNT                1         
 #define RC_POWERBOARD_TWELVEVLOGICBUSENABLE_DATA_TYPE                 uint8_t   
 
-//Spare
+//Spare 30V
 #define RC_POWERBOARD_THIRTYVBUSENABLE_DATA_ID                        3003      
 #define RC_POWERBOARD_THIRTYVBUSENABLE_DATA_COUNT                     1         
 #define RC_POWERBOARD_THIRTYVBUSENABLE_DATA_TYPE                      uint8_t   
@@ -214,12 +214,12 @@
 #define RC_POWERBOARD_TWELVEVACTBUSENABLED_DATA_COUNT                 1         
 #define RC_POWERBOARD_TWELVEVACTBUSENABLED_DATA_TYPE                  uint8_t   
 
-//Gimbal, Drive, Multi, Nav, Cam1, Cam2, BBB, Spare
+//Gimbal, Drive, Multi, Nav, Cam1, Cam2, BBB, Spare 12V
 #define RC_POWERBOARD_TWELVEVLOGICBUSENABLED_DATA_ID                  3102      
 #define RC_POWERBOARD_TWELVEVLOGICBUSENABLED_DATA_COUNT               1         
 #define RC_POWERBOARD_TWELVEVLOGICBUSENABLED_DATA_TYPE                uint8_t   
 
-//Spare
+//Spare 30V
 #define RC_POWERBOARD_THIRTYVENABLED_DATA_ID                          3103      
 #define RC_POWERBOARD_THIRTYVENABLED_DATA_COUNT                       1         
 #define RC_POWERBOARD_THIRTYVENABLED_DATA_TYPE                        uint8_t   
@@ -234,12 +234,12 @@
 #define RC_POWERBOARD_TWELVEVACTBUSCURRENT_DATA_COUNT                 1         
 #define RC_POWERBOARD_TWELVEVACTBUSCURRENT_DATA_TYPE                  float     
 
-//Gimbal, Drive, Multi, Nav, Cam1, Cam2, BBB, Spare
+//Gimbal, Drive, Multi, Nav, Cam1, Cam2, BBB, Spare 12V
 #define RC_POWERBOARD_TWELVEVLOGICBUSCURRENT_DATA_ID                  3106      
 #define RC_POWERBOARD_TWELVEVLOGICBUSCURRENT_DATA_COUNT               8         
 #define RC_POWERBOARD_TWELVEVLOGICBUSCURRENT_DATA_TYPE                float     
 
-//Spare
+//Spare 30V
 #define RC_POWERBOARD_THIRTYVBUSCURRENT_DATA_ID                       3107      
 #define RC_POWERBOARD_THIRTYVBUSCURRENT_DATA_COUNT                    4         
 #define RC_POWERBOARD_THIRTYVBUSCURRENT_DATA_TYPE                     float     
