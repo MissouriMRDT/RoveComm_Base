@@ -176,12 +176,12 @@
 #define RC_POWERBOARD_MOTORBUSENABLE_DATA_COUNT                       1         
 #define RC_POWERBOARD_MOTORBUSENABLE_DATA_TYPE                        uint8_t   
 
-//Aux, Spare
+//Aux, Spare High
 #define RC_POWERBOARD_HIGHBUSENABLE_DATA_ID                           3001      
 #define RC_POWERBOARD_HIGHBUSENABLE_DATA_COUNT                        1         
 #define RC_POWERBOARD_HIGHBUSENABLE_DATA_TYPE                         uint8_t   
 
-//Gimbal, Drive, Multi, Nav, Cam, BBB, Spare
+//Gimbal, Drive, Multi, Nav, Cam, BBB, Spare Low
 #define RC_POWERBOARD_LOWBUSENABLE_DATA_ID                            3002      
 #define RC_POWERBOARD_LOWBUSENABLE_DATA_COUNT                         1         
 #define RC_POWERBOARD_LOWBUSENABLE_DATA_TYPE                          uint8_t   
@@ -192,12 +192,12 @@
 #define RC_POWERBOARD_MOTORBUSENABLED_DATA_COUNT                      1         
 #define RC_POWERBOARD_MOTORBUSENABLED_DATA_TYPE                       uint8_t   
 
-//Aux, Spare
+//Aux, Spare High
 #define RC_POWERBOARD_HIGHBUSENABLED_DATA_ID                          3101      
 #define RC_POWERBOARD_HIGHBUSENABLED_DATA_COUNT                       1         
 #define RC_POWERBOARD_HIGHBUSENABLED_DATA_TYPE                        uint8_t   
 
-//Gimbal, Drive, Multi, Nav, Cam, BBB, Spare
+//Gimbal, Drive, Multi, Nav, Cam, BBB, Spare Low
 #define RC_POWERBOARD_LOWBUSENABLED_DATA_ID                           3102      
 #define RC_POWERBOARD_LOWBUSENABLED_DATA_COUNT                        1         
 #define RC_POWERBOARD_LOWBUSENABLED_DATA_TYPE                         uint8_t   
@@ -207,14 +207,14 @@
 #define RC_POWERBOARD_MOTORBUSCURRENT_DATA_COUNT                      7         
 #define RC_POWERBOARD_MOTORBUSCURRENT_DATA_TYPE                       float     
 
-//Aux, Spare
+//Aux, Spare High
 #define RC_POWERBOARD_HIGHBUSCURRENT_DATA_ID                          3104      
 #define RC_POWERBOARD_HIGHBUSCURRENT_DATA_COUNT                       2         
 #define RC_POWERBOARD_HIGHBUSCURRENT_DATA_TYPE                        float     
 
-//Gimbal, Drive, Multi, Nav, Cam, BBB, Spare
+//Gimbal, Drive, Multi, Nav, Cam, BBB, Spare Low
 #define RC_POWERBOARD_LOWBUSCURRENT_DATA_ID                           3105      
-#define RC_POWERBOARD_LOWBUSCURRENT_DATA_COUNT                        8         
+#define RC_POWERBOARD_LOWBUSCURRENT_DATA_COUNT                        7         
 #define RC_POWERBOARD_LOWBUSCURRENT_DATA_TYPE                         float     
 
 ////////////////////Error
@@ -223,12 +223,12 @@
 #define RC_POWERBOARD_MOTORBUSOVERCURRENT_DATA_COUNT                  1         
 #define RC_POWERBOARD_MOTORBUSOVERCURRENT_DATA_TYPE                   uint8_t   
 
-//[(0-undermaxcurrent, 1-overcurrent)] [Aux, Spare (Bitmask)]
+//[(0-undermaxcurrent, 1-overcurrent)] [Aux, Spare High (Bitmask)]
 #define RC_POWERBOARD_HIGHBUSOVERCURRENT_DATA_ID                      3201      
 #define RC_POWERBOARD_HIGHBUSOVERCURRENT_DATA_COUNT                   1         
 #define RC_POWERBOARD_HIGHBUSOVERCURRENT_DATA_TYPE                    uint8_t   
 
-//[(0-undermaxcurrent, 1-overcurrent)] [Gimbal, Drive, Multi, Nav, Cam, BBB, Spare (Bitmask)]
+//[(0-undermaxcurrent, 1-overcurrent)] [Gimbal, Drive, Multi, Nav, Cam, BBB, Spare Low (Bitmask)]
 #define RC_POWERBOARD_LOWBUSOVERCURRENT_DATA_ID                       3202      
 #define RC_POWERBOARD_LOWBUSOVERCURRENT_DATA_COUNT                    1         
 #define RC_POWERBOARD_LOWBUSOVERCURRENT_DATA_TYPE                     uint8_t   

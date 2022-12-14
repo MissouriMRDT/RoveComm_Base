@@ -139,13 +139,13 @@
           "dataId": 3001,
           "dataType": "UINT8_T",
           "dataCount": 1,
-          "comments": "Aux, Spare"
+          "comments": "Aux, Spare High"
         },
         "LowBusEnable": {
           "dataId": 3002,
           "dataType": "UINT8_T",
           "dataCount": 1,
-          "comments": "Gimbal, Drive, Multi, Nav, Cam, BBB, Spare"
+          "comments": "Gimbal, Drive, Multi, Nav, Cam, BBB, Spare Low"
         }
       },
       "Telemetry": {
@@ -159,13 +159,13 @@
           "dataId": 3101,
           "dataType": "UINT8_T",
           "dataCount": 1,
-          "comments": "Aux, Spare"
+          "comments": "Aux, Spare High"
         },
         "LowBusEnabled": {
           "dataId": 3102,
           "dataType": "UINT8_T",
           "dataCount": 1,
-          "comments": "Gimbal, Drive, Multi, Nav, Cam, BBB, Spare"
+          "comments": "Gimbal, Drive, Multi, Nav, Cam, BBB, Spare Low"
         },
         "MotorBusCurrent": {
           "dataId": 3103,
@@ -177,13 +177,13 @@
           "dataId": 3104,
           "dataType": "FLOAT_T",
           "dataCount": 2,
-          "comments": "Aux, Spare"
+          "comments": "Aux, Spare High"
         },
         "LowBusCurrent": {
           "dataId": 3105,
           "dataType": "FLOAT_T",
           "dataCount": 7,
-          "comments": "Gimbal, Drive, Multi, Nav, Cam, BBB, Spare"
+          "comments": "Gimbal, Drive, Multi, Nav, Cam, BBB, Spare Low"
         }
       },
       "Error": {
@@ -197,13 +197,13 @@
           "dataId": 3201,
           "dataType": "UINT8_T",
           "dataCount": 1,
-          "comments": "[(0-undermaxcurrent, 1-overcurrent)] [Aux, Spare (Bitmask)]"
+          "comments": "[(0-undermaxcurrent, 1-overcurrent)] [Aux, Spare High (Bitmask)]"
         },
         "LowBusOverCurrent": {
           "dataId": 3202,
           "dataType": "UINT8_T",
           "dataCount": 1,
-          "comments": "[(0-undermaxcurrent, 1-overcurrent)] [Gimbal, Drive, Multi, Nav, Cam, BBB, Spare (Bitmask)]"
+          "comments": "[(0-undermaxcurrent, 1-overcurrent)] [Gimbal, Drive, Multi, Nav, Cam, BBB, Spare Low (Bitmask)]"
         }
       }
     },
