@@ -182,7 +182,7 @@
         "LowBusCurrent": {
           "dataId": 3105,
           "dataType": "FLOAT_T",
-          "dataCount": 8,
+          "dataCount": 7,
           "comments": "Gimbal, Drive, Multi, Nav, Cam, BBB, Spare"
         }
       },
