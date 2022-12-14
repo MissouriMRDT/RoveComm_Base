@@ -192,40 +192,30 @@
 #define RC_POWERBOARD_MOTORBUSENABLED_DATA_COUNT                      1         
 #define RC_POWERBOARD_MOTORBUSENABLED_DATA_TYPE                       uint8_t   
 
-//Aux
-#define RC_POWERBOARD_TWELVEVACTBUSENABLED_DATA_ID                    3101      
-#define RC_POWERBOARD_TWELVEVACTBUSENABLED_DATA_COUNT                 1         
-#define RC_POWERBOARD_TWELVEVACTBUSENABLED_DATA_TYPE                  uint8_t   
+//Aux, Spare
+#define RC_POWERBOARD_HIGHBUSENABLED_DATA_ID                          3101      
+#define RC_POWERBOARD_HIGHBUSENABLED_DATA_COUNT                       1         
+#define RC_POWERBOARD_HIGHBUSENABLED_DATA_TYPE                        uint8_t   
 
-//Gimbal, Drive, Multi, Nav, Cam1, Cam2, BBB, Spare 12V
-#define RC_POWERBOARD_TWELVEVLOGICBUSENABLED_DATA_ID                  3102      
-#define RC_POWERBOARD_TWELVEVLOGICBUSENABLED_DATA_COUNT               1         
-#define RC_POWERBOARD_TWELVEVLOGICBUSENABLED_DATA_TYPE                uint8_t   
-
-//Spare 30V
-#define RC_POWERBOARD_THIRTYVENABLED_DATA_ID                          3103      
-#define RC_POWERBOARD_THIRTYVENABLED_DATA_COUNT                       1         
-#define RC_POWERBOARD_THIRTYVENABLED_DATA_TYPE                        uint8_t   
+//Gimbal, Drive, Multi, Nav, Cam, BBB, Spare
+#define RC_POWERBOARD_LOWBUSENABLED_DATA_ID                           3102      
+#define RC_POWERBOARD_LOWBUSENABLED_DATA_COUNT                        1         
+#define RC_POWERBOARD_LOWBUSENABLED_DATA_TYPE                         uint8_t   
 
 //M1, M2, M3, M4, M5, M6, Spare
-#define RC_POWERBOARD_MOTORBUSCURRENT_DATA_ID                         3104      
+#define RC_POWERBOARD_MOTORBUSCURRENT_DATA_ID                         3103      
 #define RC_POWERBOARD_MOTORBUSCURRENT_DATA_COUNT                      7         
 #define RC_POWERBOARD_MOTORBUSCURRENT_DATA_TYPE                       float     
 
-//Aux
-#define RC_POWERBOARD_TWELVEVACTBUSCURRENT_DATA_ID                    3105      
-#define RC_POWERBOARD_TWELVEVACTBUSCURRENT_DATA_COUNT                 1         
-#define RC_POWERBOARD_TWELVEVACTBUSCURRENT_DATA_TYPE                  float     
+//Aux, Spare
+#define RC_POWERBOARD_HIGHBUSCURRENT_DATA_ID                          3104      
+#define RC_POWERBOARD_HIGHBUSCURRENT_DATA_COUNT                       2         
+#define RC_POWERBOARD_HIGHBUSCURRENT_DATA_TYPE                        float     
 
-//Gimbal, Drive, Multi, Nav, Cam1, Cam2, BBB, Spare 12V
-#define RC_POWERBOARD_TWELVEVLOGICBUSCURRENT_DATA_ID                  3106      
-#define RC_POWERBOARD_TWELVEVLOGICBUSCURRENT_DATA_COUNT               8         
-#define RC_POWERBOARD_TWELVEVLOGICBUSCURRENT_DATA_TYPE                float     
-
-//Spare 30V
-#define RC_POWERBOARD_THIRTYVBUSCURRENT_DATA_ID                       3107      
-#define RC_POWERBOARD_THIRTYVBUSCURRENT_DATA_COUNT                    4         
-#define RC_POWERBOARD_THIRTYVBUSCURRENT_DATA_TYPE                     float     
+//Gimbal, Drive, Multi, Nav, Cam, BBB, Spare
+#define RC_POWERBOARD_LOWBUSCURRENT_DATA_ID                           3105      
+#define RC_POWERBOARD_LOWBUSCURRENT_DATA_COUNT                        8         
+#define RC_POWERBOARD_LOWBUSCURRENT_DATA_TYPE                         float     
 
 ////////////////////Error
 //[(0-undermaxcurrent, 1-overcurrent)] [M1, M2, M3, M4, M5, M6, Spare (Bitmask)]
@@ -233,20 +223,15 @@
 #define RC_POWERBOARD_MOTORBUSOVERCURRENT_DATA_COUNT                  1         
 #define RC_POWERBOARD_MOTORBUSOVERCURRENT_DATA_TYPE                   uint8_t   
 
-//[(0-undermaxcurrent, 1-overcurrent)] [Aux (Bitmask)]
-#define RC_POWERBOARD_TWELVEVACTBUSOVERCURRENT_DATA_ID                3201      
-#define RC_POWERBOARD_TWELVEVACTBUSOVERCURRENT_DATA_COUNT             1         
-#define RC_POWERBOARD_TWELVEVACTBUSOVERCURRENT_DATA_TYPE              uint8_t   
+//[(0-undermaxcurrent, 1-overcurrent)] [Aux, Spare (Bitmask)]
+#define RC_POWERBOARD_HIGHBUSOVERCURRENT_DATA_ID                      3201      
+#define RC_POWERBOARD_HIGHBUSOVERCURRENT_DATA_COUNT                   1         
+#define RC_POWERBOARD_HIGHBUSOVERCURRENT_DATA_TYPE                    uint8_t   
 
-//[(0-undermaxcurrent, 1-overcurrent)] [Spare (Bitmask)]
-#define RC_POWERBOARD_THIRTYVBUSOVERCURRENT_DATA_ID                   3202      
-#define RC_POWERBOARD_THIRTYVBUSOVERCURRENT_DATA_COUNT                1         
-#define RC_POWERBOARD_THIRTYVBUSOVERCURRENT_DATA_TYPE                 uint8_t   
-
-//[(0-undermaxcurrent, 1-overcurrent)] [Gimbal, Drive, Multi, Nav, Cam1, Cam2, BBB, Spare (Bitmask)]
-#define RC_POWERBOARD_TWELVEVLOGICBUSOVERCURRENT_DATA_ID              3203      
-#define RC_POWERBOARD_TWELVEVLOGICBUSOVERCURRENT_DATA_COUNT           1         
-#define RC_POWERBOARD_TWELVEVLOGICBUSOVERCURRENT_DATA_TYPE            uint8_t   
+//[(0-undermaxcurrent, 1-overcurrent)] [Gimbal, Drive, Multi, Nav, Cam, BBB, Spare (Bitmask)]
+#define RC_POWERBOARD_LOWBUSOVERCURRENT_DATA_ID                       3202      
+#define RC_POWERBOARD_LOWBUSOVERCURRENT_DATA_COUNT                    1         
+#define RC_POWERBOARD_LOWBUSOVERCURRENT_DATA_TYPE                     uint8_t   
 
 
 

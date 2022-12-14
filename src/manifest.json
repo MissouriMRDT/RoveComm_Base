@@ -155,47 +155,35 @@
           "dataCount": 1,
           "comments": "M1, M2, M3, M4, M5, M6, Spare"
         },
-        "TwelveVActBusEnabled": {
+        "HighBusEnabled": {
           "dataId": 3101,
           "dataType": "UINT8_T",
           "dataCount": 1,
-          "comments": "Aux"
+          "comments": "Aux, Spare"
         },
-        "TwelveVLogicBusEnabled": {
+        "LowBusEnabled": {
           "dataId": 3102,
           "dataType": "UINT8_T",
           "dataCount": 1,
-          "comments": "Gimbal, Drive, Multi, Nav, Cam1, Cam2, BBB, Spare 12V"
-        },
-        "ThirtyVEnabled": {
-          "dataId": 3103,
-          "dataType": "UINT8_T",
-          "dataCount": 1,
-          "comments": "Spare 30V"
+          "comments": "Gimbal, Drive, Multi, Nav, Cam, BBB, Spare"
         },
         "MotorBusCurrent": {
-          "dataId": 3104,
+          "dataId": 3103,
           "dataType": "FLOAT_T",
           "dataCount": 7,
           "comments": "M1, M2, M3, M4, M5, M6, Spare"
         },
-        "TwelveVActBusCurrent": {
+        "HighBusCurrent": {
+          "dataId": 3104,
+          "dataType": "FLOAT_T",
+          "dataCount": 2,
+          "comments": "Aux, Spare"
+        },
+        "LowBusCurrent": {
           "dataId": 3105,
           "dataType": "FLOAT_T",
-          "dataCount": 1,
-          "comments": "Aux"
-        },
-        "TwelveVLogicBusCurrent": {
-          "dataId": 3106,
-          "dataType": "FLOAT_T",
           "dataCount": 8,
-          "comments": "Gimbal, Drive, Multi, Nav, Cam1, Cam2, BBB, Spare 12V"
-        },
-        "ThirtyVBusCurrent": {
-          "dataId": 3107,
-          "dataType": "FLOAT_T",
-          "dataCount": 4,
-          "comments": "Spare 30V"
+          "comments": "Gimbal, Drive, Multi, Nav, Cam, BBB, Spare"
         }
       },
       "Error": {
@@ -205,23 +193,17 @@
           "dataCount": 1,
           "comments": "[(0-undermaxcurrent, 1-overcurrent)] [M1, M2, M3, M4, M5, M6, Spare (Bitmask)]"
         },
-        "TwelveVActBusOverCurrent": {
+        "HighBusOverCurrent": {
           "dataId": 3201,
           "dataType": "UINT8_T",
           "dataCount": 1,
-          "comments": "[(0-undermaxcurrent, 1-overcurrent)] [Aux (Bitmask)]"
+          "comments": "[(0-undermaxcurrent, 1-overcurrent)] [Aux, Spare (Bitmask)]"
         },
-        "ThirtyVBusOverCurrent": {
+        "LowBusOverCurrent": {
           "dataId": 3202,
           "dataType": "UINT8_T",
           "dataCount": 1,
-          "comments": "[(0-undermaxcurrent, 1-overcurrent)] [Spare (Bitmask)]"
-        },
-        "TwelveVLogicBusOverCurrent": {
-          "dataId": 3203,
-          "dataType": "UINT8_T",
-          "dataCount": 1,
-          "comments": "[(0-undermaxcurrent, 1-overcurrent)] [Gimbal, Drive, Multi, Nav, Cam1, Cam2, BBB, Spare (Bitmask)]"
+          "comments": "[(0-undermaxcurrent, 1-overcurrent)] [Gimbal, Drive, Multi, Nav, Cam, BBB, Spare (Bitmask)]"
         }
       }
     },
