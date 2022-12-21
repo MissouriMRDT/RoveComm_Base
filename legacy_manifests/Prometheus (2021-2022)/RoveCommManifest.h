@@ -48,13 +48,25 @@
 #define RC_ROVECOMM_AUTONOMYBOARD_PORT            11009     
 #define RC_ROVECOMM_AUTONOMYBOARD_MAC             139       
 
-#define RC_CAMERABOARD_FOURTHOCTET                141       
-#define RC_ROVECOMM_CAMERABOARD_PORT              11011     
-#define RC_ROVECOMM_CAMERABOARD_MAC               141       
+#define RC_CAMERA1BOARD_FOURTHOCTET               141       
+#define RC_ROVECOMM_CAMERA1BOARD_PORT             11011     
+#define RC_ROVECOMM_CAMERA1BOARD_MAC              141       
+
+#define RC_CAMERA2BOARD_FOURTHOCTET               142       
+#define RC_ROVECOMM_CAMERA2BOARD_PORT             11012     
+#define RC_ROVECOMM_CAMERA2BOARD_MAC              142       
+
+#define RC_PRCONTROLLERBOARD_FOURTHOCTET          143       
+#define RC_ROVECOMM_PRCONTROLLERBOARD_PORT        11013     
+#define RC_ROVECOMM_PRCONTROLLERBOARD_MAC         143       
 
 #define RC_HEATERBOARD_FOURTHOCTET                144       
 #define RC_ROVECOMM_HEATERBOARD_PORT              11014     
 #define RC_ROVECOMM_HEATERBOARD_MAC               144       
+
+#define RC_MICROPIBOARD_FOURTHOCTET               145       
+#define RC_ROVECOMM_MICROPIBOARD_PORT             11015     
+#define RC_ROVECOMM_MICROPIBOARD_MAC              145       
 
 
 
@@ -176,15 +188,20 @@
 #define RC_POWERBOARD_MOTORBUSENABLE_DATA_COUNT                       1         
 #define RC_POWERBOARD_MOTORBUSENABLE_DATA_TYPE                        uint8_t   
 
-//Aux, Spare High
-#define RC_POWERBOARD_HIGHBUSENABLE_DATA_ID                           3001      
-#define RC_POWERBOARD_HIGHBUSENABLE_DATA_COUNT                        1         
-#define RC_POWERBOARD_HIGHBUSENABLE_DATA_TYPE                         uint8_t   
+//Aux
+#define RC_POWERBOARD_TWELVEVACTBUSENABLE_DATA_ID                     3001      
+#define RC_POWERBOARD_TWELVEVACTBUSENABLE_DATA_COUNT                  1         
+#define RC_POWERBOARD_TWELVEVACTBUSENABLE_DATA_TYPE                   uint8_t   
 
-//Gimbal, Drive, Multi, Nav, Cam, BBB, Spare Low
-#define RC_POWERBOARD_LOWBUSENABLE_DATA_ID                            3002      
-#define RC_POWERBOARD_LOWBUSENABLE_DATA_COUNT                         1         
-#define RC_POWERBOARD_LOWBUSENABLE_DATA_TYPE                          uint8_t   
+//Gimbal, Drive, Multi, Nav, Cam1, Cam2, BBB, Spare 12V
+#define RC_POWERBOARD_TWELVEVLOGICBUSENABLE_DATA_ID                   3002      
+#define RC_POWERBOARD_TWELVEVLOGICBUSENABLE_DATA_COUNT                1         
+#define RC_POWERBOARD_TWELVEVLOGICBUSENABLE_DATA_TYPE                 uint8_t   
+
+//Spare 30V
+#define RC_POWERBOARD_THIRTYVBUSENABLE_DATA_ID                        3003      
+#define RC_POWERBOARD_THIRTYVBUSENABLE_DATA_COUNT                     1         
+#define RC_POWERBOARD_THIRTYVBUSENABLE_DATA_TYPE                      uint8_t   
 
 ////////////////////Telemetry
 //M1, M2, M3, M4, M5, M6, Spare
@@ -192,30 +209,40 @@
 #define RC_POWERBOARD_MOTORBUSENABLED_DATA_COUNT                      1         
 #define RC_POWERBOARD_MOTORBUSENABLED_DATA_TYPE                       uint8_t   
 
-//Aux, Spare High
-#define RC_POWERBOARD_HIGHBUSENABLED_DATA_ID                          3101      
-#define RC_POWERBOARD_HIGHBUSENABLED_DATA_COUNT                       1         
-#define RC_POWERBOARD_HIGHBUSENABLED_DATA_TYPE                        uint8_t   
+//Aux
+#define RC_POWERBOARD_TWELVEVACTBUSENABLED_DATA_ID                    3101      
+#define RC_POWERBOARD_TWELVEVACTBUSENABLED_DATA_COUNT                 1         
+#define RC_POWERBOARD_TWELVEVACTBUSENABLED_DATA_TYPE                  uint8_t   
 
-//Gimbal, Drive, Multi, Nav, Cam, BBB, Spare Low
-#define RC_POWERBOARD_LOWBUSENABLED_DATA_ID                           3102      
-#define RC_POWERBOARD_LOWBUSENABLED_DATA_COUNT                        1         
-#define RC_POWERBOARD_LOWBUSENABLED_DATA_TYPE                         uint8_t   
+//Gimbal, Drive, Multi, Nav, Cam1, Cam2, BBB, Spare 12V
+#define RC_POWERBOARD_TWELVEVLOGICBUSENABLED_DATA_ID                  3102      
+#define RC_POWERBOARD_TWELVEVLOGICBUSENABLED_DATA_COUNT               1         
+#define RC_POWERBOARD_TWELVEVLOGICBUSENABLED_DATA_TYPE                uint8_t   
+
+//Spare 30V
+#define RC_POWERBOARD_THIRTYVENABLED_DATA_ID                          3103      
+#define RC_POWERBOARD_THIRTYVENABLED_DATA_COUNT                       1         
+#define RC_POWERBOARD_THIRTYVENABLED_DATA_TYPE                        uint8_t   
 
 //M1, M2, M3, M4, M5, M6, Spare
-#define RC_POWERBOARD_MOTORBUSCURRENT_DATA_ID                         3103      
+#define RC_POWERBOARD_MOTORBUSCURRENT_DATA_ID                         3104      
 #define RC_POWERBOARD_MOTORBUSCURRENT_DATA_COUNT                      7         
 #define RC_POWERBOARD_MOTORBUSCURRENT_DATA_TYPE                       float     
 
-//Aux, Spare High
-#define RC_POWERBOARD_HIGHBUSCURRENT_DATA_ID                          3104      
-#define RC_POWERBOARD_HIGHBUSCURRENT_DATA_COUNT                       2         
-#define RC_POWERBOARD_HIGHBUSCURRENT_DATA_TYPE                        float     
+//Aux
+#define RC_POWERBOARD_TWELVEVACTBUSCURRENT_DATA_ID                    3105      
+#define RC_POWERBOARD_TWELVEVACTBUSCURRENT_DATA_COUNT                 1         
+#define RC_POWERBOARD_TWELVEVACTBUSCURRENT_DATA_TYPE                  float     
 
-//Gimbal, Drive, Multi, Nav, Cam, BBB, Spare Low
-#define RC_POWERBOARD_LOWBUSCURRENT_DATA_ID                           3105      
-#define RC_POWERBOARD_LOWBUSCURRENT_DATA_COUNT                        7         
-#define RC_POWERBOARD_LOWBUSCURRENT_DATA_TYPE                         float     
+//Gimbal, Drive, Multi, Nav, Cam1, Cam2, BBB, Spare 12V
+#define RC_POWERBOARD_TWELVEVLOGICBUSCURRENT_DATA_ID                  3106      
+#define RC_POWERBOARD_TWELVEVLOGICBUSCURRENT_DATA_COUNT               8         
+#define RC_POWERBOARD_TWELVEVLOGICBUSCURRENT_DATA_TYPE                float     
+
+//Spare 30V
+#define RC_POWERBOARD_THIRTYVBUSCURRENT_DATA_ID                       3107      
+#define RC_POWERBOARD_THIRTYVBUSCURRENT_DATA_COUNT                    4         
+#define RC_POWERBOARD_THIRTYVBUSCURRENT_DATA_TYPE                     float     
 
 ////////////////////Error
 //[(0-undermaxcurrent, 1-overcurrent)] [M1, M2, M3, M4, M5, M6, Spare (Bitmask)]
@@ -223,15 +250,20 @@
 #define RC_POWERBOARD_MOTORBUSOVERCURRENT_DATA_COUNT                  1         
 #define RC_POWERBOARD_MOTORBUSOVERCURRENT_DATA_TYPE                   uint8_t   
 
-//[(0-undermaxcurrent, 1-overcurrent)] [Aux, Spare High (Bitmask)]
-#define RC_POWERBOARD_HIGHBUSOVERCURRENT_DATA_ID                      3201      
-#define RC_POWERBOARD_HIGHBUSOVERCURRENT_DATA_COUNT                   1         
-#define RC_POWERBOARD_HIGHBUSOVERCURRENT_DATA_TYPE                    uint8_t   
+//[(0-undermaxcurrent, 1-overcurrent)] [Aux (Bitmask)]
+#define RC_POWERBOARD_TWELVEVACTBUSOVERCURRENT_DATA_ID                3201      
+#define RC_POWERBOARD_TWELVEVACTBUSOVERCURRENT_DATA_COUNT             1         
+#define RC_POWERBOARD_TWELVEVACTBUSOVERCURRENT_DATA_TYPE              uint8_t   
 
-//[(0-undermaxcurrent, 1-overcurrent)] [Gimbal, Drive, Multi, Nav, Cam, BBB, Spare Low (Bitmask)]
-#define RC_POWERBOARD_LOWBUSOVERCURRENT_DATA_ID                       3202      
-#define RC_POWERBOARD_LOWBUSOVERCURRENT_DATA_COUNT                    1         
-#define RC_POWERBOARD_LOWBUSOVERCURRENT_DATA_TYPE                     uint8_t   
+//[(0-undermaxcurrent, 1-overcurrent)] [Spare (Bitmask)]
+#define RC_POWERBOARD_THIRTYVBUSOVERCURRENT_DATA_ID                   3202      
+#define RC_POWERBOARD_THIRTYVBUSOVERCURRENT_DATA_COUNT                1         
+#define RC_POWERBOARD_THIRTYVBUSOVERCURRENT_DATA_TYPE                 uint8_t   
+
+//[(0-undermaxcurrent, 1-overcurrent)] [Gimbal, Drive, Multi, Nav, Cam1, Cam2, BBB, Spare (Bitmask)]
+#define RC_POWERBOARD_TWELVEVLOGICBUSOVERCURRENT_DATA_ID              3203      
+#define RC_POWERBOARD_TWELVEVLOGICBUSOVERCURRENT_DATA_COUNT           1         
+#define RC_POWERBOARD_TWELVEVLOGICBUSOVERCURRENT_DATA_TYPE            uint8_t   
 
 
 
@@ -270,7 +302,7 @@
 //[Number of satellites]
 #define RC_NAVBOARD_SATELLITECOUNTDATA_DATA_ID                        5103      
 #define RC_NAVBOARD_SATELLITECOUNTDATA_DATA_COUNT                     1         
-#define RC_NAVBOARD_SATELLITECOUNTDATA_DATA_TYPE                      uint8_t   
+#define RC_NAVBOARD_SATELLITECOUNTDATA_DATA_TYPE                      uint16_t  
 
 ////////////////////Error
 //
@@ -285,22 +317,22 @@
 ///////////////////////////////////////////////////
 
 ////////////////////Commands
-//[Tilt](degrees -180-180)
+//[Pan, Tilt](degrees 0-180)
 #define RC_GIMBALBOARD_LEFTDRIVEGIMBALINCREMENT_DATA_ID               6000      
-#define RC_GIMBALBOARD_LEFTDRIVEGIMBALINCREMENT_DATA_COUNT            1         
+#define RC_GIMBALBOARD_LEFTDRIVEGIMBALINCREMENT_DATA_COUNT            2         
 #define RC_GIMBALBOARD_LEFTDRIVEGIMBALINCREMENT_DATA_TYPE             int16_t   
 
-//[Tilt](degrees -180-180)
+//[Pan, Tilt](degrees 0-180)
 #define RC_GIMBALBOARD_RIGHTDRIVEGIMBALINCREMENT_DATA_ID              6001      
-#define RC_GIMBALBOARD_RIGHTDRIVEGIMBALINCREMENT_DATA_COUNT           1         
+#define RC_GIMBALBOARD_RIGHTDRIVEGIMBALINCREMENT_DATA_COUNT           2         
 #define RC_GIMBALBOARD_RIGHTDRIVEGIMBALINCREMENT_DATA_TYPE            int16_t   
 
-//[Pan, Tilt](degrees -180-180)
+//[Pan, Tilt](degrees 0-180)
 #define RC_GIMBALBOARD_LEFTMAINGIMBALINCREMENT_DATA_ID                6002      
 #define RC_GIMBALBOARD_LEFTMAINGIMBALINCREMENT_DATA_COUNT             2         
 #define RC_GIMBALBOARD_LEFTMAINGIMBALINCREMENT_DATA_TYPE              int16_t   
 
-//[Pan, Tilt](degrees -180-180)
+//[Pan, Tilt](degrees 0-180)
 #define RC_GIMBALBOARD_RIGHTMAINGIMBALINCREMENT_DATA_ID               6003      
 #define RC_GIMBALBOARD_RIGHTMAINGIMBALINCREMENT_DATA_COUNT            2         
 #define RC_GIMBALBOARD_RIGHTMAINGIMBALINCREMENT_DATA_TYPE             int16_t   
@@ -317,23 +349,28 @@
 ///////////////////////////////////////////////////
 
 ////////////////////Commands
+//Headlight intensity for the front of rover
+#define RC_MULTIMEDIABOARD_HEADLIGHTINTENSITY_DATA_ID                 7000      
+#define RC_MULTIMEDIABOARD_HEADLIGHTINTENSITY_DATA_COUNT              1         
+#define RC_MULTIMEDIABOARD_HEADLIGHTINTENSITY_DATA_TYPE               uint8_t   
+
 //[R, G, B] (0, 255)
-#define RC_MULTIMEDIABOARD_LEDRGB_DATA_ID                             7000      
+#define RC_MULTIMEDIABOARD_LEDRGB_DATA_ID                             7001      
 #define RC_MULTIMEDIABOARD_LEDRGB_DATA_COUNT                          3         
 #define RC_MULTIMEDIABOARD_LEDRGB_DATA_TYPE                           uint8_t   
 
 //[Pattern] (Enum)
-#define RC_MULTIMEDIABOARD_LEDPATTERNS_DATA_ID                        7001      
+#define RC_MULTIMEDIABOARD_LEDPATTERNS_DATA_ID                        7002      
 #define RC_MULTIMEDIABOARD_LEDPATTERNS_DATA_COUNT                     1         
 #define RC_MULTIMEDIABOARD_LEDPATTERNS_DATA_TYPE                      uint8_t   
 
 //[Teleop, Autonomy, Reached Goal] (enum)
-#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_ID                       7002      
+#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_ID                       7003      
 #define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_COUNT                    1         
 #define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_TYPE                     uint8_t   
 
 //Set Brightness (0-255)
-#define RC_MULTIMEDIABOARD_BRIGHTNESS_DATA_ID                         7003      
+#define RC_MULTIMEDIABOARD_BRIGHTNESS_DATA_ID                         7004      
 #define RC_MULTIMEDIABOARD_BRIGHTNESS_DATA_COUNT                      1         
 #define RC_MULTIMEDIABOARD_BRIGHTNESS_DATA_TYPE                       uint8_t   
 
@@ -461,10 +498,10 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERICA,DIRT,DOTA,MCD,WINDOWS};
 #define RC_SCIENCEACTUATIONBOARD_SENSORAXIS_DATA_COUNT                1         
 #define RC_SCIENCEACTUATIONBOARD_SENSORAXIS_DATA_TYPE                 int16_t   
 
-//Water solenoid group #[3, 2, 1] (0-Closed, 1-Open)
+//Water solenoid #[9, 8, 7, 6, 5, 4, 3, 2, 1] (0-Closed, 1-Open)
 #define RC_SCIENCEACTUATIONBOARD_WATER_DATA_ID                        9001      
 #define RC_SCIENCEACTUATIONBOARD_WATER_DATA_COUNT                     1         
-#define RC_SCIENCEACTUATIONBOARD_WATER_DATA_TYPE                      uint8_t   
+#define RC_SCIENCEACTUATIONBOARD_WATER_DATA_TYPE                      uint16_t  
 
 //[Zoop-axis Top, Zoop-axis Bottom, Xoop-axis Left, Xoop-axis Right, Sensor Axis Top, Sensor Axis Bottom] (0-Turn off Limit Switch Override, 1-Turn on Limit Switch Override) (bitmasked)
 #define RC_SCIENCEACTUATIONBOARD_LIMITSWITCHOVERRIDE_DATA_ID          9002      
@@ -593,11 +630,6 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERICA,DIRT,DOTA,MCD,WINDOWS};
 #define RC_AUTONOMYBOARD_CLEARWAYPOINTS_DATA_COUNT                    1         
 #define RC_AUTONOMYBOARD_CLEARWAYPOINTS_DATA_TYPE                     uint8_t   
 
-//
-#define RC_AUTONOMYBOARD_SETMAXSPEED_DATA_ID                          11006     
-#define RC_AUTONOMYBOARD_SETMAXSPEED_DATA_COUNT                       1         
-#define RC_AUTONOMYBOARD_SETMAXSPEED_DATA_TYPE                        uint16_t  
-
 ////////////////////Telemetry
 //Enum (Idle, Navigating, SearchPattern, Approaching Marker)
 #define RC_AUTONOMYBOARD_CURRENTSTATE_DATA_ID                         11100     
@@ -613,14 +645,6 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERICA,DIRT,DOTA,MCD,WINDOWS};
 #define RC_AUTONOMYBOARD_CURRENTLOG_DATA_ID                           11102     
 #define RC_AUTONOMYBOARD_CURRENTLOG_DATA_COUNT                        255       
 #define RC_AUTONOMYBOARD_CURRENTLOG_DATA_TYPE                         char      
-
-
-
-///////////////////////////////////////////////////
-////////////        CAMERABOARD         ///////////         
-///////////////////////////////////////////////////
-
-
 
 ///////////////////////////////////////////////////
 ////////////        HEATERBOARD         ///////////         
@@ -648,7 +672,5 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERICA,DIRT,DOTA,MCD,WINDOWS};
 #define RC_HEATERBOARD_OVERHEAT_DATA_ID                               15200     
 #define RC_HEATERBOARD_OVERHEAT_DATA_COUNT                            1         
 #define RC_HEATERBOARD_OVERHEAT_DATA_TYPE                             uint8_t   
-
-
 
 #endif // RoveCommManifest_h
