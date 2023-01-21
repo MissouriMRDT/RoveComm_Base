@@ -56,6 +56,10 @@
 #define RC_ROVECOMM_HEATERBOARD_PORT              11014     
 #define RC_ROVECOMM_HEATERBOARD_MAC               144       
 
+#define RC_SIGNALSTACKBOARD_FOURTHOCTET           145       
+#define RC_ROVECOMM_SIGNALSTACKBOARD_PORT         11015     
+#define RC_ROVECOMM_SIGNALSTACKBOARD_MAC          145       
+
 
 
 #define ROVECOMM_UPDATE_RATE                      100       
@@ -382,10 +386,10 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERICA,DIRT,DOTA,MCD,WINDOWS};
 #define RC_ARMBOARD_LASERS_DATA_COUNT                                 1         
 #define RC_ARMBOARD_LASERS_DATA_TYPE                                  uint8_t   
 
-//[1-enable, 0-disable]
-#define RC_ARMBOARD_SOLENOID_DATA_ID                                  8007      
-#define RC_ARMBOARD_SOLENOID_DATA_COUNT                               1         
-#define RC_ARMBOARD_SOLENOID_DATA_TYPE                                uint8_t   
+//[Power] (-1000, 1000) (m%)
+#define RC_ARMBOARD_ENDEFFECTOR_DATA_ID                               8007      
+#define RC_ARMBOARD_ENDEFFECTOR_DATA_COUNT                            1         
+#define RC_ARMBOARD_ENDEFFECTOR_DATA_TYPE                             int16_t   
 
 //[Power] (-1000, 1000) (m%)
 #define RC_ARMBOARD_GRIPPERMOVE_DATA_ID                               8008      
@@ -461,40 +465,50 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERICA,DIRT,DOTA,MCD,WINDOWS};
 #define RC_SCIENCEACTUATIONBOARD_SENSORAXIS_DATA_COUNT                1         
 #define RC_SCIENCEACTUATIONBOARD_SENSORAXIS_DATA_TYPE                 int16_t   
 
-//Water solenoid group #[3, 2, 1] (0-Closed, 1-Open)
-#define RC_SCIENCEACTUATIONBOARD_WATER_DATA_ID                        9001      
-#define RC_SCIENCEACTUATIONBOARD_WATER_DATA_COUNT                     1         
-#define RC_SCIENCEACTUATIONBOARD_WATER_DATA_TYPE                      uint8_t   
+//Sign of value determines direction
+#define RC_SCIENCEACTUATIONBOARD_WATERSELECTOR_DATA_ID                9001      
+#define RC_SCIENCEACTUATIONBOARD_WATERSELECTOR_DATA_COUNT             1         
+#define RC_SCIENCEACTUATIONBOARD_WATERSELECTOR_DATA_TYPE              int8_t    
+
+//Water pump (0-Off, 1-Pump)
+#define RC_SCIENCEACTUATIONBOARD_WATERPUMP_DATA_ID                    9002      
+#define RC_SCIENCEACTUATIONBOARD_WATERPUMP_DATA_COUNT                 1         
+#define RC_SCIENCEACTUATIONBOARD_WATERPUMP_DATA_TYPE                  uint8_t   
 
 //[Zoop-axis Top, Zoop-axis Bottom, Xoop-axis Left, Xoop-axis Right, Sensor Axis Top, Sensor Axis Bottom] (0-Turn off Limit Switch Override, 1-Turn on Limit Switch Override) (bitmasked)
-#define RC_SCIENCEACTUATIONBOARD_LIMITSWITCHOVERRIDE_DATA_ID          9002      
+#define RC_SCIENCEACTUATIONBOARD_LIMITSWITCHOVERRIDE_DATA_ID          9003      
 #define RC_SCIENCEACTUATIONBOARD_LIMITSWITCHOVERRIDE_DATA_COUNT       1         
 #define RC_SCIENCEACTUATIONBOARD_LIMITSWITCHOVERRIDE_DATA_TYPE        uint8_t   
 
 //[Power] (-1000, 1000) (m%)
-#define RC_SCIENCEACTUATIONBOARD_XOOPAXIS_DATA_ID                     9003      
+#define RC_SCIENCEACTUATIONBOARD_XOOPAXIS_DATA_ID                     9004      
 #define RC_SCIENCEACTUATIONBOARD_XOOPAXIS_DATA_COUNT                  1         
 #define RC_SCIENCEACTUATIONBOARD_XOOPAXIS_DATA_TYPE                   int16_t   
 
 //[Power] (-1000, 1000) (m%)
-#define RC_SCIENCEACTUATIONBOARD_ZOOPAXIS_DATA_ID                     9004      
+#define RC_SCIENCEACTUATIONBOARD_ZOOPAXIS_DATA_ID                     9005      
 #define RC_SCIENCEACTUATIONBOARD_ZOOPAXIS_DATA_COUNT                  1         
 #define RC_SCIENCEACTUATIONBOARD_ZOOPAXIS_DATA_TYPE                   int16_t   
 
 //[Position] (0 Open, 1, Closed)
-#define RC_SCIENCEACTUATIONBOARD_SCOOPGRABBER_DATA_ID                 9005      
+#define RC_SCIENCEACTUATIONBOARD_SCOOPGRABBER_DATA_ID                 9006      
 #define RC_SCIENCEACTUATIONBOARD_SCOOPGRABBER_DATA_COUNT              1         
 #define RC_SCIENCEACTUATIONBOARD_SCOOPGRABBER_DATA_TYPE               uint8_t   
 
 //[Position] (0, Group 1, 2, or 3)
-#define RC_SCIENCEACTUATIONBOARD_GOTOPOSITION_DATA_ID                 9006      
+#define RC_SCIENCEACTUATIONBOARD_GOTOPOSITION_DATA_ID                 9007      
 #define RC_SCIENCEACTUATIONBOARD_GOTOPOSITION_DATA_COUNT              1         
 #define RC_SCIENCEACTUATIONBOARD_GOTOPOSITION_DATA_TYPE               uint8_t   
 
 //Degrees 0-180
-#define RC_SCIENCEACTUATIONBOARD_INCREMENTALSCOOP_DATA_ID             9007      
+#define RC_SCIENCEACTUATIONBOARD_INCREMENTALSCOOP_DATA_ID             9008      
 #define RC_SCIENCEACTUATIONBOARD_INCREMENTALSCOOP_DATA_COUNT          1         
 #define RC_SCIENCEACTUATIONBOARD_INCREMENTALSCOOP_DATA_TYPE           int8_t    
+
+//Quickly barely open and close the scoop
+#define RC_SCIENCEACTUATIONBOARD_BUMPSCOOP_DATA_ID                    9009      
+#define RC_SCIENCEACTUATIONBOARD_BUMPSCOOP_DATA_COUNT                 1         
+#define RC_SCIENCEACTUATIONBOARD_BUMPSCOOP_DATA_TYPE                  uint8_t   
 
 ////////////////////Telemetry
 //[scoop z-pos, scoop x-pos, sensor z-axis] (absolute position 0-360)
@@ -515,26 +529,26 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERICA,DIRT,DOTA,MCD,WINDOWS};
 ///////////////////////////////////////////////////
 
 ////////////////////Commands
-//[Laser 1, 2 ,3] (0-Disable, 1-Enable)
-#define RC_SCIENCESENSORSBOARD_FLASERS_DATA_ID                        10000     
-#define RC_SCIENCESENSORSBOARD_FLASERS_DATA_COUNT                     1         
-#define RC_SCIENCESENSORSBOARD_FLASERS_DATA_TYPE                      uint8_t   
+//[Wavelengths: 1, 2, 3, 4] (0-Disable, 1-Enable)
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERLEDS_DATA_ID                10000     
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERLEDS_DATA_COUNT             1         
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERLEDS_DATA_TYPE              uint8_t   
 
-//[UV, White] (0-Disable, 1-Enable)
-#define RC_SCIENCESENSORSBOARD_LIGHTS_DATA_ID                         10001     
-#define RC_SCIENCESENSORSBOARD_LIGHTS_DATA_COUNT                      1         
-#define RC_SCIENCESENSORSBOARD_LIGHTS_DATA_TYPE                       uint8_t   
+//Sign of value determines direction
+#define RC_SCIENCESENSORSBOARD_MICROSCOPESERVO_DATA_ID                10001     
+#define RC_SCIENCESENSORSBOARD_MICROSCOPESERVO_DATA_COUNT             1         
+#define RC_SCIENCESENSORSBOARD_MICROSCOPESERVO_DATA_TYPE              int8_t    
 
 ////////////////////Telemetry
-//[PhotoDiode 1, 2, 3] (Wavelength)
+//Diode readings from sensor
 #define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA_DATA_ID                10100     
-#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA_DATA_COUNT             3         
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA_DATA_COUNT             3648      
 #define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA_DATA_TYPE              float     
 
 //[Gas concentration (ppm), Temperature (C)]
-#define RC_SCIENCESENSORSBOARD_CH3_DATA_ID                            10101     
-#define RC_SCIENCESENSORSBOARD_CH3_DATA_COUNT                         2         
-#define RC_SCIENCESENSORSBOARD_CH3_DATA_TYPE                          float     
+#define RC_SCIENCESENSORSBOARD_CH4_DATA_ID                            10101     
+#define RC_SCIENCESENSORSBOARD_CH4_DATA_COUNT                         2         
+#define RC_SCIENCESENSORSBOARD_CH4_DATA_TYPE                          float     
 
 //[CO2 Concentration (ppm)]
 #define RC_SCIENCESENSORSBOARD_CO2_DATA_ID                            10102     
@@ -547,9 +561,9 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERICA,DIRT,DOTA,MCD,WINDOWS};
 #define RC_SCIENCESENSORSBOARD_O2_DATA_TYPE                           float     
 
 //[concentration (ppm)]
-#define RC_SCIENCESENSORSBOARD_NO_DATA_ID                             10104     
-#define RC_SCIENCESENSORSBOARD_NO_DATA_COUNT                          1         
-#define RC_SCIENCESENSORSBOARD_NO_DATA_TYPE                           float     
+#define RC_SCIENCESENSORSBOARD_NH3_DATA_ID                            10104     
+#define RC_SCIENCESENSORSBOARD_NH3_DATA_COUNT                         1         
+#define RC_SCIENCESENSORSBOARD_NH3_DATA_TYPE                          float     
 
 //[ NO2 volume (ppm)]
 #define RC_SCIENCESENSORSBOARD_NO2_DATA_ID                            10105     
@@ -630,24 +644,47 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERICA,DIRT,DOTA,MCD,WINDOWS};
 //Bitmask (1-ON, 0-OFF)
 #define RC_HEATERBOARD_HEATERTOGGLE_DATA_ID                           15000     
 #define RC_HEATERBOARD_HEATERTOGGLE_DATA_COUNT                        1         
-#define RC_HEATERBOARD_HEATERTOGGLE_DATA_TYPE                         uint8_t   
+#define RC_HEATERBOARD_HEATERTOGGLE_DATA_TYPE                         uint16_t  
 
 ////////////////////Telemetry
-//[1, 2, 3] (degrees C)
+//[1, 2, 3...] (degrees C)
 #define RC_HEATERBOARD_THERMOVALUES_DATA_ID                           15100     
-#define RC_HEATERBOARD_THERMOVALUES_DATA_COUNT                        3         
+#define RC_HEATERBOARD_THERMOVALUES_DATA_COUNT                        12        
 #define RC_HEATERBOARD_THERMOVALUES_DATA_TYPE                         float     
 
-//Heater #[3, 2, 1] (0-Disabled, 1-Enabled)
+//Heater #[...3, 2, 1] (0-Disabled, 1-Enabled)
 #define RC_HEATERBOARD_HEATERENABLED_DATA_ID                          15101     
 #define RC_HEATERBOARD_HEATERENABLED_DATA_COUNT                       1         
-#define RC_HEATERBOARD_HEATERENABLED_DATA_TYPE                        uint8_t   
+#define RC_HEATERBOARD_HEATERENABLED_DATA_TYPE                        uint16_t  
 
 ////////////////////Error
 //Bitmask (1-Overheated, 0-not overheated)
 #define RC_HEATERBOARD_OVERHEAT_DATA_ID                               15200     
 #define RC_HEATERBOARD_OVERHEAT_DATA_COUNT                            1         
-#define RC_HEATERBOARD_OVERHEAT_DATA_TYPE                             uint8_t   
+#define RC_HEATERBOARD_OVERHEAT_DATA_TYPE                             uint16_t  
+
+
+
+///////////////////////////////////////////////////
+////////////        SIGNALSTACKBOARD    ///////////         
+///////////////////////////////////////////////////
+
+////////////////////Commands
+//[Power] (-1000, 1000) (m%)
+#define RC_SIGNALSTACKBOARD_SIGNALSROTATE_DATA_ID                     16000     
+#define RC_SIGNALSTACKBOARD_SIGNALSROTATE_DATA_COUNT                  1         
+#define RC_SIGNALSTACKBOARD_SIGNALSROTATE_DATA_TYPE                   uint16_t  
+
+////////////////////Telemetry
+//[Lat, Long] [(-90, 90), (-180, 180)] (deg)
+#define RC_SIGNALSTACKBOARD_SIGNALSPOSITION_DATA_ID                   16100     
+#define RC_SIGNALSTACKBOARD_SIGNALSPOSITION_DATA_COUNT                2         
+#define RC_SIGNALSTACKBOARD_SIGNALSPOSITION_DATA_TYPE                 double    
+
+//[Heading] [ 0, 360 ]
+#define RC_SIGNALSTACKBOARD_SIGNALSDIRECTION_DATA_ID                  16101     
+#define RC_SIGNALSTACKBOARD_SIGNALSDIRECTION_DATA_COUNT               1         
+#define RC_SIGNALSTACKBOARD_SIGNALSDIRECTION_DATA_TYPE                float     
 
 
 
