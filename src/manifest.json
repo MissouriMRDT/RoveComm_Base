@@ -742,7 +742,7 @@
       "Commands": {
         "SignalsRotate": {
           "dataId": 16000,
-          "dataType": "UINT16_T",
+          "dataType": "INT16_T",
           "dataCount": 1,
           "comments": "[Power] (-1000, 1000) (m%)"
         }

@@ -673,7 +673,7 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERICA,DIRT,DOTA,MCD,WINDOWS};
 //[Power] (-1000, 1000) (m%)
 #define RC_SIGNALSTACKBOARD_SIGNALSROTATE_DATA_ID                     16000     
 #define RC_SIGNALSTACKBOARD_SIGNALSROTATE_DATA_COUNT                  1         
-#define RC_SIGNALSTACKBOARD_SIGNALSROTATE_DATA_TYPE                   uint16_t  
+#define RC_SIGNALSTACKBOARD_SIGNALSROTATE_DATA_TYPE                   int16_t   
 
 ////////////////////Telemetry
 //[Lat, Long] [(-90, 90), (-180, 180)] (deg)
