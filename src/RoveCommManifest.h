@@ -48,9 +48,13 @@
 #define RC_ROVECOMM_AUTONOMYBOARD_PORT            11009     
 #define RC_ROVECOMM_AUTONOMYBOARD_MAC             139       
 
-#define RC_CAMERABOARD_FOURTHOCTET                141       
-#define RC_ROVECOMM_CAMERABOARD_PORT              11011     
-#define RC_ROVECOMM_CAMERABOARD_MAC               141       
+#define RC_CAMERA1BOARD_FOURTHOCTET               141       
+#define RC_ROVECOMM_CAMERA1BOARD_PORT             11011     
+#define RC_ROVECOMM_CAMERA1BOARD_MAC              141       
+
+#define RC_CAMERA2BOARD_FOURTHOCTET               142       
+#define RC_ROVECOMM_CAMERA2BOARD_PORT             11012     
+#define RC_ROVECOMM_CAMERA2BOARD_MAC              142       
 
 #define RC_HEATERBOARD_FOURTHOCTET                144       
 #define RC_ROVECOMM_HEATERBOARD_PORT              11014     
@@ -631,7 +635,13 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERICA,DIRT,DOTA,MCD,WINDOWS};
 
 
 ///////////////////////////////////////////////////
-////////////        CAMERABOARD         ///////////         
+////////////        CAMERA1BOARD        ///////////         
+///////////////////////////////////////////////////
+
+
+
+///////////////////////////////////////////////////
+////////////        CAMERA2BOARD        ///////////         
 ///////////////////////////////////////////////////
 
 
