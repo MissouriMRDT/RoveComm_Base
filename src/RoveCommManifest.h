@@ -280,6 +280,11 @@
 #define RC_NAVBOARD_SATELLITECOUNTDATA_DATA_COUNT                     1         
 #define RC_NAVBOARD_SATELLITECOUNTDATA_DATA_TYPE                      uint8_t   
 
+//[xAxis, yAxis, zAxis] Accel in m/s^2
+#define RC_NAVBOARD_ACCELEROMETERDATA_DATA_ID                         5104      
+#define RC_NAVBOARD_ACCELEROMETERDATA_DATA_COUNT                      3         
+#define RC_NAVBOARD_ACCELEROMETERDATA_DATA_TYPE                       float     
+
 ////////////////////Error
 //
 #define RC_NAVBOARD_GPSLOCKERROR_DATA_ID                              5200      
