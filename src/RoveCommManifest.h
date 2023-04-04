@@ -548,11 +548,16 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERICA,DIRT,DOTA,MCD,WINDOWS};
 #define RC_SCIENCESENSORSBOARD_MICROSCOPESERVO_DATA_COUNT             1         
 #define RC_SCIENCESENSORSBOARD_MICROSCOPESERVO_DATA_TYPE              int8_t    
 
+//Request a new Fluorometer reading
+#define RC_SCIENCESENSORSBOARD_REQFLUOROMETER_DATA_ID                 10002     
+#define RC_SCIENCESENSORSBOARD_REQFLUOROMETER_DATA_COUNT              1         
+#define RC_SCIENCESENSORSBOARD_REQFLUOROMETER_DATA_TYPE               uint8_t   
+
 ////////////////////Telemetry
 //Diode readings from sensor
 #define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA_DATA_ID                10100     
 #define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA_DATA_COUNT             3648      
-#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA_DATA_TYPE              float     
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA_DATA_TYPE              uint16_t  
 
 //[Gas concentration (ppm), Temperature (C)]
 #define RC_SCIENCESENSORSBOARD_CH4_DATA_ID                            10101     
