@@ -648,6 +648,24 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERICA,DIRT,DOTA,MCD,WINDOWS};
 ////////////        CAMERA1BOARD        ///////////         
 ///////////////////////////////////////////////////
 
+////////////////////Commands
+//Change which camera a feed is looking at. [0] is the feed, [1] is the camera to view
+#define RC_CAMERA1BOARD_CHANGECAMERAS_DATA_ID                         12000     
+#define RC_CAMERA1BOARD_CHANGECAMERAS_DATA_COUNT                      2         
+#define RC_CAMERA1BOARD_CHANGECAMERAS_DATA_TYPE                       uint8_t   
+
+////////////////////Telemetry
+//Bitmask values for which cameras are able to stream. LSB is Camera 0, MSB is Camera 7.
+#define RC_CAMERA1BOARD_AVAILABLECAMERAS_DATA_ID                      12100     
+#define RC_CAMERA1BOARD_AVAILABLECAMERAS_DATA_COUNT                   1         
+#define RC_CAMERA1BOARD_AVAILABLECAMERAS_DATA_TYPE                    uint8_t   
+
+////////////////////Error
+//Camera has errored and stopped streaming. [0] is ID of camera as an integer (not bitmask).
+#define RC_CAMERA1BOARD_CAMERAUNAVAILABLE_DATA_ID                     12200     
+#define RC_CAMERA1BOARD_CAMERAUNAVAILABLE_DATA_COUNT                  1         
+#define RC_CAMERA1BOARD_CAMERAUNAVAILABLE_DATA_TYPE                   uint8_t   
+
 
 
 ///////////////////////////////////////////////////
