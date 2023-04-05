@@ -713,7 +713,7 @@
           "dataId": 12000,
           "dataType": "UINT8_T",
           "dataCount": 2,
-          "comments": "Change which camera a feed is looking at. [0] is the feed, [1] is the camera to view"
+          "comments": "Change which camera a feed is looking at. [0] is the feed, [1] is the camera to view."
         }
       },
       "Telemetry": {
@@ -722,6 +722,12 @@
           "dataType": "UINT8_T",
           "dataCount": 1,
           "comments": "Bitmask values for which cameras are able to stream. LSB is Camera 0, MSB is Camera 7."
+        },
+        "StreamingCameras": {
+          "dataId": 12101,
+          "dataType": "UINT8_T",
+          "dataCount": 4,
+          "comments": "Which cameras the system is currently streaming on each port"
         }
       },
       "Error": {
