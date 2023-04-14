@@ -6,78 +6,78 @@
 
 #define RC_DRIVEBOARD_FIRSTOCTET                  192       
 #define RC_DRIVEBOARD_SECONDOCTET                 168       
-#define RC_DRIVEBOARD_THIRDOCTET                  1         
-#define RC_DRIVEBOARD_FOURTHOCTET                 134       
+#define RC_DRIVEBOARD_THIRDOCTET                  2         
+#define RC_DRIVEBOARD_FOURTHOCTET                 103       
 
 #define RC_BMSBOARD_FIRSTOCTET                    192       
 #define RC_BMSBOARD_SECONDOCTET                   168       
-#define RC_BMSBOARD_THIRDOCTET                    1         
-#define RC_BMSBOARD_FOURTHOCTET                   133       
+#define RC_BMSBOARD_THIRDOCTET                    2         
+#define RC_BMSBOARD_FOURTHOCTET                   100       
 
 #define RC_POWERBOARD_FIRSTOCTET                  192       
 #define RC_POWERBOARD_SECONDOCTET                 168       
-#define RC_POWERBOARD_THIRDOCTET                  1         
-#define RC_POWERBOARD_FOURTHOCTET                 132       
+#define RC_POWERBOARD_THIRDOCTET                  2         
+#define RC_POWERBOARD_FOURTHOCTET                 101       
 
 #define RC_BLACKBOXBOARD_FIRSTOCTET               192       
 #define RC_BLACKBOXBOARD_SECONDOCTET              168       
-#define RC_BLACKBOXBOARD_THIRDOCTET               1         
-#define RC_BLACKBOXBOARD_FOURTHOCTET              146       
+#define RC_BLACKBOXBOARD_THIRDOCTET               2         
+#define RC_BLACKBOXBOARD_FOURTHOCTET              102       
 
 #define RC_NAVBOARD_FIRSTOCTET                    192       
 #define RC_NAVBOARD_SECONDOCTET                   168       
-#define RC_NAVBOARD_THIRDOCTET                    1         
-#define RC_NAVBOARD_FOURTHOCTET                   136       
+#define RC_NAVBOARD_THIRDOCTET                    2         
+#define RC_NAVBOARD_FOURTHOCTET                   104       
 
 #define RC_GIMBALBOARD_FIRSTOCTET                 192       
 #define RC_GIMBALBOARD_SECONDOCTET                168       
-#define RC_GIMBALBOARD_THIRDOCTET                 1         
-#define RC_GIMBALBOARD_FOURTHOCTET                135       
+#define RC_GIMBALBOARD_THIRDOCTET                 2         
+#define RC_GIMBALBOARD_FOURTHOCTET                106       
 
 #define RC_MULTIMEDIABOARD_FIRSTOCTET             192       
 #define RC_MULTIMEDIABOARD_SECONDOCTET            168       
-#define RC_MULTIMEDIABOARD_THIRDOCTET             1         
-#define RC_MULTIMEDIABOARD_FOURTHOCTET            140       
+#define RC_MULTIMEDIABOARD_THIRDOCTET             2         
+#define RC_MULTIMEDIABOARD_FOURTHOCTET            105       
 
 #define RC_ARMBOARD_FIRSTOCTET                    192       
 #define RC_ARMBOARD_SECONDOCTET                   168       
-#define RC_ARMBOARD_THIRDOCTET                    1         
-#define RC_ARMBOARD_FOURTHOCTET                   131       
+#define RC_ARMBOARD_THIRDOCTET                    2         
+#define RC_ARMBOARD_FOURTHOCTET                   107       
 
 #define RC_SCIENCEACTUATIONBOARD_FIRSTOCTET       192       
 #define RC_SCIENCEACTUATIONBOARD_SECONDOCTET      168       
-#define RC_SCIENCEACTUATIONBOARD_THIRDOCTET       1         
-#define RC_SCIENCEACTUATIONBOARD_FOURTHOCTET      137       
+#define RC_SCIENCEACTUATIONBOARD_THIRDOCTET       2         
+#define RC_SCIENCEACTUATIONBOARD_FOURTHOCTET      108       
 
 #define RC_SCIENCESENSORSBOARD_FIRSTOCTET         192       
 #define RC_SCIENCESENSORSBOARD_SECONDOCTET        168       
-#define RC_SCIENCESENSORSBOARD_THIRDOCTET         1         
-#define RC_SCIENCESENSORSBOARD_FOURTHOCTET        138       
+#define RC_SCIENCESENSORSBOARD_THIRDOCTET         3         
+#define RC_SCIENCESENSORSBOARD_FOURTHOCTET        101       
 
 #define RC_AUTONOMYBOARD_FIRSTOCTET               192       
 #define RC_AUTONOMYBOARD_SECONDOCTET              168       
-#define RC_AUTONOMYBOARD_THIRDOCTET               1         
-#define RC_AUTONOMYBOARD_FOURTHOCTET              139       
+#define RC_AUTONOMYBOARD_THIRDOCTET               3         
+#define RC_AUTONOMYBOARD_FOURTHOCTET              100       
 
 #define RC_CAMERA1BOARD_FIRSTOCTET                192       
 #define RC_CAMERA1BOARD_SECONDOCTET               168       
-#define RC_CAMERA1BOARD_THIRDOCTET                1         
-#define RC_CAMERA1BOARD_FOURTHOCTET               141       
+#define RC_CAMERA1BOARD_THIRDOCTET                4         
+#define RC_CAMERA1BOARD_FOURTHOCTET               100       
 
 #define RC_CAMERA2BOARD_FIRSTOCTET                192       
 #define RC_CAMERA2BOARD_SECONDOCTET               168       
-#define RC_CAMERA2BOARD_THIRDOCTET                1         
-#define RC_CAMERA2BOARD_FOURTHOCTET               142       
+#define RC_CAMERA2BOARD_THIRDOCTET                4         
+#define RC_CAMERA2BOARD_FOURTHOCTET               101       
 
 #define RC_HEATERBOARD_FIRSTOCTET                 192       
 #define RC_HEATERBOARD_SECONDOCTET                168       
-#define RC_HEATERBOARD_THIRDOCTET                 1         
-#define RC_HEATERBOARD_FOURTHOCTET                144       
+#define RC_HEATERBOARD_THIRDOCTET                 2         
+#define RC_HEATERBOARD_FOURTHOCTET                109       
 
 #define RC_SIGNALSTACKBOARD_FIRSTOCTET            192       
 #define RC_SIGNALSTACKBOARD_SECONDOCTET           168       
-#define RC_SIGNALSTACKBOARD_THIRDOCTET            1         
-#define RC_SIGNALSTACKBOARD_FOURTHOCTET           145       
+#define RC_SIGNALSTACKBOARD_THIRDOCTET            3         
+#define RC_SIGNALSTACKBOARD_FOURTHOCTET           102       
 
 
 
