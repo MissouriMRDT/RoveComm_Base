@@ -84,7 +84,7 @@ if __name__ == "__main__":
     # Check manifest spec version
     if this.manifest_file["ManifestSpecVersion"] != 3:
         print("Expected Manifest Spec v3, Aborting")
-        return
+        exit()
 
     # Manifest contains additional info not necessary for header file
     this.manifest = this.manifest_file["RovecommManifest"]
