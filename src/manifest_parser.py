@@ -81,6 +81,11 @@ if __name__ == "__main__":
     this.manifest_file = open("manifest.json", "r").read()
     this.manifest_file = json.loads(this.manifest_file)
 
+    # Check manifest spec version
+    if this.manifest_file["ManifestSpecVersion"] != 3:
+        print("Expected Manifest Spec v3, Aborting")
+        return
+
     # Manifest contains additional info not necessary for header file
     this.manifest = this.manifest_file["RovecommManifest"]
     this.header_file = open("RoveCommManifest.h", "w")
