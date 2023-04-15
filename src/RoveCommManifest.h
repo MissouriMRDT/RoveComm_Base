@@ -4,80 +4,90 @@
 #include <stdint.h>
 #include"RoveCommPacket.h"
 
-#define RC_DRIVEBOARD_FOURTHOCTET                 134       
-#define RC_ROVECOMM_DRIVEBOARD_PORT               11004     
-#define RC_ROVECOMM_DRIVEBOARD_MAC                134       
+#define RC_DRIVEBOARD_FIRSTOCTET                  192       
+#define RC_DRIVEBOARD_SECONDOCTET                 168       
+#define RC_DRIVEBOARD_THIRDOCTET                  2         
+#define RC_DRIVEBOARD_FOURTHOCTET                 103       
 
-#define RC_BMSBOARD_FOURTHOCTET                   133       
-#define RC_ROVECOMM_BMSBOARD_PORT                 11003     
-#define RC_ROVECOMM_BMSBOARD_MAC                  133       
+#define RC_BMSBOARD_FIRSTOCTET                    192       
+#define RC_BMSBOARD_SECONDOCTET                   168       
+#define RC_BMSBOARD_THIRDOCTET                    2         
+#define RC_BMSBOARD_FOURTHOCTET                   100       
 
-#define RC_POWERBOARD_FOURTHOCTET                 132       
-#define RC_ROVECOMM_POWERBOARD_PORT               11002     
-#define RC_ROVECOMM_POWERBOARD_MAC                132       
+#define RC_POWERBOARD_FIRSTOCTET                  192       
+#define RC_POWERBOARD_SECONDOCTET                 168       
+#define RC_POWERBOARD_THIRDOCTET                  2         
+#define RC_POWERBOARD_FOURTHOCTET                 101       
 
-#define RC_BLACKBOXBOARD_FOURTHOCTET              146       
-#define RC_ROVECOMM_BLACKBOXBOARD_PORT            11015     
-#define RC_ROVECOMM_BLACKBOXBOARD_MAC             146       
+#define RC_BLACKBOXBOARD_FIRSTOCTET               192       
+#define RC_BLACKBOXBOARD_SECONDOCTET              168       
+#define RC_BLACKBOXBOARD_THIRDOCTET               2         
+#define RC_BLACKBOXBOARD_FOURTHOCTET              102       
 
-#define RC_NAVBOARD_FOURTHOCTET                   136       
-#define RC_ROVECOMM_NAVBOARD_PORT                 11006     
-#define RC_ROVECOMM_NAVBOARD_MAC                  136       
+#define RC_NAVBOARD_FIRSTOCTET                    192       
+#define RC_NAVBOARD_SECONDOCTET                   168       
+#define RC_NAVBOARD_THIRDOCTET                    2         
+#define RC_NAVBOARD_FOURTHOCTET                   104       
 
-#define RC_GIMBALBOARD_FOURTHOCTET                135       
-#define RC_ROVECOMM_GIMBALBOARD_PORT              11005     
-#define RC_ROVECOMM_GIMBALBOARD_MAC               135       
+#define RC_GIMBALBOARD_FIRSTOCTET                 192       
+#define RC_GIMBALBOARD_SECONDOCTET                168       
+#define RC_GIMBALBOARD_THIRDOCTET                 2         
+#define RC_GIMBALBOARD_FOURTHOCTET                106       
 
-#define RC_MULTIMEDIABOARD_FOURTHOCTET            140       
-#define RC_ROVECOMM_MULTIMEDIABOARD_PORT          11010     
-#define RC_ROVECOMM_MULTIMEDIABOARD_MAC           140       
+#define RC_MULTIMEDIABOARD_FIRSTOCTET             192       
+#define RC_MULTIMEDIABOARD_SECONDOCTET            168       
+#define RC_MULTIMEDIABOARD_THIRDOCTET             2         
+#define RC_MULTIMEDIABOARD_FOURTHOCTET            105       
 
-#define RC_ARMBOARD_FOURTHOCTET                   131       
-#define RC_ROVECOMM_ARMBOARD_PORT                 11001     
-#define RC_ROVECOMM_ARMBOARD_MAC                  131       
+#define RC_ARMBOARD_FIRSTOCTET                    192       
+#define RC_ARMBOARD_SECONDOCTET                   168       
+#define RC_ARMBOARD_THIRDOCTET                    2         
+#define RC_ARMBOARD_FOURTHOCTET                   107       
 
-#define RC_SCIENCEACTUATIONBOARD_FOURTHOCTET      137       
-#define RC_ROVECOMM_SCIENCEACTUATIONBOARD_PORT    11007     
-#define RC_ROVECOMM_SCIENCEACTUATIONBOARD_MAC     137       
+#define RC_SCIENCEACTUATIONBOARD_FIRSTOCTET       192       
+#define RC_SCIENCEACTUATIONBOARD_SECONDOCTET      168       
+#define RC_SCIENCEACTUATIONBOARD_THIRDOCTET       2         
+#define RC_SCIENCEACTUATIONBOARD_FOURTHOCTET      108       
 
-#define RC_SCIENCESENSORSBOARD_FOURTHOCTET        138       
-#define RC_ROVECOMM_SCIENCESENSORSBOARD_PORT      11008     
-#define RC_ROVECOMM_SCIENCESENSORSBOARD_MAC       138       
+#define RC_SCIENCESENSORSBOARD_FIRSTOCTET         192       
+#define RC_SCIENCESENSORSBOARD_SECONDOCTET        168       
+#define RC_SCIENCESENSORSBOARD_THIRDOCTET         3         
+#define RC_SCIENCESENSORSBOARD_FOURTHOCTET        101       
 
-#define RC_AUTONOMYBOARD_FOURTHOCTET              139       
-#define RC_ROVECOMM_AUTONOMYBOARD_PORT            11009     
-#define RC_ROVECOMM_AUTONOMYBOARD_MAC             139       
+#define RC_AUTONOMYBOARD_FIRSTOCTET               192       
+#define RC_AUTONOMYBOARD_SECONDOCTET              168       
+#define RC_AUTONOMYBOARD_THIRDOCTET               3         
+#define RC_AUTONOMYBOARD_FOURTHOCTET              100       
 
-#define RC_CAMERA1BOARD_FOURTHOCTET               141       
-#define RC_ROVECOMM_CAMERA1BOARD_PORT             11011     
-#define RC_ROVECOMM_CAMERA1BOARD_MAC              141       
+#define RC_CAMERA1BOARD_FIRSTOCTET                192       
+#define RC_CAMERA1BOARD_SECONDOCTET               168       
+#define RC_CAMERA1BOARD_THIRDOCTET                4         
+#define RC_CAMERA1BOARD_FOURTHOCTET               100       
 
-#define RC_CAMERA2BOARD_FOURTHOCTET               142       
-#define RC_ROVECOMM_CAMERA2BOARD_PORT             11012     
-#define RC_ROVECOMM_CAMERA2BOARD_MAC              142       
+#define RC_CAMERA2BOARD_FIRSTOCTET                192       
+#define RC_CAMERA2BOARD_SECONDOCTET               168       
+#define RC_CAMERA2BOARD_THIRDOCTET                4         
+#define RC_CAMERA2BOARD_FOURTHOCTET               101       
 
-#define RC_HEATERBOARD_FOURTHOCTET                144       
-#define RC_ROVECOMM_HEATERBOARD_PORT              11014     
-#define RC_ROVECOMM_HEATERBOARD_MAC               144       
+#define RC_HEATERBOARD_FIRSTOCTET                 192       
+#define RC_HEATERBOARD_SECONDOCTET                168       
+#define RC_HEATERBOARD_THIRDOCTET                 2         
+#define RC_HEATERBOARD_FOURTHOCTET                109       
 
-#define RC_SIGNALSTACKBOARD_FOURTHOCTET           145       
-#define RC_ROVECOMM_SIGNALSTACKBOARD_PORT         11015     
-#define RC_ROVECOMM_SIGNALSTACKBOARD_MAC          145       
+#define RC_SIGNALSTACKBOARD_FIRSTOCTET            192       
+#define RC_SIGNALSTACKBOARD_SECONDOCTET           168       
+#define RC_SIGNALSTACKBOARD_THIRDOCTET            3         
+#define RC_SIGNALSTACKBOARD_FOURTHOCTET           102       
 
 
 
 #define ROVECOMM_UPDATE_RATE                      100       
 #define RC_ROVECOMM_ETHERNET_UDP_PORT             11000     
-#define RC_ROVECOMM_SUBNET_IP_FIRST_OCTET         192       
-#define RC_ROVECOMM_SUBNET_IP_SECOND_OCTET        168       
-#define RC_ROVECOMM_SUBNET_IP_THIRD_OCTET         1         
+#define RC_ROVECOMM_ETHERNET_TCP_PORT             12000     
 
 
 #define RC_ROVECOMM_SUBNET_MAC_FIRST_BYTE         222       
 #define RC_ROVECOMM_SUBNET_MAC_SECOND_BYTE        173       
-#define RC_ROVECOMM_SUBNET_MAC_THIRD_BYTE         190       
-#define RC_ROVECOMM_SUBNET_MAC_FOURTH_BYTE        168       
-#define RC_ROVECOMM_SUBNET_MAC_FIFTH_BYTE         1         
 
 
 ///////////////////////////////////////////////////
