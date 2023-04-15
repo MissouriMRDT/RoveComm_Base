@@ -41,7 +41,8 @@ void RoveCommEthernetUdp::begin(const uint8_t ip_octet_1, const uint8_t ip_octet
 {
   // Set IP
   IPAddress LocalIp(ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4);
-  IPAddress subnet(255, 255, 0, 0);
+  IPAddress subnet(255, 255, 255, 0);
+  IPAddress gateway(ip_octet_1, ip_octet_2, ip_octet_3, 1);
   uint8_t mac[6] = {(uint8_t)RC_ROVECOMM_SUBNET_MAC_FIRST_BYTE, (uint8_t)RC_ROVECOMM_SUBNET_MAC_SECOND_BYTE,
                     (uint8_t)ip_octet_1, (uint8_t)ip_octet_2,
                     (uint8_t)ip_octet_3, ip_octet_4};
@@ -51,6 +52,7 @@ void RoveCommEthernetUdp::begin(const uint8_t ip_octet_1, const uint8_t ip_octet
   // Set up Ethernet Udp
   Ethernet.begin(mac, LocalIp);
   Ethernet.setSubnetMask(subnet);
+  Ethernet.setGatewayIP(gateway);
   EthernetUdp.begin(RC_ROVECOMM_ETHERNET_UDP_PORT);
   delay(1);
 }
