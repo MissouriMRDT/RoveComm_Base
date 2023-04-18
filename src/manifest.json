@@ -781,6 +781,17 @@
       },
       "Error": {
       }
+    },
+    "CoreBoard": {
+      "Ip": "192.168.2.110",
+      "Commands": {
+      },
+      "Telemetry": {
+      },
+      "Error": {
+      },
+      "Enums": {
+      }
     }
   },
   "NetworkDevices": {

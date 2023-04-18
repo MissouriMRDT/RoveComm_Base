@@ -79,6 +79,11 @@
 #define RC_SIGNALSTACKBOARD_THIRDOCTET            3         
 #define RC_SIGNALSTACKBOARD_FOURTHOCTET           102       
 
+#define RC_COREBOARDBOARD_FIRSTOCTET              192       
+#define RC_COREBOARDBOARD_SECONDOCTET             168       
+#define RC_COREBOARDBOARD_THIRDOCTET              2         
+#define RC_COREBOARDBOARD_FOURTHOCTET             110       
+
 
 
 #define ROVECOMM_UPDATE_RATE                      100       
@@ -739,6 +744,13 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERICA,DIRT,DOTA,MCD,WINDOWS};
 #define RC_SIGNALSTACKBOARD_SIGNALSDIRECTION_DATA_COUNT               1         
 #define RC_SIGNALSTACKBOARD_SIGNALSDIRECTION_DATA_TYPE                float     
 
+
+
+///////////////////////////////////////////////////
+////////////        COREBOARDBOARD      ///////////         
+///////////////////////////////////////////////////
+
+////////////////////Enums
 
 
 #endif // RoveCommManifest_h
