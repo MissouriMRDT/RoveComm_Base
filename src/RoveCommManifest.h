@@ -79,10 +79,10 @@
 #define RC_SIGNALSTACKBOARD_THIRDOCTET            3         
 #define RC_SIGNALSTACKBOARD_FOURTHOCTET           102       
 
-#define RC_COREBOARDBOARD_FIRSTOCTET              192       
-#define RC_COREBOARDBOARD_SECONDOCTET             168       
-#define RC_COREBOARDBOARD_THIRDOCTET              2         
-#define RC_COREBOARDBOARD_FOURTHOCTET             110       
+#define RC_COREBOARD_FIRSTOCTET                   192       
+#define RC_COREBOARD_SECONDOCTET                  168       
+#define RC_COREBOARD_THIRDOCTET                   2         
+#define RC_COREBOARD_FOURTHOCTET                  110       
 
 
 
@@ -112,15 +112,15 @@
 ///////////////////////////////////////////////////
 
 ////////////////////Commands
-//[LeftSpeed, RightSpeed] (-1000, 1000)-> (-100%, 100%)
+//[LeftSpeed, RightSpeed] (-1, 1)-> (-100%, 100%)
 #define RC_DRIVEBOARD_DRIVELEFTRIGHT_DATA_ID                          1000      
 #define RC_DRIVEBOARD_DRIVELEFTRIGHT_DATA_COUNT                       2         
-#define RC_DRIVEBOARD_DRIVELEFTRIGHT_DATA_TYPE                        int16_t   
+#define RC_DRIVEBOARD_DRIVELEFTRIGHT_DATA_TYPE                        float     
 
-//[LF, LM, LR, RF, RM, RR] (-1000, 1000)-> (-100%, 100%)
+//[LF, LM, LR, RF, RM, RR] (-1, 1)-> (-100%, 100%)
 #define RC_DRIVEBOARD_DRIVEINDIVIDUAL_DATA_ID                         1001      
 #define RC_DRIVEBOARD_DRIVEINDIVIDUAL_DATA_COUNT                      6         
-#define RC_DRIVEBOARD_DRIVEINDIVIDUAL_DATA_TYPE                       int16_t   
+#define RC_DRIVEBOARD_DRIVEINDIVIDUAL_DATA_TYPE                       float     
 
 //[0-Turn off Watchdog Override, 1-Turn on Watchdog Override]
 #define RC_DRIVEBOARD_WATCHDOGOVERRIDE_DATA_ID                        1002      
@@ -128,10 +128,10 @@
 #define RC_DRIVEBOARD_WATCHDOGOVERRIDE_DATA_TYPE                      uint8_t   
 
 ////////////////////Telemetry
-//[LF, LM, LR, RF, RM, RR] (-1000, 1000)-> (-100%, 100%)
+//[LF, LM, LR, RF, RM, RR] (-1, 1)-> (-100%, 100%)
 #define RC_DRIVEBOARD_DRIVESPEEDS_DATA_ID                             1100      
 #define RC_DRIVEBOARD_DRIVESPEEDS_DATA_COUNT                          6         
-#define RC_DRIVEBOARD_DRIVESPEEDS_DATA_TYPE                           int16_t   
+#define RC_DRIVEBOARD_DRIVESPEEDS_DATA_TYPE                           float     
 
 
 
@@ -747,7 +747,7 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERICA,DIRT,DOTA,MCD,WINDOWS};
 
 
 ///////////////////////////////////////////////////
-////////////        COREBOARDBOARD      ///////////         
+////////////        COREBOARD           ///////////         
 ///////////////////////////////////////////////////
 
 ////////////////////Enums

@@ -31,15 +31,15 @@
       "Commands": {
         "DriveLeftRight": {
           "dataId": 1000,
-          "dataType": "INT16_T",
+          "dataType": "FLOAT_T",
           "dataCount": 2,
-          "comments": "[LeftSpeed, RightSpeed] (-1000, 1000)-> (-100%, 100%)"
+          "comments": "[LeftSpeed, RightSpeed] (-1, 1)-> (-100%, 100%)"
         },
         "DriveIndividual": {
           "dataId": 1001,
-          "dataType": "INT16_T",
+          "dataType": "FLOAT_T",
           "dataCount": 6,
-          "comments": "[LF, LM, LR, RF, RM, RR] (-1000, 1000)-> (-100%, 100%)"
+          "comments": "[LF, LM, LR, RF, RM, RR] (-1, 1)-> (-100%, 100%)"
         },
         "WatchdogOverride": {
           "dataId": 1002,
@@ -51,9 +51,9 @@
       "Telemetry": {
         "DriveSpeeds": {
           "dataId": 1100,
-          "dataType": "INT16_T",
+          "dataType": "FLOAT_T",
           "dataCount": 6,
-          "comments": "[LF, LM, LR, RF, RM, RR] (-1000, 1000)-> (-100%, 100%)"
+          "comments": "[LF, LM, LR, RF, RM, RR] (-1, 1)-> (-100%, 100%)"
         }
       },
       "Error": {}
@@ -782,7 +782,7 @@
       "Error": {
       }
     },
-    "CoreBoard": {
+    "Core": {
       "Ip": "192.168.2.110",
       "Commands": {
       },
