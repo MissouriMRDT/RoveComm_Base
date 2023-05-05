@@ -122,7 +122,13 @@
           "dataId": 3002,
           "dataType": "UINT8_T",
           "dataCount": 1,
-          "comments": "Gimbal, Drive, Multi, Nav, Cam, BBB, Spare Low"
+          "comments": "Gimbal, Drive, Multi, Nav, Spare Low"
+        },
+        "TwelveVBusEnable": {
+          "dataId": 3003,
+          "dataType": "UINT8_T",
+          "dataCount": 1,
+          "comments": "Cam, 12vSpare, Net1, Net2"
         }
       },
       "Telemetry": {
@@ -142,25 +148,37 @@
           "dataId": 3102,
           "dataType": "UINT8_T",
           "dataCount": 1,
-          "comments": "Gimbal, Drive, Multi, Nav, Cam, BBB, Spare Low"
+          "comments": "Gimbal, Drive, Multi, Nav, Spare Low"
+        },
+        "TwelveVBusEnabled": {
+          "dataId": 3103,
+          "dataType": "UINT8_T",
+          "dataCount": 1,
+          "comments": "Cam, 12vSpare, Net1, Net2"
         },
         "MotorBusCurrent": {
-          "dataId": 3103,
+          "dataId": 3104,
           "dataType": "FLOAT_T",
           "dataCount": 7,
           "comments": "M1, M2, M3, M4, M5, M6, Spare"
         },
         "HighBusCurrent": {
-          "dataId": 3104,
+          "dataId": 3105,
           "dataType": "FLOAT_T",
           "dataCount": 2,
           "comments": "Aux, Spare High"
         },
         "LowBusCurrent": {
-          "dataId": 3105,
+          "dataId": 3106,
           "dataType": "FLOAT_T",
-          "dataCount": 7,
-          "comments": "Gimbal, Drive, Multi, Nav, Cam, BBB, Spare Low"
+          "dataCount": 5,
+          "comments": "Gimbal, Drive, Multi, Nav, Spare Low"
+        },
+        "TwelveVBusCurrent": {
+          "dataId": 3107,
+          "dataType": "FLOAT_T",
+          "dataCount": 4,
+          "comments": "Cam, 12vSpare, Net1, Net2"
         }
       },
       "Error": {

@@ -188,10 +188,15 @@
 #define RC_POWERBOARD_HIGHBUSENABLE_DATA_COUNT                        1         
 #define RC_POWERBOARD_HIGHBUSENABLE_DATA_TYPE                         uint8_t   
 
-//Gimbal, Drive, Multi, Nav, Cam, BBB, Spare Low
+//Gimbal, Drive, Multi, Nav, Spare Low
 #define RC_POWERBOARD_LOWBUSENABLE_DATA_ID                            3002      
 #define RC_POWERBOARD_LOWBUSENABLE_DATA_COUNT                         1         
 #define RC_POWERBOARD_LOWBUSENABLE_DATA_TYPE                          uint8_t   
+
+//Cam, 12vSpare, Net1, Net2
+#define RC_POWERBOARD_TWELVEVBUSENABLE_DATA_ID                        3003      
+#define RC_POWERBOARD_TWELVEVBUSENABLE_DATA_COUNT                     1         
+#define RC_POWERBOARD_TWELVEVBUSENABLE_DATA_TYPE                      uint8_t   
 
 ////////////////////Telemetry
 //M1, M2, M3, M4, M5, M6, Spare
@@ -204,25 +209,35 @@
 #define RC_POWERBOARD_HIGHBUSENABLED_DATA_COUNT                       1         
 #define RC_POWERBOARD_HIGHBUSENABLED_DATA_TYPE                        uint8_t   
 
-//Gimbal, Drive, Multi, Nav, Cam, BBB, Spare Low
+//Gimbal, Drive, Multi, Nav, Spare Low
 #define RC_POWERBOARD_LOWBUSENABLED_DATA_ID                           3102      
 #define RC_POWERBOARD_LOWBUSENABLED_DATA_COUNT                        1         
 #define RC_POWERBOARD_LOWBUSENABLED_DATA_TYPE                         uint8_t   
 
+//Cam, 12vSpare, Net1, Net2
+#define RC_POWERBOARD_TWELVEVBUSENABLED_DATA_ID                       3103      
+#define RC_POWERBOARD_TWELVEVBUSENABLED_DATA_COUNT                    1         
+#define RC_POWERBOARD_TWELVEVBUSENABLED_DATA_TYPE                     uint8_t   
+
 //M1, M2, M3, M4, M5, M6, Spare
-#define RC_POWERBOARD_MOTORBUSCURRENT_DATA_ID                         3103      
+#define RC_POWERBOARD_MOTORBUSCURRENT_DATA_ID                         3104      
 #define RC_POWERBOARD_MOTORBUSCURRENT_DATA_COUNT                      7         
 #define RC_POWERBOARD_MOTORBUSCURRENT_DATA_TYPE                       float     
 
 //Aux, Spare High
-#define RC_POWERBOARD_HIGHBUSCURRENT_DATA_ID                          3104      
+#define RC_POWERBOARD_HIGHBUSCURRENT_DATA_ID                          3105      
 #define RC_POWERBOARD_HIGHBUSCURRENT_DATA_COUNT                       2         
 #define RC_POWERBOARD_HIGHBUSCURRENT_DATA_TYPE                        float     
 
-//Gimbal, Drive, Multi, Nav, Cam, BBB, Spare Low
-#define RC_POWERBOARD_LOWBUSCURRENT_DATA_ID                           3105      
-#define RC_POWERBOARD_LOWBUSCURRENT_DATA_COUNT                        7         
+//Gimbal, Drive, Multi, Nav, Spare Low
+#define RC_POWERBOARD_LOWBUSCURRENT_DATA_ID                           3106      
+#define RC_POWERBOARD_LOWBUSCURRENT_DATA_COUNT                        5         
 #define RC_POWERBOARD_LOWBUSCURRENT_DATA_TYPE                         float     
+
+//Cam, 12vSpare, Net1, Net2
+#define RC_POWERBOARD_TWELVEVBUSCURRENT_DATA_ID                       3107      
+#define RC_POWERBOARD_TWELVEVBUSCURRENT_DATA_COUNT                    4         
+#define RC_POWERBOARD_TWELVEVBUSCURRENT_DATA_TYPE                     float     
 
 ////////////////////Error
 //[(0-undermaxcurrent, 1-overcurrent)] [M1, M2, M3, M4, M5, M6, Spare (Bitmask)]
