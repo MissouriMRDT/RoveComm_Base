@@ -111,22 +111,6 @@
 ////////////        DRIVEBOARD          ///////////         
 ///////////////////////////////////////////////////
 
-////////////////////Commands
-//[LeftSpeed, RightSpeed] (-1, 1)-> (-100%, 100%)
-#define RC_DRIVEBOARD_DRIVELEFTRIGHT_DATA_ID                          1000      
-#define RC_DRIVEBOARD_DRIVELEFTRIGHT_DATA_COUNT                       2         
-#define RC_DRIVEBOARD_DRIVELEFTRIGHT_DATA_TYPE                        float     
-
-//[LF, LM, LR, RF, RM, RR] (-1, 1)-> (-100%, 100%)
-#define RC_DRIVEBOARD_DRIVEINDIVIDUAL_DATA_ID                         1001      
-#define RC_DRIVEBOARD_DRIVEINDIVIDUAL_DATA_COUNT                      6         
-#define RC_DRIVEBOARD_DRIVEINDIVIDUAL_DATA_TYPE                       float     
-
-//[0-Turn off Watchdog Override, 1-Turn on Watchdog Override]
-#define RC_DRIVEBOARD_WATCHDOGOVERRIDE_DATA_ID                        1002      
-#define RC_DRIVEBOARD_WATCHDOGOVERRIDE_DATA_COUNT                     1         
-#define RC_DRIVEBOARD_WATCHDOGOVERRIDE_DATA_TYPE                      uint8_t   
-
 ////////////////////Telemetry
 //[LF, LM, LR, RF, RM, RR] (-1000, 1000)-> (-100%, 100%)
 #define RC_DRIVEBOARD_DRIVESPEEDS_DATA_ID                             1100      
@@ -312,62 +296,13 @@
 ////////////        GIMBALBOARD         ///////////         
 ///////////////////////////////////////////////////
 
-////////////////////Commands
-//[Tilt](degrees -180-180)
-#define RC_GIMBALBOARD_LEFTDRIVEGIMBALINCREMENT_DATA_ID               6000      
-#define RC_GIMBALBOARD_LEFTDRIVEGIMBALINCREMENT_DATA_COUNT            1         
-#define RC_GIMBALBOARD_LEFTDRIVEGIMBALINCREMENT_DATA_TYPE             int16_t   
-
-//[Tilt](degrees -180-180)
-#define RC_GIMBALBOARD_RIGHTDRIVEGIMBALINCREMENT_DATA_ID              6001      
-#define RC_GIMBALBOARD_RIGHTDRIVEGIMBALINCREMENT_DATA_COUNT           1         
-#define RC_GIMBALBOARD_RIGHTDRIVEGIMBALINCREMENT_DATA_TYPE            int16_t   
-
-//[Pan, Tilt](degrees -180-180)
-#define RC_GIMBALBOARD_LEFTMAINGIMBALINCREMENT_DATA_ID                6002      
-#define RC_GIMBALBOARD_LEFTMAINGIMBALINCREMENT_DATA_COUNT             2         
-#define RC_GIMBALBOARD_LEFTMAINGIMBALINCREMENT_DATA_TYPE              int16_t   
-
-//[Pan, Tilt](degrees -180-180)
-#define RC_GIMBALBOARD_RIGHTMAINGIMBALINCREMENT_DATA_ID               6003      
-#define RC_GIMBALBOARD_RIGHTMAINGIMBALINCREMENT_DATA_COUNT            2         
-#define RC_GIMBALBOARD_RIGHTMAINGIMBALINCREMENT_DATA_TYPE             int16_t   
-
-//
-#define RC_GIMBALBOARD_INITIATETESTROUTINE_DATA_ID                    6004      
-#define RC_GIMBALBOARD_INITIATETESTROUTINE_DATA_COUNT                 1         
-#define RC_GIMBALBOARD_INITIATETESTROUTINE_DATA_TYPE                  uint8_t   
-
 
 
 ///////////////////////////////////////////////////
 ////////////        MULTIMEDIABOARD     ///////////         
 ///////////////////////////////////////////////////
 
-////////////////////Commands
-//[R, G, B] (0, 255)
-#define RC_MULTIMEDIABOARD_LEDRGB_DATA_ID                             7000      
-#define RC_MULTIMEDIABOARD_LEDRGB_DATA_COUNT                          3         
-#define RC_MULTIMEDIABOARD_LEDRGB_DATA_TYPE                           uint8_t   
-
-//[Pattern] (Enum)
-#define RC_MULTIMEDIABOARD_LEDPATTERNS_DATA_ID                        7001      
-#define RC_MULTIMEDIABOARD_LEDPATTERNS_DATA_COUNT                     1         
-#define RC_MULTIMEDIABOARD_LEDPATTERNS_DATA_TYPE                      uint8_t   
-
-//[Teleop, Autonomy, Reached Goal] (enum)
-#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_ID                       7002      
-#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_COUNT                    1         
-#define RC_MULTIMEDIABOARD_STATEDISPLAY_DATA_TYPE                     uint8_t   
-
-//Set Brightness (0-255)
-#define RC_MULTIMEDIABOARD_BRIGHTNESS_DATA_ID                         7003      
-#define RC_MULTIMEDIABOARD_BRIGHTNESS_DATA_COUNT                      1         
-#define RC_MULTIMEDIABOARD_BRIGHTNESS_DATA_TYPE                       uint8_t   
-
 ////////////////////Enums
-enum MULTIMEDIABOARD_DISPLAYSTATE {TELEOP,AUTONOMY,REACHED_GOAL}; 
-enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERICA,DIRT,DOTA,MCD,WINDOWS}; 
 
 
 ///////////////////////////////////////////////////
@@ -750,7 +685,76 @@ enum MULTIMEDIABOARD_PATTERNS {MRDT,BELGIUM,MERICA,DIRT,DOTA,MCD,WINDOWS};
 ////////////        COREBOARD           ///////////         
 ///////////////////////////////////////////////////
 
+////////////////////Commands
+//[LeftSpeed, RightSpeed] (-1, 1)-> (-100%, 100%)
+#define RC_COREBOARD_DRIVELEFTRIGHT_DATA_ID                           17000     
+#define RC_COREBOARD_DRIVELEFTRIGHT_DATA_COUNT                        2         
+#define RC_COREBOARD_DRIVELEFTRIGHT_DATA_TYPE                         float     
+
+//[LF, LM, LR, RF, RM, RR] (-1, 1)-> (-100%, 100%)
+#define RC_COREBOARD_DRIVEINDIVIDUAL_DATA_ID                          17001     
+#define RC_COREBOARD_DRIVEINDIVIDUAL_DATA_COUNT                       6         
+#define RC_COREBOARD_DRIVEINDIVIDUAL_DATA_TYPE                        float     
+
+//[0-Turn off Watchdog Override, 1-Turn on Watchdog Override]
+#define RC_COREBOARD_WATCHDOGOVERRIDE_DATA_ID                         17002     
+#define RC_COREBOARD_WATCHDOGOVERRIDE_DATA_COUNT                      1         
+#define RC_COREBOARD_WATCHDOGOVERRIDE_DATA_TYPE                       uint8_t   
+
+//[Tilt](degrees -180-180)
+#define RC_COREBOARD_LEFTDRIVEGIMBALINCREMENT_DATA_ID                 17003     
+#define RC_COREBOARD_LEFTDRIVEGIMBALINCREMENT_DATA_COUNT              1         
+#define RC_COREBOARD_LEFTDRIVEGIMBALINCREMENT_DATA_TYPE               int16_t   
+
+//[Tilt](degrees -180-180)
+#define RC_COREBOARD_RIGHTDRIVEGIMBALINCREMENT_DATA_ID                17004     
+#define RC_COREBOARD_RIGHTDRIVEGIMBALINCREMENT_DATA_COUNT             1         
+#define RC_COREBOARD_RIGHTDRIVEGIMBALINCREMENT_DATA_TYPE              int16_t   
+
+//[Pan, Tilt](degrees -180-180)
+#define RC_COREBOARD_LEFTMAINGIMBALINCREMENT_DATA_ID                  17005     
+#define RC_COREBOARD_LEFTMAINGIMBALINCREMENT_DATA_COUNT               2         
+#define RC_COREBOARD_LEFTMAINGIMBALINCREMENT_DATA_TYPE                int16_t   
+
+//[Pan, Tilt](degrees -180-180)
+#define RC_COREBOARD_RIGHTMAINGIMBALINCREMENT_DATA_ID                 17006     
+#define RC_COREBOARD_RIGHTMAINGIMBALINCREMENT_DATA_COUNT              2         
+#define RC_COREBOARD_RIGHTMAINGIMBALINCREMENT_DATA_TYPE               int16_t   
+
+//
+#define RC_COREBOARD_INITIATETESTROUTINE_DATA_ID                      17007     
+#define RC_COREBOARD_INITIATETESTROUTINE_DATA_COUNT                   1         
+#define RC_COREBOARD_INITIATETESTROUTINE_DATA_TYPE                    uint8_t   
+
+//[R, G, B] (0, 255)
+#define RC_COREBOARD_LEDRGB_DATA_ID                                   17008     
+#define RC_COREBOARD_LEDRGB_DATA_COUNT                                3         
+#define RC_COREBOARD_LEDRGB_DATA_TYPE                                 uint8_t   
+
+//[Pattern] (Enum)
+#define RC_COREBOARD_LEDPATTERNS_DATA_ID                              17009     
+#define RC_COREBOARD_LEDPATTERNS_DATA_COUNT                           1         
+#define RC_COREBOARD_LEDPATTERNS_DATA_TYPE                            uint8_t   
+
+//[Teleop, Autonomy, Reached Goal] (enum)
+#define RC_COREBOARD_STATEDISPLAY_DATA_ID                             17010     
+#define RC_COREBOARD_STATEDISPLAY_DATA_COUNT                          1         
+#define RC_COREBOARD_STATEDISPLAY_DATA_TYPE                           uint8_t   
+
+//Set Brightness (0-255)
+#define RC_COREBOARD_BRIGHTNESS_DATA_ID                               17011     
+#define RC_COREBOARD_BRIGHTNESS_DATA_COUNT                            1         
+#define RC_COREBOARD_BRIGHTNESS_DATA_TYPE                             uint8_t   
+
+////////////////////Telemetry
+//[LF, LM, LR, RF, RM, RR] (-1000, 1000)-> (-100%, 100%)
+#define RC_COREBOARD_DRIVESPEEDS_DATA_ID                              17100     
+#define RC_COREBOARD_DRIVESPEEDS_DATA_COUNT                           6         
+#define RC_COREBOARD_DRIVESPEEDS_DATA_TYPE                            int16_t   
+
 ////////////////////Enums
+enum COREBOARD_DISPLAYSTATE {TELEOP,AUTONOMY,REACHED_GOAL}; 
+enum COREBOARD_PATTERNS {MRDT,BELGIUM,MERICA,DIRT,DOTA,MCD,WINDOWS}; 
 
 
 #endif // RoveCommManifest_h

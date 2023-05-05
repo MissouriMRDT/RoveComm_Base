@@ -29,24 +29,6 @@
     "Drive": {
       "Ip": "192.168.2.103",
       "Commands": {
-        "DriveLeftRight": {
-          "dataId": 1000,
-          "dataType": "FLOAT_T",
-          "dataCount": 2,
-          "comments": "[LeftSpeed, RightSpeed] (-1, 1)-> (-100%, 100%)"
-        },
-        "DriveIndividual": {
-          "dataId": 1001,
-          "dataType": "FLOAT_T",
-          "dataCount": 6,
-          "comments": "[LF, LM, LR, RF, RM, RR] (-1, 1)-> (-100%, 100%)"
-        },
-        "WatchdogOverride": {
-          "dataId": 1002,
-          "dataType": "UINT8_T",
-          "dataCount": 1,
-          "comments": "[0-Turn off Watchdog Override, 1-Turn on Watchdog Override]"
-        }
       },
       "Telemetry": {
         "DriveSpeeds": {
@@ -262,36 +244,6 @@
     "Gimbal": {
       "Ip": "192.168.2.106",
       "Commands": {
-        "LeftDriveGimbalIncrement": {
-          "dataId": 6000,
-          "dataType": "INT16_T",
-          "dataCount": 1,
-          "comments": "[Tilt](degrees -180-180)"
-        },
-        "RightDriveGimbalIncrement": {
-          "dataId": 6001,
-          "dataType": "INT16_T",
-          "dataCount": 1,
-          "comments": "[Tilt](degrees -180-180)"
-        },
-        "LeftMainGimbalIncrement": {
-          "dataId": 6002,
-          "dataType": "INT16_T",
-          "dataCount": 2,
-          "comments": "[Pan, Tilt](degrees -180-180)"
-        },
-        "RightMainGimbalIncrement": {
-          "dataId": 6003,
-          "dataType": "INT16_T",
-          "dataCount": 2,
-          "comments": "[Pan, Tilt](degrees -180-180)"
-        },
-        "InitiateTestRoutine": {
-          "dataId": 6004,
-          "dataType": "UINT8_T",
-          "dataCount": 1,
-          "comments": ""
-        }
       },
       "Telemetry": {},
       "Error": {}
@@ -299,48 +251,10 @@
     "Multimedia": {
       "Ip": "192.168.2.105",
       "Commands": {
-        "LEDRGB": {
-          "dataId": 7000,
-          "dataType": "UINT8_T",
-          "dataCount": 3,
-          "comments": "[R, G, B] (0, 255)"
-        },
-        "LEDPatterns": {
-          "dataId": 7001,
-          "dataType": "UINT8_T",
-          "dataCount": 1,
-          "comments": "[Pattern] (Enum)"
-        },
-        "StateDisplay": {
-          "dataId": 7002,
-          "dataType": "UINT8_T",
-          "dataCount": 1,
-          "comments": "[Teleop, Autonomy, Reached Goal] (enum)"
-        },
-        "Brightness": {
-          "dataId": 7003,
-          "dataType": "UINT8_T",
-          "dataCount": 1,
-          "comments": "Set Brightness (0-255)"
-        }
       },
       "Telemetry": {},
       "Error": {},
       "Enums": {
-        "DISPLAYSTATE": {
-          "Teleop": 0,
-          "Autonomy": 1,
-          "Reached_Goal": 2
-        },
-        "PATTERNS": {
-          "MRDT": 0,
-          "BELGIUM": 1,
-          "MERICA": 2,
-          "DIRT": 3,
-          "DOTA": 4,
-          "MCD": 5,
-          "WINDOWS": 6
-        }
       }
     },
     "Arm": {
@@ -785,12 +699,104 @@
     "Core": {
       "Ip": "192.168.2.110",
       "Commands": {
+        "DriveLeftRight": {
+          "dataId": 17000,
+          "dataType": "FLOAT_T",
+          "dataCount": 2,
+          "comments": "[LeftSpeed, RightSpeed] (-1, 1)-> (-100%, 100%)"
+        },
+        "DriveIndividual": {
+          "dataId": 17001,
+          "dataType": "FLOAT_T",
+          "dataCount": 6,
+          "comments": "[LF, LM, LR, RF, RM, RR] (-1, 1)-> (-100%, 100%)"
+        },
+        "WatchdogOverride": {
+          "dataId": 17002,
+          "dataType": "UINT8_T",
+          "dataCount": 1,
+          "comments": "[0-Turn off Watchdog Override, 1-Turn on Watchdog Override]"
+        },
+        "LeftDriveGimbalIncrement": {
+          "dataId": 17003,
+          "dataType": "INT16_T",
+          "dataCount": 1,
+          "comments": "[Tilt](degrees -180-180)"
+        },
+        "RightDriveGimbalIncrement": {
+          "dataId": 17004,
+          "dataType": "INT16_T",
+          "dataCount": 1,
+          "comments": "[Tilt](degrees -180-180)"
+        },
+        "LeftMainGimbalIncrement": {
+          "dataId": 17005,
+          "dataType": "INT16_T",
+          "dataCount": 2,
+          "comments": "[Pan, Tilt](degrees -180-180)"
+        },
+        "RightMainGimbalIncrement": {
+          "dataId": 17006,
+          "dataType": "INT16_T",
+          "dataCount": 2,
+          "comments": "[Pan, Tilt](degrees -180-180)"
+        },
+        "InitiateTestRoutine": {
+          "dataId": 17007,
+          "dataType": "UINT8_T",
+          "dataCount": 1,
+          "comments": ""
+        },
+        "LEDRGB": {
+          "dataId": 17008,
+          "dataType": "UINT8_T",
+          "dataCount": 3,
+          "comments": "[R, G, B] (0, 255)"
+        },
+        "LEDPatterns": {
+          "dataId": 17009,
+          "dataType": "UINT8_T",
+          "dataCount": 1,
+          "comments": "[Pattern] (Enum)"
+        },
+        "StateDisplay": {
+          "dataId": 17010,
+          "dataType": "UINT8_T",
+          "dataCount": 1,
+          "comments": "[Teleop, Autonomy, Reached Goal] (enum)"
+        },
+        "Brightness": {
+          "dataId": 17011,
+          "dataType": "UINT8_T",
+          "dataCount": 1,
+          "comments": "Set Brightness (0-255)"
+        }
       },
       "Telemetry": {
+        "DriveSpeeds": {
+          "dataId": 17100,
+          "dataType": "INT16_T",
+          "dataCount": 6,
+          "comments": "[LF, LM, LR, RF, RM, RR] (-1000, 1000)-> (-100%, 100%)"
+        }
       },
       "Error": {
       },
       "Enums": {
+        "DISPLAYSTATE": {
+          "Teleop": 0,
+          "Autonomy": 1,
+          "Reached_Goal": 2
+        },
+        "PATTERNS": {
+          "MRDT": 0,
+          "BELGIUM": 1,
+          "MERICA": 2,
+          "DIRT": 3,
+          "DOTA": 4,
+          "MCD": 5,
+          "WINDOWS": 6
+        }
       }
     }
   },
