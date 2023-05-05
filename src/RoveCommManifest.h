@@ -375,32 +375,27 @@
 #define RC_ARMBOARD_WATCHDOGOVERRIDE_DATA_COUNT                       1         
 #define RC_ARMBOARD_WATCHDOGOVERRIDE_DATA_TYPE                        uint8_t   
 
-//[Base Tilt Up, Base Tilt Down, Base Twist CW, Base Twist CCW, Elbow Tilt Up, Elbow Tilt Down, Elbow  Twist CW, Elbow  Twist CCW] (0-Turn off Limit Switch Override, 1-Turn on Limit Switch Override) (bitmasked)
+//[J6 Forward, J6 Reverse, J5 Forward, J5 Reverse, J4 Forward, J4 Reverse, J3 Forward, J3 Reverse, J2 Forward, J2 Reverse, J1 Forward, J1 Reverse] (0-Turn off Limit Switch Override, 1-Turn on Limit Switch Override) (bitmasked)
 #define RC_ARMBOARD_LIMITSWITCHOVERRIDE_DATA_ID                       8010      
 #define RC_ARMBOARD_LIMITSWITCHOVERRIDE_DATA_COUNT                    1         
-#define RC_ARMBOARD_LIMITSWITCHOVERRIDE_DATA_TYPE                     uint8_t   
+#define RC_ARMBOARD_LIMITSWITCHOVERRIDE_DATA_TYPE                     uint16_t  
 
 //Prompt arm for J1-6 positions
-#define RC_ARMBOARD_REQUESTJOINTPOSITIONS_DATA_ID                     8012      
+#define RC_ARMBOARD_REQUESTJOINTPOSITIONS_DATA_ID                     8011      
 #define RC_ARMBOARD_REQUESTJOINTPOSITIONS_DATA_COUNT                  1         
 #define RC_ARMBOARD_REQUESTJOINTPOSITIONS_DATA_TYPE                   uint8_t   
 
 //Start auto pushing arm J1-6 positions
-#define RC_ARMBOARD_TOGGLEPOSITIONTELEM_DATA_ID                       8013      
+#define RC_ARMBOARD_TOGGLEPOSITIONTELEM_DATA_ID                       8012      
 #define RC_ARMBOARD_TOGGLEPOSITIONTELEM_DATA_COUNT                    1         
 #define RC_ARMBOARD_TOGGLEPOSITIONTELEM_DATA_TYPE                     uint8_t   
 
 //Prompt arm for XYZPYR Data
-#define RC_ARMBOARD_REQUESTAXESPOSITIONS_DATA_ID                      8014      
+#define RC_ARMBOARD_REQUESTAXESPOSITIONS_DATA_ID                      8013      
 #define RC_ARMBOARD_REQUESTAXESPOSITIONS_DATA_COUNT                   1         
 #define RC_ARMBOARD_REQUESTAXESPOSITIONS_DATA_TYPE                    uint8_t   
 
 ////////////////////Telemetry
-//[M1, M2, M3, M4, M5, M6] (0, A)
-#define RC_ARMBOARD_MOTORCURRENTS_DATA_ID                             8100      
-#define RC_ARMBOARD_MOTORCURRENTS_DATA_COUNT                          6         
-#define RC_ARMBOARD_MOTORCURRENTS_DATA_TYPE                           float     
-
 //[J1, J2, J3, J4, J5, J6] (0, Deg)
 #define RC_ARMBOARD_JOINTANGLES_DATA_ID                               8101      
 #define RC_ARMBOARD_JOINTANGLES_DATA_COUNT                            6         
@@ -421,11 +416,6 @@
 #define RC_ARMBOARD_WATCHDOGSTATUS_DATA_ID                            8200      
 #define RC_ARMBOARD_WATCHDOGSTATUS_DATA_COUNT                         1         
 #define RC_ARMBOARD_WATCHDOGSTATUS_DATA_TYPE                          uint8_t   
-
-//[E1, E2, E3, E4, E5, E6] (0-Good, 1-Failure)
-#define RC_ARMBOARD_ENCODERSTATUS_DATA_ID                             8201      
-#define RC_ARMBOARD_ENCODERSTATUS_DATA_COUNT                          1         
-#define RC_ARMBOARD_ENCODERSTATUS_DATA_TYPE                           uint8_t   
 
 
 

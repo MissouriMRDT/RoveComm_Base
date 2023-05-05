@@ -340,36 +340,30 @@
         },
         "LimitSwitchOverride": {
           "dataId": 8010,
-          "dataType": "UINT8_T",
+          "dataType": "UINT16_T",
           "dataCount": 1,
-          "comments": "[Base Tilt Up, Base Tilt Down, Base Twist CW, Base Twist CCW, Elbow Tilt Up, Elbow Tilt Down, Elbow  Twist CW, Elbow  Twist CCW] (0-Turn off Limit Switch Override, 1-Turn on Limit Switch Override) (bitmasked)"
+          "comments": "[J6 Forward, J6 Reverse, J5 Forward, J5 Reverse, J4 Forward, J4 Reverse, J3 Forward, J3 Reverse, J2 Forward, J2 Reverse, J1 Forward, J1 Reverse] (0-Turn off Limit Switch Override, 1-Turn on Limit Switch Override) (bitmasked)"
         },
         "RequestJointPositions": {
-          "dataId": 8012,
+          "dataId": 8011,
           "dataType": "UINT8_T",
           "dataCount": 1,
           "comments": "Prompt arm for J1-6 positions"
         },
         "TogglePositionTelem": {
-          "dataId": 8013,
+          "dataId": 8012,
           "dataType": "UINT8_T",
           "dataCount": 1,
           "comments": "Start auto pushing arm J1-6 positions"
         },
         "RequestAxesPositions": {
-          "dataId": 8014,
+          "dataId": 8013,
           "dataType": "UINT8_T",
           "dataCount": 1,
           "comments": "Prompt arm for XYZPYR Data"
         }
       },
       "Telemetry": {
-        "MotorCurrents": {
-          "dataId": 8100,
-          "dataType": "FLOAT_T",
-          "dataCount": 6,
-          "comments": "[M1, M2, M3, M4, M5, M6] (0, A)"
-        },
         "JointAngles": {
           "dataId": 8101,
           "dataType": "FLOAT_T",
@@ -395,12 +389,6 @@
           "dataType": "UINT8_T",
           "dataCount": 1,
           "comments": "[WatchDogStatus] (0-WD Not Triggered, 1-WD Triggered) "
-        },
-        "EncoderStatus": {
-          "dataId": 8201,
-          "dataType": "UINT8_T",
-          "dataCount": 1,
-          "comments": "[E1, E2, E3, E4, E5, E6] (0-Good, 1-Failure)"
         }
       }
     },
