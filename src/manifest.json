@@ -31,12 +31,6 @@
       "Commands": {
       },
       "Telemetry": {
-        "DriveSpeeds": {
-          "dataId": 1100,
-          "dataType": "INT16_T",
-          "dataCount": 6,
-          "comments": "[LF, LM, LR, RF, RM, RR] (-1000, 1000)-> (-100%, 100%)"
-        }
       },
       "Error": {}
     },

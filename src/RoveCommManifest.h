@@ -111,12 +111,6 @@
 ////////////        DRIVEBOARD          ///////////         
 ///////////////////////////////////////////////////
 
-////////////////////Telemetry
-//[LF, LM, LR, RF, RM, RR] (-1000, 1000)-> (-100%, 100%)
-#define RC_DRIVEBOARD_DRIVESPEEDS_DATA_ID                             1100      
-#define RC_DRIVEBOARD_DRIVESPEEDS_DATA_COUNT                          6         
-#define RC_DRIVEBOARD_DRIVESPEEDS_DATA_TYPE                           int16_t   
-
 
 
 ///////////////////////////////////////////////////
