@@ -248,6 +248,12 @@
           "dataType": "FLOAT_T",
           "dataCount": 3,
           "comments": "[xAxis, yAxis, zAxis] Accel in m/s^2"
+        },
+        "AccuracyData": {
+          "dataId": 5105,
+          "dataType": "FLOAT_T",
+          "dataCount": 3,
+          "comments": "[horizontal_accur, vertical_accur, heading_accur] Accuracy in meters/degrees"
         }
       },
       "Error": {

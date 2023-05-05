@@ -299,6 +299,11 @@
 #define RC_NAVBOARD_ACCELEROMETERDATA_DATA_COUNT                      3         
 #define RC_NAVBOARD_ACCELEROMETERDATA_DATA_TYPE                       float     
 
+//[horizontal_accur, vertical_accur, heading_accur] Accuracy in meters/degrees
+#define RC_NAVBOARD_ACCURACYDATA_DATA_ID                              5105      
+#define RC_NAVBOARD_ACCURACYDATA_DATA_COUNT                           3         
+#define RC_NAVBOARD_ACCURACYDATA_DATA_TYPE                            float     
+
 ////////////////////Error
 //
 #define RC_NAVBOARD_GPSLOCKERROR_DATA_ID                              5200      
