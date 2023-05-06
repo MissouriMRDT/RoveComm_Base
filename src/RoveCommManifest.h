@@ -473,6 +473,11 @@
 #define RC_SCIENCEACTUATIONBOARD_BUMPSCOOP_DATA_COUNT                 1         
 #define RC_SCIENCEACTUATIONBOARD_BUMPSCOOP_DATA_TYPE                  uint8_t   
 
+//Motor speed value (-1000,1000)
+#define RC_SCIENCEACTUATIONBOARD_MICROSCOPEFOCUS_DATA_ID              9010      
+#define RC_SCIENCEACTUATIONBOARD_MICROSCOPEFOCUS_DATA_COUNT           1         
+#define RC_SCIENCEACTUATIONBOARD_MICROSCOPEFOCUS_DATA_TYPE            int16_t   
+
 ////////////////////Telemetry
 //[scoop z-pos, scoop x-pos, sensor z-axis] (absolute position 0-360)
 #define RC_SCIENCEACTUATIONBOARD_ENCODERPOSITIONS_DATA_ID             9100      
@@ -497,13 +502,8 @@
 #define RC_SCIENCESENSORSBOARD_FLUOROMETERLEDS_DATA_COUNT             1         
 #define RC_SCIENCESENSORSBOARD_FLUOROMETERLEDS_DATA_TYPE              uint8_t   
 
-//Sign of value determines direction
-#define RC_SCIENCESENSORSBOARD_MICROSCOPESERVO_DATA_ID                10001     
-#define RC_SCIENCESENSORSBOARD_MICROSCOPESERVO_DATA_COUNT             1         
-#define RC_SCIENCESENSORSBOARD_MICROSCOPESERVO_DATA_TYPE              int8_t    
-
 //Request a new Fluorometer reading
-#define RC_SCIENCESENSORSBOARD_REQFLUOROMETER_DATA_ID                 10002     
+#define RC_SCIENCESENSORSBOARD_REQFLUOROMETER_DATA_ID                 10001     
 #define RC_SCIENCESENSORSBOARD_REQFLUOROMETER_DATA_COUNT              1         
 #define RC_SCIENCESENSORSBOARD_REQFLUOROMETER_DATA_TYPE               uint8_t   
 
