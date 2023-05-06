@@ -509,34 +509,44 @@
 
 ////////////////////Telemetry
 //Diode readings from sensor
-#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA_DATA_ID                10100     
-#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA_DATA_COUNT             3648      
-#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA_DATA_TYPE              uint16_t  
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA1_DATA_ID               10100     
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA1_DATA_COUNT            500       
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA1_DATA_TYPE             uint16_t  
 
-//[Gas concentration (ppm), Temperature (C)]
-#define RC_SCIENCESENSORSBOARD_CH4_DATA_ID                            10101     
-#define RC_SCIENCESENSORSBOARD_CH4_DATA_COUNT                         2         
-#define RC_SCIENCESENSORSBOARD_CH4_DATA_TYPE                          float     
+//Diode readings from sensor
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA2_DATA_ID               10101     
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA2_DATA_COUNT            500       
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA2_DATA_TYPE             uint16_t  
 
-//[CO2 Concentration (ppm)]
-#define RC_SCIENCESENSORSBOARD_CO2_DATA_ID                            10102     
-#define RC_SCIENCESENSORSBOARD_CO2_DATA_COUNT                         1         
-#define RC_SCIENCESENSORSBOARD_CO2_DATA_TYPE                          uint16_t  
+//Diode readings from sensor
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA3_DATA_ID               10102     
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA3_DATA_COUNT            500       
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA3_DATA_TYPE             uint16_t  
 
-//[concentration (ppm)]
-#define RC_SCIENCESENSORSBOARD_O2_DATA_ID                             10103     
-#define RC_SCIENCESENSORSBOARD_O2_DATA_COUNT                          1         
-#define RC_SCIENCESENSORSBOARD_O2_DATA_TYPE                           float     
+//Diode readings from sensor
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA4_DATA_ID               10103     
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA4_DATA_COUNT            500       
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA4_DATA_TYPE             uint16_t  
 
-//[concentration (ppm)]
-#define RC_SCIENCESENSORSBOARD_NH3_DATA_ID                            10104     
-#define RC_SCIENCESENSORSBOARD_NH3_DATA_COUNT                         1         
-#define RC_SCIENCESENSORSBOARD_NH3_DATA_TYPE                          float     
+//Diode readings from sensor
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA5_DATA_ID               10104     
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA5_DATA_COUNT            500       
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA5_DATA_TYPE             uint16_t  
 
-//[ NO2 volume (ppm)]
-#define RC_SCIENCESENSORSBOARD_NO2_DATA_ID                            10105     
-#define RC_SCIENCESENSORSBOARD_NO2_DATA_COUNT                         1         
-#define RC_SCIENCESENSORSBOARD_NO2_DATA_TYPE                          uint16_t  
+//Diode readings from sensor
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA6_DATA_ID               10105     
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA6_DATA_COUNT            500       
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA6_DATA_TYPE             uint16_t  
+
+//Diode readings from sensor
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA7_DATA_ID               10106     
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA7_DATA_COUNT            500       
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA7_DATA_TYPE             uint16_t  
+
+//Diode readings from sensor
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA8_DATA_ID               10101     
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA8_DATA_COUNT            148       
+#define RC_SCIENCESENSORSBOARD_FLUOROMETERDATA8_DATA_TYPE             uint16_t  
 
 
 
