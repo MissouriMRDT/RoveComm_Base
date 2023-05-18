@@ -453,12 +453,12 @@
 #define RC_SCIENCEACTUATIONBOARD_ZOOPAXIS_DATA_COUNT                  1         
 #define RC_SCIENCEACTUATIONBOARD_ZOOPAXIS_DATA_TYPE                   int16_t   
 
-//[Position] (0 Open, 1, Closed)
+//[Position] (0 Open, 1 Closed, 2 Drop)
 #define RC_SCIENCEACTUATIONBOARD_SCOOPGRABBER_DATA_ID                 9006      
 #define RC_SCIENCEACTUATIONBOARD_SCOOPGRABBER_DATA_COUNT              1         
 #define RC_SCIENCEACTUATIONBOARD_SCOOPGRABBER_DATA_TYPE               uint8_t   
 
-//[Position] (0, Group 1, 2, or 3)
+//[Position] (0, 1 - 6, 7)
 #define RC_SCIENCEACTUATIONBOARD_GOTOPOSITION_DATA_ID                 9007      
 #define RC_SCIENCEACTUATIONBOARD_GOTOPOSITION_DATA_COUNT              1         
 #define RC_SCIENCEACTUATIONBOARD_GOTOPOSITION_DATA_TYPE               uint8_t   
@@ -482,7 +482,7 @@
 //[scoop z-pos, scoop x-pos, sensor z-axis] (absolute position 0-360)
 #define RC_SCIENCEACTUATIONBOARD_ENCODERPOSITIONS_DATA_ID             9100      
 #define RC_SCIENCEACTUATIONBOARD_ENCODERPOSITIONS_DATA_COUNT          3         
-#define RC_SCIENCEACTUATIONBOARD_ENCODERPOSITIONS_DATA_TYPE           uint16_t  
+#define RC_SCIENCEACTUATIONBOARD_ENCODERPOSITIONS_DATA_TYPE           float     
 
 ////////////////////Error
 //[Zoop-axis Top, Zoop-axis Bottom, Xoop-axis Left, Xoop-axis Right, Sensor Axis Top, Sensor Axis Bottom] (0-OFF, 1-ON) (bitmasked)
@@ -735,28 +735,33 @@
 #define RC_COREBOARD_RIGHTMAINGIMBALINCREMENT_DATA_COUNT              2         
 #define RC_COREBOARD_RIGHTMAINGIMBALINCREMENT_DATA_TYPE               int16_t   
 
+//[Tilt](degrees -180-180)
+#define RC_COREBOARD_BACKDRIVEGIMBALINCREMENT_DATA_ID                 17007     
+#define RC_COREBOARD_BACKDRIVEGIMBALINCREMENT_DATA_COUNT              1         
+#define RC_COREBOARD_BACKDRIVEGIMBALINCREMENT_DATA_TYPE               int16_t   
+
 //
-#define RC_COREBOARD_INITIATETESTROUTINE_DATA_ID                      17007     
+#define RC_COREBOARD_INITIATETESTROUTINE_DATA_ID                      17008     
 #define RC_COREBOARD_INITIATETESTROUTINE_DATA_COUNT                   1         
 #define RC_COREBOARD_INITIATETESTROUTINE_DATA_TYPE                    uint8_t   
 
 //[R, G, B] (0, 255)
-#define RC_COREBOARD_LEDRGB_DATA_ID                                   17008     
+#define RC_COREBOARD_LEDRGB_DATA_ID                                   17009     
 #define RC_COREBOARD_LEDRGB_DATA_COUNT                                3         
 #define RC_COREBOARD_LEDRGB_DATA_TYPE                                 uint8_t   
 
 //[Pattern] (Enum)
-#define RC_COREBOARD_LEDPATTERNS_DATA_ID                              17009     
+#define RC_COREBOARD_LEDPATTERNS_DATA_ID                              17010     
 #define RC_COREBOARD_LEDPATTERNS_DATA_COUNT                           1         
 #define RC_COREBOARD_LEDPATTERNS_DATA_TYPE                            uint8_t   
 
 //[Teleop, Autonomy, Reached Goal] (enum)
-#define RC_COREBOARD_STATEDISPLAY_DATA_ID                             17010     
+#define RC_COREBOARD_STATEDISPLAY_DATA_ID                             17011     
 #define RC_COREBOARD_STATEDISPLAY_DATA_COUNT                          1         
 #define RC_COREBOARD_STATEDISPLAY_DATA_TYPE                           uint8_t   
 
 //Set Brightness (0-255)
-#define RC_COREBOARD_BRIGHTNESS_DATA_ID                               17011     
+#define RC_COREBOARD_BRIGHTNESS_DATA_ID                               17012     
 #define RC_COREBOARD_BRIGHTNESS_DATA_COUNT                            1         
 #define RC_COREBOARD_BRIGHTNESS_DATA_TYPE                             uint8_t   
 
