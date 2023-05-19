@@ -505,7 +505,7 @@
 //Request a new Fluorometer reading
 #define RC_SCIENCESENSORSBOARD_REQFLUOROMETER_DATA_ID                 10001     
 #define RC_SCIENCESENSORSBOARD_REQFLUOROMETER_DATA_COUNT              1         
-#define RC_SCIENCESENSORSBOARD_REQFLUOROMETER_DATA_TYPE               uint8_t   
+#define RC_SCIENCESENSORSBOARD_REQFLUOROMETER_DATA_TYPE               uint16_t   
 
 ////////////////////Telemetry
 //Diode readings from sensor
@@ -665,6 +665,10 @@ enum AUTONOMYBOARD_AUTONOMYSTATE {IDLE,NAVIGATING,SEARCHPATTERN,APPROACHINGMARKE
 #define RC_HEATERBOARD_HEATERENABLED_DATA_ID                          15101     
 #define RC_HEATERBOARD_HEATERENABLED_DATA_COUNT                       1         
 #define RC_HEATERBOARD_HEATERENABLED_DATA_TYPE                        uint16_t  
+
+#define RC_HEATERBOARD_HEATERSETTEMP_DATA_ID                          15102
+#define RC_HEATERBOARD_HEATERSETTEMP_DATA_COUNT                       12
+#define RC_HEATERBOARD_HEATERSETTEMP_DATA_TYPE                        float
 
 ////////////////////Error
 //Bitmask (1-Overheated, 0-not overheated)
