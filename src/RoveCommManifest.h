@@ -591,7 +591,7 @@
 #define RC_AUTONOMYBOARD_SETMAXSPEED_DATA_TYPE                        uint16_t  
 
 ////////////////////Telemetry
-//Enum (Idle, Navigating, SearchPattern, Approaching Marker)
+//Enum (AUTONOMYSTATE)
 #define RC_AUTONOMYBOARD_CURRENTSTATE_DATA_ID                         11100     
 #define RC_AUTONOMYBOARD_CURRENTSTATE_DATA_COUNT                      1         
 #define RC_AUTONOMYBOARD_CURRENTSTATE_DATA_TYPE                       uint8_t   
@@ -606,6 +606,8 @@
 #define RC_AUTONOMYBOARD_CURRENTLOG_DATA_COUNT                        255       
 #define RC_AUTONOMYBOARD_CURRENTLOG_DATA_TYPE                         char      
 
+////////////////////Enums
+enum AUTONOMYBOARD_AUTONOMYSTATE {IDLE,NAVIGATING,SEARCHPATTERN,APPROACHINGMARKER,APPROACHINGGATE,AVOIDANCE,REVERSING,STUCK}; 
 
 
 ///////////////////////////////////////////////////
