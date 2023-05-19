@@ -359,14 +359,14 @@
 #define RC_ARMBOARD_LASERS_DATA_COUNT                                 1         
 #define RC_ARMBOARD_LASERS_DATA_TYPE                                  uint8_t   
 
-//[Power] (-1000, 1000) (m%)
+//0: retract, 1: extend
 #define RC_ARMBOARD_ENDEFFECTOR_DATA_ID                               8007      
 #define RC_ARMBOARD_ENDEFFECTOR_DATA_COUNT                            1         
-#define RC_ARMBOARD_ENDEFFECTOR_DATA_TYPE                             int16_t   
+#define RC_ARMBOARD_ENDEFFECTOR_DATA_TYPE                             uint8_t   
 
 //[Power] (-1000, 1000) (m%)
 #define RC_ARMBOARD_GRIPPERMOVE_DATA_ID                               8008      
-#define RC_ARMBOARD_GRIPPERMOVE_DATA_COUNT                            1         
+#define RC_ARMBOARD_GRIPPERMOVE_DATA_COUNT                            2         
 #define RC_ARMBOARD_GRIPPERMOVE_DATA_TYPE                             int16_t   
 
 //[0-Turn off Watchdog Override, 1-Turn on Watchdog Override]
@@ -764,6 +764,11 @@
 #define RC_COREBOARD_BRIGHTNESS_DATA_ID                               17012     
 #define RC_COREBOARD_BRIGHTNESS_DATA_COUNT                            1         
 #define RC_COREBOARD_BRIGHTNESS_DATA_TYPE                             uint8_t   
+
+//0: Teleop, 1: Autonomy
+#define RC_COREBOARD_SETWATCHDOGMODE_DATA_ID                          17013     
+#define RC_COREBOARD_SETWATCHDOGMODE_DATA_COUNT                       1         
+#define RC_COREBOARD_SETWATCHDOGMODE_DATA_TYPE                        uint8_t   
 
 ////////////////////Telemetry
 //[LF, LM, LR, RF, RM, RR] (-1000, 1000)-> (-100%, 100%)
