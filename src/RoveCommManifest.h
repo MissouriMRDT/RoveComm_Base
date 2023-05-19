@@ -653,7 +653,11 @@ enum AUTONOMYBOARD_AUTONOMYSTATE {IDLE,NAVIGATING,SEARCHPATTERN,APPROACHINGMARKE
 //Bitmask (1-ON, 0-OFF)
 #define RC_HEATERBOARD_HEATERTOGGLE_DATA_ID                           15000     
 #define RC_HEATERBOARD_HEATERTOGGLE_DATA_COUNT                        1         
-#define RC_HEATERBOARD_HEATERTOGGLE_DATA_TYPE                         uint16_t  
+#define RC_HEATERBOARD_HEATERTOGGLE_DATA_TYPE                         uint16_t 
+
+#define RC_HEATERBOARD_HEATERSETTEMP_DATA_ID                          15001
+#define RC_HEATERBOARD_HEATERSETTEMP_DATA_COUNT                       12
+#define RC_HEATERBOARD_HEATERSETTEMP_DATA_TYPE                        float
 
 ////////////////////Telemetry
 //[1, 2, 3...] (degrees C)
@@ -664,11 +668,7 @@ enum AUTONOMYBOARD_AUTONOMYSTATE {IDLE,NAVIGATING,SEARCHPATTERN,APPROACHINGMARKE
 //Heater #[...3, 2, 1] (0-Disabled, 1-Enabled)
 #define RC_HEATERBOARD_HEATERENABLED_DATA_ID                          15101     
 #define RC_HEATERBOARD_HEATERENABLED_DATA_COUNT                       1         
-#define RC_HEATERBOARD_HEATERENABLED_DATA_TYPE                        uint16_t  
-
-#define RC_HEATERBOARD_HEATERSETTEMP_DATA_ID                          15102
-#define RC_HEATERBOARD_HEATERSETTEMP_DATA_COUNT                       12
-#define RC_HEATERBOARD_HEATERSETTEMP_DATA_TYPE                        float
+#define RC_HEATERBOARD_HEATERENABLED_DATA_TYPE                        uint16_t
 
 ////////////////////Error
 //Bitmask (1-Overheated, 0-not overheated)
