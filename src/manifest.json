@@ -674,6 +674,12 @@
           "dataType": "UINT16_T",
           "dataCount": 1,
           "comments": "Bitmask (1-ON, 0-OFF)"
+        },
+        "HeaterSetTemp" :{
+          "dataId": 15001,
+          "dataType": "FLOAT_T",
+          "dataCount": 12,
+          "comments": "Sets target temperature for the heaters"
         }
       },
       "Telemetry": {
