@@ -478,6 +478,11 @@
 #define RC_SCIENCEACTUATIONBOARD_MICROSCOPEFOCUS_DATA_COUNT           1         
 #define RC_SCIENCEACTUATIONBOARD_MICROSCOPEFOCUS_DATA_TYPE            int16_t   
 
+//[Position] (0, 1-12)
+#define RC_SCIENCEACTUATIONBOARD_WATERPOSITION_DATA_ID                9011
+#define RC_SCIENCEACTUATIONBOARD_WATERPOSITION_DATA_COUNT             1
+#define RC_SCIENCEACTUATIONBOARD_WATERPOSITION_DATA_TYPE              uint8_t
+
 ////////////////////Telemetry
 //[scoop z-pos, scoop x-pos, sensor z-axis] (absolute position 0-360)
 #define RC_SCIENCEACTUATIONBOARD_ENCODERPOSITIONS_DATA_ID             9100      
