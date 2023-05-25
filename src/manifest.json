@@ -507,7 +507,8 @@
           "dataType": "UINT16_T",
           "dataCount": 215,
           "comments": "Diode readings from sensor"
-        },
+        }
+      },
       "Error": {}
     },
     "Autonomy": {
