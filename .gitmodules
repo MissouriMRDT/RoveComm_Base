@@ -1,0 +1,3 @@
+[submodule "manifest"]
+	path = manifest
+	url = https://github.com/missourimrdt/rovecomm_base

@@ -78,7 +78,7 @@ def insert_enums(board):
 
 if __name__ == "__main__":
     # Load the json file
-    this.manifest_file = open("manifest.json", "r").read()
+    this.manifest_file = open("../manifest/manifest.json", "r").read()
     this.manifest_file = json.loads(this.manifest_file)
 
     # Check manifest spec version
