@@ -2,7 +2,7 @@
 The UDP and TCP packet protocol used by MRDT modular microcontrollers
 
 ## Cloning / Updating
-Now that the manifest.json is located in a different repository the steps for cloning and updating the repository are a bit different.
+Since the manifest.json is located in a different repository the steps for cloning and updating the repository are a bit different than usual. Everytime the manifest.json is updated, the **update** command listed below needs to be executed.
 - Clone: `git clone --recurse-submodules https://gitlab.com/MissouriMRDT/RoveComm.git`
 - Update: `git submodule update --init --recursive`
 
