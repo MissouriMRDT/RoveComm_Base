@@ -288,3 +288,15 @@
 | **ReflectanceReading** | 16105 | `UINT8_T` | 288 | Reflectance CCD elements 1-288 |
 | **Temperature** | 16106 | `INT8_T` | 1 | [Temperature] (degrees C) |
 
+# Network Devices
+
+| name | ip |
+| :--- | -- |
+| **BasestationSwitch** | `192.168.254.2`
+| **RoverSwitch** | `192.168.254.1`
+| **Rover900MHzRocket** | `10.0.0.3`
+| **Basestation900MHzRocket** | `10.0.0.4`
+| **Rover5GHzRocket** | `10.0.0.19`
+| **Basestation5GHzRocket** | `10.0.0.20`
+| **Rover2_4GHzRocket** | `10.0.0.11`
+| **Basestation2_4GHzRocket** | `10.0.0.12`

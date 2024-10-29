@@ -80,6 +80,13 @@ def main(json_path, file_path):
                 # Write the 'Error' section, if it exists
                 if "Error" in board_desc:
                     write_packet_section(file, "Errors", board_desc["Error"])
+            
+            # Write IP for each network device in the Rovecomm manifest
+            file.write("# Network Devices\n\n")
+            file.write("| name | ip |\n")
+            file.write("| :--- | -- |\n")
+            for device_name, device_desc in manifest.get("NetworkDevices", {}).items():
+                file.write(f"| **{device_name}** | `{device_desc.get('Ip', 'N/A')}`\n")
 
     except IOError as e:
         print(f"Error: Could not write to file '{file_path}'. {e}")
