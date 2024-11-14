@@ -259,6 +259,38 @@
 | :--- | ------ | ---- | ----- | ----------- |
 | **PictureTaken2** | 13100 | `UINT8_T` | 1 | Picture has been taken. |
 
+## CameraServer Board
+
+**IP**: 192.168.4.102
+
+### Commands
+
+| name | dataId | type | count | description |
+| :--- | ------ | ---- | ----- | ----------- |
+| **TakePhoto** | 14000 | `UINT8_T` | 1 | Take a picture with the current camera. [0] is the camera to take a picture with. |
+| **ToggleStream** | 14001 | `UINT8_T` | 2 | Stop the current camera stream. [0] is the camera to stop streaming. [1] is the action (0 = Shutdown, 1 = Startup, 2 = Restart). |
+| **AdjustBrightness** | 14002 | `UINT8_T` | 2 | Adjust brightness level (0-255). [0] is the camera ID, [1] is the brightness level. |
+| **AdjustContrast** | 14003 | `UINT8_T` | 2 | Adjust contrast level (0-255). [0] is the camera ID, [1] is the contrast level. |
+| **AdjustSaturation** | 14004 | `UINT8_T` | 2 | Adjust saturation level (0-255). [0] is the camera ID, [1] is the saturation level. |
+| **AdjustHue** | 14005 | `UINT8_T` | 2 | Adjust hue level (0-255). [0] is the camera ID, [1] is the hue level. |
+| **SetWhiteBalance** | 14008 | `UINT8_T` | 2 | Set white balance temperature. [0] is the camera ID, [1] is the white balance level. |
+| **AdjustBacklightContrast** | 14009 | `UINT8_T` | 2 | Adjust backlight contrast level (0-255). [0] is the camera ID, [1] is the backlight contrast level. |
+| **SetExposure** | 14010 | `INT32_T` | 2 | Set exposure level. [0] is the camera ID, [1] is the exposure level. |
+
+### Telemetry
+
+| name | dataId | type | count | description |
+| :--- | ------ | ---- | ----- | ----------- |
+| **AvailableCameras** | 14100 | `UINT8_T` | 1 | Bitmask values for which cameras are able to stream. LSB is Camera 0, MSB is Camera 7. |
+| **StreamingCameras** | 14101 | `UINT8_T` | 4 | Which cameras the system is currently streaming on each port |
+| **PictureTaken1** | 14102 | `UINT8_T` | 1 | Picture has been taken. |
+
+### Errors
+
+| name | dataId | type | count | description |
+| :--- | ------ | ---- | ----- | ----------- |
+| **CameraUnavailable** | 14200 | `UINT8_T` | 1 | Camera has errored and stopped streaming. [0] is ID of camera as an integer (not bitmask). |
+
 ## IRSpectrometer Board
 
 **IP**: 192.168.3.104
@@ -292,11 +324,25 @@
 
 | name | ip |
 | :--- | -- |
-| **BasestationSwitch** | `192.168.254.2`
-| **RoverSwitch** | `192.168.254.1`
-| **Rover900MHzRocket** | `10.0.0.3`
-| **Basestation900MHzRocket** | `10.0.0.4`
-| **Rover5GHzRocket** | `10.0.0.19`
-| **Basestation5GHzRocket** | `10.0.0.20`
-| **Rover2_4GHzRocket** | `10.0.0.11`
-| **Basestation2_4GHzRocket** | `10.0.0.12`
+| **BasestationSwitch** | `192.168.254.2` |
+| **RoverSwitch** | `192.168.254.1` |
+| **Rover900MHzRocket** | `10.0.0.3` |
+| **Basestation900MHzRocket** | `10.0.0.4` |
+| **Rover5GHzRocket** | `10.0.0.19` |
+| **Basestation5GHzRocket** | `10.0.0.20` |
+| **Rover2_4GHzRocket** | `10.0.0.11` |
+| **Basestation2_4GHzRocket** | `10.0.0.12` |
+# Multicast Devices
+
+| name | ip | port | device |
+| :--- | -- | ---- | ------ |
+| **DriveCamLeft** | `239.0.0.1` | `50000` | `0` |
+| **DriveCamRight** | `239.0.0.2` | `50000` | `1` |
+| **GimbalCamLeft** | `239.0.0.3` | `50000` | `2` |
+| **GimbalCamRight** | `239.0.0.4` | `50000` | `3` |
+| **BackCam** | `239.0.0.5` | `50000` | `4` |
+| **AuxCam1** | `239.0.0.6` | `50000` | `5` |
+| **AuxCam2** | `239.0.0.7` | `50000` | `6` |
+| **AuxCam3** | `239.0.0.8` | `50000` | `7` |
+| **AuxCam4** | `239.0.0.9` | `50000` | `8` |
+| **Microscope** | `239.0.0.10` | `50000` | `9` |
