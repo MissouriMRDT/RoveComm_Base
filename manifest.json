@@ -785,6 +785,93 @@
             },
             "Error": {}
         },
+        "CameraServer": {
+            "Ip": "192.168.4.102",
+            "Commands": {
+                "TakePhoto": {
+                    "dataId": 14000,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "Take a picture with the current camera. [0] is the camera to take a picture with."
+                },
+                "ToggleStream": {
+                    "dataId": 14001,
+                    "dataType": "UINT8_T",
+                    "dataCount": 2,
+                    "comments": "Stop the current camera stream. [0] is the camera to stop streaming. [1] is the action (0 = Shutdown, 1 = Startup, 2 = Restart)."
+                },
+                "AdjustBrightness": {
+                    "dataId": 14002,
+                    "dataType": "UINT8_T",
+                    "dataCount": 2,
+                    "comments": "Adjust brightness level (0-255). [0] is the camera ID, [1] is the brightness level."
+                },
+                "AdjustContrast": {
+                    "dataId": 14003,
+                    "dataType": "UINT8_T",
+                    "dataCount": 2,
+                    "comments": "Adjust contrast level (0-255). [0] is the camera ID, [1] is the contrast level."
+                },
+                "AdjustSaturation": {
+                    "dataId": 14004,
+                    "dataType": "UINT8_T",
+                    "dataCount": 2,
+                    "comments": "Adjust saturation level (0-255). [0] is the camera ID, [1] is the saturation level."
+                },
+                "AdjustHue": {
+                    "dataId": 14005,
+                    "dataType": "UINT8_T",
+                    "dataCount": 2,
+                    "comments": "Adjust hue level (0-255). [0] is the camera ID, [1] is the hue level."
+                },
+                "SetWhiteBalance": {
+                    "dataId": 14008,
+                    "dataType": "UINT8_T",
+                    "dataCount": 2,
+                    "comments": "Set white balance temperature. [0] is the camera ID, [1] is the white balance level."
+                },
+                "AdjustBacklightContrast": {
+                    "dataId": 14009,
+                    "dataType": "UINT8_T",
+                    "dataCount": 2,
+                    "comments": "Adjust backlight contrast level (0-255). [0] is the camera ID, [1] is the backlight contrast level."
+                },
+                "SetExposure": {
+                    "dataId": 14010,
+                    "dataType": "INT32_T",
+                    "dataCount": 2,
+                    "comments": "Set exposure level. [0] is the camera ID, [1] is the exposure level."
+                }
+            },
+            "Telemetry": {
+                "AvailableCameras": {
+                    "dataId": 14100,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "Bitmask values for which cameras are able to stream. LSB is Camera 0, MSB is Camera 7."
+                },
+                "StreamingCameras": {
+                    "dataId": 14101,
+                    "dataType": "UINT8_T",
+                    "dataCount": 4,
+                    "comments": "Which cameras the system is currently streaming on each port"
+                },
+                "PictureTaken1": {
+                    "dataId": 14102,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "Picture has been taken."
+                }
+            },
+            "Error": {
+                "CameraUnavailable": {
+                    "dataId": 14200,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "Camera has errored and stopped streaming. [0] is ID of camera as an integer (not bitmask)."
+                }
+            }
+        },
         "IRSpectrometer": {
             "Ip": "192.168.3.104",
             "Commands": {},
@@ -890,6 +977,68 @@
         },
         "Basestation2_4GHzRocket": {
             "Ip": "10.0.0.12"
+        }
+    },
+    "MulticastCameras": {
+        "DriveCamLeft": {
+            "Ip": "239.0.0.1",
+            "Port": 50000,
+            "Device": 0,
+            "Name": "Drive Cam Left"
+        },
+        "DriveCamRight": {
+            "Ip": "239.0.0.2",
+            "Port": 50000,
+            "Device": 1,
+            "Name": "Drive Cam Right"
+        },
+        "GimbalCamLeft": {
+            "Ip": "239.0.0.3",
+            "Port": 50000,
+            "Device": 2,
+            "Name": "Gimbal Cam Left"
+        },
+        "GimbalCamRight": {
+            "Ip": "239.0.0.4",
+            "Port": 50000,
+            "Device": 3,
+            "Name": "Gimbal Cam Right"
+        },
+        "BackCam": {
+            "Ip": "239.0.0.5",
+            "Port": 50000,
+            "Device": 4,
+            "Name": "Back Cam"
+        },
+        "AuxCam1": {
+            "Ip": "239.0.0.6",
+            "Port": 50000,
+            "Device": 5,
+            "Name": "Aux Cam 1"
+        },
+        "AuxCam2": {
+            "Ip": "239.0.0.7",
+            "Port": 50000,
+            "Device": 6,
+            "Name": "Aux Cam 2"
+        },
+        "AuxCam3": {
+            "Ip": "239.0.0.8",
+            "Port": 50000,
+            "Device": 7,
+            "Name": "Aux Cam 3"
+        },
+        "AuxCam4": {
+            "Ip": "239.0.0.9",
+            "Port": 50000,
+            "Device": 8,
+            "Name": "Aux Cam 4"
+        },
+        "Microscope": {
+            "Ip": "239.0.0.10",
+            "Port": 50000,
+            "Device": 9,
+            "Name": "Microscope"
         }
     }
 }
