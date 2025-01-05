@@ -202,8 +202,9 @@
 | **StartAutonomy** | 11000 | `UINT8_T` | 1 |  |
 | **DisableAutonomy** | 11001 | `UINT8_T` | 1 |  |
 | **AddPositionLeg** | 11002 | `DOUBLE_T` | 2 | [Lat, Lon] |
-| **AddMarkerLeg** | 11003 | `DOUBLE_T` | 2 | [Lat, Lon] |
-| **AddObjectLeg** | 11004 | `DOUBLE_T` | 2 | [Lat, Lon] |
+| **AddMarkerLeg** | 11003 | `DOUBLE_T` | 4 | [Lat, Lon, MarkerID, MarkerRadius (meters)] |
+| **AddObjectLeg** | 11004 | `DOUBLE_T` | 3 | [Lat, Lon, ObjectRadius, (meters)] |
+| **AddObstacle** | 11008 | `DOUBLE_T` | 3 | [Lat, Lon, ObstacleRadius, (meters)] |
 | **ClearWaypoints** | 11005 | `UINT8_T` | 1 |  |
 | **SetMaxSpeed** | 11006 | `FLOAT_T` | 1 | A multiplier from 0.0 to 1.0 that will scale the max power effort of Autonomy |
 | **SetLoggingLevels** | 11007 | `UINT8_T` | 3 | [Enum (AUTONOMYLOG), Enum (AUTONOMYLOG), Enum (AUTONOMYLOG)] {Console, File, RoveComm} |
