@@ -639,13 +639,13 @@
                     "dataId": 11004,
                     "dataType": "DOUBLE_T",
                     "dataCount": 3,
-                    "comments": "[Lat, Lon, ObjectRadius, (meters)]"
+                    "comments": "[Lat, Lon, ObjectRadius (meters)]"
                 },
                 "AddObstacle": {
                     "dataId": 11008,
                     "dataType": "DOUBLE_T",
                     "dataCount": 3,
-                    "comments": "[Lat, Lon, ObstacleRadius, (meters)]"
+                    "comments": "[Lat, Lon, ObstacleRadius (meters)]"
                 },
                 "ClearWaypoints": {
                     "dataId": 11005,
