@@ -382,6 +382,16 @@
 | **ReflectanceReading** | 16105 | `UINT8_T` | 288 | Reflectance CCD elements 1-288 |
 | **Temperature** | 16106 | `INT8_T` | 1 | [Temperature] (degrees C) |
 
+## RoveSoSimulator Board
+
+**IP**: 127.0.0.1
+
+### Telemetry
+
+| name | dataId | type | count | description |
+| :--- | ------ | ---- | ----- | ----------- |
+| **Ultrasonic1** | 99100 | `FLOAT_T` | 2 | Ultrasonic sensor distance reading in centimeters (cm). Value ranges from 0.00 to 500.00 cm |
+
 # Network Devices
 
 | name | ip |
