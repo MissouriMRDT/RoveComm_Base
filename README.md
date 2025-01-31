@@ -31,6 +31,24 @@
 | **IMUData** | 3101 | `FLOAT_T` | 3 | [Roll, Pitch, Yaw] degrees |
 | **AccelerometerData** | 3102 | `FLOAT_T` | 3 | [xAxis, yAxis, zAxis] Accel in m/s^2 |
 
+### Enums
+
+**DISPLAYSTATE**
+```
+0: Teleop
+1: Autonomy
+2: Reached_Goal
+```
+**PATTERNS**
+```
+0: MRDT
+1: BELGIUM
+2: MERICA
+3: DIRT
+4: DOTA
+5: MCD
+6: WINDOWS
+```
 ## PMS Board
 
 **IP**: 192.168.2.102
@@ -217,6 +235,34 @@
 | **ReachedGoal** | 11101 | `UINT8_T` | 1 |  |
 | **CurrentLog** | 11102 | `CHAR` | 255 | String version of most current error log |
 
+### Enums
+
+**AUTONOMYSTATE**
+```
+0: Idle
+1: Navigating
+2: SearchPattern
+3: ApproachingMarker
+4: ApproachingObject
+5: VerifyingGPS
+6: VerifyingMarker
+7: VerifyingObject
+8: Avoidance
+9: Reversing
+10: Stuck
+```
+**AUTONOMYLOG**
+```
+0: TraceL3
+1: TraceL2
+2: TraceL1
+3: Debug
+4: Info
+5: Notice
+6: Warning
+7: Error
+8: Critical
+```
 ## Camera1 Board
 
 **IP**: 192.168.4.100

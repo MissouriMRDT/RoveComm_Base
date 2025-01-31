@@ -32,6 +32,16 @@ def write_packet_section(file, section_name, packets):
 
     file.write("\n")
 
+def write_enum_section(file, section_name, enums):
+    file.write(f"### {section_name}\n\n")
+    # iterate over and write all enums in this section
+    for enum_name, enum_desc in enums.items():
+        file.write(f"**{enum_name}**\n")
+        file.write("```\n")
+        # iterate over and write enum entries
+        for entry_name, entry_value in enum_desc.items():
+            file.write(f"{entry_value}: {entry_name}\n")
+        file.write("```\n")
 
 def main(json_path, file_path):
     """
@@ -80,6 +90,10 @@ def main(json_path, file_path):
                 # Write the 'Error' section, if it exists
                 if "Error" in board_desc:
                     write_packet_section(file, "Errors", board_desc["Error"])
+                
+                # Write the 'Enums' section, if it exists
+                if "Enums" in board_desc:
+                    write_enum_section(file, "Enums", board_desc["Enums"])
             
             # Write IP for each network device in the RoveComm manifest
             file.write("# Network Devices\n\n")
