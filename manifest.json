@@ -371,89 +371,113 @@
         "Arm": {
             "Ip": "192.168.2.107",
             "Commands": {
-                "OpenLoop": {
+                "SetIndividualSpeeds": {
                     "dataId": 8000,
                     "dataType": "INT16_T",
                     "dataCount": 6,
-                    "comments": "[X, Y1, Y2, Z, P, R] Motor decipercent [-1000, 1000]"
+                    "comments": "[X, J2, J3, J4, P, R] Motor decipercent [-1000, 1000]"
                 },
-                "SetPosition": {
+                "SetJointSpeed": {
                     "dataId": 8001,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 6,
-                    "comments": "[X, Y1, Y2, Z, P, R] (in, in, in, in, deg, deg)"
+                    "dataType": "INT16_T",
+                    "dataCount": 2,
+                    "comments": "[JointID, Decipercent] Motor decipercent [-1000, 1000]"
                 },
-                "IncrementPosition": {
+                "SetIndividualTargetAngles": {
                     "dataId": 8002,
                     "dataType": "FLOAT_T",
-                    "dataCount": 5,
-                    "comments": "[X, Y, Z, P, R] (in, in, in, deg, deg, deg)"
+                    "dataCount": 6,
+                    "comments": "[X, J2, J3, J4, P, R] (in, deg, deg, deg, deg, deg)"
                 },
-                "SetIK": {
+                "SetJointTargetAngle": {
                     "dataId": 8003,
                     "dataType": "FLOAT_T",
-                    "dataCount": 5,
-                    "comments": "[X, Y, Z, P, R] (in, in, in, deg, deg)"
+                    "dataCount": 2,
+                    "comments": "[JointID, Position] (in for id 0, deg otherwise)"
                 },
-                "IncrementIK_RoverRelative": {
+                "IncrementIndividualTargetAngles": {
                     "dataId": 8004,
                     "dataType": "FLOAT_T",
-                    "dataCount": 5,
-                    "comments": "[X, Y, Z, P, R] (in, in, in, deg, deg)"
+                    "dataCount": 6,
+                    "comments": "[X, J2, J3, J4, P, R] (in, deg, deg, deg, deg, deg)"
                 },
-                "IncrementIK_WristRelative": {
+                "IncrementJointTargetAngle": {
                     "dataId": 8005,
                     "dataType": "FLOAT_T",
-                    "dataCount": 5,
-                    "comments": "[X, Y, Z, P, R] (in, in, in, deg, deg)"
+                    "dataCount": 2,
+                    "comments": "[JointID, Angle] (in for id 0, deg otherwise)"
+                },
+                "SetIKPosition": {
+                    "dataId": 8006,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 6,
+                    "comments": "[X, Y, Z, J4, P, R] (in, in, in, deg, deg, deg)"
+                },
+                "IncrementIKPosition": {
+                    "dataId": 8007,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 6,
+                    "comments": "[X, Y, Z, J4, P, R] (in, in, in, deg, deg, deg)"
+                },
+                "SetLockModePosition": {
+                    "dataId": 8008,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 3,
+                    "comments": "[J4, P, R] (deg, deg, deg)"
+                },
+                "IncrementLockModePosition": {
+                    "dataId": 8009,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 3,
+                    "comments": "[J4, P, R] (deg, deg, deg)"
                 },
                 "Laser": {
-                    "dataId": 8006,
+                    "dataId": 8010,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
                     "comments": "[0-disable, 1-enable]"
                 },
                 "Solenoid": {
-                    "dataId": 8007,
+                    "dataId": 8011,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
                     "comments": "[0-retract, 1-extend]"
                 },
-                "Gripper": {
-                    "dataId": 8008,
+                "SetGripperSpeed": {
+                    "dataId": 8012,
                     "dataType": "INT16_T",
                     "dataCount": 1,
                     "comments": "Motor decipercent [-1000, 1000]"
                 },
                 "WatchdogOverride": {
-                    "dataId": 8009,
-                    "dataType": "UINT8_T",
-                    "dataCount": 1,
-                    "comments": "[0-override off, 1-override on]"
-                },
-                "LimitSwitchOverride": {
-                    "dataId": 8010,
-                    "dataType": "UINT16_T",
-                    "dataCount": 1,
-                    "comments": "[X+, X-, Y1+, Y1-, Y2+, Y2-, Z+, Z-, P+, P-] (0-override off, 1-override on) (bitmasked)"
-                },
-                "CalibrateEncoder": {
-                    "dataId": 8011,
-                    "dataType": "UINT8_T",
-                    "dataCount": 1,
-                    "comments": "[X, Y1, Y2, Z, P, R1, R2] (1-calibrate, 0-no action) (bitmasked)"
-                },
-                "SelectGripper": {
-                    "dataId": 8012,
-                    "dataType": "UINT8_T",
-                    "dataCount": 1,
-                    "comments": "Toggle gripper and roll motors controlled by other packets; 0-Gripper1, 1-Gripper2"
-                },
-                "SoftLimitOverride": {
                     "dataId": 8013,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[X+, X-, Y1+, Y1-, Y2+, Y2-, Z+, Z-, P+, P-] (0-override off, 1-override on) (bitmasked)"
+                    "comments": "[0-override off, 1-override on] (bitmasked)"
+                },
+                "LimitSwitchOverride": {
+                    "dataId": 8014,
+                    "dataType": "UINT16_T",
+                    "dataCount": 9,
+                    "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P] (0-override off, 1-override on) (bitmasked)"
+                },
+                "ClosedLoopOverride": {
+                    "dataId": 8015,
+                    "dataType": "UINT8_T",
+                    "dataCount": 6,
+                    "comments": "[X, J2, J3, J4, P, R] (0-override off, 1-override on) (bitmasked)"
+                },
+                "CalibrateEncoder": {
+                    "dataId": 8016,
+                    "dataType": "UINT8_T",
+                    "dataCount": 2,
+                    "comments": "[X, Roll] (1-calibrate, 0-no action) (bitmasked)"
+                },
+                "SoftLimitOverride": {
+                    "dataId": 8017,
+                    "dataType": "UINT16_T",
+                    "dataCount": 10,
+                    "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P+, P-] (0-override off, 1-override on) (bitmasked)"
                 }
             },
             "Telemetry": {
@@ -473,7 +497,7 @@
                     "dataId": 8102,
                     "dataType": "UINT16_T",
                     "dataCount": 1,
-                    "comments": "[X+, X-, Y1+, Y1-, Y2+, Y2-, Z+, Z-, Pitch+, Pitch-] (0-off, 1-on) (bitmasked)"
+                    "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, Pitch] (0-off, 1-on) (bitmasked)"
                 }
             },
             "Error": {
@@ -482,6 +506,16 @@
                     "dataType": "UINT8_T",
                     "dataCount": 1,
                     "comments": "(1-Watchdog timeout, 0-OK)"
+                }
+            },
+            "Enums": {
+                "Joints": {
+                    "X": 1,
+                    "J2": 2,
+                    "J3": 3,
+                    "J4": 4,
+                    "PITCH": 5,
+                    "ROLL": 6
                 }
             }
         },
