@@ -993,9 +993,22 @@
             "Error": {}
         },
         "RoveSoSimulator": {
-            "Ip": "192.168.2.118",
+            "Ip": "127.0.0.1",
             "Commands": {},
-            "Telemetry": {},
+            "Telemetry": {
+                "Ultrasonic1": {
+                    "dataId": 99100,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 1,
+                    "comments": "Ultrasonic sensor distance reading in centimeters (cm). Value ranges from 0.00 to 500.00 cm"
+                },
+                "Ultrasonic2": {
+                    "dataId": 99101,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 1,
+                    "comments": "Ultrasonic sensor distance reading in centimeters (cm). Value ranges from 0.00 to 500.00 cm"
+                }
+            },
             "Error": {}
         }
     },
