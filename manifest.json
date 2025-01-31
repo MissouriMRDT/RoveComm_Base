@@ -991,6 +991,19 @@
                 }
             },
             "Error": {}
+        },
+        "RoveSoSimulator": {
+            "Ip": "127.0.0.1",
+            "Commands": {},
+            "Telemetry": {
+                "Ultrasonic1": {
+                    "dataId": 99100,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 2,
+                    "comments": "Ultrasonic sensor distance reading in centimeters (cm). Value ranges from 0.00 to 500.00 cm"
+                }
+            },
+            "Error": {}
         }
     },
     "NetworkDevices": {
