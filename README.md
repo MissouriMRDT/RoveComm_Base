@@ -142,20 +142,24 @@
 
 | name | dataId | type | count | description |
 | :--- | ------ | ---- | ----- | ----------- |
-| **OpenLoop** | 8000 | `INT16_T` | 6 | [X, Y1, Y2, Z, P, R] Motor decipercent [-1000, 1000] |
-| **SetPosition** | 8001 | `FLOAT_T` | 6 | [X, Y1, Y2, Z, P, R] (in, in, in, in, deg, deg) |
-| **IncrementPosition** | 8002 | `FLOAT_T` | 5 | [X, Y, Z, P, R] (in, in, in, deg, deg, deg) |
-| **SetIK** | 8003 | `FLOAT_T` | 5 | [X, Y, Z, P, R] (in, in, in, deg, deg) |
-| **IncrementIK_RoverRelative** | 8004 | `FLOAT_T` | 5 | [X, Y, Z, P, R] (in, in, in, deg, deg) |
-| **IncrementIK_WristRelative** | 8005 | `FLOAT_T` | 5 | [X, Y, Z, P, R] (in, in, in, deg, deg) |
-| **Laser** | 8006 | `UINT8_T` | 1 | [0-disable, 1-enable] |
-| **Solenoid** | 8007 | `UINT8_T` | 1 | [0-retract, 1-extend] |
-| **Gripper** | 8008 | `INT16_T` | 1 | Motor decipercent [-1000, 1000] |
-| **WatchdogOverride** | 8009 | `UINT8_T` | 1 | [0-override off, 1-override on] |
-| **LimitSwitchOverride** | 8010 | `UINT16_T` | 1 | [X+, X-, Y1+, Y1-, Y2+, Y2-, Z+, Z-, P+, P-] (0-override off, 1-override on) (bitmasked) |
-| **CalibrateEncoder** | 8011 | `UINT8_T` | 1 | [X, Y1, Y2, Z, P, R1, R2] (1-calibrate, 0-no action) (bitmasked) |
-| **SelectGripper** | 8012 | `UINT8_T` | 1 | Toggle gripper and roll motors controlled by other packets; 0-Gripper1, 1-Gripper2 |
-| **SoftLimitOverride** | 8013 | `UINT8_T` | 1 | [X+, X-, Y1+, Y1-, Y2+, Y2-, Z+, Z-, P+, P-] (0-override off, 1-override on) (bitmasked) |
+| **SetIndividualSpeeds** | 8000 | `INT16_T` | 6 | [X, J2, J3, J4, P, R] Motor decipercent [-1000, 1000] |
+| **SetJointSpeed** | 8001 | `INT16_T` | 2 | [JointID, Decipercent] Motor decipercent [-1000, 1000] |
+| **SetIndividualTargetAngles** | 8002 | `FLOAT_T` | 6 | [X, J2, J3, J4, P, R] (in, deg, deg, deg, deg, deg) |
+| **SetJointTargetAngle** | 8003 | `FLOAT_T` | 2 | [JointID, Position] (in for id 0, deg otherwise) |
+| **IncrementIndividualTargetAngles** | 8004 | `FLOAT_T` | 6 | [X, J2, J3, J4, P, R] (in, deg, deg, deg, deg, deg) |
+| **IncrementJointTargetAngle** | 8005 | `FLOAT_T` | 2 | [JointID, Angle] (in for id 0, deg otherwise) |
+| **SetIKPosition** | 8006 | `FLOAT_T` | 6 | [X, Y, Z, J4, P, R] (in, in, in, deg, deg, deg) |
+| **IncrementIKPosition** | 8007 | `FLOAT_T` | 6 | [X, Y, Z, J4, P, R] (in, in, in, deg, deg, deg) |
+| **SetLockModePosition** | 8008 | `FLOAT_T` | 3 | [J4, P, R] (deg, deg, deg) |
+| **IncrementLockModePosition** | 8009 | `FLOAT_T` | 3 | [J4, P, R] (deg, deg, deg) |
+| **Laser** | 8010 | `UINT8_T` | 1 | [0-disable, 1-enable] |
+| **Solenoid** | 8011 | `UINT8_T` | 1 | [0-retract, 1-extend] |
+| **SetGripperSpeed** | 8012 | `INT16_T` | 1 | Motor decipercent [-1000, 1000] |
+| **WatchdogOverride** | 8013 | `UINT8_T` | 1 | [0-override off, 1-override on] (bitmasked) |
+| **LimitSwitchOverride** | 8014 | `UINT16_T` | 9 | [X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P] (0-override off, 1-override on) (bitmasked) |
+| **ClosedLoopOverride** | 8015 | `UINT8_T` | 6 | [X, J2, J3, J4, P, R] (0-override off, 1-override on) (bitmasked) |
+| **CalibrateEncoder** | 8016 | `UINT8_T` | 2 | [X, Roll] (1-calibrate, 0-no action) (bitmasked) |
+| **SoftLimitOverride** | 8017 | `UINT16_T` | 10 | [X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P+, P-] (0-override off, 1-override on) (bitmasked) |
 
 ### Telemetry
 
@@ -163,7 +167,7 @@
 | :--- | ------ | ---- | ----- | ----------- |
 | **Positions** | 8100 | `FLOAT_T` | 7 | [X, Y1, Y2, Z, Pitch, Roll1, Roll2] (in, in, in, in, deg, deg, deg) |
 | **Coordinates** | 8101 | `FLOAT_T` | 5 | [X, Y, Z, P, R] (in, in, in, deg, deg) |
-| **LimitSwitchTriggered** | 8102 | `UINT16_T` | 1 | [X+, X-, Y1+, Y1-, Y2+, Y2-, Z+, Z-, Pitch+, Pitch-] (0-off, 1-on) (bitmasked) |
+| **LimitSwitchTriggered** | 8102 | `UINT16_T` | 1 | [X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, Pitch] (0-off, 1-on) (bitmasked) |
 
 ### Errors
 
@@ -171,6 +175,17 @@
 | :--- | ------ | ---- | ----- | ----------- |
 | **WatchdogStatus** | 8200 | `UINT8_T` | 1 | (1-Watchdog timeout, 0-OK) |
 
+### Enums
+
+**Joints**
+```
+1: X
+2: J2
+3: J3
+4: J4
+5: PITCH
+6: ROLL
+```
 ## ScienceActuation Board
 
 **IP**: 192.168.2.108
