@@ -160,6 +160,7 @@
 | **ClosedLoopOverride** | 8015 | `UINT8_T` | 6 | [X, J2, J3, J4, P, R] (0-override off, 1-override on) (bitmasked) |
 | **CalibrateEncoder** | 8016 | `UINT8_T` | 2 | [X, Roll] (1-calibrate, 0-no action) (bitmasked) |
 | **SoftLimitOverride** | 8017 | `UINT16_T` | 10 | [X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P+, P-] (0-override off, 1-override on) (bitmasked) |
+| **EStop** | 8018 | `UINT8_T` | 1 | Shut off all motors (set decipercents to 0 and disable closed loop) |
 
 ### Telemetry
 
