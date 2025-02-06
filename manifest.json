@@ -478,6 +478,12 @@
                     "dataType": "UINT16_T",
                     "dataCount": 10,
                     "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P+, P-] (0-override off, 1-override on) (bitmasked)"
+                },
+                "EStop": {
+                    "dataId": 8018,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "Shut off all motors (set decipercents to 0 and disable closed loop)"
                 }
             },
             "Telemetry": {
