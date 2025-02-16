@@ -187,7 +187,7 @@
 5: PITCH
 6: ROLL
 ```
-## ScienceActuation Board
+## Auger Board
 
 **IP**: 192.168.2.108
 
@@ -195,28 +195,27 @@
 
 | name | dataId | type | count | description |
 | :--- | ------ | ---- | ----- | ----------- |
-| **ScoopAxis_OpenLoop** | 9000 | `INT16_T` | 1 | Motor decipercent [-1000, 1000] |
-| **SensorAxis_OpenLoop** | 9001 | `INT16_T` | 1 | Motor decipercent [-1000, 1000] |
-| **ScoopAxis_SetPosition** | 9002 | `FLOAT_T` | 1 | Absolute position (in) |
-| **SensorAxis_SetPosition** | 9003 | `FLOAT_T` | 1 | Absolute position (in) |
-| **ScoopAxis_IncrementPosition** | 9004 | `FLOAT_T` | 1 | (in) |
-| **SensorAxis_IncrementPosition** | 9005 | `FLOAT_T` | 1 | (in) |
-| **LimitSwitchOverride** | 9006 | `UINT8_T` | 1 | [ScoopAxis+, ScoopAxis-, SensorAxis+, SensorAxis-] (0-override off, 1-override on) (bitmasked) |
-| **Auger** | 9007 | `INT16_T` | 1 | Motor decipercent [-1000, 1000] |
-| **Microscope** | 9008 | `UINT8_T` | 1 | [0-180] (degrees) |
-| **WatchdogOverride** | 9010 | `UINT8_T` | 1 | [0-override off, 1-override on] |
-| **CalibrateEncoder** | 9011 | `UINT8_T` | 1 | [ScoopAxis, SensorAxis, Proboscis] (1-calibrate, 0-no action) (bitmasked) |
-| **RequestHumidity** | 9012 | `UINT8_T` | 1 | Request the humidity of the instrument |
-| **AugerGimbalIncrement** | 9013 | `INT16_T` | 2 | [Pan, Tilt](degrees -180-180) |
+| **AugerAxis_OpenLoop** | 9000 | `INT16_T` | 1 | Motor decipercent [-1000, 1000] |
+| **AugerAxis_SetPosition** | 9001 | `FLOAT_T` | 1 | Absolute position (in) |
+| **AugerAxis_IncrementPosition** | 9002 | `FLOAT_T` | 1 | (in) |
+| **LimitSwitchOverride** | 9003 | `UINT8_T` | 1 | [AugerAxis+, AugerAxis-] (0-override off, 1-override on) (bitmasked) |
+| **CalibrateEncoder** | 9004 | `UINT8_T` | 1 | Request calibration of the AugerAxis encoder |
+| **Auger** | 9005 | `INT16_T` | 1 | Motor decipercent [-1000, 1000] |
+| **WatchdogOverride** | 9006 | `UINT8_T` | 1 | [0-override off, 1-override on] |
+| **RequestTemperature** | 9007 | `UINT8_T` | 1 | Request a reading of the temperature at the end of the auger |
+| **RequestHumidity** | 9008 | `UINT8_T` | 1 | Request a reading of the humidity at the end of the auger |
+| **UVLED** | 9009 | `UINT8_T` | 1 | Ultraviolet LED on AutoFluorescence (0-off, 1-on) |
+| **AugerGimbalIncrement** | 9010 | `INT16_T` | 2 | [Pan, Tilt](degrees -180-180) |
 
 ### Telemetry
 
 | name | dataId | type | count | description |
 | :--- | ------ | ---- | ----- | ----------- |
-| **Positions** | 9100 | `FLOAT_T` | 2 | [ScoopAxis, SensorAxis] (in) |
-| **LimitSwitchTriggered** | 9101 | `UINT8_T` | 1 | [ScoopAxis+, ScoopAxis-, SensorAxis+, SensorAxis-] (0-off, 1-on) (bitmasked) |
-| **Humidity** | 9102 | `FLOAT_T` | 1 | [Humidity] (relative humidity %) |
-| **AugerSpeed** | 9103 | `FLOAT_T` | 1 | (in/s) |
+| **Position** | 9100 | `FLOAT_T` | 1 | [AugerAxis] (in) |
+| **AugerSpeed** | 9101 | `FLOAT_T` | 1 | (in/s) |
+| **LimitSwitchTriggered** | 9102 | `UINT8_T` | 1 | [AugerAxis+, AugerAxis-] (0-off, 1-on) (bitmasked) |
+| **Temperature** | 9103 | `FLOAT_T` | 1 | [Temperature] (degrees C) |
+| **Humidity** | 9104 | `FLOAT_T` | 1 | [Humidity] (relative humidity %) |
 
 ### Errors
 
@@ -358,7 +357,7 @@
 
 **IP**: 192.168.3.104
 
-## Instruments Board
+## Raman Board
 
 **IP**: 192.168.3.105
 
@@ -366,22 +365,31 @@
 
 | name | dataId | type | count | description |
 | :--- | ------ | ---- | ----- | ----------- |
-| **EnableLEDs** | 16000 | `UINT8_T` | 1 | [Green, White] [1-Enabled, 0-Disabled] (bitmasked) |
-| **RequestRamanReading** | 16001 | `UINT32_T` | 1 | Start a Raman reading, with the provided integration time (milliseconds) |
-| **RequestReflectanceReading** | 16002 | `UINT32_T` | 1 | Start a Reflectance reading, with the provided integration time (milliseconds) |
-| **RequestTemperature** | 16003 | `UINT8_T` | 1 | Request the temperature of the instrument |
+| **InstrumentsAxis_OpenLoop** | 16000 | `INT16_T` | 1 | Motor decipercent [-1000, 1000] |
+| **InstrumentsAxis_SetPosition** | 16001 | `FLOAT_T` | 1 | Absolute position (in) |
+| **InstrumentsAxis_IncrementPosition** | 16002 | `FLOAT_T` | 1 | (in) |
+| **LimitSwitchOverride** | 16003 | `UINT8_T` | 1 | [InstrumentsAxis+, InstrumentsAxis-] (0-override off, 1-override on) (bitmasked) |
+| **CalibrateEncoder** | 16004 | `UINT8_T` | 1 | Request calibration of the InstrumentsAxis encoder |
+| **WatchdogOverride** | 16005 | `UINT8_T` | 1 | [0-override off, 1-override on] |
+| **Laser** | 16006 | `UINT8_T` | 1 | [0-disable, 1-enable] |
+| **RequestRamanReading** | 16007 | `UINT32_T` | 1 | Start a Raman reading, with the provided integration time (milliseconds) |
 
 ### Telemetry
 
 | name | dataId | type | count | description |
 | :--- | ------ | ---- | ----- | ----------- |
-| **RamanReading_Part1** | 16100 | `UINT16_T` | 500 | Raman CCD elements 1-500 |
-| **RamanReading_Part2** | 16101 | `UINT16_T` | 500 | Raman CCD elements 501-1000 |
-| **RamanReading_Part3** | 16102 | `UINT16_T` | 500 | Raman CCD elements 1001-1500 |
-| **RamanReading_Part4** | 16103 | `UINT16_T` | 500 | Raman CCD elements 1501-2000 |
-| **RamanReading_Part5** | 16104 | `UINT16_T` | 48 | Raman CCD elements 2001-2048 |
-| **ReflectanceReading** | 16105 | `UINT8_T` | 288 | Reflectance CCD elements 1-288 |
-| **Temperature** | 16106 | `INT8_T` | 1 | [Temperature] (degrees C) |
+| **Position** | 16100 | `FLOAT_T` | 1 | [InstrumentsAxis] (in) |
+| **LimitSwitchTriggered** | 16101 | `UINT8_T` | 1 | [InstrumentsAxis+, InstrumentsAxis-] (0-off, 1-on) (bitmasked) |
+| **RamanReading_Part1** | 16102 | `UINT16_T` | 512 | Raman CCD elements 1-512 |
+| **RamanReading_Part2** | 16103 | `UINT16_T` | 512 | Raman CCD elements 513-1024 |
+| **RamanReading_Part3** | 16104 | `UINT16_T` | 512 | Raman CCD elements 1025-1536 |
+| **RamanReading_Part4** | 16105 | `UINT16_T` | 512 | Raman CCD elements 1537-2048 |
+
+### Errors
+
+| name | dataId | type | count | description |
+| :--- | ------ | ---- | ----- | ----------- |
+| **WatchdogStatus** | 16200 | `UINT8_T` | 1 | (1-Watchdog timeout, 0-OK) |
 
 ## RoveSoSimulator Board
 
@@ -395,8 +403,8 @@
 
 # Network Devices
 
-| name | ip |
-| :--- | -- |
+| name | ip  |
+| :--- | --- |
 | **BasestationSwitch** | `192.168.254.2` |
 | **RoverSwitch** | `192.168.254.1` |
 | **Rover900MHzRocket** | `10.0.0.3` |
@@ -407,8 +415,8 @@
 | **Basestation2_4GHzRocket** | `10.0.0.12` |
 # Multicast Devices
 
-| name | ip | port | device |
-| :--- | -- | ---- | ------ |
+| name | ip  | port | device |
+| :--- | --- | ---- | ------ |
 | **DriveCamLeft** | `239.0.0.1` | `50000` | `0` |
 | **DriveCamRight** | `239.0.0.2` | `50000` | `1` |
 | **GimbalCamLeft** | `239.0.0.3` | `50000` | `2` |
