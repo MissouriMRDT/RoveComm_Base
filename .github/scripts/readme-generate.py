@@ -97,15 +97,15 @@ def main(json_path, file_path):
             
             # Write IP for each network device in the RoveComm manifest
             file.write("# Network Devices\n\n")
-            file.write("| name | ip |\n")
-            file.write("| :--- | -- |\n")
+            file.write("| name | ip  |\n")
+            file.write("| :--- | --- |\n")
             for device_name, device_desc in manifest.get("NetworkDevices", {}).items():
                 file.write(f"| **{device_name}** | `{device_desc.get('Ip', 'N/A')}` |\n")
 
             # Write IP for each multicasting device in the RoveComm manifest
             file.write("# Multicast Devices\n\n")
-            file.write("| name | ip | port | device |\n")
-            file.write("| :--- | -- | ---- | ------ |\n")
+            file.write("| name | ip  | port | device |\n")
+            file.write("| :--- | --- | ---- | ------ |\n")
             for device_name, device_desc in manifest.get("MulticastCameras", {}).items():
                 file.write(f"| **{device_name}** | `{device_desc.get('Ip', 'N/A')}` | `{device_desc.get('Port', 'N/A')}` | `{device_desc.get('Device', 'N/A')}` |\n")
 

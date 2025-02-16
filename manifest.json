@@ -525,112 +525,106 @@
                 }
             }
         },
-        "ScienceActuation": {
+        "Auger": {
             "Ip": "192.168.2.108",
             "Commands": {
-                "ScoopAxis_OpenLoop": {
+                "AugerAxis_OpenLoop": {
                     "dataId": 9000,
                     "dataType": "INT16_T",
                     "dataCount": 1,
                     "comments": "Motor decipercent [-1000, 1000]"
                 },
-                "SensorAxis_OpenLoop": {
+                "AugerAxis_SetPosition": {
                     "dataId": 9001,
-                    "dataType": "INT16_T",
+                    "dataType": "FLOAT_T",
                     "dataCount": 1,
-                    "comments": "Motor decipercent [-1000, 1000]"
+                    "comments": "Absolute position (in)"
                 },
-                "ScoopAxis_SetPosition": {
+                "AugerAxis_IncrementPosition": {
                     "dataId": 9002,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 1,
-                    "comments": "Absolute position (in)"
-                },
-                "SensorAxis_SetPosition": {
-                    "dataId": 9003,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 1,
-                    "comments": "Absolute position (in)"
-                },
-                "ScoopAxis_IncrementPosition": {
-                    "dataId": 9004,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 1,
-                    "comments": "(in)"
-                },
-                "SensorAxis_IncrementPosition": {
-                    "dataId": 9005,
                     "dataType": "FLOAT_T",
                     "dataCount": 1,
                     "comments": "(in)"
                 },
                 "LimitSwitchOverride": {
-                    "dataId": 9006,
+                    "dataId": 9003,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[ScoopAxis+, ScoopAxis-, SensorAxis+, SensorAxis-] (0-override off, 1-override on) (bitmasked)"
+                    "comments": "[AugerAxis+, AugerAxis-] (0-override off, 1-override on) (bitmasked)"
+                },
+                "CalibrateEncoder": {
+                    "dataId": 9004,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "Request calibration of the AugerAxis encoder"
                 },
                 "Auger": {
-                    "dataId": 9007,
+                    "dataId": 9005,
                     "dataType": "INT16_T",
                     "dataCount": 1,
                     "comments": "Motor decipercent [-1000, 1000]"
                 },
-                "Microscope": {
-                    "dataId": 9008,
-                    "dataType": "UINT8_T",
-                    "dataCount": 1,
-                    "comments": "[0-180] (degrees)"
-                },
                 "WatchdogOverride": {
-                    "dataId": 9010,
+                    "dataId": 9006,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
                     "comments": "[0-override off, 1-override on]"
                 },
-                "CalibrateEncoder": {
-                    "dataId": 9011,
+                "RequestTemperature": {
+                    "dataId": 9007,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[ScoopAxis, SensorAxis, Proboscis] (1-calibrate, 0-no action) (bitmasked)"
+                    "comments": "Request a reading of the temperature at the end of the auger"
                 },
                 "RequestHumidity": {
-                    "dataId": 9012,
+                    "dataId": 9008,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "Request the humidity of the instrument"
+                    "comments": "Request a reading of the humidity at the end of the auger"
+                },
+                "UVLED": {
+                    "dataId": 9009,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "Ultraviolet LED on AutoFluorescence (0-off, 1-on)"
                 },
                 "AugerGimbalIncrement": {
-                    "dataId": 9013,
+                    "dataId": 9010,
                     "dataType": "INT16_T",
                     "dataCount": 2,
                     "comments": "[Pan, Tilt](degrees -180-180)"
                 }
             },
             "Telemetry": {
-                "Positions": {
+                "Position": {
                     "dataId": 9100,
                     "dataType": "FLOAT_T",
-                    "dataCount": 2,
-                    "comments": "[ScoopAxis, SensorAxis] (in)"
-                },
-                "LimitSwitchTriggered": {
-                    "dataId": 9101,
-                    "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[ScoopAxis+, ScoopAxis-, SensorAxis+, SensorAxis-] (0-off, 1-on) (bitmasked)"
-                },
-                "Humidity": {
-                    "dataId": 9102,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 1,
-                    "comments": "[Humidity] (relative humidity %)"
+                    "comments": "[AugerAxis] (in)"
                 },
                 "AugerSpeed": {
-                    "dataId": 9103,
+                    "dataId": 9101,
                     "dataType": "FLOAT_T",
                     "dataCount": 1,
                     "comments": "(in/s)"
+                },
+                "LimitSwitchTriggered": {
+                    "dataId": 9102,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "[AugerAxis+, AugerAxis-] (0-off, 1-on) (bitmasked)"
+                },
+                "Temperature": {
+                    "dataId": 9103,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 1,
+                    "comments": "[Temperature] (degrees C)"
+                },
+                "Humidity": {
+                    "dataId": 9104,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 1,
+                    "comments": "[Humidity] (relative humidity %)"
                 }
             },
             "Error": {
@@ -924,79 +918,104 @@
             "Telemetry": {},
             "Error": {}
         },
-        "Instruments": {
+        "Raman": {
             "Ip": "192.168.3.105",
             "Commands": {
-                "EnableLEDs": {
+                "InstrumentsAxis_OpenLoop": {
                     "dataId": 16000,
-                    "dataType": "UINT8_T",
+                    "dataType": "INT16_T",
                     "dataCount": 1,
-                    "comments": "[Green, White] [1-Enabled, 0-Disabled] (bitmasked)"
+                    "comments": "Motor decipercent [-1000, 1000]"
                 },
-                "RequestRamanReading": {
+                "InstrumentsAxis_SetPosition": {
                     "dataId": 16001,
-                    "dataType": "UINT32_T",
+                    "dataType": "FLOAT_T",
                     "dataCount": 1,
-                    "comments": "Start a Raman reading, with the provided integration time (milliseconds)"
+                    "comments": "Absolute position (in)"
                 },
-                "RequestReflectanceReading": {
+                "InstrumentsAxis_IncrementPosition": {
                     "dataId": 16002,
-                    "dataType": "UINT32_T",
+                    "dataType": "FLOAT_T",
                     "dataCount": 1,
-                    "comments": "Start a Reflectance reading, with the provided integration time (milliseconds)"
+                    "comments": "(in)"
                 },
-                "RequestTemperature": {
+                "LimitSwitchOverride": {
                     "dataId": 16003,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "Request the temperature of the instrument"
+                    "comments": "[InstrumentsAxis+, InstrumentsAxis-] (0-override off, 1-override on) (bitmasked)"
+                },
+                "CalibrateEncoder": {
+                    "dataId": 16004,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "Request calibration of the InstrumentsAxis encoder"
+                },
+                "WatchdogOverride": {
+                    "dataId": 16005,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "[0-override off, 1-override on]"
+                },
+                "Laser": {
+                    "dataId": 16006,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "[0-disable, 1-enable]"
+                },
+                "RequestRamanReading": {
+                    "dataId": 16007,
+                    "dataType": "UINT32_T",
+                    "dataCount": 1,
+                    "comments": "Start a Raman reading, with the provided integration time (milliseconds)"
                 }
             },
             "Telemetry": {
-                "RamanReading_Part1": {
+                "Position": {
                     "dataId": 16100,
-                    "dataType": "UINT16_T",
-                    "dataCount": 500,
-                    "comments": "Raman CCD elements 1-500"
+                    "dataType": "FLOAT_T",
+                    "dataCount": 1,
+                    "comments": "[InstrumentsAxis] (in)" 
                 },
-                "RamanReading_Part2": {
+                "LimitSwitchTriggered": {
                     "dataId": 16101,
-                    "dataType": "UINT16_T",
-                    "dataCount": 500,
-                    "comments": "Raman CCD elements 501-1000"
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "[InstrumentsAxis+, InstrumentsAxis-] (0-off, 1-on) (bitmasked)"
                 },
-                "RamanReading_Part3": {
+                "RamanReading_Part1": {
                     "dataId": 16102,
                     "dataType": "UINT16_T",
-                    "dataCount": 500,
-                    "comments": "Raman CCD elements 1001-1500"
+                    "dataCount": 512,
+                    "comments": "Raman CCD elements 1-512"
                 },
-                "RamanReading_Part4": {
+                "RamanReading_Part2": {
                     "dataId": 16103,
                     "dataType": "UINT16_T",
-                    "dataCount": 500,
-                    "comments": "Raman CCD elements 1501-2000"
+                    "dataCount": 512,
+                    "comments": "Raman CCD elements 513-1024"
                 },
-                "RamanReading_Part5": {
+                "RamanReading_Part3": {
                     "dataId": 16104,
                     "dataType": "UINT16_T",
-                    "dataCount": 48,
-                    "comments": "Raman CCD elements 2001-2048"
+                    "dataCount": 512,
+                    "comments": "Raman CCD elements 1025-1536"
                 },
-                "ReflectanceReading": {
+                "RamanReading_Part4": {
                     "dataId": 16105,
-                    "dataType": "UINT8_T",
-                    "dataCount": 288,
-                    "comments": "Reflectance CCD elements 1-288"
-                },
-                "Temperature": {
-                    "dataId": 16106,
-                    "dataType": "INT8_T",
-                    "dataCount": 1,
-                    "comments": "[Temperature] (degrees C)"
+                    "dataType": "UINT16_T",
+                    "dataCount": 512,
+                    "comments": "Raman CCD elements 1537-2048"
                 }
             },
-            "Error": {}
+            "Error": {
+                "WatchdogStatus": {
+                    "dataId": 16200,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "(1-Watchdog timeout, 0-OK)"
+                }
+            }
         },
         "RoveSoSimulator": {
             "Ip": "127.0.0.1",
