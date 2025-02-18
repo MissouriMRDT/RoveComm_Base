@@ -2,6 +2,30 @@ import json
 import os
 import argparse
 
+rovecomm_base_summary = """\
+This is the repository that contains `manifest.json`, which is used by all RoveComm implementations as a schema for
+sending and parsing RoveComm packets. These are the current implementations of RoveComm so far:
+
+- [RoveComm_Arduino](https://github.com/MissouriMRDT/RoveComm_Arduino) -- Used by embedded microcontrollers.
+  Written for the Arduino framework.
+- [RoveComm_CPP](https://github.com/MissouriMRDT/RoveComm_CPP) -- Used by
+  [Autonomy_Software](https://github.com/MissouriMRDT/Autonomy_Software) and the
+  [Simulator](https://github.com/MissouriMRDT/RoveSoSimulator). Written in multithreaded C++.
+- [RoveComm_Python](https://github.com/MissouriMRDT/RoveComm_Python)
+  -- Used by [RoveCommTester](https://github.com/MissouriMRDT/RoveComm_Tester_Software) and
+  [Old Autonomy](https://github.com/MissouriMRDT/Autonomy_Software_Python). It is also used where shell scripts need to
+  interact with RoveComm, such as on [NavBoard](https://github.com/MissouriMRDT/Differential_GPS) and on the Camera PIs.
+- [RoveComm_CSharp](https://github.com/MissouriMRDT/RoveComm_CSharp) -- Used by
+  [New BaseStation](https://github.com/MissouriMRDT/Basestation_Software_Blazor). Written for C# .NET projects.
+  Hosted on [nuget.org](https://www.nuget.org/packages/RoveComm).
+- [RoveComm_TypeScript](https://github.com/MissouriMRDT/BaseStation_Software/blob/dev/src/Core/RoveProtocol/Rovecomm.ts)
+  -- Used by [Old BaseStation](https://github.com/MissouriMRDT/BaseStation_Software). Written for Node.js apps.
+- Though not actively maintained, there are also implementations for
+  [Dart](https://github.com/MissouriMRDT/RoveSoRemote/blob/master/rove_so_remote/lib/RoveComm.dart) and
+  [Swift](https://github.com/MissouriMRDT/RoveComm_Swift).
+
+"""
+
 def write_packet_section(file, section_name, packets):
     """
     Write a formatted table section for a specific packet type (e.g., Commands, Telemetry, Errors).
@@ -72,6 +96,9 @@ def main(json_path, file_path):
     try:
         # Open the README.md file for writing
         with open(file_path, "w") as file:
+            file.write('# RoveComm Base\n\n')
+            file.write(rovecomm_base_summary)
+
             file.write("# RoveComm Manifest\n\n")
 
             # Iterate over each board in the RoveComm manifest
