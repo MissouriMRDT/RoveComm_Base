@@ -692,7 +692,7 @@
                     "dataType": "UINT8_T",
                     "dataCount": 3,
                     "comments": "[Enum (AUTONOMYLOG), Enum (AUTONOMYLOG), Enum (AUTONOMYLOG)] {Console, File, RoveComm}"
-                }
+                },
                 "AddObstacle": {
                     "dataId": 11008,
                     "dataType": "DOUBLE_T",
@@ -704,7 +704,7 @@
                     "dataType": "UINT8_T",
                     "dataCount": 1,
                     "comments": "Clear queued permanent obstacles."
-                },
+                }
             },
             "Telemetry": {
                 "CurrentState": {
