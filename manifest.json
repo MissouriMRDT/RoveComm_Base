@@ -458,25 +458,25 @@
                 "LimitSwitchOverride": {
                     "dataId": 8014,
                     "dataType": "UINT16_T",
-                    "dataCount": 9,
+                    "dataCount": 1,
                     "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P] (0-override off, 1-override on) (bitmasked)"
                 },
                 "ClosedLoopOverride": {
                     "dataId": 8015,
                     "dataType": "UINT8_T",
-                    "dataCount": 6,
+                    "dataCount": 1,
                     "comments": "[X, J2, J3, J4, P, R] (0-override off, 1-override on) (bitmasked)"
                 },
                 "CalibrateEncoder": {
                     "dataId": 8016,
                     "dataType": "UINT8_T",
-                    "dataCount": 2,
+                    "dataCount": 1,
                     "comments": "[X, Roll] (1-calibrate, 0-no action) (bitmasked)"
                 },
                 "SoftLimitOverride": {
                     "dataId": 8017,
                     "dataType": "UINT16_T",
-                    "dataCount": 10,
+                    "dataCount": 1,
                     "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P+, P-] (0-override off, 1-override on) (bitmasked)"
                 },
                 "EStop": {
@@ -490,20 +490,20 @@
                 "Positions": {
                     "dataId": 8100,
                     "dataType": "FLOAT_T",
-                    "dataCount": 7,
-                    "comments": "[X, Y1, Y2, Z, Pitch, Roll1, Roll2] (in, in, in, in, deg, deg, deg)"
+                    "dataCount": 6,
+                    "comments": "[X, J2, J3, J4, P, R] (in, deg, deg, deg, deg, deg)"
                 },
                 "Coordinates": {
                     "dataId": 8101,
                     "dataType": "FLOAT_T",
-                    "dataCount": 5,
-                    "comments": "[X, Y, Z, P, R] (in, in, in, deg, deg)"
+                    "dataCount": 6,
+                    "comments": "[X, Y, Z, J4, P, R] (in, in, in, deg, deg, deg)"
                 },
                 "LimitSwitchTriggered": {
                     "dataId": 8102,
                     "dataType": "UINT16_T",
                     "dataCount": 1,
-                    "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, Pitch] (0-off, 1-on) (bitmasked)"
+                    "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P] (0-off, 1-on) (bitmasked)"
                 }
             },
             "Error": {
