@@ -179,19 +179,19 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | **Solenoid** | 8011 | `UINT8_T` | 1 | [0-retract, 1-extend] |
 | **SetGripperSpeed** | 8012 | `INT16_T` | 1 | Motor decipercent [-1000, 1000] |
 | **WatchdogOverride** | 8013 | `UINT8_T` | 1 | [0-override off, 1-override on] (bitmasked) |
-| **LimitSwitchOverride** | 8014 | `UINT16_T` | 9 | [X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P] (0-override off, 1-override on) (bitmasked) |
-| **ClosedLoopOverride** | 8015 | `UINT8_T` | 6 | [X, J2, J3, J4, P, R] (0-override off, 1-override on) (bitmasked) |
-| **CalibrateEncoder** | 8016 | `UINT8_T` | 2 | [X, Roll] (1-calibrate, 0-no action) (bitmasked) |
-| **SoftLimitOverride** | 8017 | `UINT16_T` | 10 | [X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P+, P-] (0-override off, 1-override on) (bitmasked) |
+| **LimitSwitchOverride** | 8014 | `UINT16_T` | 1 | [X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P] (0-override off, 1-override on) (bitmasked) |
+| **ClosedLoopOverride** | 8015 | `UINT8_T` | 1 | [X, J2, J3, J4, P, R] (0-override off, 1-override on) (bitmasked) |
+| **CalibrateEncoder** | 8016 | `UINT8_T` | 1 | [X, Roll] (1-calibrate, 0-no action) (bitmasked) |
+| **SoftLimitOverride** | 8017 | `UINT16_T` | 1 | [X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P+, P-] (0-override off, 1-override on) (bitmasked) |
 | **EStop** | 8018 | `UINT8_T` | 1 | Shut off all motors (set decipercents to 0 and disable closed loop) |
 
 ### Telemetry
 
 | name | dataId | type | count | description |
 | :--- | ------ | ---- | ----- | ----------- |
-| **Positions** | 8100 | `FLOAT_T` | 7 | [X, Y1, Y2, Z, Pitch, Roll1, Roll2] (in, in, in, in, deg, deg, deg) |
-| **Coordinates** | 8101 | `FLOAT_T` | 5 | [X, Y, Z, P, R] (in, in, in, deg, deg) |
-| **LimitSwitchTriggered** | 8102 | `UINT16_T` | 1 | [X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, Pitch] (0-off, 1-on) (bitmasked) |
+| **Positions** | 8100 | `FLOAT_T` | 6 | [X, J2, J3, J4, P, R] (in, deg, deg, deg, deg, deg) |
+| **Coordinates** | 8101 | `FLOAT_T` | 6 | [X, Y, Z, J4, P, R] (in, in, in, deg, deg, deg) |
+| **LimitSwitchTriggered** | 8102 | `UINT16_T` | 1 | [X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P] (0-off, 1-on) (bitmasked) |
 
 ### Errors
 
