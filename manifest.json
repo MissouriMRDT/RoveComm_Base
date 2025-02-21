@@ -649,13 +649,13 @@
                     "dataId": 11000,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": ""
+                    "comments": "Start Autonomy_Software"
                 },
                 "DisableAutonomy": {
                     "dataId": 11001,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": ""
+                    "comments": "Return Autonomy_Software to Idle state"
                 },
                 "AddPositionLeg": {
                     "dataId": 11002,
@@ -675,17 +675,11 @@
                     "dataCount": 3,
                     "comments": "[Lat, Lon, ObjectRadius (meters)]"
                 },
-                "AddObstacle": {
-                    "dataId": 11008,
-                    "dataType": "DOUBLE_T",
-                    "dataCount": 3,
-                    "comments": "[Lat, Lon, ObstacleRadius (meters)]"
-                },
                 "ClearWaypoints": {
                     "dataId": 11005,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": ""
+                    "comments": "Clear queued positions, markers, and objects waypoints."
                 },
                 "SetMaxSpeed": {
                     "dataId": 11006,
@@ -698,6 +692,18 @@
                     "dataType": "UINT8_T",
                     "dataCount": 3,
                     "comments": "[Enum (AUTONOMYLOG), Enum (AUTONOMYLOG), Enum (AUTONOMYLOG)] {Console, File, RoveComm}"
+                },
+                "AddObstacle": {
+                    "dataId": 11008,
+                    "dataType": "DOUBLE_T",
+                    "dataCount": 3,
+                    "comments": "[Lat, Lon, ObstacleRadius (meters)]"
+                },
+                "ClearObstacles": {
+                    "dataId": 11009,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "Clear queued permanent obstacles."
                 }
             },
             "Telemetry": {
@@ -975,7 +981,7 @@
                     "dataId": 16100,
                     "dataType": "FLOAT_T",
                     "dataCount": 1,
-                    "comments": "[InstrumentsAxis] (in)" 
+                    "comments": "[InstrumentsAxis] (in)"
                 },
                 "LimitSwitchTriggered": {
                     "dataId": 16101,
