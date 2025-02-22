@@ -203,12 +203,12 @@ sending and parsing RoveComm packets. These are the current implementations of R
 
 **Joints**
 ```
-1: X
-2: J2
-3: J3
-4: J4
-5: PITCH
-6: ROLL
+0: X
+1: J2
+2: J3
+3: J4
+4: PITCH
+5: ROLL
 ```
 ## Auger Board
 
