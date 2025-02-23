@@ -336,7 +336,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 
 | name | dataId | type | count | description |
 | :--- | ------ | ---- | ----- | ----------- |
-| **TakePicture** | 13001 | `UINT8_T` | 1 | Take a picture with the current camera. [0] is the camera to take a picture with. [1] tells the camera whether to restart the stream afterwards. |
+| **TakePicture** | 13001 | `UINT8_T` | 2 | Take a picture with the current camera. [0] is the camera to take a picture with. [1] tells the camera whether to restart the stream afterwards. |
 | **ToggleStream2** | 13002 | `UINT8_T` | 2 | Stop the current camera stream. [0] is the camera to stop streaming. [1] is whether to restart the stream. |
 
 ### Telemetry
