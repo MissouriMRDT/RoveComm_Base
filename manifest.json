@@ -724,6 +724,12 @@
                     "dataType": "CHAR",
                     "dataCount": 255,
                     "comments": "String version of most current error log"
+                },
+                "ThreadFPS": {
+                    "dataId": 11103,
+                    "dataType": "UINT32_T",
+                    "dataCount": 2,
+                    "comments": "[Thread Enum ID, FPS Value]"
                 }
             },
             "Error": {},
@@ -751,6 +757,19 @@
                     "Warning": 6,
                     "Error": 7,
                     "Critical": 8
+                },
+                "AUTONOMYTHREADS": {
+                    "MainProcess": 0,
+                    "MainCam": 1,
+                    "LeftCam": 2,
+                    "RightCam": 3,
+                    "GroundCam": 4,
+                    "MainDetector": 5,
+                    "LeftDetector": 6,
+                    "RightDetector": 7,
+                    "StateMachine": 8,
+                    "RoveCommUDP": 9,
+                    "RoveCommTCP": 10
                 }
             }
         },
