@@ -273,6 +273,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | **CurrentState** | 11100 | `UINT8_T` | 1 | Enum (AUTONOMYSTATE) |
 | **ReachedGoal** | 11101 | `UINT8_T` | 1 |  |
 | **CurrentLog** | 11102 | `CHAR` | 255 | String version of most current error log |
+| **ThreadFPS** | 11103 | `UINT32_T` | 2 | [Thread Enum ID, FPS Value] |
 
 ### Enums
 
@@ -301,6 +302,20 @@ sending and parsing RoveComm packets. These are the current implementations of R
 6: Warning
 7: Error
 8: Critical
+```
+**AUTONOMYTHREADS**
+```
+0: MainProcess
+1: MainCam
+2: LeftCam
+3: RightCam
+4: GroundCam
+5: MainDetector
+6: LeftDetector
+7: RightDetector
+8: StateMachine
+9: RoveCommUDP
+10: RoveCommTCP
 ```
 ## Camera1 Board
 
