@@ -759,17 +759,18 @@
                     "Critical": 8
                 },
                 "AUTONOMYTHREADS": {
-                    "MainProcess": 0,
-                    "MainCam": 1,
-                    "LeftCam": 2,
-                    "RightCam": 3,
-                    "GroundCam": 4,
-                    "MainDetector": 5,
-                    "LeftDetector": 6,
-                    "RightDetector": 7,
-                    "StateMachine": 8,
-                    "RoveCommUDP": 9,
-                    "RoveCommTCP": 10
+                    "NotSet": 0,
+                    "MainProcess": 1,
+                    "MainCam": 2,
+                    "LeftCam": 3,
+                    "RightCam": 4,
+                    "GroundCam": 5,
+                    "MainDetector": 6,
+                    "LeftDetector": 7,
+                    "RightDetector": 8,
+                    "StateMachine": 9,
+                    "RoveCommUDP": 10,
+                    "RoveCommTCP": 11
                 }
             }
         },
