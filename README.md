@@ -305,17 +305,18 @@ sending and parsing RoveComm packets. These are the current implementations of R
 ```
 **AUTONOMYTHREADS**
 ```
-0: MainProcess
-1: MainCam
-2: LeftCam
-3: RightCam
-4: GroundCam
-5: MainDetector
-6: LeftDetector
-7: RightDetector
-8: StateMachine
-9: RoveCommUDP
-10: RoveCommTCP
+0: NotSet
+1: MainProcess
+2: MainCam
+3: LeftCam
+4: RightCam
+5: GroundCam
+6: MainDetector
+7: LeftDetector
+8: RightDetector
+9: StateMachine
+10: RoveCommUDP
+11: RoveCommTCP
 ```
 ## Camera1 Board
 
