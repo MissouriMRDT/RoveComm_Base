@@ -994,6 +994,12 @@
                     "dataType": "UINT32_T",
                     "dataCount": 1,
                     "comments": "Start a Raman reading, with the provided integration time (milliseconds)"
+                },
+                "RamanGimbalIncrement": {
+                    "dataId": 16008,
+                    "dataType": "INT16_T",
+                    "dataCount": 2,
+                    "comments": "[Pan, Tilt](degrees -180-180)"
                 }
             },
             "Telemetry": {
