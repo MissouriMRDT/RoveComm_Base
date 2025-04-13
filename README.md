@@ -413,6 +413,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | **WatchdogOverride** | 16005 | `UINT8_T` | 1 | [0-override off, 1-override on] |
 | **Laser** | 16006 | `UINT8_T` | 1 | [0-disable, 1-enable] |
 | **RequestRamanReading** | 16007 | `UINT32_T` | 1 | Start a Raman reading, with the provided integration time (milliseconds) |
+| **RamanGimbalIncrement** | 16008 | `INT16_T` | 2 | [Pan, Tilt](degrees -180-180) |
 
 ### Telemetry
 
