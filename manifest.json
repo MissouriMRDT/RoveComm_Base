@@ -777,20 +777,14 @@
         "Camera1": {
             "Ip": "192.168.4.100",
             "Commands": {
-                "ChangeCameras": {
-                    "dataId": 12000,
-                    "dataType": "UINT8_T",
-                    "dataCount": 2,
-                    "comments": "Change which camera a feed is looking at. [0] is the feed, [1] is the camera to view."
-                },
                 "TakePicture": {
-                    "dataId": 12001,
+                    "dataId": 12000,
                     "dataType": "UINT8_T",
                     "dataCount": 2,
                     "comments": "Take a picture with the current camera. [0] is the camera to take a picture with. [1] tells the camera whether to restart the stream afterwards."
                 },
-                "ToggleStream1": {
-                    "dataId": 12002,
+                "ToggleStream": {
+                    "dataId": 12001,
                     "dataType": "UINT8_T",
                     "dataCount": 2,
                     "comments": "Stop the current camera stream. [0] is the camera to stop streaming. [1] is whether to restart the stream."
@@ -801,15 +795,15 @@
                     "dataId": 12100,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "Bitmask values for which cameras are able to stream. LSB is Camera 0, MSB is Camera 7."
+                    "comments": "Number of detected cameras."
                 },
                 "StreamingCameras": {
                     "dataId": 12101,
                     "dataType": "UINT8_T",
-                    "dataCount": 4,
-                    "comments": "Which cameras the system is currently streaming on each port"
+                    "dataCount": 1,
+                    "comments": "Number of streaming cameras."
                 },
-                "PictureTaken1": {
+                "PictureTaken": {
                     "dataId": 12102,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
@@ -829,21 +823,33 @@
             "Ip": "192.168.4.101",
             "Commands": {
                 "TakePicture": {
-                    "dataId": 13001,
+                    "dataId": 13000,
                     "dataType": "UINT8_T",
                     "dataCount": 2,
                     "comments": "Take a picture with the current camera. [0] is the camera to take a picture with. [1] tells the camera whether to restart the stream afterwards."
                 },
-                "ToggleStream2": {
-                    "dataId": 13002,
+                "ToggleStream": {
+                    "dataId": 13001,
                     "dataType": "UINT8_T",
                     "dataCount": 2,
                     "comments": "Stop the current camera stream. [0] is the camera to stop streaming. [1] is whether to restart the stream."
                 }
             },
             "Telemetry": {
-                "PictureTaken2": {
+                "AvailableCameras": {
                     "dataId": 13100,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "Number of detected cameras."
+                },
+                "StreamingCameras": {
+                    "dataId": 13101,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "Number of streaming cameras."
+                },
+                "PictureTaken": {
+                    "dataId": 13102,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
                     "comments": "Picture has been taken."
