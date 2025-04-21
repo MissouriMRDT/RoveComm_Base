@@ -308,15 +308,12 @@ sending and parsing RoveComm packets. These are the current implementations of R
 0: NotSet
 1: MainProcess
 2: MainCam
-3: LeftCam
-4: RightCam
-5: GroundCam
-6: MainDetector
-7: LeftDetector
-8: RightDetector
-9: StateMachine
-10: RoveCommUDP
-11: RoveCommTCP
+3: GroundCam
+4: MainDetector
+5: GroundDetector
+6: StateMachine
+7: RoveCommUDP
+8: RoveCommTCP
 ```
 ## Camera1 Board
 
