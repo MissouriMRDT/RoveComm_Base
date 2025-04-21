@@ -761,15 +761,12 @@
                 "AUTONOMYTHREADS": {
                     "MainProcess": 0,
                     "MainCam": 1,
-                    "LeftCam": 2,
-                    "RightCam": 3,
-                    "GroundCam": 4,
-                    "MainDetector": 5,
-                    "LeftDetector": 6,
-                    "RightDetector": 7,
-                    "StateMachine": 8,
-                    "RoveCommUDP": 9,
-                    "RoveCommTCP": 10
+                    "GroundCam": 2,
+                    "MainDetector": 3,
+                    "GroundDetector": 4,
+                    "StateMachine": 5,
+                    "RoveCommUDP": 6,
+                    "RoveCommTCP": 7
                 }
             }
         },
