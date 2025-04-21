@@ -261,7 +261,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | **AddMarkerLeg** | 11003 | `DOUBLE_T` | 4 | [Lat, Lon, MarkerID, MarkerRadius (meters)] |
 | **AddObjectLeg** | 11004 | `DOUBLE_T` | 3 | [Lat, Lon, ObjectRadius (meters)] |
 | **ClearWaypoints** | 11005 | `UINT8_T` | 1 | Clear queued positions, markers, and objects waypoints. |
-| **SetMaxSpeed** | 11006 | `FLOAT_T` | 1 | A multiplier from 0.0 to 1.0 that will scale the max power effort of Autonomy |
+| **SetMaxSpeed** | 11006 | `FLOAT_T` | 1 | A multiplier from 0.0 to 1.0 that will scale the max power effort of Autonomy. |
 | **SetLoggingLevels** | 11007 | `UINT8_T` | 3 | [Enum (AUTONOMYLOG), Enum (AUTONOMYLOG), Enum (AUTONOMYLOG)] {Console, File, RoveComm} |
 | **AddObstacle** | 11008 | `DOUBLE_T` | 3 | [Lat, Lon, ObstacleRadius (meters)] |
 | **ClearObstacles** | 11009 | `UINT8_T` | 1 | Clear queued permanent obstacles. |
