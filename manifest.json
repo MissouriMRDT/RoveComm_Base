@@ -685,7 +685,7 @@
                     "dataId": 11006,
                     "dataType": "FLOAT_T",
                     "dataCount": 1,
-                    "comments": "A multiplier from 0.0 to 1.0 that will scale the max power effort of Autonomy"
+                    "comments": "A multiplier from 0.0 to 1.0 that will scale the max power effort of Autonomy."
                 },
                 "SetLoggingLevels": {
                     "dataId": 11007,
