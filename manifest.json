@@ -134,23 +134,23 @@
                     "dataCount": 6,
                     "comments": "[FL, ML, BL, FR, MR, BR] (-1, 1)-> (-100%, 100%)"
                 },
-                "IMUData": {
+                "DriveCurrents": {
                     "dataId": 3101,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 6,
+                    "comments": "[FL, ML, BL, FR, MR, BR] VESC current draw"
+                },
+                "IMUData": {
+                    "dataId": 3102,
                     "dataType": "FLOAT_T",
                     "dataCount": 3,
                     "comments": "[Roll, Pitch, Yaw] degrees"
                 },
                 "AccelerometerData": {
-                    "dataId": 3102,
+                    "dataId": 3103,
                     "dataType": "FLOAT_T",
                     "dataCount": 3,
                     "comments": "[xAxis, yAxis, zAxis] Accel in m/s^2"
-                },
-                "VESCCurrents": {
-                    "dataId": 3103,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 6,
-                    "comments": "[FL, ML, BL, FR, MR, BR] VESC current draw"
                 }
             },
             "Error": {
