@@ -51,9 +51,9 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | name | dataId | type | count | description |
 | :--- | ------ | ---- | ----- | ----------- |
 | **DriveSpeeds** | 3100 | `FLOAT_T` | 6 | [FL, ML, BL, FR, MR, BR] (-1, 1)-> (-100%, 100%) |
-| **IMUData** | 3101 | `FLOAT_T` | 3 | [Roll, Pitch, Yaw] degrees |
-| **AccelerometerData** | 3102 | `FLOAT_T` | 3 | [xAxis, yAxis, zAxis] Accel in m/s^2 |
-| **VESCCurrents** | 3103 | `FLOAT_T` | 6 | [FL, ML, BL, FR, MR, BR] VESC current draw |
+| **DriveCurrents** | 3101 | `FLOAT_T` | 6 | [FL, ML, BL, FR, MR, BR] VESC current draw |
+| **IMUData** | 3102 | `FLOAT_T` | 3 | [Roll, Pitch, Yaw] degrees |
+| **AccelerometerData** | 3103 | `FLOAT_T` | 3 | [xAxis, yAxis, zAxis] Accel in m/s^2 |
 
 ### Errors
 
