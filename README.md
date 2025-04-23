@@ -50,10 +50,11 @@ sending and parsing RoveComm packets. These are the current implementations of R
 
 | name | dataId | type | count | description |
 | :--- | ------ | ---- | ----- | ----------- |
-| **DriveSpeeds** | 3100 | `FLOAT_T` | 6 | [FL, ML, BL, FR, MR, BR] (-1, 1)-> (-100%, 100%) |
-| **DriveCurrents** | 3101 | `FLOAT_T` | 6 | [FL, ML, BL, FR, MR, BR] VESC current draw |
-| **IMUData** | 3102 | `FLOAT_T` | 3 | [Roll, Pitch, Yaw] degrees |
-| **AccelerometerData** | 3103 | `FLOAT_T` | 3 | [xAxis, yAxis, zAxis] Accel in m/s^2 |
+| **MotorSpeeds** | 3100 | `FLOAT_T` | 6 | [FL, ML, BL, FR, MR, BR] (-1, 1)-> (-100%, 100%) |
+| **MotorCurrents** | 3101 | `FLOAT_T` | 6 | [FL, ML, BL, FR, MR, BR] Motor current draw |
+| **VESCCurrents** | 3102 | `FLOAT_T` | 6 | [FL, ML, BL, FR, MR, BR] VESC (battery side) current draw |
+| **IMUData** | 3103 | `FLOAT_T` | 3 | [Roll, Pitch, Yaw] degrees |
+| **AccelerometerData** | 3104 | `FLOAT_T` | 3 | [xAxis, yAxis, zAxis] Accel in m/s^2 |
 
 ### Errors
 
