@@ -309,7 +309,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | **AddMarkerLeg** | 11003 | `DOUBLE_T` | 4 | [Lat, Lon, MarkerID, MarkerRadius (meters)] |
 | **AddObjectLeg** | 11004 | `DOUBLE_T` | 3 | [Lat, Lon, ObjectRadius (meters)] |
 | **ClearWaypoints** | 11005 | `UINT8_T` | 1 | Clear queued positions, markers, and objects waypoints. |
-| **SetMaxSpeed** | 11006 | `FLOAT_T` | 1 | A multiplier from 0.0 to 1.0 that will scale the max power effort of Autonomy |
+| **SetMaxSpeed** | 11006 | `FLOAT_T` | 1 | A multiplier from 0.0 to 1.0 that will scale the max power effort of Autonomy. |
 | **SetLoggingLevels** | 11007 | `UINT8_T` | 3 | [Enum (AUTONOMYLOG), Enum (AUTONOMYLOG), Enum (AUTONOMYLOG)] {Console, File, RoveComm} |
 | **AddObstacle** | 11008 | `DOUBLE_T` | 3 | [Lat, Lon, ObstacleRadius (meters)] |
 | **ClearObstacles** | 11009 | `UINT8_T` | 1 | Clear queued permanent obstacles. |
@@ -353,17 +353,15 @@ sending and parsing RoveComm packets. These are the current implementations of R
 ```
 **AUTONOMYTHREADS**
 ```
-0: MainProcess
-1: MainCam
-2: LeftCam
-3: RightCam
-4: GroundCam
-5: MainDetector
-6: LeftDetector
-7: RightDetector
-8: StateMachine
-9: RoveCommUDP
-10: RoveCommTCP
+0: NotSet
+1: MainProcess
+2: MainCam
+3: GroundCam
+4: MainDetector
+5: GroundDetector
+6: StateMachine
+7: RoveCommUDP
+8: RoveCommTCP
 ```
 ## Camera1 Board
 
@@ -373,17 +371,16 @@ sending and parsing RoveComm packets. These are the current implementations of R
 
 | name | dataId | type | count | description |
 | :--- | ------ | ---- | ----- | ----------- |
-| **ChangeCameras** | 12000 | `UINT8_T` | 2 | Change which camera a feed is looking at. [0] is the feed, [1] is the camera to view. |
-| **TakePicture** | 12001 | `UINT8_T` | 2 | Take a picture with the current camera. [0] is the camera to take a picture with. [1] tells the camera whether to restart the stream afterwards. |
-| **ToggleStream1** | 12002 | `UINT8_T` | 2 | Stop the current camera stream. [0] is the camera to stop streaming. [1] is whether to restart the stream. |
+| **TakePicture** | 12000 | `UINT8_T` | 2 | Take a picture with the current camera. [0] is the camera to take a picture with. [1] tells the camera whether to restart the stream afterwards. |
+| **ToggleStream** | 12001 | `UINT8_T` | 2 | Stop the current camera stream. [0] is the camera to stop streaming. [1] is whether to restart the stream. |
 
 ### Telemetry
 
 | name | dataId | type | count | description |
 | :--- | ------ | ---- | ----- | ----------- |
-| **AvailableCameras** | 12100 | `UINT8_T` | 1 | Bitmask values for which cameras are able to stream. LSB is Camera 0, MSB is Camera 7. |
-| **StreamingCameras** | 12101 | `UINT8_T` | 4 | Which cameras the system is currently streaming on each port |
-| **PictureTaken1** | 12102 | `UINT8_T` | 1 | Picture has been taken. |
+| **AvailableCameras** | 12100 | `UINT8_T` | 1 | Number of detected cameras. |
+| **StreamingCameras** | 12101 | `UINT8_T` | 1 | Number of streaming cameras. |
+| **PictureTaken** | 12102 | `UINT8_T` | 1 | Picture has been taken. |
 
 ### Errors
 
@@ -399,14 +396,16 @@ sending and parsing RoveComm packets. These are the current implementations of R
 
 | name | dataId | type | count | description |
 | :--- | ------ | ---- | ----- | ----------- |
-| **TakePicture** | 13001 | `UINT8_T` | 2 | Take a picture with the current camera. [0] is the camera to take a picture with. [1] tells the camera whether to restart the stream afterwards. |
-| **ToggleStream2** | 13002 | `UINT8_T` | 2 | Stop the current camera stream. [0] is the camera to stop streaming. [1] is whether to restart the stream. |
+| **TakePicture** | 13000 | `UINT8_T` | 2 | Take a picture with the current camera. [0] is the camera to take a picture with. [1] tells the camera whether to restart the stream afterwards. |
+| **ToggleStream** | 13001 | `UINT8_T` | 2 | Stop the current camera stream. [0] is the camera to stop streaming. [1] is whether to restart the stream. |
 
 ### Telemetry
 
 | name | dataId | type | count | description |
 | :--- | ------ | ---- | ----- | ----------- |
-| **PictureTaken2** | 13100 | `UINT8_T` | 1 | Picture has been taken. |
+| **AvailableCameras** | 13100 | `UINT8_T` | 1 | Number of detected cameras. |
+| **StreamingCameras** | 13101 | `UINT8_T` | 1 | Number of streaming cameras. |
+| **PictureTaken** | 13102 | `UINT8_T` | 1 | Picture has been taken. |
 
 ## CameraServer Board
 
@@ -460,6 +459,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | **WatchdogOverride** | 16005 | `UINT8_T` | 1 | [0-override off, 1-override on] |
 | **Laser** | 16006 | `UINT8_T` | 1 | [0-disable, 1-enable] |
 | **RequestRamanReading** | 16007 | `UINT32_T` | 1 | Start a Raman reading, with the provided integration time (milliseconds) |
+| **RamanGimbalIncrement** | 16008 | `INT16_T` | 2 | [Pan, Tilt](degrees -180-180) |
 
 ### Telemetry
 
