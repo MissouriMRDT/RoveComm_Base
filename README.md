@@ -276,7 +276,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | **RequestTemperature** | 9007 | `UINT8_T` | 1 | Request a reading of the temperature at the end of the auger |
 | **RequestHumidity** | 9008 | `UINT8_T` | 1 | Request a reading of the humidity at the end of the auger |
 | **UVLED** | 9009 | `UINT8_T` | 1 | Ultraviolet LED on AutoFluorescence (0-off, 1-on) |
-| **AugerGimbalIncrement** | 9010 | `INT16_T` | 2 | [Pan, Tilt](degrees -180-180) |
+| **AugerMultiplexerServo** | 9010 | `INT16_T` | 1 | [Position](degrees -180-180) |
 
 ### Telemetry
 
