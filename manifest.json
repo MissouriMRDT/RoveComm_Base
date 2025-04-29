@@ -548,7 +548,7 @@
                     "dataId": 8100,
                     "dataType": "FLOAT_T",
                     "dataCount": 6,
-                    "comments": "[X, J2, J3, J4, P, R] (in, deg, deg, deg, deg, deg)"
+                    "comments": "[X, J2, J3, J4, P, R, AP] (in, deg, deg, deg, deg, deg, deg, deg)"
                 },
                 "Coordinates": {
                     "dataId": 8101,
