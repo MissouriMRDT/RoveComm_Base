@@ -214,7 +214,7 @@
                     "RESOLVER_LOT": 20,
                     "RESOLVER_DOS": 21,
                     "RESOLVER_LOS": 22,
-                    "FLASH_CORRUPTION_APP_CFG": 23,
+                    "FLASH_CORRUPTION_P_CFG": 23,
                     "FLASH_CORRUPTION_MC_CFG": 24,
                     "ENCODER_NO_MAGNET": 25,
                     "ENCODER_MAGNET_TOO_STRONG": 26,
@@ -365,7 +365,7 @@
                     "dataId": 6105,
                     "dataType": "FLOAT_T",
                     "dataCount": 5,
-                    "comments": "[horizontal_accur, vertical_accur, heading_accur, fix_type, is_differentia] [meters, meters, degrees, ublox_navpvt fix type (http://docs.ros.org/en/noetic/api/ublox_msgs/html/msg/NavPVT.html), boolean]"
+                    "comments": "[horizontal_accur, vertical_accur, heading_accur, fix_type, is_differentia] [meters, meters, degrees, ublox_navpvt fix type (http://docs.ros.org/en/noetic/i/ublox_msgs/html/msg/NavPVT.html), boolean]"
                 }
             },
             "Error": {
@@ -547,7 +547,7 @@
                 "Positions": {
                     "dataId": 8100,
                     "dataType": "FLOAT_T",
-                    "dataCount": 6,
+                    "dataCount": 7,
                     "comments": "[X, J2, J3, J4, P, R, AP] (in, deg, deg, deg, deg, deg, deg, deg)"
                 },
                 "Coordinates": {
@@ -795,8 +795,8 @@
                     "Idle": 0,
                     "Navigating": 1,
                     "SearchPattern": 2,
-                    "ApproachingMarker": 3,
-                    "ApproachingObject": 4,
+                    "proachingMarker": 3,
+                    "proachingObject": 4,
                     "VerifyingGPS": 5,
                     "VerifyingMarker": 6,
                     "VerifyingObject": 7,
