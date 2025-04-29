@@ -237,7 +237,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 
 | name | dataId | type | count | description |
 | :--- | ------ | ---- | ----- | ----------- |
-| **Positions** | 8100 | `FLOAT_T` | 6 | [X, J2, J3, J4, P, R] (in, deg, deg, deg, deg, deg) |
+| **Positions** | 8100 | `FLOAT_T` | 6 | [X, J2, J3, J4, P, R, AP] (in, deg, deg, deg, deg, deg, deg, deg) |
 | **Coordinates** | 8101 | `FLOAT_T` | 6 | [X, Y, Z, J4, P, R] (in, in, in, deg, deg, deg) |
 | **LimitSwitchTriggered** | 8102 | `UINT16_T` | 1 | [X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P] (0-off, 1-on) (bitmasked) |
 
