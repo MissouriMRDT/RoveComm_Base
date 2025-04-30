@@ -114,7 +114,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 20: RESOLVER_LOT
 21: RESOLVER_DOS
 22: RESOLVER_LOS
-23: FLASH_CORRUPTION_P_CFG
+23: FLASH_CORRUPTION_APP_CFG
 24: FLASH_CORRUPTION_MC_CFG
 25: ENCODER_NO_MAGNET
 26: ENCODER_MAGNET_TOO_STRONG
@@ -168,7 +168,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | **CompassData** | 6102 | `FLOAT_T` | 1 | [Heading] [ 0, 360 ] |
 | **SatelliteCountData** | 6103 | `UINT8_T` | 1 | [Number of satellites] |
 | **AccelerometerData** | 6104 | `FLOAT_T` | 3 | [xAxis, yAxis, zAxis] Accel in m/s^2 |
-| **AccuracyData** | 6105 | `FLOAT_T` | 5 | [horizontal_accur, vertical_accur, heading_accur, fix_type, is_differentia] [meters, meters, degrees, ublox_navpvt fix type (http://docs.ros.org/en/noetic/i/ublox_msgs/html/msg/NavPVT.html), boolean] |
+| **AccuracyData** | 6105 | `FLOAT_T` | 5 | [horizontal_accur, vertical_accur, heading_accur, fix_type, is_differentia] [meters, meters, degrees, ublox_navpvt fix type (http://docs.ros.org/en/noetic/api/ublox_msgs/html/msg/NavPVT.html), boolean] |
 
 ### Errors
 
@@ -330,8 +330,8 @@ sending and parsing RoveComm packets. These are the current implementations of R
 0: Idle
 1: Navigating
 2: SearchPattern
-3: proachingMarker
-4: proachingObject
+3: ApproachingMarker
+4: ApproachingObject
 5: VerifyingGPS
 6: VerifyingMarker
 7: VerifyingObject
