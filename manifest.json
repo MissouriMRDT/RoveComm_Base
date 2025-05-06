@@ -820,11 +820,12 @@
                     "MainProcess": 1,
                     "MainCam": 2,
                     "GroundCam": 3,
-                    "MainDetector": 4,
+                    "MainTagDetector": 4,
                     "GroundDetector": 5,
-                    "StateMachine": 6,
-                    "RoveCommUDP": 7,
-                    "RoveCommTCP": 8
+                    "MainObjectDetector": 6,
+                    "StateMachine": 7,
+                    "RoveCommUDP": 8,
+                    "RoveCommTCP": 9
                 }
             }
         },
