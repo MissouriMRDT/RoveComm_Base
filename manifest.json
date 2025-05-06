@@ -547,8 +547,8 @@
                 "Positions": {
                     "dataId": 8100,
                     "dataType": "FLOAT_T",
-                    "dataCount": 6,
-                    "comments": "[X, J2, J3, J4, P, R] (in, deg, deg, deg, deg, deg)"
+                    "dataCount": 7,
+                    "comments": "[X, J2, J3, J4, P, R, AP] (in, deg, deg, deg, deg, deg, deg, deg)"
                 },
                 "Coordinates": {
                     "dataId": 8101,
@@ -843,6 +843,18 @@
                     "dataType": "UINT8_T",
                     "dataCount": 2,
                     "comments": "Stop the current camera stream. [0] is the camera to stop streaming. [1] is whether to restart the stream."
+                },
+                "SetFFMPEGArguments": {
+                    "dataId": 12002,
+                    "dataType": "CHAR",
+                    "dataCount": 16384,
+                    "comments": "0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/ffmpeg_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $ip: output ip, $port: output port."
+                },
+                "SetPictureArguments": {
+                    "dataId": 12003,
+                    "dataType": "CHAR",
+                    "dataCount": 16384,
+                    "comments": "0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/picture_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $output: output file without extension."
                 }
             },
             "Telemetry": {
@@ -863,16 +875,15 @@
                     "dataType": "UINT8_T",
                     "dataCount": 1,
                     "comments": "Picture has been taken."
+                },
+                "Utilization": {
+                    "dataId": 12103,
+                    "dataType": "UINT8_T",
+                    "dataCount": 4,
+                    "comments": "[cpu0, cpu1, cpu2, cpu3, mem, storage], (% usage)"
                 }
             },
-            "Error": {
-                "CameraUnavailable": {
-                    "dataId": 12200,
-                    "dataType": "UINT8_T",
-                    "dataCount": 1,
-                    "comments": "Camera has errored and stopped streaming. [0] is ID of camera as an integer (not bitmask)."
-                }
-            }
+            "Error": {}
         },
         "Camera2": {
             "Ip": "192.168.4.101",
@@ -888,6 +899,18 @@
                     "dataType": "UINT8_T",
                     "dataCount": 2,
                     "comments": "Stop the current camera stream. [0] is the camera to stop streaming. [1] is whether to restart the stream."
+                },
+                "SetFFMPEGArguments": {
+                    "dataId": 13002,
+                    "dataType": "CHAR",
+                    "dataCount": 16384,
+                    "comments": "0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/ffmpeg_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $ip: output ip, $port: output port."
+                },
+                "SetPictureArguments": {
+                    "dataId": 13003,
+                    "dataType": "CHAR",
+                    "dataCount": 16384,
+                    "comments": "0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/picture_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $output: output file without extension."
                 }
             },
             "Telemetry": {
@@ -908,6 +931,12 @@
                     "dataType": "UINT8_T",
                     "dataCount": 1,
                     "comments": "Picture has been taken."
+                },
+                "Utilization": {
+                    "dataId": 13103,
+                    "dataType": "UINT8_T",
+                    "dataCount": 4,
+                    "comments": "[cpu0, cpu1, cpu2, cpu3, mem, storage], (% usage)"
                 }
             },
             "Error": {}

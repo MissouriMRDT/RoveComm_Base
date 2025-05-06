@@ -237,7 +237,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 
 | name | dataId | type | count | description |
 | :--- | ------ | ---- | ----- | ----------- |
-| **Positions** | 8100 | `FLOAT_T` | 6 | [X, J2, J3, J4, P, R] (in, deg, deg, deg, deg, deg) |
+| **Positions** | 8100 | `FLOAT_T` | 7 | [X, J2, J3, J4, P, R, AP] (in, deg, deg, deg, deg, deg, deg, deg) |
 | **Coordinates** | 8101 | `FLOAT_T` | 6 | [X, Y, Z, J4, P, R] (in, in, in, deg, deg, deg) |
 | **LimitSwitchTriggered** | 8102 | `UINT16_T` | 1 | [X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P] (0-off, 1-on) (bitmasked) |
 
@@ -373,6 +373,8 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | :--- | ------ | ---- | ----- | ----------- |
 | **TakePicture** | 12000 | `UINT8_T` | 2 | Take a picture with the current camera. [0] is the camera to take a picture with. [1] tells the camera whether to restart the stream afterwards. |
 | **ToggleStream** | 12001 | `UINT8_T` | 2 | Stop the current camera stream. [0] is the camera to stop streaming. [1] is whether to restart the stream. |
+| **SetFFMPEGArguments** | 12002 | `CHAR` | 16384 | 0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/ffmpeg_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $ip: output ip, $port: output port. |
+| **SetPictureArguments** | 12003 | `CHAR` | 16384 | 0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/picture_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $output: output file without extension. |
 
 ### Telemetry
 
@@ -381,12 +383,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | **AvailableCameras** | 12100 | `UINT8_T` | 1 | Number of detected cameras. |
 | **StreamingCameras** | 12101 | `UINT8_T` | 1 | Number of streaming cameras. |
 | **PictureTaken** | 12102 | `UINT8_T` | 1 | Picture has been taken. |
-
-### Errors
-
-| name | dataId | type | count | description |
-| :--- | ------ | ---- | ----- | ----------- |
-| **CameraUnavailable** | 12200 | `UINT8_T` | 1 | Camera has errored and stopped streaming. [0] is ID of camera as an integer (not bitmask). |
+| **Utilization** | 12103 | `UINT8_T` | 4 | [cpu0, cpu1, cpu2, cpu3, mem, storage], (% usage) |
 
 ## Camera2 Board
 
@@ -398,6 +395,8 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | :--- | ------ | ---- | ----- | ----------- |
 | **TakePicture** | 13000 | `UINT8_T` | 2 | Take a picture with the current camera. [0] is the camera to take a picture with. [1] tells the camera whether to restart the stream afterwards. |
 | **ToggleStream** | 13001 | `UINT8_T` | 2 | Stop the current camera stream. [0] is the camera to stop streaming. [1] is whether to restart the stream. |
+| **SetFFMPEGArguments** | 13002 | `CHAR` | 16384 | 0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/ffmpeg_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $ip: output ip, $port: output port. |
+| **SetPictureArguments** | 13003 | `CHAR` | 16384 | 0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/picture_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $output: output file without extension. |
 
 ### Telemetry
 
@@ -406,6 +405,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | **AvailableCameras** | 13100 | `UINT8_T` | 1 | Number of detected cameras. |
 | **StreamingCameras** | 13101 | `UINT8_T` | 1 | Number of streaming cameras. |
 | **PictureTaken** | 13102 | `UINT8_T` | 1 | Picture has been taken. |
+| **Utilization** | 13103 | `UINT8_T` | 4 | [cpu0, cpu1, cpu2, cpu3, mem, storage], (% usage) |
 
 ## CameraServer Board
 
