@@ -357,11 +357,12 @@ sending and parsing RoveComm packets. These are the current implementations of R
 1: MainProcess
 2: MainCam
 3: GroundCam
-4: MainDetector
+4: MainTagDetector
 5: GroundDetector
-6: StateMachine
-7: RoveCommUDP
-8: RoveCommTCP
+6: MainObjectDetector
+7: StateMachine
+8: RoveCommUDP
+9: RoveCommTCP
 ```
 ## Camera1 Board
 
