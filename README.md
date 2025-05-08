@@ -384,7 +384,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | **AvailableCameras** | 12100 | `UINT8_T` | 1 | Number of detected cameras. |
 | **StreamingCameras** | 12101 | `UINT8_T` | 1 | Number of streaming cameras. |
 | **PictureTaken** | 12102 | `UINT8_T` | 1 | Picture has been taken. |
-| **Utilization** | 12103 | `UINT8_T` | 4 | [cpu0, cpu1, cpu2, cpu3, mem, storage], (% usage) |
+| **Utilization** | 12103 | `UINT8_T` | 6 | [cpu0, cpu1, cpu2, cpu3, mem, storage], (% usage) |
 
 ## Camera2 Board
 
@@ -406,7 +406,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | **AvailableCameras** | 13100 | `UINT8_T` | 1 | Number of detected cameras. |
 | **StreamingCameras** | 13101 | `UINT8_T` | 1 | Number of streaming cameras. |
 | **PictureTaken** | 13102 | `UINT8_T` | 1 | Picture has been taken. |
-| **Utilization** | 13103 | `UINT8_T` | 4 | [cpu0, cpu1, cpu2, cpu3, mem, storage], (% usage) |
+| **Utilization** | 13103 | `UINT8_T` | 6 | [cpu0, cpu1, cpu2, cpu3, mem, storage], (% usage) |
 
 ## CameraServer Board
 
