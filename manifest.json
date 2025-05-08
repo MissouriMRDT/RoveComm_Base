@@ -879,7 +879,7 @@
                 "Utilization": {
                     "dataId": 12103,
                     "dataType": "UINT8_T",
-                    "dataCount": 4,
+                    "dataCount": 6,
                     "comments": "[cpu0, cpu1, cpu2, cpu3, mem, storage], (% usage)"
                 }
             },
@@ -935,7 +935,7 @@
                 "Utilization": {
                     "dataId": 13103,
                     "dataType": "UINT8_T",
-                    "dataCount": 4,
+                    "dataCount": 6,
                     "comments": "[cpu0, cpu1, cpu2, cpu3, mem, storage], (% usage)"
                 }
             },
