@@ -819,13 +819,11 @@
                     "NotSet": 0,
                     "MainProcess": 1,
                     "MainCam": 2,
-                    "GroundCam": 3,
-                    "MainTagDetector": 4,
-                    "GroundDetector": 5,
-                    "MainObjectDetector": 6,
-                    "StateMachine": 7,
-                    "RoveCommUDP": 8,
-                    "RoveCommTCP": 9
+                    "MainTagDetector": 3,
+                    "MainObjectDetector": 4,
+                    "StateMachine": 5,
+                    "RoveCommUDP": 6,
+                    "RoveCommTCP": 7
                 }
             }
         },
