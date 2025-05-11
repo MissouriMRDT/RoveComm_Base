@@ -846,13 +846,25 @@
                     "dataId": 12002,
                     "dataType": "CHAR",
                     "dataCount": 16384,
-                    "comments": "0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/ffmpeg_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $ip: output ip, $port: output port."
+                    "comments": "0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/ffmpeg_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $ip: output ip, $port: output port, $brightness, $contrast."
                 },
                 "SetPictureArguments": {
                     "dataId": 12003,
                     "dataType": "CHAR",
                     "dataCount": 16384,
-                    "comments": "0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/picture_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $output: output file without extension."
+                    "comments": "0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/picture_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $output: output file without extension, $brightness, $contrast."
+                },
+                "SetBrightness": {
+                    "dataId": 12004,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 4,
+                    "comments": "Brightness for each camera (-1.0, 1.0)"
+                },
+                "SetContrast": {
+                    "dataId": 12005,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 4,
+                    "comments": "Contrast for each camera (0, 2)"
                 }
             },
             "Telemetry": {
@@ -899,16 +911,28 @@
                     "comments": "Stop the current camera stream. [0] is the camera to stop streaming. [1] is whether to restart the stream."
                 },
                 "SetFFMPEGArguments": {
-                    "dataId": 13002,
+                    "dataId": 12002,
                     "dataType": "CHAR",
                     "dataCount": 16384,
-                    "comments": "0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/ffmpeg_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $ip: output ip, $port: output port."
+                    "comments": "0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/ffmpeg_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $ip: output ip, $port: output port, $brightness, $contrast."
                 },
                 "SetPictureArguments": {
-                    "dataId": 13003,
+                    "dataId": 12003,
                     "dataType": "CHAR",
                     "dataCount": 16384,
-                    "comments": "0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/picture_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $output: output file without extension."
+                    "comments": "0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/picture_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $output: output file without extension, $brightness, $contrast."
+                },
+                "SetBrightness": {
+                    "dataId": 12004,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 4,
+                    "comments": "Brightness for each camera (-1.0, 1.0)"
+                },
+                "SetContrast": {
+                    "dataId": 12005,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 4,
+                    "comments": "Contrast for each camera (0, 2)"
                 }
             },
             "Telemetry": {
