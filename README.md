@@ -372,8 +372,10 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | :--- | ------ | ---- | ----- | ----------- |
 | **TakePicture** | 12000 | `UINT8_T` | 2 | Take a picture with the current camera. [0] is the camera to take a picture with. [1] tells the camera whether to restart the stream afterwards. |
 | **ToggleStream** | 12001 | `UINT8_T` | 2 | Stop the current camera stream. [0] is the camera to stop streaming. [1] is whether to restart the stream. |
-| **SetFFMPEGArguments** | 12002 | `CHAR` | 16384 | 0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/ffmpeg_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $ip: output ip, $port: output port. |
-| **SetPictureArguments** | 12003 | `CHAR` | 16384 | 0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/picture_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $output: output file without extension. |
+| **SetFFMPEGArguments** | 12002 | `CHAR` | 16384 | 0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/ffmpeg_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $ip: output ip, $port: output port, $brightness, $contrast. |
+| **SetPictureArguments** | 12003 | `CHAR` | 16384 | 0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/picture_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $output: output file without extension, $brightness, $contrast. |
+| **SetBrightness** | 12004 | `FLOAT_T` | 4 | Brightness for each camera (-1.0, 1.0) |
+| **SetContrast** | 12005 | `FLOAT_T` | 4 | Contrast for each camera (0, 2) |
 
 ### Telemetry
 
@@ -394,8 +396,10 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | :--- | ------ | ---- | ----- | ----------- |
 | **TakePicture** | 13000 | `UINT8_T` | 2 | Take a picture with the current camera. [0] is the camera to take a picture with. [1] tells the camera whether to restart the stream afterwards. |
 | **ToggleStream** | 13001 | `UINT8_T` | 2 | Stop the current camera stream. [0] is the camera to stop streaming. [1] is whether to restart the stream. |
-| **SetFFMPEGArguments** | 13002 | `CHAR` | 16384 | 0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/ffmpeg_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $ip: output ip, $port: output port. |
-| **SetPictureArguments** | 13003 | `CHAR` | 16384 | 0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/picture_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $output: output file without extension. |
+| **SetFFMPEGArguments** | 12002 | `CHAR` | 16384 | 0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/ffmpeg_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $ip: output ip, $port: output port, $brightness, $contrast. |
+| **SetPictureArguments** | 12003 | `CHAR` | 16384 | 0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/picture_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $output: output file without extension, $brightness, $contrast. |
+| **SetBrightness** | 12004 | `FLOAT_T` | 4 | Brightness for each camera (-1.0, 1.0) |
+| **SetContrast** | 12005 | `FLOAT_T` | 4 | Contrast for each camera (0, 2) |
 
 ### Telemetry
 
