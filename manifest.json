@@ -729,8 +729,8 @@
                 "AddObjectLeg": {
                     "dataId": 11004,
                     "dataType": "DOUBLE_T",
-                    "dataCount": 3,
-                    "comments": "[Lat, Lon, ObjectRadius (meters)]"
+                    "dataCount": 4,
+                    "comments": "[Lat, Lon, ObjectID, ObjectRadius (meters)]"
                 },
                 "ClearWaypoints": {
                     "dataId": 11005,
@@ -819,11 +819,21 @@
                     "NotSet": 0,
                     "MainProcess": 1,
                     "MainCam": 2,
-                    "MainTagDetector": 3,
-                    "MainObjectDetector": 4,
-                    "StateMachine": 5,
-                    "RoveCommUDP": 6,
-                    "RoveCommTCP": 7
+                    "GroundCam": 3,
+                    "TagDetector": 4,
+                    "ObjectDetector": 5,
+                    "StateMachine": 6,
+                    "RoveCommUDP": 7,
+                    "RoveCommTCP": 8
+                },
+                "AUTONOMYDETECTIONTYPES": {
+                    "WaterBottle": -3,
+                    "Mallet": -2,
+                    "Any": -1,
+                    "Tag0": 0,
+                    "Tag1": 1,
+                    "Tag2": 2,
+                    "Tag3": 3
                 }
             }
         },
