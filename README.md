@@ -363,7 +363,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 7: RoveCommUDP
 8: RoveCommTCP
 ```
-**AUTONOMYDETECTIONTYPES**
+**AUTONOMYWAYPOINTTYPES**
 ```
 -3: WaterBottle
 -2: Mallet
