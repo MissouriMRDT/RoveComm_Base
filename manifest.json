@@ -826,7 +826,7 @@
                     "RoveCommUDP": 7,
                     "RoveCommTCP": 8
                 },
-                "AUTONOMYDETECTIONTYPES": {
+                "AUTONOMYWAYPOINTTYPES": {
                     "WaterBottle": -3,
                     "Mallet": -2,
                     "Any": -1,
