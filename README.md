@@ -225,7 +225,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | **IncrementLockModePosition** | 8009 | `FLOAT_T` | 3 | [J4, P, R] (deg, deg, deg) |
 | **Laser** | 8010 | `UINT8_T` | 1 | [0-disable, 1-enable] |
 | **Solenoid** | 8011 | `UINT8_T` | 1 | [0-retract, 1-extend] |
-| **SetGripperSpeed** | 8012 | `INT16_T` | 1 | Motor decipercent [-1000, 1000] |
+| **SetGripperSpeed** | 8012 | `INT16_T` | 2 | [Motor decipercent (-1000, 1000), Gripper number (0, 1)] |
 | **WatchdogOverride** | 8013 | `UINT8_T` | 1 | [0-override off, 1-override on] (bitmasked) |
 | **LimitSwitchOverride** | 8014 | `UINT16_T` | 1 | [X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P] (0-override off, 1-override on) (bitmasked) |
 | **ClosedLoopOverride** | 8015 | `UINT8_T` | 1 | [X, J2, J3, J4, P, R] (0-override off, 1-override on) (bitmasked) |
