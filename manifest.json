@@ -503,8 +503,8 @@
                 "SetGripperSpeed": {
                     "dataId": 8012,
                     "dataType": "INT16_T",
-                    "dataCount": 1,
-                    "comments": "Motor decipercent [-1000, 1000]"
+                    "dataCount": 2,
+                    "comments": "[Motor decipercent (-1000, 1000), Gripper number (0, 1)]"
                 },
                 "WatchdogOverride": {
                     "dataId": 8013,
