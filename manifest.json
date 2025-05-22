@@ -717,20 +717,20 @@
                 "AddPositionLeg": {
                     "dataId": 11002,
                     "dataType": "DOUBLE_T",
-                    "dataCount": 2,
-                    "comments": "[Lat, Lon]"
+                    "dataCount": 3,
+                    "comments": "[Lat, Lon, AUTONOMYWAYPOINTTYPES]"
                 },
                 "AddMarkerLeg": {
                     "dataId": 11003,
                     "dataType": "DOUBLE_T",
                     "dataCount": 4,
-                    "comments": "[Lat, Lon, MarkerID, MarkerRadius (meters)]"
+                    "comments": "[Lat, Lon, AUTONOMYWAYPOINTTYPES, MarkerRadius (meters)]"
                 },
                 "AddObjectLeg": {
                     "dataId": 11004,
                     "dataType": "DOUBLE_T",
                     "dataCount": 4,
-                    "comments": "[Lat, Lon, ObjectID, ObjectRadius (meters)]"
+                    "comments": "[Lat, Lon, AUTONOMYWAYPOINTTYPES, ObjectRadius (meters)]"
                 },
                 "ClearWaypoints": {
                     "dataId": 11005,
@@ -827,6 +827,7 @@
                     "RoveCommTCP": 8
                 },
                 "AUTONOMYWAYPOINTTYPES": {
+                    "ContinuousNavigate": -99,
                     "WaterBottle": -3,
                     "Mallet": -2,
                     "Any": -1,
