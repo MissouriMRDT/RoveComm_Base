@@ -305,9 +305,9 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | :--- | ------ | ---- | ----- | ----------- |
 | **StartAutonomy** | 11000 | `UINT8_T` | 1 | Start Autonomy_Software |
 | **DisableAutonomy** | 11001 | `UINT8_T` | 1 | Return Autonomy_Software to Idle state |
-| **AddPositionLeg** | 11002 | `DOUBLE_T` | 2 | [Lat, Lon] |
-| **AddMarkerLeg** | 11003 | `DOUBLE_T` | 4 | [Lat, Lon, MarkerID, MarkerRadius (meters)] |
-| **AddObjectLeg** | 11004 | `DOUBLE_T` | 4 | [Lat, Lon, ObjectID, ObjectRadius (meters)] |
+| **AddPositionLeg** | 11002 | `DOUBLE_T` | 3 | [Lat, Lon, AUTONOMYWAYPOINTTYPES] |
+| **AddMarkerLeg** | 11003 | `DOUBLE_T` | 4 | [Lat, Lon, AUTONOMYWAYPOINTTYPES, MarkerRadius (meters)] |
+| **AddObjectLeg** | 11004 | `DOUBLE_T` | 4 | [Lat, Lon, AUTONOMYWAYPOINTTYPES, ObjectRadius (meters)] |
 | **ClearWaypoints** | 11005 | `UINT8_T` | 1 | Clear queued positions, markers, and objects waypoints. |
 | **SetMaxSpeed** | 11006 | `FLOAT_T` | 1 | A multiplier from 0.0 to 1.0 that will scale the max power effort of Autonomy. |
 | **SetLoggingLevels** | 11007 | `UINT8_T` | 3 | [Enum (AUTONOMYLOG), Enum (AUTONOMYLOG), Enum (AUTONOMYLOG)] {Console, File, RoveComm} |
@@ -365,6 +365,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 ```
 **AUTONOMYWAYPOINTTYPES**
 ```
+-99: ContinuousNavigate
 -3: WaterBottle
 -2: Mallet
 -1: Any
