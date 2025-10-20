@@ -787,6 +787,12 @@
                     "dataType": "UINT32_T",
                     "dataCount": 2,
                     "comments": "[Thread Enum ID, FPS Value]"
+                },
+                "PathWaypoints": {
+                    "dataId": 11104,
+                    "dataType": "DOUBLE_T",
+                    "dataCount": 1000,
+                    "comments": "[Lat, Lon, Lat, Lon, ...]"
                 }
             },
             "Error": {},
