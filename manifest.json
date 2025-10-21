@@ -1176,11 +1176,11 @@
             "Ip": "127.0.0.1",
             "Commands": {},
             "Telemetry": {
-                "Ultrasonic1": {
+                "IMU": {
                     "dataId": 99100,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 2,
-                    "comments": "Ultrasonic sensor distance reading in centimeters (cm). Value ranges from 0.00 to 500.00 cm"
+                    "dataType": "DOUBLE_T",
+                    "dataCount": 10,
+                    "comments": "[Accel X, Accel Y, Accel Z, Gyro X, Gyro Y, Gyro Z, Quat X, Quat Y, Quat Z, Quat W]"
                 }
             },
             "Error": {}
