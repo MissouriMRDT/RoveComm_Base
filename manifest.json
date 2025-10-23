@@ -750,20 +750,26 @@
                     "dataCount": 1,
                     "comments": "A multiplier from 0.0 to 1.0 that will filter points from the traversability map. Higher values will result in more conservative pathing."
                 },
-                "SetLoggingLevels": {
+                "SetBetaBias": {
                     "dataId": 11008,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 1,
+                    "comments": "A multiplier from 0.0 to 1.0 that will filter points from the traversability map. Higher values will result in more conservative pathing."
+                },
+                "SetLoggingLevels": {
+                    "dataId": 11009,
                     "dataType": "UINT8_T",
                     "dataCount": 3,
                     "comments": "[Enum (AUTONOMYLOG), Enum (AUTONOMYLOG), Enum (AUTONOMYLOG)] {Console, File, RoveComm}"
                 },
                 "AddObstacle": {
-                    "dataId": 11009,
+                    "dataId": 11010,
                     "dataType": "DOUBLE_T",
                     "dataCount": 3,
                     "comments": "[Lat, Lon, ObstacleRadius (meters)]"
                 },
                 "ClearObstacles": {
-                    "dataId": 11010,
+                    "dataId": 11011,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
                     "comments": "Clear queued permanent obstacles."
