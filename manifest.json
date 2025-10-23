@@ -744,20 +744,26 @@
                     "dataCount": 1,
                     "comments": "A multiplier from 0.0 to 1.0 that will scale the max power effort of Autonomy."
                 },
-                "SetLoggingLevels": {
+                "SetMinTravScore": {
                     "dataId": 11007,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 1,
+                    "comments": "A multiplier from 0.0 to 1.0 that will filter points from the traversability map. Higher values will result in more conservative pathing."
+                },
+                "SetLoggingLevels": {
+                    "dataId": 11008,
                     "dataType": "UINT8_T",
                     "dataCount": 3,
                     "comments": "[Enum (AUTONOMYLOG), Enum (AUTONOMYLOG), Enum (AUTONOMYLOG)] {Console, File, RoveComm}"
                 },
                 "AddObstacle": {
-                    "dataId": 11008,
+                    "dataId": 11009,
                     "dataType": "DOUBLE_T",
                     "dataCount": 3,
                     "comments": "[Lat, Lon, ObstacleRadius (meters)]"
                 },
                 "ClearObstacles": {
-                    "dataId": 11009,
+                    "dataId": 11010,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
                     "comments": "Clear queued permanent obstacles."
