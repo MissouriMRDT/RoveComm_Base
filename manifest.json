@@ -334,14 +334,8 @@
                 "GPSLatLonAlt": {
                     "dataId": 6100,
                     "dataType": "DOUBLE_T",
-                    "dataCount": 3,
-                    "comments": "[Lat, Long, Alt] [(-90, 90), (-180, 180)(deg), (0, 1000)]"
-                },
-                "IMUData": {
-                    "dataId": 6101,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 3,
-                    "comments": "[Pitch, Yaw, Roll] [(-90, 90), (0, 360), (-90, 90)] (deg)"
+                    "dataCount": 8,
+                    "comments": "[Lat, Long, Alt, horizontal_accur, vertical_accur, heading_accur, fix_type, is_differential] [degrees, degrees, meters, meters, meters, degrees, ublox_navpvt fix type (http://docs.ros.org/en/noetic/api/ublox_msgs/html/msg/NavPVT.html), boolean]]"
                 },
                 "CompassData": {
                     "dataId": 6102,
@@ -354,18 +348,6 @@
                     "dataType": "UINT8_T",
                     "dataCount": 1,
                     "comments": "[Number of satellites]"
-                },
-                "AccelerometerData": {
-                    "dataId": 6104,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 3,
-                    "comments": "[xAxis, yAxis, zAxis] Accel in m/s^2"
-                },
-                "AccuracyData": {
-                    "dataId": 6105,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 5,
-                    "comments": "[horizontal_accur, vertical_accur, heading_accur, fix_type, is_differentia] [meters, meters, degrees, ublox_navpvt fix type (http://docs.ros.org/en/noetic/api/ublox_msgs/html/msg/NavPVT.html), boolean]"
                 }
             },
             "Error": {
