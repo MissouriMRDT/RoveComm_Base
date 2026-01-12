@@ -794,9 +794,8 @@
                     "VerifyingGPS": 5,
                     "VerifyingMarker": 6,
                     "VerifyingObject": 7,
-                    "Avoidance": 8,
-                    "Reversing": 9,
-                    "Stuck": 10
+                    "Reversing": 8,
+                    "Stuck": 9
                 },
                 "AUTONOMYLOG": {
                     "TraceL3": 0,
@@ -813,7 +812,7 @@
                     "NotSet": 0,
                     "MainProcess": 1,
                     "MainCam": 2,
-                    "GroundCam": 3,
+                    "RearCam": 3,
                     "TagDetector": 4,
                     "ObjectDetector": 5,
                     "StateMachine": 6,
