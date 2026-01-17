@@ -46,13 +46,13 @@
                     "dataId": 3000,
                     "dataType": "FLOAT_T",
                     "dataCount": 2,
-                    "comments": "[LeftSpeed, RightSpeed] (-1, 1)-> (-100%, 100%)"
+                    "comments": "[LeftSpeed, RightSpeed] (-1 - 1)-> (-100% - 100%)"
                 },
                 "DriveIndividual": {
                     "dataId": 3001,
                     "dataType": "FLOAT_T",
                     "dataCount": 6,
-                    "comments": "[LF, LM, LR, RF, RM, RR] (-1, 1)-> (-100%, 100%)"
+                    "comments": "[LF, LM, LR, RF, RM, RR] (-1 - 1)-> (-100% - 100%)"
                 },
                 "WatchdogOverride": {
                     "dataId": 3002,
@@ -60,71 +60,71 @@
                     "dataCount": 1,
                     "comments": "[0-override off, 1-override on]"
                 },
-                "LeftDriveGimbalIncrement": {
+                "LeftGimbal": {
                     "dataId": 3003,
                     "dataType": "INT16_T",
-                    "dataCount": 1,
-                    "comments": "[Tilt](degrees -180-180)"
+                    "dataCount": 2,
+                    "comments": "[Pan, Tilt] (-180deg - 180deg)"
                 },
-                "RightDriveGimbalIncrement": {
+                "RightGimbal": {
                     "dataId": 3004,
                     "dataType": "INT16_T",
-                    "dataCount": 1,
-                    "comments": "[Tilt](degrees -180-180)"
+                    "dataCount": 2,
+                    "comments": "[Pan, Tilt] (-180deg - 180deg)"
                 },
-                "LeftMainGimbalIncrement": {
+                "BackGimbal": {
                     "dataId": 3005,
                     "dataType": "INT16_T",
                     "dataCount": 2,
-                    "comments": "[Pan, Tilt](degrees -180-180)"
-                },
-                "RightMainGimbalIncrement": {
-                    "dataId": 3006,
-                    "dataType": "INT16_T",
-                    "dataCount": 2,
-                    "comments": "[Pan, Tilt](degrees -180-180)"
-                },
-                "BackDriveGimbalIncrement": {
-                    "dataId": 3007,
-                    "dataType": "INT16_T",
-                    "dataCount": 1,
-                    "comments": "[Tilt](degrees -180-180)"
+                    "comments": "[Pan, Tilt] (-180deg - 180deg)"
                 },
                 "LEDRGB": {
+                    "dataId": 3006,
+                    "dataType": "UINT8_T",
+                    "dataCount": 3,
+                    "comments": "[R, G, B] (Brightness 0 - 255)"
+                },
+                "BackImage": {
+                    "dataId": 3007,
+                    "dataType": "UINT32_T",
+                    "dataCount": 256,
+                    "comments": "[Color] (RGBA)"
+                },
+                "InternalRGB": {
                     "dataId": 3008,
                     "dataType": "UINT8_T",
                     "dataCount": 3,
-                    "comments": "[R, G, B] (0, 255)"
+                    "comments": "[R, G, B] (Brightness 0 - 255)"
                 },
-                "LEDPatterns": {
+                "InternalImage": {
                     "dataId": 3009,
-                    "dataType": "UINT8_T",
-                    "dataCount": 1,
-                    "comments": "[Pattern] (Enum)"
+                    "dataType": "UINT32_T",
+                    "dataCount": 256,
+                    "comments": "[Color] (RGBA)"
                 },
                 "StateDisplay": {
                     "dataId": 3010,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[Teleop, Autonomy, Reached Goal] (enum)"
+                    "comments": "[State] (DisplayState)"
                 },
                 "Brightness": {
                     "dataId": 3011,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "Set Brightness (0-255)"
+                    "comments": "[Brightness] (0 - 255)"
                 },
                 "SetWatchdogMode": {
                     "dataId": 3012,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "0: Teleop, 1: Autonomy"
+                    "comments": "[Mode] (0: Teleop, 1: Autonomy)"
                 },
                 "LEDText": {
                     "dataId": 3013,
                     "dataType": "CHAR",
                     "dataCount": 256,
-                    "comments": "Set the message to display on the lighting panel; null terminator ends string early"
+                    "comments": "[Message] (Null terminated string)"
                 }
             },
             "Telemetry": {
@@ -138,25 +138,25 @@
                     "dataId": 3101,
                     "dataType": "FLOAT_T",
                     "dataCount": 6,
-                    "comments": "[FL, ML, BL, FR, MR, BR] Motor current draw"
+                    "comments": "[FL, ML, BL, FR, MR, BR] (A)"
                 },
                 "VESCCurrents": {
                     "dataId": 3102,
                     "dataType": "FLOAT_T",
                     "dataCount": 6,
-                    "comments": "[FL, ML, BL, FR, MR, BR] VESC (battery side) current draw"
+                    "comments": "[FL, ML, BL, FR, MR, BR] (A Battery side)"
                 },
                 "IMUData": {
                     "dataId": 3103,
                     "dataType": "FLOAT_T",
-                    "dataCount": 3,
-                    "comments": "[Roll, Pitch, Yaw] degrees"
+                    "dataCount": 2,
+                    "comments": "[Roll, Pitch] (deg)"
                 },
                 "AccelerometerData": {
                     "dataId": 3104,
                     "dataType": "FLOAT_T",
                     "dataCount": 3,
-                    "comments": "[xAxis, yAxis, zAxis] Accel in m/s^2"
+                    "comments": "[X, Y, Z] (m/s2)"
                 }
             },
             "Error": {
@@ -180,15 +180,6 @@
                     "TELEOP": 0,
                     "AUTONOMY": 1,
                     "REACHED_GOAL": 2
-                },
-                "Patterns": {
-                    "MRDT": 0,
-                    "BELGIUM": 1,
-                    "MERICA": 2,
-                    "DIRT": 3,
-                    "DOTA": 4,
-                    "MCD": 5,
-                    "WINDOWS": 6
                 },
                 "VESCFaultCode": {
                     "NONE": 0,
@@ -228,101 +219,77 @@
                 "EStop": {
                     "dataId": 4000,
                     "dataType": "UINT8_T",
-                    "dataCount": 1,
+                    "dataCount": 0,
                     "comments": "Power off all systems except network (PMS will stay on)"
                 },
                 "Suicide": {
                     "dataId": 4001,
                     "dataType": "UINT8_T",
-                    "dataCount": 1,
+                    "dataCount": 0,
                     "comments": "Power off all systems including network, cannot recover without physical reboot (PMS will stay on)"
                 },
                 "Reboot": {
                     "dataId": 4002,
                     "dataType": "UINT8_T",
-                    "dataCount": 1,
+                    "dataCount": 0,
                     "comments": "Cycle all systems including network off and back on (PMS will stay on)"
                 },
                 "EnableBus": {
                     "dataId": 4003,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[Motor, Core, Aux] (bitmasked) [1-Enable, 0-No change]"
+                    "comments": "[Motor, Core, Aux] (bitmasked enable)"
                 },
                 "DisableBus": {
                     "dataId": 4004,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[Motor, Core, Aux] (bitmasked) [1-Disable, 0-No change]"
+                    "comments": "[Motor, Core, Aux] (bitmasked disable)"
                 },
                 "SetBus": {
                     "dataId": 4005,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[Motor, Core, Aux] (bitmasked) [1-Enable, 0-Disable]"
+                    "comments": "[Motor, Core, Aux] (bitmasked enabled)"
                 }
             },
             "Telemetry": {
-                "PackCurrent": {
+                "CurrentAndVoltage": {
                     "dataId": 4100,
                     "dataType": "FLOAT_T",
-                    "dataCount": 1,
-                    "comments": "Total current draw from battery"
-                },
-                "PackVoltage": {
-                    "dataId": 4101,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 1,
-                    "comments": "Pack voltage"
-                },
-                "CellVoltage": {
-                    "dataId": 4102,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 6,
-                    "comments": "C1, C2, C3, C4, C5, C6"
-                },
-                "AuxCurrent": {
-                    "dataId": 4103,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 1,
-                    "comments": "Current draw by aux systems (before 12V buck)"
-                },
-                "MiscCurrent": {
-                    "dataId": 4104,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 3,
-                    "comments": "Current draw from other devices (CS1, CS2, CS3)"
+                    "dataCount": 12,
+                    "comments": "[PackCurrent, AuxCurrent, LowCurrent, NetworkCurrent, RadioM2Current, RadioM9Current, Cell1Voltage, Cell2Voltage, Cell3Voltage, Cell4Voltage, Cell5Voltage, Cell6Voltage] (A, A, A, A, A, A, V, V, V, V, V, V)"
                 },
                 "BusStatus": {
-                    "dataId": 4105,
+                    "dataId": 4101,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[Motor, Core, Aux, Network] (bitmasked) [1-Enabled, 0-Disabled]"
+                    "comments": "[Motor, Core, Aux, RadioM2, RadioM9, Network] (bitmasked) [1-Enabled, 0-Disabled]"
                 }
             },
             "Error": {
                 "PackOvercurrent": {
                     "dataId": 4200,
                     "dataType": "UINT8_T",
-                    "dataCount": 1,
+                    "dataCount": 0,
                     "comments": "Higher current draw than the battery can support. Rover will Reboot automatically"
                 },
                 "CellUndervoltage": {
                     "dataId": 4201,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "(bitmasked) [1-Undervolt, 0-OK]. Rover will EStop automatically"
+                    "comments": "[C1, C2, C3, C4, C5, C6] (bitmasked undervolt). Rover will EStop automatically"
                 },
                 "CellCritical": {
                     "dataId": 4202,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "(bitmasked) [1-Critical, 0-OK]. Rover will Suicide automatically"
+                    "comments": "[C1, C2, C3, C4, C5, C6] (bitmasked critical). Rover will Suicide automatically"
                 },
                 "AuxOvercurrent": {
                     "dataId": 4203,
                     "dataType": "UINT8_T",
-                    "dataCount": 1,
+                    "dataCount": 0,
                     "comments": "Aux system current draw too high. Rover will disable Aux bus automatically"
                 }
             }
@@ -358,9 +325,6 @@
                     "comments": ""
                 }
             }
-        },
-        "BaseStationNav": {
-            "Ip": "192.168.100.112"
         },
         "SignalStack": {
             "Ip": "192.168.100.101",
@@ -410,159 +374,118 @@
         "Arm": {
             "Ip": "192.168.2.107",
             "Commands": {
-                "SetIndividualSpeeds": {
+                "OpenLoop": {
                     "dataId": 8000,
                     "dataType": "INT16_T",
                     "dataCount": 6,
-                    "comments": "[X, J2, J3, J4, P, R] Motor decipercent [-1000, 1000]"
+                    "comments": "[X, J2, J3, J4, P, R] (-32768 - 32767) -> (-100% - 100%)"
                 },
-                "SetJointSpeed": {
+                "TargetAngle": {
                     "dataId": 8001,
-                    "dataType": "INT16_T",
-                    "dataCount": 2,
-                    "comments": "[JointID, Decipercent] Motor decipercent [-1000, 1000]"
+                    "dataType": "FLOAT_T",
+                    "dataCount": 6,
+                    "comments": "[X, J2, J3, J4, P, R] (in, deg, deg, deg, deg, deg, deg)"
                 },
-                "SetIndividualTargetAngles": {
+                "GripperOpenLoop": {
                     "dataId": 8002,
                     "dataType": "FLOAT_T",
-                    "dataCount": 6,
-                    "comments": "[X, J2, J3, J4, P, R] (in, deg, deg, deg, deg, deg)"
+                    "dataCount": 1,
+                    "comments": "[Gripper] (-32768 - 32767) -> (-100% - 100%)"
                 },
-                "SetJointTargetAngle": {
+                "IKPosition": {
                     "dataId": 8003,
                     "dataType": "FLOAT_T",
-                    "dataCount": 2,
-                    "comments": "[JointID, Position] (in for id 0, deg otherwise)"
-                },
-                "IncrementIndividualTargetAngles": {
-                    "dataId": 8004,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 6,
-                    "comments": "[X, J2, J3, J4, P, R] (in, deg, deg, deg, deg, deg)"
-                },
-                "IncrementJointTargetAngle": {
-                    "dataId": 8005,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 2,
-                    "comments": "[JointID, Angle] (in for id 0, deg otherwise)"
-                },
-                "SetIKPosition": {
-                    "dataId": 8006,
-                    "dataType": "FLOAT_T",
                     "dataCount": 6,
                     "comments": "[X, Y, Z, J4, P, R] (in, in, in, deg, deg, deg)"
-                },
-                "IncrementIKPosition": {
-                    "dataId": 8007,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 6,
-                    "comments": "[X, Y, Z, J4, P, R] (in, in, in, deg, deg, deg)"
-                },
-                "SetLockModePosition": {
-                    "dataId": 8008,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 3,
-                    "comments": "[J4, P, R] (deg, deg, deg)"
-                },
-                "IncrementLockModePosition": {
-                    "dataId": 8009,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 3,
-                    "comments": "[J4, P, R] (deg, deg, deg)"
                 },
                 "Laser": {
+                    "dataId": 8004,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "[Enabled]"
+                },
+                "LinearServo": {
+                    "dataId": 8005,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "[Position] (-180 - 180)"
+                },
+                "Cache": {
+                    "dataId": 8006,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "[Position] (-180 - 180)"
+                },
+                "WatchdogOverride": {
+                    "dataId": 8007,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "[Enabled]"
+                },
+                "LimitSwitchOverride": {
+                    "dataId": 8008,
+                    "dataType": "UINT16_T",
+                    "dataCount": 1,
+                    "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P+, P-] (bitmask override enabled)"
+                },
+                "ClosedLoopOverride": {
+                    "dataId": 8009,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "[X, J2, J3, J4, P, R] (bitmasked override enabled)"
+                },
+                "CalibrateEncoder": {
                     "dataId": 8010,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[0-disable, 1-enable]"
+                    "comments": "[X, Roll] (bitmask start calibration)"
                 },
-                "Solenoid": {
+                "SoftLimitOverride": {
                     "dataId": 8011,
-                    "dataType": "UINT8_T",
+                    "dataType": "UINT16_T",
                     "dataCount": 1,
-                    "comments": "[0-retract, 1-extend]"
+                    "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P+, P-] (bitmask override enabled)"
                 },
-                "SetGripperSpeed": {
+                "ArmGimbal1": {
                     "dataId": 8012,
                     "dataType": "INT16_T",
                     "dataCount": 2,
-                    "comments": "[Motor decipercent (-1000, 1000), Gripper number (0, 1)]"
+                    "comments": "[Pan, Tilt] (-180deg - 180deg)"
                 },
-                "WatchdogOverride": {
+                "ArmGimbal2": {
                     "dataId": 8013,
-                    "dataType": "UINT8_T",
-                    "dataCount": 1,
-                    "comments": "[0-override off, 1-override on] (bitmasked)"
-                },
-                "LimitSwitchOverride": {
-                    "dataId": 8014,
-                    "dataType": "UINT16_T",
-                    "dataCount": 1,
-                    "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P] (0-override off, 1-override on) (bitmasked)"
-                },
-                "ClosedLoopOverride": {
-                    "dataId": 8015,
-                    "dataType": "UINT8_T",
-                    "dataCount": 1,
-                    "comments": "[X, J2, J3, J4, P, R] (0-override off, 1-override on) (bitmasked)"
-                },
-                "CalibrateEncoder": {
-                    "dataId": 8016,
-                    "dataType": "UINT8_T",
-                    "dataCount": 1,
-                    "comments": "[X, Roll] (1-calibrate, 0-no action) (bitmasked)"
-                },
-                "SoftLimitOverride": {
-                    "dataId": 8017,
-                    "dataType": "UINT16_T",
-                    "dataCount": 1,
-                    "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P+, P-] (0-override off, 1-override on) (bitmasked)"
-                },
-                "EStop": {
-                    "dataId": 8018,
-                    "dataType": "UINT8_T",
-                    "dataCount": 1,
-                    "comments": "Shut off all motors (set decipercents to 0 and disable closed loop)"
+                    "dataType": "INT16_T",
+                    "dataCount": 2,
+                    "comments": "[Pan, Tilt] (-180deg - 180deg)"
                 }
             },
             "Telemetry": {
-                "Positions": {
+                "Position": {
                     "dataId": 8100,
                     "dataType": "FLOAT_T",
-                    "dataCount": 7,
-                    "comments": "[X, J2, J3, J4, P, R, AP] (in, deg, deg, deg, deg, deg, deg, deg)"
+                    "dataCount": 8,
+                    "comments": "[X, J2, J3, J4, P, R, Y, Z] (in, deg, deg, deg, deg, deg, deg, deg, in, in)"
                 },
-                "Coordinates": {
+                "LimitSwitch": {
                     "dataId": 8101,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 6,
-                    "comments": "[X, Y, Z, J4, P, R] (in, in, in, deg, deg, deg)"
+                    "dataType": "UINT16_T",
+                    "dataCount": 1,
+                    "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P+, P-] (bitmask depressed)"
                 },
-                "LimitSwitchTriggered": {
+                "SoftLimit": {
                     "dataId": 8102,
                     "dataType": "UINT16_T",
                     "dataCount": 1,
-                    "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P] (0-off, 1-on) (bitmasked)"
+                    "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P+, P-] (bitmask triggered)"
+                },
+                "SMOCOPing": {
+                    "dataId": 8103,
+                    "dataType": "UINT16_T",
+                    "dataCount": 6,
+                    "comments": "[X, J2, J3, J4, P, R] (Ping Time ms)"
                 }
             },
-            "Error": {
-                "WatchdogStatus": {
-                    "dataId": 8200,
-                    "dataType": "UINT8_T",
-                    "dataCount": 1,
-                    "comments": "(1-Watchdog timeout, 0-OK)"
-                }
-            },
-            "Enums": {
-                "Joints": {
-                    "X": 0,
-                    "J2": 1,
-                    "J3": 2,
-                    "J4": 3,
-                    "PITCH": 4,
-                    "ROLL": 5
-                }
-            }
+            "Error": {}
         },
         "Auger": {
             "Ip": "192.168.2.108",
@@ -609,7 +532,7 @@
                     "dataCount": 2,
                     "comments": "[AFFilters, SoilTrapdoor] (-180deg - 180deg)"
                 },
-                "AugerGimbalIncrement": {
+                "AugerGimbal": {
                     "dataId": 9007,
                     "dataType": "INT16_T",
                     "dataCount": 2,
@@ -1028,12 +951,6 @@
                     "comments": "Camera has errored and stopped streaming. [0] is ID of camera as an integer (not bitmask)."
                 }
             }
-        },
-        "IRSpectrometer": {
-            "Ip": "192.168.3.104",
-            "Commands": {},
-            "Telemetry": {},
-            "Error": {}
         },
         "Raman": {
             "Ip": "192.168.3.105",
