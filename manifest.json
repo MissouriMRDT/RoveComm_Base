@@ -667,12 +667,6 @@
                     "dataCount": 1,
                     "comments": "[Teleop, Autonomy, Reached Goal] (enum)"
                 },
-                "CurrentLog": {
-                    "dataId": 11102,
-                    "dataType": "CHAR",
-                    "dataCount": 255,
-                    "comments": "String version of most current error log"
-                },
                 "ThreadFPS": {
                     "dataId": 11103,
                     "dataType": "UINT32_T",
