@@ -46,19 +46,19 @@
                     "dataId": 3000,
                     "dataType": "FLOAT_T",
                     "dataCount": 2,
-                    "comments": "[LeftSpeed, RightSpeed] (-1 - 1)-> (-100% - 100%)"
+                    "comments": "[LeftSpeed, RightSpeed] (-1 - 1) -> (-100% - 100%)"
                 },
                 "DriveIndividual": {
                     "dataId": 3001,
                     "dataType": "FLOAT_T",
                     "dataCount": 6,
-                    "comments": "[LF, LM, LR, RF, RM, RR] (-1 - 1)-> (-100% - 100%)"
+                    "comments": "[LF, LM, LR, RF, RM, RR] (-1 - 1) -> (-100% - 100%)"
                 },
                 "WatchdogOverride": {
                     "dataId": 3002,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[0-override off, 1-override on]"
+                    "comments": "[Enabled]"
                 },
                 "LeftGimbal": {
                     "dataId": 3003,
@@ -82,7 +82,7 @@
                     "dataId": 3006,
                     "dataType": "UINT8_T",
                     "dataCount": 3,
-                    "comments": "[R, G, B] (Brightness 0 - 255)"
+                    "comments": "[R, G, B] (brightness 0 - 255)"
                 },
                 "BackImage": {
                     "dataId": 3007,
@@ -94,7 +94,7 @@
                     "dataId": 3008,
                     "dataType": "UINT8_T",
                     "dataCount": 3,
-                    "comments": "[R, G, B] (Brightness 0 - 255)"
+                    "comments": "[R, G, B] (brightness 0 - 255)"
                 },
                 "InternalImage": {
                     "dataId": 3009,
@@ -118,13 +118,13 @@
                     "dataId": 3012,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[Mode] (0: Teleop, 1: Autonomy)"
+                    "comments": "[Mode] (0: Teleop 1: Autonomy)"
                 },
                 "LEDText": {
                     "dataId": 3013,
                     "dataType": "CHAR",
                     "dataCount": 256,
-                    "comments": "[Message] (Null terminated string)"
+                    "comments": "[Message] (null terminated string)"
                 }
             },
             "Telemetry": {
@@ -132,7 +132,7 @@
                     "dataId": 3100,
                     "dataType": "FLOAT_T",
                     "dataCount": 6,
-                    "comments": "[FL, ML, BL, FR, MR, BR] (-1, 1)-> (-100%, 100%)"
+                    "comments": "[FL, ML, BL, FR, MR, BR] (-1 - 1) -> (-100% - 100%)"
                 },
                 "MotorCurrents": {
                     "dataId": 3101,
@@ -144,7 +144,7 @@
                     "dataId": 3102,
                     "dataType": "FLOAT_T",
                     "dataCount": 6,
-                    "comments": "[FL, ML, BL, FR, MR, BR] (A Battery side)"
+                    "comments": "[FL, ML, BL, FR, MR, BR] (A battery side)"
                 },
                 "IMUData": {
                     "dataId": 3103,
@@ -238,19 +238,19 @@
                     "dataId": 4003,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[Motor, Core, Aux] (bitmasked enable)"
+                    "comments": "[Motor, Core, Aux] (bitmask enable)"
                 },
                 "DisableBus": {
                     "dataId": 4004,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[Motor, Core, Aux] (bitmasked disable)"
+                    "comments": "[Motor, Core, Aux] (bitmask disable)"
                 },
                 "SetBus": {
                     "dataId": 4005,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[Motor, Core, Aux] (bitmasked enabled)"
+                    "comments": "[Motor, Core, Aux] (bitmask enabled)"
                 }
             },
             "Telemetry": {
@@ -264,7 +264,7 @@
                     "dataId": 4101,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[Motor, Core, Aux, RadioM2, RadioM9, Network] (bitmasked) [1-Enabled, 0-Disabled]"
+                    "comments": "[Motor, Core, Aux, RadioM2, RadioM9, Network] (bitmask enabled)"
                 }
             },
             "Error": {
@@ -278,13 +278,13 @@
                     "dataId": 4201,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[C1, C2, C3, C4, C5, C6] (bitmasked undervolt). Rover will EStop automatically"
+                    "comments": "[C1, C2, C3, C4, C5, C6] (bitmask undervolt) Rover will EStop automatically"
                 },
                 "CellCritical": {
                     "dataId": 4202,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[C1, C2, C3, C4, C5, C6] (bitmasked critical). Rover will Suicide automatically"
+                    "comments": "[C1, C2, C3, C4, C5, C6] (bitmask critical) Rover will Suicide automatically"
                 },
                 "AuxOvercurrent": {
                     "dataId": 4203,
@@ -302,26 +302,26 @@
                     "dataId": 6100,
                     "dataType": "DOUBLE_T",
                     "dataCount": 8,
-                    "comments": "[Lat, Long, Alt, horizontal_accur, vertical_accur, heading_accur, fix_type, is_differential] [degrees, degrees, meters, meters, meters, degrees, ublox_navpvt fix type (http://docs.ros.org/en/noetic/api/ublox_msgs/html/msg/NavPVT.html), boolean]]"
+                    "comments": "[Lat, Lon, Alt, HorizontalAccuracy, VerticalAccuracy, HeadingAccuracy, FixType, IsDifferential] (degrees, degrees, meters, meters, meters, degrees, ublox_navpvt fix type http://docs.ros.org/en/noetic/api/ublox_msgs/html/msg/NavPVT.html, boolean)"
                 },
                 "CompassData": {
                     "dataId": 6102,
                     "dataType": "FLOAT_T",
                     "dataCount": 1,
-                    "comments": "[Heading] [ 0, 360 ]"
+                    "comments": "[Heading] (0 - 360)"
                 },
                 "SatelliteCountData": {
                     "dataId": 6103,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[Number of satellites]"
+                    "comments": "[Satellites]"
                 }
             },
             "Error": {
                 "GPSLockError": {
                     "dataId": 6200,
                     "dataType": "UINT8_T",
-                    "dataCount": 1,
+                    "dataCount": 0,
                     "comments": ""
                 }
             }
@@ -333,25 +333,25 @@
                     "dataId": 7000,
                     "dataType": "INT16_T",
                     "dataCount": 1,
-                    "comments": "Motor decipercent [-1000, 1000]"
+                    "comments": "[Speed] (-1000 - 1000) -> (-100% - 100%)"
                 },
                 "SetAngleTarget": {
                     "dataId": 7001,
                     "dataType": "FLOAT_T",
                     "dataCount": 1,
-                    "comments": "[Heading] [0, 360)"
+                    "comments": "[Heading] (0 - 360)"
                 },
                 "SetGPSTarget": {
                     "dataId": 7002,
                     "dataType": "DOUBLE_T",
                     "dataCount": 4,
-                    "comments": "[Rover Lat, Rover Long, Basestation Lat, Basestation Long] [Lat:(-90, 90), Long:(-180, 180)] (deg)"
+                    "comments": "[Rover Lat, Rover Lon, Basestation Lat, Basestation Lon] (-90 - 90, -180 - 180, -90 - 90, -180 - 180)"
                 },
                 "WatchdogOverride": {
                     "dataId": 7003,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[0-override off, 1-override on]"
+                    "comments": "[Enabled]"
                 }
             },
             "Telemetry": {
@@ -359,15 +359,7 @@
                     "dataId": 7100,
                     "dataType": "FLOAT_T",
                     "dataCount": 1,
-                    "comments": "[Heading] [0, 360)"
-                }
-            },
-            "Error": {
-                "WatchdogStatus": {
-                    "dataId": 7200,
-                    "dataType": "UINT8_T",
-                    "dataCount": 1,
-                    "comments": "(1-Watchdog timeout, 0-OK)"
+                    "comments": "[Heading] (0 - 360)"
                 }
             }
         },
@@ -384,7 +376,7 @@
                     "dataId": 8001,
                     "dataType": "FLOAT_T",
                     "dataCount": 6,
-                    "comments": "[X, J2, J3, J4, P, R] (in, deg, deg, deg, deg, deg, deg)"
+                    "comments": "[X, J2, J3, J4, P, R] (in, deg, deg, deg, deg, deg)"
                 },
                 "GripperOpenLoop": {
                     "dataId": 8002,
@@ -432,7 +424,7 @@
                     "dataId": 8009,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[X, J2, J3, J4, P, R] (bitmasked override enabled)"
+                    "comments": "[X, J2, J3, J4, P, R] (bitmask override enabled)"
                 },
                 "CalibrateEncoder": {
                     "dataId": 8010,
@@ -464,7 +456,7 @@
                     "dataId": 8100,
                     "dataType": "FLOAT_T",
                     "dataCount": 8,
-                    "comments": "[X, J2, J3, J4, P, R, Y, Z] (in, deg, deg, deg, deg, deg, deg, deg, in, in)"
+                    "comments": "[X, J2, J3, J4, P, R, Y, Z] (in, deg, deg, deg, deg, deg, in, in)"
                 },
                 "LimitSwitch": {
                     "dataId": 8101,
@@ -482,7 +474,7 @@
                     "dataId": 8103,
                     "dataType": "UINT16_T",
                     "dataCount": 6,
-                    "comments": "[X, J2, J3, J4, P, R] (Ping Time ms)"
+                    "comments": "[X, J2, J3, J4, P, R] (ping time ms)"
                 }
             },
             "Error": {}
@@ -524,7 +516,7 @@
                     "dataId": 9005,
                     "dataType": "UINT8_T",
                     "dataCount": 4,
-                    "comments": "[White, 365, 405, 500] (0 - 255) -> (Off - Full Brightness)"
+                    "comments": "[White, 365, 405, 500] (brightness 0 - 255)"
                 },
                 "AugerServo": {
                     "dataId": 9006,
@@ -561,8 +553,8 @@
                 "Environmental": {
                     "dataId": 9103,
                     "dataType": "FLOAT_T",
-                    "dataCount": 6,
-                    "comments": "[Temperature, Humidity, N, P, K, pH] (degrees C, relative humidity %, ?, ?, ?, ?)"
+                    "dataCount": 2,
+                    "comments": "[Temperature, Humidity] (degrees C, relative humidity %)"
                 },
                 "AugerCurrent": {
                     "dataId": 9104,
@@ -574,7 +566,7 @@
                     "dataId": 9105,
                     "dataType": "UINT16_T",
                     "dataCount": 1,
-                    "comments": "[AugerAxis Ping Time] (ms)"
+                    "comments": "[AugerAxis] (ping time ms)"
                 }
             }
         },
@@ -659,19 +651,19 @@
                     "dataId": 11100,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "Enum (AUTONOMYSTATE)"
+                    "comments": "[State] (AUTONOMYSTATE)"
                 },
                 "StateDisplay": {
                     "dataId": 11101,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[Teleop, Autonomy, Reached Goal] (enum)"
+                    "comments": "[State] (0: Teleop 1: Autonomy 2: Reached Goal)"
                 },
                 "ThreadFPS": {
                     "dataId": 11103,
                     "dataType": "UINT32_T",
                     "dataCount": 2,
-                    "comments": "[Thread Enum ID, FPS Value]"
+                    "comments": "[Thread, FPS] (AUTONOMYTHREADS, fps)"
                 }
             },
             "Error": {},
@@ -730,37 +722,37 @@
                     "dataId": 12000,
                     "dataType": "UINT8_T",
                     "dataCount": 2,
-                    "comments": "Take a picture with the current camera. [0] is the camera to take a picture with. [1] tells the camera whether to restart the stream afterwards."
+                    "comments": "[Camera, Restart]"
                 },
                 "ToggleStream": {
                     "dataId": 12001,
                     "dataType": "UINT8_T",
                     "dataCount": 2,
-                    "comments": "Stop the current camera stream. [0] is the camera to stop streaming. [1] is whether to restart the stream."
+                    "comments": "[Camera, Restart]"
                 },
                 "SetFFMPEGArguments": {
                     "dataId": 12002,
                     "dataType": "CHAR",
                     "dataCount": 16384,
-                    "comments": "0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/ffmpeg_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $ip: output ip, $port: output port, $brightness, $contrast."
+                    "comments": "[Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/ffmpeg_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $ip: output ip, $port: output port, $brightness, $contrast)"
                 },
                 "SetPictureArguments": {
                     "dataId": 12003,
                     "dataType": "CHAR",
                     "dataCount": 16384,
-                    "comments": "0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/picture_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $output: output file without extension, $brightness, $contrast."
+                    "comments": "[Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/picture_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $output: output file without extension, $brightness, $contrast)"
                 },
                 "SetBrightness": {
                     "dataId": 12004,
                     "dataType": "FLOAT_T",
                     "dataCount": 4,
-                    "comments": "Brightness for each camera (-1.0, 1.0)"
+                    "comments": "[Camera0, Camera1, Camera2, Camera3] (-1.0 - 1.0)"
                 },
                 "SetContrast": {
                     "dataId": 12005,
                     "dataType": "FLOAT_T",
                     "dataCount": 4,
-                    "comments": "Contrast for each camera (0, 2)"
+                    "comments": "[Camera0, Camera1, Camera2, Camera3] (-1.0 - 2.0)"
                 }
             },
             "Telemetry": {
@@ -768,25 +760,25 @@
                     "dataId": 12100,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "Number of detected cameras."
+                    "comments": "[AvailableCameras]"
                 },
                 "StreamingCameras": {
                     "dataId": 12101,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "Number of streaming cameras."
+                    "comments": "[StreamingCameras]"
                 },
                 "PictureTaken": {
                     "dataId": 12102,
                     "dataType": "UINT8_T",
-                    "dataCount": 1,
+                    "dataCount": 0,
                     "comments": "Picture has been taken."
                 },
                 "Utilization": {
                     "dataId": 12103,
                     "dataType": "UINT8_T",
                     "dataCount": 6,
-                    "comments": "[cpu0, cpu1, cpu2, cpu3, mem, storage], (% usage)"
+                    "comments": "[cpu0, cpu1, cpu2, cpu3, mem, storage] (% usage)"
                 }
             },
             "Error": {}
@@ -798,37 +790,37 @@
                     "dataId": 13000,
                     "dataType": "UINT8_T",
                     "dataCount": 2,
-                    "comments": "Take a picture with the current camera. [0] is the camera to take a picture with. [1] tells the camera whether to restart the stream afterwards."
+                    "comments": "[Camera, Restart]"
                 },
                 "ToggleStream": {
                     "dataId": 13001,
                     "dataType": "UINT8_T",
                     "dataCount": 2,
-                    "comments": "Stop the current camera stream. [0] is the camera to stop streaming. [1] is whether to restart the stream."
+                    "comments": "[Camera, Restart]"
                 },
                 "SetFFMPEGArguments": {
                     "dataId": 13002,
                     "dataType": "CHAR",
                     "dataCount": 16384,
-                    "comments": "0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/ffmpeg_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $ip: output ip, $port: output port, $brightness, $contrast."
+                    "comments": "[Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/ffmpeg_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $ip: output ip, $port: output port, $brightness, $contrast)"
                 },
                 "SetPictureArguments": {
                     "dataId": 13003,
                     "dataType": "CHAR",
                     "dataCount": 16384,
-                    "comments": "0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/picture_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $output: output file without extension, $brightness, $contrast."
+                    "comments": "[Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/picture_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $output: output file without extension, $brightness, $contrast)"
                 },
                 "SetBrightness": {
                     "dataId": 13004,
                     "dataType": "FLOAT_T",
                     "dataCount": 4,
-                    "comments": "Brightness for each camera (-1.0, 1.0)"
+                    "comments": "[Camera0, Camera1, Camera2, Camera3] (-1.0 - 1.0)"
                 },
                 "SetContrast": {
                     "dataId": 13005,
                     "dataType": "FLOAT_T",
                     "dataCount": 4,
-                    "comments": "Contrast for each camera (0, 2)"
+                    "comments": "[Camera0, Camera1, Camera2, Camera3] (-1.0 - 2.0)"
                 }
             },
             "Telemetry": {
@@ -836,25 +828,25 @@
                     "dataId": 13100,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "Number of detected cameras."
+                    "comments": "[AvailableCameras]"
                 },
                 "StreamingCameras": {
                     "dataId": 13101,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "Number of streaming cameras."
+                    "comments": "[StreamingCameras]"
                 },
                 "PictureTaken": {
                     "dataId": 13102,
                     "dataType": "UINT8_T",
-                    "dataCount": 1,
+                    "dataCount": 0,
                     "comments": "Picture has been taken."
                 },
                 "Utilization": {
                     "dataId": 13103,
                     "dataType": "UINT8_T",
                     "dataCount": 6,
-                    "comments": "[cpu0, cpu1, cpu2, cpu3, mem, storage], (% usage)"
+                    "comments": "[cpu0, cpu1, cpu2, cpu3, mem, storage] (% usage)"
                 }
             },
             "Error": {}
@@ -866,55 +858,55 @@
                     "dataId": 14000,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "Take a picture with the current camera. [0] is the camera to take a picture with."
+                    "comments": "[Camera]"
                 },
                 "ToggleStream": {
                     "dataId": 14001,
                     "dataType": "UINT8_T",
                     "dataCount": 2,
-                    "comments": "Stop the current camera stream. [0] is the camera to stop streaming. [1] is the action (0 = Shutdown, 1 = Startup, 2 = Restart)."
+                    "comments": "[Camera, Action] (id, 0: Shutdown 1: Startup 2: Restart)"
                 },
                 "AdjustBrightness": {
                     "dataId": 14002,
                     "dataType": "UINT8_T",
                     "dataCount": 2,
-                    "comments": "Adjust brightness level (0-255). [0] is the camera ID, [1] is the brightness level."
+                    "comments": "[Camera, Brightness] (id, 0 - 255)"
                 },
                 "AdjustContrast": {
                     "dataId": 14003,
                     "dataType": "UINT8_T",
                     "dataCount": 2,
-                    "comments": "Adjust contrast level (0-255). [0] is the camera ID, [1] is the contrast level."
+                    "comments": "[Camera, Contrast] (id, 0 - 255)"
                 },
                 "AdjustSaturation": {
                     "dataId": 14004,
                     "dataType": "UINT8_T",
                     "dataCount": 2,
-                    "comments": "Adjust saturation level (0-255). [0] is the camera ID, [1] is the saturation level."
+                    "comments": "[Camera, Saturation] (id, 0 - 255)"
                 },
                 "AdjustHue": {
                     "dataId": 14005,
                     "dataType": "UINT8_T",
                     "dataCount": 2,
-                    "comments": "Adjust hue level (0-255). [0] is the camera ID, [1] is the hue level."
+                    "comments": "[Camera, Hue] (id, 0 - 255)"
                 },
                 "SetWhiteBalance": {
                     "dataId": 14008,
                     "dataType": "UINT8_T",
                     "dataCount": 2,
-                    "comments": "Set white balance temperature. [0] is the camera ID, [1] is the white balance level."
+                    "comments": "[Camera, Temperature]"
                 },
                 "AdjustBacklightContrast": {
                     "dataId": 14009,
                     "dataType": "UINT8_T",
                     "dataCount": 2,
-                    "comments": "Adjust backlight contrast level (0-255). [0] is the camera ID, [1] is the backlight contrast level."
+                    "comments": "[Camera, BacklightContrast]"
                 },
                 "SetExposure": {
                     "dataId": 14010,
                     "dataType": "INT32_T",
                     "dataCount": 2,
-                    "comments": "Set exposure level. [0] is the camera ID, [1] is the exposure level."
+                    "comments": "[Camera, Exposure]"
                 }
             },
             "Telemetry": {
@@ -922,19 +914,19 @@
                     "dataId": 14100,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "Bitmask values for which cameras are able to stream. LSB is Camera 0, MSB is Camera 7."
+                    "comments": "[Camera0, Camera1, Camera2, Camera3, Camera4, Camera5, Camera6, Camera7] (bitmask able to stream)"
                 },
                 "StreamingCameras": {
                     "dataId": 14101,
                     "dataType": "UINT8_T",
                     "dataCount": 4,
-                    "comments": "Which cameras the system is currently streaming on each port"
+                    "comments": "[Port0, Port1, Port2, Port3] (currently streaming on each port)"
                 },
-                "PictureTaken1": {
+                "PictureTaken": {
                     "dataId": 14102,
                     "dataType": "UINT8_T",
-                    "dataCount": 1,
-                    "comments": "Picture has been taken."
+                    "dataCount": 0,
+                    "comments": "Picture has been taken"
                 }
             },
             "Error": {
@@ -942,7 +934,7 @@
                     "dataId": 14200,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "Camera has errored and stopped streaming. [0] is ID of camera as an integer (not bitmask)."
+                    "comments": "[Camera] (id) Camera has errored and stopped streaming"
                 }
             }
         },
@@ -977,7 +969,7 @@
                     "dataId": 16004,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[0-disable, 1-enable]"
+                    "comments": "[Enabled]"
                 },
                 "RequestRamanReading": {
                     "dataId": 16005,
@@ -991,7 +983,7 @@
                     "dataId": 16100,
                     "dataType": "FLOAT_T",
                     "dataCount": 2,
-                    "comments": "[InstrumentsAxis, TOF] (mm)"
+                    "comments": "[InstrumentsAxis, TOF] (mm, mm)"
                 },
                 "LimitSwitch": {
                     "dataId": 16101,
@@ -1027,7 +1019,7 @@
                     "dataId": 16106,
                     "dataType": "UINT16_T",
                     "dataCount": 1,
-                    "comments": "[InstrumentsAxis Ping Time] (ms)"
+                    "comments": "[InstrumentsAxis] (ping time ms)"
                 }
             }
         },
