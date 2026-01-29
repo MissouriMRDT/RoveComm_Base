@@ -64,19 +64,19 @@
                     "dataId": 3003,
                     "dataType": "INT16_T",
                     "dataCount": 2,
-                    "comments": "[Pan, Tilt] (-180deg - 180deg)"
+                    "comments": "[Pan, Tilt] (0 - 180)"
                 },
                 "RightGimbal": {
                     "dataId": 3004,
                     "dataType": "INT16_T",
                     "dataCount": 2,
-                    "comments": "[Pan, Tilt] (-180deg - 180deg)"
+                    "comments": "[Pan, Tilt] (0 - 180)"
                 },
                 "BackGimbal": {
                     "dataId": 3005,
                     "dataType": "INT16_T",
                     "dataCount": 2,
-                    "comments": "[Pan, Tilt] (-180deg - 180deg)"
+                    "comments": "[Pan, Tilt] (0 - 180)"
                 },
                 "LEDRGB": {
                     "dataId": 3006,
@@ -157,6 +157,12 @@
                     "dataType": "FLOAT_T",
                     "dataCount": 3,
                     "comments": "[X, Y, Z] (m/s2)"
+                },
+                "Thermal": {
+                    "dataId": 3105,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 3,
+                    "comments": "[FanSpeed, BoardTemperature, OtherTemperature] (rpm, C, C)"
                 }
             },
             "Error": {
@@ -302,7 +308,7 @@
                     "dataId": 6100,
                     "dataType": "DOUBLE_T",
                     "dataCount": 8,
-                    "comments": "[Lat, Lon, Alt, HorizontalAccuracy, VerticalAccuracy, HeadingAccuracy, FixType, IsDifferential] (degrees, degrees, meters, meters, meters, degrees, ublox_navpvt fix type http://docs.ros.org/en/noetic/api/ublox_msgs/html/msg/NavPVT.html, boolean)"
+                    "comments": "[Lat, Lon, Alt, HorizontalAccuracy, VerticalAccuracy, HeadingAccuracy, FixType, IsDifferential] (deg, deg, m, m, m, deg, ublox_navpvt fix type http://docs.ros.org/en/noetic/api/ublox_msgs/html/msg/NavPVT.html, bool)"
                 },
                 "CompassData": {
                     "dataId": 6102,
@@ -400,13 +406,13 @@
                     "dataId": 8005,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[Position] (-180 - 180)"
+                    "comments": "[Position] (0 - 180)"
                 },
                 "Cache": {
                     "dataId": 8006,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[Position] (-180 - 180)"
+                    "comments": "[Position] (0 - 180)"
                 },
                 "WatchdogOverride": {
                     "dataId": 8007,
@@ -442,13 +448,13 @@
                     "dataId": 8012,
                     "dataType": "INT16_T",
                     "dataCount": 2,
-                    "comments": "[Pan, Tilt] (-180deg - 180deg)"
+                    "comments": "[Pan, Tilt] (0 - 180)"
                 },
                 "ArmGimbal2": {
                     "dataId": 8013,
                     "dataType": "INT16_T",
                     "dataCount": 2,
-                    "comments": "[Pan, Tilt] (-180deg - 180deg)"
+                    "comments": "[Pan, Tilt] (0 - 180)"
                 }
             },
             "Telemetry": {
@@ -522,13 +528,13 @@
                     "dataId": 9006,
                     "dataType": "INT16_T",
                     "dataCount": 2,
-                    "comments": "[AFFilters, SoilTrapdoor] (-180deg - 180deg)"
+                    "comments": "[AFFilters, SoilTrapdoor] (0 - 180)"
                 },
                 "AugerGimbal": {
                     "dataId": 9007,
                     "dataType": "INT16_T",
                     "dataCount": 2,
-                    "comments": "[Pan, Tilt] (-180deg - 180deg)"
+                    "comments": "[Pan, Tilt] (0 - 180)"
                 }
             },
             "Telemetry": {
@@ -554,7 +560,7 @@
                     "dataId": 9103,
                     "dataType": "FLOAT_T",
                     "dataCount": 2,
-                    "comments": "[Temperature, Humidity] (degrees C, relative humidity %)"
+                    "comments": "[Temperature, Humidity] (C, relative %)"
                 },
                 "AugerCurrent": {
                     "dataId": 9104,
