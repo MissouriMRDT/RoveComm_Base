@@ -386,7 +386,7 @@
                 },
                 "GripperOpenLoop": {
                     "dataId": 8002,
-                    "dataType": "FLOAT_T",
+                    "dataType": "INT16_T",
                     "dataCount": 1,
                     "comments": "[Gripper] (-32768 - 32767) -> (-100% - 100%)"
                 },
@@ -479,8 +479,8 @@
                 "SMOCOPing": {
                     "dataId": 8103,
                     "dataType": "UINT16_T",
-                    "dataCount": 6,
-                    "comments": "[X, J2, J3, J4, P, R] (ping time ms)"
+                    "dataCount": 7,
+                    "comments": "[X, J2, J3, J4, P, R, G] (ping time ms)"
                 }
             },
             "Error": {}
