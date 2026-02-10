@@ -376,13 +376,13 @@
                     "dataId": 8000,
                     "dataType": "INT16_T",
                     "dataCount": 6,
-                    "comments": "[X, J2, J3, J4, P, R] (-32768 - 32767) -> (-100% - 100%)"
+                    "comments": "[X, J2, J3, J4, J5, J6] (-32768 - 32767) -> (-100% - 100%)"
                 },
                 "TargetAngle": {
                     "dataId": 8001,
                     "dataType": "FLOAT_T",
                     "dataCount": 6,
-                    "comments": "[X, J2, J3, J4, P, R] (in, deg, deg, deg, deg, deg)"
+                    "comments": "[X, J2, J3, J4, J5, J6] (in, deg, deg, deg, deg, deg)"
                 },
                 "GripperOpenLoop": {
                     "dataId": 8002,
@@ -394,7 +394,7 @@
                     "dataId": 8003,
                     "dataType": "FLOAT_T",
                     "dataCount": 6,
-                    "comments": "[X, Y, Z, J4, P, R] (in, in, in, deg, deg, deg)"
+                    "comments": "[X, Y, Z, J4, J5, J6] (in, in, in, deg, deg, deg)"
                 },
                 "Laser": {
                     "dataId": 8004,
@@ -424,13 +424,13 @@
                     "dataId": 8008,
                     "dataType": "UINT16_T",
                     "dataCount": 1,
-                    "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P+, P-] (bitmask override enabled)"
+                    "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, J5+, J5-] (bitmask override enabled)"
                 },
                 "ClosedLoopOverride": {
                     "dataId": 8009,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[X, J2, J3, J4, P, R] (bitmask override enabled)"
+                    "comments": "[X, J2, J3, J4, J5, J6] (bitmask override enabled)"
                 },
                 "CalibrateEncoder": {
                     "dataId": 8010,
@@ -442,7 +442,7 @@
                     "dataId": 8011,
                     "dataType": "UINT16_T",
                     "dataCount": 1,
-                    "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P+, P-] (bitmask override enabled)"
+                    "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, J5+, J5-] (bitmask override enabled)"
                 },
                 "ArmGimbal1": {
                     "dataId": 8012,
@@ -462,25 +462,25 @@
                     "dataId": 8100,
                     "dataType": "FLOAT_T",
                     "dataCount": 8,
-                    "comments": "[X, J2, J3, J4, P, R, Y, Z] (in, deg, deg, deg, deg, deg, in, in)"
+                    "comments": "[X, J2, J3, J4, J5, J6, Y, Z] (in, deg, deg, deg, deg, deg, in, in)"
                 },
                 "LimitSwitch": {
                     "dataId": 8101,
                     "dataType": "UINT16_T",
                     "dataCount": 1,
-                    "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P+, P-] (bitmask depressed)"
+                    "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, J5+, J5-] (bitmask depressed)"
                 },
                 "SoftLimit": {
                     "dataId": 8102,
                     "dataType": "UINT16_T",
                     "dataCount": 1,
-                    "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, P+, P-] (bitmask triggered)"
+                    "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, J5+, J5-] (bitmask triggered)"
                 },
                 "SMOCOPing": {
                     "dataId": 8103,
                     "dataType": "UINT16_T",
                     "dataCount": 7,
-                    "comments": "[X, J2, J3, J4, P, R, G] (ping time ms)"
+                    "comments": "[X, J2, J3, J4, J5, J6, G] (ping time ms)"
                 }
             },
             "Error": {}
