@@ -527,6 +527,28 @@
                 "AugerServo": {
                     "dataId": 9006,
                     "dataType": "INT16_T",
+<<<<<<< HEAD
+                    "dataCount": 1,
+                    "comments": "[Position](degrees -180-180)"
+                },
+                "RequestNPK": {
+                    "dataId": 9011,
+                    "dataType": "UINT8_T",
+                    "dataCount": 2,
+                    "comments": "Request a reading of the NPK sensor data at the end of the auger"
+                },
+                "AFLED": { 
+                    "dataId": 9012, 
+                    "dataType": "UINT8_T", 
+                    "dataCount": 2, 
+                    "comments": "[mode, brightness] mode: 0-off, 1-white, 2-365, 3-405, 4-500" 
+                },
+                "Filter": {
+                    "dataId": 9013, 
+                    "dataType": "UINT8_T", 
+                    "dataCount": 1, 
+                    "comments": "Filter (0-off, 1-440nm , 2-500nm, 3-525nm)" 
+=======
                     "dataCount": 2,
                     "comments": "[AFFilters, SoilTrapdoor] (0 - 180)"
                 },
@@ -535,6 +557,7 @@
                     "dataType": "INT16_T",
                     "dataCount": 2,
                     "comments": "[Pan, Tilt] (0 - 180)"
+>>>>>>> 82c87a72c8bc667cdd4656dcf59be9a7beef3b0b
                 }
             },
             "Telemetry": {
@@ -566,7 +589,49 @@
                     "dataId": 9104,
                     "dataType": "FLOAT_T",
                     "dataCount": 1,
+<<<<<<< HEAD
+                    "comments": "[Humidity] (relative humidity %)"
+                },
+                "Nitrogen": {
+                    "dataId": 9105,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 1,
+                    "comments": "[Nitrogen] (mg/kg)"
+                },
+                "Phosphorus": {
+                    "dataId": 9106,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 1,
+                    "comments": "[Phosphorus] (mg/kg)"
+                },
+                "Potassium": {
+                    "dataId": 9107,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 1,
+                    "comments": "[Potassium] (mg/kg)"
+                },
+                "AugerDepth": {
+                    "dataId": 9108,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 1,
+                    "comments": ""
+                },
+                "AugerCurrent": {
+                    "dataId": 9109,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 1,
+                    "comments": ""
+                }
+            },
+            "Error": {
+                "WatchdogStatus": {
+                    "dataId": 9200,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "(1-Watchdog timeout, 0-OK)"
+=======
                     "comments": "[AugerCurrent] (A)"
+>>>>>>> 82c87a72c8bc667cdd4656dcf59be9a7beef3b0b
                 },
                 "SMOCOPing": {
                     "dataId": 9105,
@@ -981,7 +1046,23 @@
                     "dataId": 16005,
                     "dataType": "UINT32_T",
                     "dataCount": 1,
+<<<<<<< HEAD
+                    "comments": "Start a Raman reading, with the provided integration time (milliseconds)"
+                },
+                "RamanGimbalIncrement": {
+                    "dataId": 16008,
+                    "dataType": "INT16_T",
+                    "dataCount": 2,
+                    "comments": "[Pan, Tilt](degrees -180-180)"
+                },
+                "SoilTrapdoor": {
+                    "dataId": 16006,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "[0-cache, 1-AF]"
+=======
                     "comments": "[Integration Time] (ms)"
+>>>>>>> 82c87a72c8bc667cdd4656dcf59be9a7beef3b0b
                 }
             },
             "Telemetry": {
