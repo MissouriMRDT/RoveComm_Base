@@ -384,74 +384,92 @@
                     "dataCount": 6,
                     "comments": "[X, J2, J3, J4, J5, J6] (in, deg, deg, deg, deg, deg)"
                 },
-                "GripperOpenLoop": {
+                "TargetAngleIncrement": {
                     "dataId": 8002,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 6,
+                    "comments": "[X, J2, J3, J4, J5, J6] (in, deg, deg, deg, deg, deg)"
+                },
+                "GripperOpenLoop": {
+                    "dataId": 8003,
                     "dataType": "INT16_T",
                     "dataCount": 1,
                     "comments": "[Gripper] (-32768 - 32767) -> (-100% - 100%)"
                 },
                 "IKPosition": {
-                    "dataId": 8003,
+                    "dataId": 8004,
                     "dataType": "FLOAT_T",
                     "dataCount": 6,
                     "comments": "[X, Y, Z, J4, J5, J6] (in, in, in, deg, deg, deg)"
                 },
-                "Laser": {
-                    "dataId": 8004,
-                    "dataType": "UINT8_T",
-                    "dataCount": 1,
-                    "comments": "[Enabled]"
-                },
-                "LinearServo": {
+                "IKPositionIncrement": {
                     "dataId": 8005,
-                    "dataType": "UINT8_T",
-                    "dataCount": 1,
-                    "comments": "[Position] (0 - 180)"
+                    "dataType": "FLOAT_T",
+                    "dataCount": 6,
+                    "comments": "[X, Y, Z, J4, J5, J6] (in, in, in, deg, deg, deg)"
                 },
-                "Cache": {
+                "IKPoseIncrement": {
                     "dataId": 8006,
-                    "dataType": "UINT8_T",
-                    "dataCount": 1,
-                    "comments": "[Position] (0 - 180)"
+                    "dataType": "FLOAT_T",
+                    "dataCount": 6,
+                    "comments": "[TX, TY, TZ, RX, RY, RZ] (in, in, in, deg, deg, deg)"
                 },
-                "WatchdogOverride": {
+                "Laser": {
                     "dataId": 8007,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
                     "comments": "[Enabled]"
                 },
-                "LimitSwitchOverride": {
+                "LinearServo": {
                     "dataId": 8008,
-                    "dataType": "UINT16_T",
+                    "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, J5+, J5-] (bitmask override enabled)"
+                    "comments": "[Position] (0 - 180)"
                 },
-                "ClosedLoopOverride": {
+                "Cache": {
                     "dataId": 8009,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[X, J2, J3, J4, J5, J6] (bitmask override enabled)"
+                    "comments": "[Position] (0 - 180)"
                 },
-                "CalibrateEncoder": {
+                "WatchdogOverride": {
                     "dataId": 8010,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[X, Roll] (bitmask start calibration)"
+                    "comments": "[Enabled]"
                 },
-                "SoftLimitOverride": {
+                "LimitSwitchOverride": {
                     "dataId": 8011,
                     "dataType": "UINT16_T",
                     "dataCount": 1,
                     "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, J5+, J5-] (bitmask override enabled)"
                 },
-                "ArmGimbal1": {
+                "ClosedLoopOverride": {
                     "dataId": 8012,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "[X, J2, J3, J4, J5, J6] (bitmask override enabled)"
+                },
+                "CalibrateEncoder": {
+                    "dataId": 8013,
+                    "dataType": "UINT8_T",
+                    "dataCount": 1,
+                    "comments": "[X, Roll] (bitmask start calibration)"
+                },
+                "SoftLimitOverride": {
+                    "dataId": 8014,
+                    "dataType": "UINT16_T",
+                    "dataCount": 1,
+                    "comments": "[X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, J5+, J5-] (bitmask override enabled)"
+                },
+                "ArmGimbal1": {
+                    "dataId": 8015,
                     "dataType": "INT16_T",
                     "dataCount": 2,
                     "comments": "[Pan, Tilt] (0 - 180)"
                 },
                 "ArmGimbal2": {
-                    "dataId": 8013,
+                    "dataId": 8016,
                     "dataType": "INT16_T",
                     "dataCount": 2,
                     "comments": "[Pan, Tilt] (0 - 180)"
@@ -461,8 +479,8 @@
                 "Position": {
                     "dataId": 8100,
                     "dataType": "FLOAT_T",
-                    "dataCount": 8,
-                    "comments": "[X, J2, J3, J4, J5, J6, Y, Z] (in, deg, deg, deg, deg, deg, in, in)"
+                    "dataCount": 9,
+                    "comments": "[X, J2, J3, J4, J5, J6, GX, GY, GZ] (in, deg, deg, deg, deg, deg, in, in, in)"
                 },
                 "LimitSwitch": {
                     "dataId": 8101,
