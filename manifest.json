@@ -688,6 +688,18 @@
                     "dataType": "UINT32_T",
                     "dataCount": 2,
                     "comments": "[Thread, FPS] (AUTONOMYTHREADS, fps)"
+                },
+                "PathWaypoints": {
+                    "dataId": 11104,
+                    "dataType": "DOUBLE_T",
+                    "dataCount": 1000,
+                    "comments": "[Lat, Lon, Lat, Lon, ...] (deg, deg, deg, deg, ...)"
+                },
+                "TimeRemaining": {
+                    "dataId": 11105,
+                    "dataType": "DOUBLE_T",
+                    "dataCount": 1,
+                    "comments": "[EstimatedTimeToGoal] (s)"
                 }
             },
             "Error": {},
