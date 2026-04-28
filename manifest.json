@@ -402,13 +402,13 @@
                     "dataCount": 6,
                     "comments": "[X, Y, Z, J4, J5, J6] (in, in, in, deg, deg, deg)"
                 },
-                "IKPositionIncrement": {
+                "IKWristIncrement": {
                     "dataId": 8005,
                     "dataType": "FLOAT_T",
                     "dataCount": 6,
                     "comments": "[X, Y, Z, J4, J5, J6] (in, in, in, deg, deg, deg)"
                 },
-                "IKPoseIncrement": {
+                "IKWorldIncrement": {
                     "dataId": 8006,
                     "dataType": "FLOAT_T",
                     "dataCount": 6,
@@ -473,6 +473,12 @@
                     "dataType": "INT16_T",
                     "dataCount": 2,
                     "comments": "[Pan, Tilt] (0 - 180)"
+                },
+                "IKToolIncrement": {
+                    "dataId": 80017,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 6,
+                    "comments": "[TX, TY, TZ, RX, RY, RZ] (in, in, in, deg, deg, deg)"
                 }
             },
             "Telemetry": {
@@ -499,6 +505,12 @@
                     "dataType": "UINT16_T",
                     "dataCount": 7,
                     "comments": "[X, J2, J3, J4, J5, J6, G] (ping time ms)"
+                },
+                "Target": {
+                    "dataId": 8104,
+                    "dataType": "FLOAT_T",
+                    "dataCount": 6,
+                    "comments": "[X, J2, J3, J4, J5, J6] (in, deg, deg, deg, deg, deg)"
                 }
             },
             "Error": {}
@@ -591,6 +603,12 @@
                     "dataType": "UINT16_T",
                     "dataCount": 1,
                     "comments": "[AugerAxis] (ping time ms)"
+                },
+                "LEDStatus": {
+                    "dataId": 9106,
+                    "dataType": "UINT16_T",
+                    "dataCount": 1,
+                    "comments": "[LEDTimer] (ms)"
                 }
             }
         },
@@ -770,25 +788,13 @@
                     "dataId": 12002,
                     "dataType": "CHAR",
                     "dataCount": 16384,
-                    "comments": "[Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/ffmpeg_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $ip: output ip, $port: output port, $brightness, $contrast)"
+                    "comments": "[Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/ffmpeg_arguments, byte after 0x04 is camera index. See RPI-Camera/config.toml for substitutions)"
                 },
                 "SetPictureArguments": {
                     "dataId": 12003,
                     "dataType": "CHAR",
                     "dataCount": 16384,
-                    "comments": "[Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/picture_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $output: output file without extension, $brightness, $contrast)"
-                },
-                "SetBrightness": {
-                    "dataId": 12004,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 4,
-                    "comments": "[Camera0, Camera1, Camera2, Camera3] (-1.0 - 1.0)"
-                },
-                "SetContrast": {
-                    "dataId": 12005,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 4,
-                    "comments": "[Camera0, Camera1, Camera2, Camera3] (-1.0 - 2.0)"
+                    "comments": "[Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/picture_arguments, byte after 0x04 is camera index. See RPI-Camera/config.toml for substitutions)"
                 }
             },
             "Telemetry": {
@@ -796,22 +802,16 @@
                     "dataId": 12100,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[AvailableCameras]"
-                },
-                "StreamingCameras": {
-                    "dataId": 12101,
-                    "dataType": "UINT8_T",
-                    "dataCount": 1,
-                    "comments": "[StreamingCameras]"
+                    "comments": "[Connected, Streaming] (bitmask indexes, bitmask indexes)"
                 },
                 "PictureTaken": {
-                    "dataId": 12102,
+                    "dataId": 12101,
                     "dataType": "UINT8_T",
                     "dataCount": 0,
                     "comments": "Picture has been taken."
                 },
                 "Utilization": {
-                    "dataId": 12103,
+                    "dataId": 12102,
                     "dataType": "UINT8_T",
                     "dataCount": 6,
                     "comments": "[cpu0, cpu1, cpu2, cpu3, mem, storage] (% usage)"
@@ -838,25 +838,13 @@
                     "dataId": 13002,
                     "dataType": "CHAR",
                     "dataCount": 16384,
-                    "comments": "[Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/ffmpeg_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $ip: output ip, $port: output port, $brightness, $contrast)"
+                    "comments": "[Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/ffmpeg_arguments, byte after 0x04 is camera index. See RPI-Camera/config.toml for substitutions)"
                 },
                 "SetPictureArguments": {
                     "dataId": 13003,
                     "dataType": "CHAR",
                     "dataCount": 16384,
-                    "comments": "[Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/picture_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $output: output file without extension, $brightness, $contrast)"
-                },
-                "SetBrightness": {
-                    "dataId": 13004,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 4,
-                    "comments": "[Camera0, Camera1, Camera2, Camera3] (-1.0 - 1.0)"
-                },
-                "SetContrast": {
-                    "dataId": 13005,
-                    "dataType": "FLOAT_T",
-                    "dataCount": 4,
-                    "comments": "[Camera0, Camera1, Camera2, Camera3] (-1.0 - 2.0)"
+                    "comments": "[Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/picture_arguments, byte after 0x04 is camera index. See RPI-Camera/config.toml for substitutions)"
                 }
             },
             "Telemetry": {
@@ -864,22 +852,16 @@
                     "dataId": 13100,
                     "dataType": "UINT8_T",
                     "dataCount": 1,
-                    "comments": "[AvailableCameras]"
-                },
-                "StreamingCameras": {
-                    "dataId": 13101,
-                    "dataType": "UINT8_T",
-                    "dataCount": 1,
-                    "comments": "[StreamingCameras]"
+                    "comments": "[Connected, Streaming] (bitmask indexes, bitmask indexes)"
                 },
                 "PictureTaken": {
-                    "dataId": 13102,
+                    "dataId": 13101,
                     "dataType": "UINT8_T",
                     "dataCount": 0,
                     "comments": "Picture has been taken."
                 },
                 "Utilization": {
-                    "dataId": 13103,
+                    "dataId": 13102,
                     "dataType": "UINT8_T",
                     "dataCount": 6,
                     "comments": "[cpu0, cpu1, cpu2, cpu3, mem, storage] (% usage)"
@@ -1011,7 +993,7 @@
                     "dataId": 16005,
                     "dataType": "UINT32_T",
                     "dataCount": 1,
-                    "comments": "[Integration Time] (ms)"
+                    "comments": "[Integration Time, Sample Count] (ms, n)"
                 }
             },
             "Telemetry": {
@@ -1031,28 +1013,34 @@
                     "dataId": 16102,
                     "dataType": "UINT16_T",
                     "dataCount": 512,
-                    "comments": "Raman CCD elements 1-512"
+                    "comments": "Raman CCD elements 0-511"
                 },
                 "RamanReading_Part2": {
                     "dataId": 16103,
                     "dataType": "UINT16_T",
                     "dataCount": 512,
-                    "comments": "Raman CCD elements 513-1024"
+                    "comments": "Raman CCD elements 512-1023"
                 },
                 "RamanReading_Part3": {
                     "dataId": 16104,
                     "dataType": "UINT16_T",
                     "dataCount": 512,
-                    "comments": "Raman CCD elements 1025-1536"
+                    "comments": "Raman CCD elements 1024-1535"
                 },
                 "RamanReading_Part4": {
                     "dataId": 16105,
                     "dataType": "UINT16_T",
                     "dataCount": 512,
-                    "comments": "Raman CCD elements 1537-2048"
+                    "comments": "Raman CCD elements 1536-2047"
+                },
+                "RamanReading_Part5": {
+                    "dataId": 16106,
+                    "dataType": "UINT16_T",
+                    "dataCount": 512,
+                    "comments": "Raman CCD elements 2048-2559"
                 },
                 "SMOCOPing": {
-                    "dataId": 16106,
+                    "dataId": 16107,
                     "dataType": "UINT16_T",
                     "dataCount": 1,
                     "comments": "[InstrumentsAxis] (ping time ms)"
@@ -1097,68 +1085,6 @@
         },
         "Basestation2_4GHzRocket": {
             "Ip": "10.0.0.12"
-        }
-    },
-    "MulticastCameras": {
-        "DriveCamLeft": {
-            "Ip": "239.0.0.1",
-            "Port": 50000,
-            "Device": 0,
-            "Name": "Drive Cam Left"
-        },
-        "DriveCamRight": {
-            "Ip": "239.0.0.2",
-            "Port": 50000,
-            "Device": 1,
-            "Name": "Drive Cam Right"
-        },
-        "GimbalCamLeft": {
-            "Ip": "239.0.0.3",
-            "Port": 50000,
-            "Device": 2,
-            "Name": "Gimbal Cam Left"
-        },
-        "GimbalCamRight": {
-            "Ip": "239.0.0.4",
-            "Port": 50000,
-            "Device": 3,
-            "Name": "Gimbal Cam Right"
-        },
-        "BackCam": {
-            "Ip": "239.0.0.5",
-            "Port": 50000,
-            "Device": 4,
-            "Name": "Back Cam"
-        },
-        "AuxCam1": {
-            "Ip": "239.0.0.6",
-            "Port": 50000,
-            "Device": 5,
-            "Name": "Aux Cam 1"
-        },
-        "AuxCam2": {
-            "Ip": "239.0.0.7",
-            "Port": 50000,
-            "Device": 6,
-            "Name": "Aux Cam 2"
-        },
-        "AuxCam3": {
-            "Ip": "239.0.0.8",
-            "Port": 50000,
-            "Device": 7,
-            "Name": "Aux Cam 3"
-        },
-        "AuxCam4": {
-            "Ip": "239.0.0.9",
-            "Port": 50000,
-            "Device": 8,
-            "Name": "Aux Cam 4"
-        },
-        "Microscope": {
-            "Ip": "239.0.0.10",
-            "Port": 50000,
-            "Device": 9,
-            "Name": "Microscope"
         }
     }
 }
