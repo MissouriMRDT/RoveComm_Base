@@ -801,7 +801,7 @@
                 "AvailableCameras": {
                     "dataId": 12100,
                     "dataType": "UINT8_T",
-                    "dataCount": 1,
+                    "dataCount": 2,
                     "comments": "[Connected, Streaming] (bitmask indexes, bitmask indexes)"
                 },
                 "PictureTaken": {
@@ -851,7 +851,7 @@
                 "AvailableCameras": {
                     "dataId": 13100,
                     "dataType": "UINT8_T",
-                    "dataCount": 1,
+                    "dataCount": 2,
                     "comments": "[Connected, Streaming] (bitmask indexes, bitmask indexes)"
                 },
                 "PictureTaken": {
