@@ -606,7 +606,7 @@
                 },
                 "LEDStatus": {
                     "dataId": 9106,
-                    "dataType": "UINT16_T",
+                    "dataType": "INT32_T",
                     "dataCount": 1,
                     "comments": "[LEDTimer] (ms)"
                 }
