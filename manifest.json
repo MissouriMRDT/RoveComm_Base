@@ -475,7 +475,7 @@
                     "comments": "[Pan, Tilt] (0 - 180)"
                 },
                 "IKToolIncrement": {
-                    "dataId": 80017,
+                    "dataId": 8017,
                     "dataType": "FLOAT_T",
                     "dataCount": 6,
                     "comments": "[TX, TY, TZ, RX, RY, RZ] (in, in, in, deg, deg, deg)"
@@ -992,7 +992,7 @@
                 "RequestRamanReading": {
                     "dataId": 16005,
                     "dataType": "UINT32_T",
-                    "dataCount": 1,
+                    "dataCount": 2,
                     "comments": "[Integration Time, Sample Count] (ms, n)"
                 }
             },

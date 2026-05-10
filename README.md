@@ -192,8 +192,8 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | **TargetAngleIncrement** | 8002 | `FLOAT_T` | 6 | [X, J2, J3, J4, J5, J6] (in, deg, deg, deg, deg, deg) |
 | **GripperOpenLoop** | 8003 | `INT16_T` | 1 | [Gripper] (-32768 - 32767) -> (-100% - 100%) |
 | **IKPosition** | 8004 | `FLOAT_T` | 6 | [X, Y, Z, J4, J5, J6] (in, in, in, deg, deg, deg) |
-| **IKPositionIncrement** | 8005 | `FLOAT_T` | 6 | [X, Y, Z, J4, J5, J6] (in, in, in, deg, deg, deg) |
-| **IKPoseIncrement** | 8006 | `FLOAT_T` | 6 | [TX, TY, TZ, RX, RY, RZ] (in, in, in, deg, deg, deg) |
+| **IKWristIncrement** | 8005 | `FLOAT_T` | 6 | [X, Y, Z, J4, J5, J6] (in, in, in, deg, deg, deg) |
+| **IKWorldIncrement** | 8006 | `FLOAT_T` | 6 | [TX, TY, TZ, RX, RY, RZ] (in, in, in, deg, deg, deg) |
 | **Laser** | 8007 | `UINT8_T` | 1 | [Enabled] |
 | **LinearServo** | 8008 | `UINT8_T` | 1 | [Position] (0 - 180) |
 | **Cache** | 8009 | `UINT8_T` | 1 | [Position] (0 - 180) |
@@ -204,6 +204,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | **SoftLimitOverride** | 8014 | `UINT16_T` | 1 | [X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, J5+, J5-] (bitmask override enabled) |
 | **ArmGimbal1** | 8015 | `INT16_T` | 2 | [Pan, Tilt] (0 - 180) |
 | **ArmGimbal2** | 8016 | `INT16_T` | 2 | [Pan, Tilt] (0 - 180) |
+| **IKToolIncrement** | 8017 | `FLOAT_T` | 6 | [TX, TY, TZ, RX, RY, RZ] (in, in, in, deg, deg, deg) |
 
 ### Telemetry
 
@@ -213,6 +214,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | **LimitSwitch** | 8101 | `UINT16_T` | 1 | [X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, J5+, J5-] (bitmask depressed) |
 | **SoftLimit** | 8102 | `UINT16_T` | 1 | [X+, X-, J2+, J2-, J3+, J3-, J4+, J4-, J5+, J5-] (bitmask triggered) |
 | **SMOCOPing** | 8103 | `UINT16_T` | 7 | [X, J2, J3, J4, J5, J6, G] (ping time ms) |
+| **Target** | 8104 | `FLOAT_T` | 6 | [X, J2, J3, J4, J5, J6] (in, deg, deg, deg, deg, deg) |
 
 ## Auger Board
 
@@ -241,6 +243,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | **Environmental** | 9103 | `FLOAT_T` | 2 | [Temperature, Humidity] (C, relative %) |
 | **AugerCurrent** | 9104 | `FLOAT_T` | 1 | [AugerCurrent] (A) |
 | **SMOCOPing** | 9105 | `UINT16_T` | 1 | [AugerAxis] (ping time ms) |
+| **LEDStatus** | 9106 | `INT32_T` | 1 | [LEDTimer] (ms) |
 
 ## Autonomy Board
 
@@ -270,6 +273,8 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | **CurrentState** | 11100 | `UINT8_T` | 1 | [State] (AUTONOMYSTATE) |
 | **StateDisplay** | 11101 | `UINT8_T` | 1 | [State] (0: Teleop 1: Autonomy 2: Reached Goal) |
 | **ThreadFPS** | 11103 | `UINT32_T` | 2 | [Thread, FPS] (AUTONOMYTHREADS, fps) |
+| **PathWaypoints** | 11104 | `DOUBLE_T` | 1000 | [Lat, Lon, Lat, Lon, ...] (deg, deg, deg, deg, ...) |
+| **TimeRemaining** | 11105 | `DOUBLE_T` | 1 | [EstimatedTimeToGoal] (s) |
 
 ### Enums
 
@@ -332,19 +337,16 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | :--- | ------ | ---- | ----- | ----------- |
 | **TakePicture** | 12000 | `UINT8_T` | 2 | [Camera, Restart] |
 | **ToggleStream** | 12001 | `UINT8_T` | 2 | [Camera, Restart] |
-| **SetFFMPEGArguments** | 12002 | `CHAR` | 16384 | [Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/ffmpeg_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $ip: output ip, $port: output port, $brightness, $contrast) |
-| **SetPictureArguments** | 12003 | `CHAR` | 16384 | [Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/picture_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $output: output file without extension, $brightness, $contrast) |
-| **SetBrightness** | 12004 | `FLOAT_T` | 4 | [Camera0, Camera1, Camera2, Camera3] (-1.0 - 1.0) |
-| **SetContrast** | 12005 | `FLOAT_T` | 4 | [Camera0, Camera1, Camera2, Camera3] (-1.0 - 2.0) |
+| **SetFFMPEGArguments** | 12002 | `CHAR` | 16384 | [Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/ffmpeg_arguments, byte after 0x04 is camera index. See RPI-Camera/config.toml for substitutions) |
+| **SetPictureArguments** | 12003 | `CHAR` | 16384 | [Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/picture_arguments, byte after 0x04 is camera index. See RPI-Camera/config.toml for substitutions) |
 
 ### Telemetry
 
 | name | dataId | type | count | description |
 | :--- | ------ | ---- | ----- | ----------- |
-| **AvailableCameras** | 12100 | `UINT8_T` | 1 | [AvailableCameras] |
-| **StreamingCameras** | 12101 | `UINT8_T` | 1 | [StreamingCameras] |
-| **PictureTaken** | 12102 | `UINT8_T` | 0 | Picture has been taken. |
-| **Utilization** | 12103 | `UINT8_T` | 6 | [cpu0, cpu1, cpu2, cpu3, mem, storage] (% usage) |
+| **AvailableCameras** | 12100 | `UINT8_T` | 2 | [Connected, Streaming] (bitmask indexes, bitmask indexes) |
+| **PictureTaken** | 12101 | `UINT8_T` | 0 | Picture has been taken. |
+| **Utilization** | 12102 | `UINT8_T` | 6 | [cpu0, cpu1, cpu2, cpu3, mem, storage] (% usage) |
 
 ## Camera2 Board
 
@@ -356,19 +358,16 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | :--- | ------ | ---- | ----- | ----------- |
 | **TakePicture** | 13000 | `UINT8_T` | 2 | [Camera, Restart] |
 | **ToggleStream** | 13001 | `UINT8_T` | 2 | [Camera, Restart] |
-| **SetFFMPEGArguments** | 13002 | `CHAR` | 16384 | [Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/ffmpeg_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $ip: output ip, $port: output port, $brightness, $contrast) |
-| **SetPictureArguments** | 13003 | `CHAR` | 16384 | [Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16384 characters for RPi-Camera/config.toml/picture_arguments. Accepts the following substitutions: $index: camera index, $input: input device file, $output: output file without extension, $brightness, $contrast) |
-| **SetBrightness** | 13004 | `FLOAT_T` | 4 | [Camera0, Camera1, Camera2, Camera3] (-1.0 - 1.0) |
-| **SetContrast** | 13005 | `FLOAT_T` | 4 | [Camera0, Camera1, Camera2, Camera3] (-1.0 - 2.0) |
+| **SetFFMPEGArguments** | 13002 | `CHAR` | 16384 | [Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/ffmpeg_arguments, byte after 0x04 is camera index. See RPI-Camera/config.toml for substitutions) |
+| **SetPictureArguments** | 13003 | `CHAR` | 16384 | [Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/picture_arguments, byte after 0x04 is camera index. See RPI-Camera/config.toml for substitutions) |
 
 ### Telemetry
 
 | name | dataId | type | count | description |
 | :--- | ------ | ---- | ----- | ----------- |
-| **AvailableCameras** | 13100 | `UINT8_T` | 1 | [AvailableCameras] |
-| **StreamingCameras** | 13101 | `UINT8_T` | 1 | [StreamingCameras] |
-| **PictureTaken** | 13102 | `UINT8_T` | 0 | Picture has been taken. |
-| **Utilization** | 13103 | `UINT8_T` | 6 | [cpu0, cpu1, cpu2, cpu3, mem, storage] (% usage) |
+| **AvailableCameras** | 13100 | `UINT8_T` | 2 | [Connected, Streaming] (bitmask indexes, bitmask indexes) |
+| **PictureTaken** | 13101 | `UINT8_T` | 0 | Picture has been taken. |
+| **Utilization** | 13102 | `UINT8_T` | 6 | [cpu0, cpu1, cpu2, cpu3, mem, storage] (% usage) |
 
 ## CameraServer Board
 
@@ -415,7 +414,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | **CalibrateEncoder** | 16002 | `UINT8_T` | 0 | Request calibration of the InstrumentsAxis encoder |
 | **WatchdogOverride** | 16003 | `UINT8_T` | 1 | [Enabled] |
 | **Laser** | 16004 | `UINT8_T` | 1 | [Enabled] |
-| **RequestRamanReading** | 16005 | `UINT32_T` | 1 | [Integration Time] (ms) |
+| **RequestRamanReading** | 16005 | `UINT32_T` | 2 | [Integration Time, Sample Count] (ms, n) |
 
 ### Telemetry
 
@@ -423,11 +422,12 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | :--- | ------ | ---- | ----- | ----------- |
 | **Position** | 16100 | `FLOAT_T` | 2 | [InstrumentsAxis, TOF] (mm, mm) |
 | **LimitSwitch** | 16101 | `UINT8_T` | 1 | [InstrumentsAxis+, InstrumentsAxis-] (bitmask depressed) |
-| **RamanReading_Part1** | 16102 | `UINT16_T` | 512 | Raman CCD elements 1-512 |
-| **RamanReading_Part2** | 16103 | `UINT16_T` | 512 | Raman CCD elements 513-1024 |
-| **RamanReading_Part3** | 16104 | `UINT16_T` | 512 | Raman CCD elements 1025-1536 |
-| **RamanReading_Part4** | 16105 | `UINT16_T` | 512 | Raman CCD elements 1537-2048 |
-| **SMOCOPing** | 16106 | `UINT16_T` | 1 | [InstrumentsAxis] (ping time ms) |
+| **RamanReading_Part1** | 16102 | `UINT16_T` | 512 | Raman CCD elements 0-511 |
+| **RamanReading_Part2** | 16103 | `UINT16_T` | 512 | Raman CCD elements 512-1023 |
+| **RamanReading_Part3** | 16104 | `UINT16_T` | 512 | Raman CCD elements 1024-1535 |
+| **RamanReading_Part4** | 16105 | `UINT16_T` | 512 | Raman CCD elements 1536-2047 |
+| **RamanReading_Part5** | 16106 | `UINT16_T` | 512 | Raman CCD elements 2048-2559 |
+| **SMOCOPing** | 16107 | `UINT16_T` | 1 | [InstrumentsAxis] (ping time ms) |
 
 ## RoveSoSimulator Board
 
@@ -451,17 +451,3 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | **Basestation5GHzRocket** | `10.0.0.20` |
 | **Rover2_4GHzRocket** | `10.0.0.11` |
 | **Basestation2_4GHzRocket** | `10.0.0.12` |
-# Multicast Devices
-
-| name | ip  | port | device |
-| :--- | --- | ---- | ------ |
-| **DriveCamLeft** | `239.0.0.1` | `50000` | `0` |
-| **DriveCamRight** | `239.0.0.2` | `50000` | `1` |
-| **GimbalCamLeft** | `239.0.0.3` | `50000` | `2` |
-| **GimbalCamRight** | `239.0.0.4` | `50000` | `3` |
-| **BackCam** | `239.0.0.5` | `50000` | `4` |
-| **AuxCam1** | `239.0.0.6` | `50000` | `5` |
-| **AuxCam2** | `239.0.0.7` | `50000` | `6` |
-| **AuxCam3** | `239.0.0.8` | `50000` | `7` |
-| **AuxCam4** | `239.0.0.9` | `50000` | `8` |
-| **Microscope** | `239.0.0.10` | `50000` | `9` |
