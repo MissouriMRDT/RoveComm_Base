@@ -788,13 +788,25 @@
                     "dataId": 12002,
                     "dataType": "CHAR",
                     "dataCount": 16384,
-                    "comments": "[Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/ffmpeg_arguments, byte after 0x04 is camera index. See RPI-Camera/config.toml for substitutions)"
+                    "comments": "[Arguments] (0x1f delimited, 0x00 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/ffmpeg_arguments, first byte is camera index. See RPI-Camera/config.toml for substitutions)"
                 },
                 "SetPictureArguments": {
                     "dataId": 12003,
                     "dataType": "CHAR",
                     "dataCount": 16384,
-                    "comments": "[Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/picture_arguments, byte after 0x04 is camera index. See RPI-Camera/config.toml for substitutions)"
+                    "comments": "[Arguments] (0x1f delimited, 0x00 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/picture_arguments, first byte is camera index. See RPI-Camera/config.toml for substitutions)"
+                },
+                "ZMQCommands": {
+                    "dataId": 12004,
+                    "dataType": "CHAR",
+                    "dataCount": 16384,
+                    "comments": "[Command] (0x1f delimited, 0x00 terminated list of commands, first byte is camera index)"
+                },
+                "V4L2SetControls": {
+                    "dataId": 12005,
+                    "dataType": "CHAR",
+                    "dataCount": 16384,
+                    "comments": "[Command] (0x00 terminated argument passed to v4l2-ctl --set-ctrl, first byte is camera index)"
                 }
             },
             "Telemetry": {
@@ -838,13 +850,25 @@
                     "dataId": 13002,
                     "dataType": "CHAR",
                     "dataCount": 16384,
-                    "comments": "[Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/ffmpeg_arguments, byte after 0x04 is camera index. See RPI-Camera/config.toml for substitutions)"
+                    "comments": "[Arguments] (0x1f delimited, 0x00 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/ffmpeg_arguments, first byte is camera index. See RPI-Camera/config.toml for substitutions)"
                 },
                 "SetPictureArguments": {
                     "dataId": 13003,
                     "dataType": "CHAR",
                     "dataCount": 16384,
-                    "comments": "[Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/picture_arguments, byte after 0x04 is camera index. See RPI-Camera/config.toml for substitutions)"
+                    "comments": "[Arguments] (0x1f delimited, 0x00 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/picture_arguments, first byte is camera index. See RPI-Camera/config.toml for substitutions)"
+                },
+                "ZMQCommands": {
+                    "dataId": 13004,
+                    "dataType": "CHAR",
+                    "dataCount": 16384,
+                    "comments": "[Command] (0x1f delimited, 0x00 terminated list of commands, first byte is camera index)"
+                },
+                "V4L2SetControls": {
+                    "dataId": 13004,
+                    "dataType": "CHAR",
+                    "dataCount": 16384,
+                    "comments": "[Command] (0x00 terminated argument passed to v4l2-ctl --set-ctrl, first byte is camera index)"
                 }
             },
             "Telemetry": {

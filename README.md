@@ -337,8 +337,10 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | :--- | ------ | ---- | ----- | ----------- |
 | **TakePicture** | 12000 | `UINT8_T` | 2 | [Camera, Restart] |
 | **ToggleStream** | 12001 | `UINT8_T` | 2 | [Camera, Restart] |
-| **SetFFMPEGArguments** | 12002 | `CHAR` | 16384 | [Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/ffmpeg_arguments, byte after 0x04 is camera index. See RPI-Camera/config.toml for substitutions) |
-| **SetPictureArguments** | 12003 | `CHAR` | 16384 | [Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/picture_arguments, byte after 0x04 is camera index. See RPI-Camera/config.toml for substitutions) |
+| **SetFFMPEGArguments** | 12002 | `CHAR` | 16384 | [Arguments] (0x1f delimited, 0x00 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/ffmpeg_arguments, first byte is camera index. See RPI-Camera/config.toml for substitutions) |
+| **SetPictureArguments** | 12003 | `CHAR` | 16384 | [Arguments] (0x1f delimited, 0x00 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/picture_arguments, first byte is camera index. See RPI-Camera/config.toml for substitutions) |
+| **ZMQCommands** | 12004 | `CHAR` | 16384 | [Command] (0x1f delimited, 0x00 terminated list of commands, first byte is camera index) |
+| **V4L2SetControls** | 12005 | `CHAR` | 16384 | [Command] (0x00 terminated argument passed to v4l2-ctl --set-ctrl, first byte is camera index) |
 
 ### Telemetry
 
@@ -358,8 +360,10 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | :--- | ------ | ---- | ----- | ----------- |
 | **TakePicture** | 13000 | `UINT8_T` | 2 | [Camera, Restart] |
 | **ToggleStream** | 13001 | `UINT8_T` | 2 | [Camera, Restart] |
-| **SetFFMPEGArguments** | 13002 | `CHAR` | 16384 | [Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/ffmpeg_arguments, byte after 0x04 is camera index. See RPI-Camera/config.toml for substitutions) |
-| **SetPictureArguments** | 13003 | `CHAR` | 16384 | [Arguments] (0x1f delimited, 0x04 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/picture_arguments, byte after 0x04 is camera index. See RPI-Camera/config.toml for substitutions) |
+| **SetFFMPEGArguments** | 13002 | `CHAR` | 16384 | [Arguments] (0x1f delimited, 0x00 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/ffmpeg_arguments, first byte is camera index. See RPI-Camera/config.toml for substitutions) |
+| **SetPictureArguments** | 13003 | `CHAR` | 16384 | [Arguments] (0x1f delimited, 0x00 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/picture_arguments, first byte is camera index. See RPI-Camera/config.toml for substitutions) |
+| **ZMQCommands** | 13004 | `CHAR` | 16384 | [Command] (0x1f delimited, 0x00 terminated list of commands, first byte is camera index) |
+| **V4L2SetControls** | 13004 | `CHAR` | 16384 | [Command] (0x00 terminated argument passed to v4l2-ctl --set-ctrl, first byte is camera index) |
 
 ### Telemetry
 
