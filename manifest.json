@@ -865,7 +865,7 @@
                     "comments": "[Command] (0x1f delimited, 0x00 terminated list of commands, first byte is camera index)"
                 },
                 "V4L2SetControls": {
-                    "dataId": 13004,
+                    "dataId": 13005,
                     "dataType": "CHAR",
                     "dataCount": 16384,
                     "comments": "[Command] (0x00 terminated argument passed to v4l2-ctl --set-ctrl, first byte is camera index)"
