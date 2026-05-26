@@ -1071,6 +1071,18 @@
                 }
             }
         },
+        "DroneGPS": {
+            "Ip": "192.168.100.102",
+            "Commands": {},
+            "Telemetry": {
+                "DronePose": {
+                    "dataId": 17100,
+                    "dataType": "DOUBLE_T",
+                    "dataCount": 9,
+                    "comments": "[Lat, Lon, Alt, HorizontalAccuracy, VerticalAccuracy, HeadingAccuracy, FixType, Heading, Satellites] (deg, deg, m, m, m, deg, Ardupilot GPS fix type https://mavlink.io/en/messages/common.html#GPS_FIX_TYPE, 0 - 360, Satellite number)"
+                }
+            }
+        },
         "RoveSoSimulator": {
             "Ip": "127.0.0.1",
             "Commands": {},

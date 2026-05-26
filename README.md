@@ -363,7 +363,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | **SetFFMPEGArguments** | 13002 | `CHAR` | 16384 | [Arguments] (0x1f delimited, 0x00 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/ffmpeg_arguments, first byte is camera index. See RPI-Camera/config.toml for substitutions) |
 | **SetPictureArguments** | 13003 | `CHAR` | 16384 | [Arguments] (0x1f delimited, 0x00 terminated list with maximum length of 16383 characters for RPi-Camera/config.toml/picture_arguments, first byte is camera index. See RPI-Camera/config.toml for substitutions) |
 | **ZMQCommands** | 13004 | `CHAR` | 16384 | [Command] (0x1f delimited, 0x00 terminated list of commands, first byte is camera index) |
-| **V4L2SetControls** | 13004 | `CHAR` | 16384 | [Command] (0x00 terminated argument passed to v4l2-ctl --set-ctrl, first byte is camera index) |
+| **V4L2SetControls** | 13005 | `CHAR` | 16384 | [Command] (0x00 terminated argument passed to v4l2-ctl --set-ctrl, first byte is camera index) |
 
 ### Telemetry
 
@@ -432,6 +432,16 @@ sending and parsing RoveComm packets. These are the current implementations of R
 | **RamanReading_Part4** | 16105 | `UINT16_T` | 512 | Raman CCD elements 1536-2047 |
 | **RamanReading_Part5** | 16106 | `UINT16_T` | 512 | Raman CCD elements 2048-2559 |
 | **SMOCOPing** | 16107 | `UINT16_T` | 1 | [InstrumentsAxis] (ping time ms) |
+
+## DroneGPS Board
+
+**IP**: 192.168.100.102
+
+### Telemetry
+
+| name | dataId | type | count | description |
+| :--- | ------ | ---- | ----- | ----------- |
+| **DronePose** | 17100 | `DOUBLE_T` | 9 | [Lat, Lon, Alt, HorizontalAccuracy, VerticalAccuracy, HeadingAccuracy, FixType, Heading, Satellites] (deg, deg, m, m, m, deg, Ardupilot GPS fix type https://mavlink.io/en/messages/common.html#GPS_FIX_TYPE, 0 - 360, Satellite number) |
 
 ## RoveSoSimulator Board
 
