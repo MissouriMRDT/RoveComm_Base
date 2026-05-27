@@ -825,8 +825,8 @@
                 "Utilization": {
                     "dataId": 12102,
                     "dataType": "UINT8_T",
-                    "dataCount": 6,
-                    "comments": "[cpu0, cpu1, cpu2, cpu3, mem, storage] (% usage)"
+                    "dataCount": 7,
+                    "comments": "[cpu0, cpu1, cpu2, cpu3, mem, storage, temp] (% usage, % usage, % usage, % usage, % usage, C)"
                 }
             },
             "Error": {}
@@ -887,8 +887,8 @@
                 "Utilization": {
                     "dataId": 13102,
                     "dataType": "UINT8_T",
-                    "dataCount": 6,
-                    "comments": "[cpu0, cpu1, cpu2, cpu3, mem, storage] (% usage)"
+                    "dataCount": 7,
+                    "comments": "[cpu0, cpu1, cpu2, cpu3, mem, storage, temp] (% usage, % usage, % usage, % usage, % usage, C)"
                 }
             },
             "Error": {}
