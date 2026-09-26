@@ -1088,7 +1088,7 @@
             "Commands": {},
             "Telemetry": {
                 "IMU": {
-                    "dataId": 99100,
+                    "dataId": 17100,
                     "dataType": "DOUBLE_T",
                     "dataCount": 10,
                     "comments": "[Accel X, Accel Y, Accel Z, Gyro X, Gyro Y, Gyro Z, Quat X, Quat Y, Quat Z, Quat W]"

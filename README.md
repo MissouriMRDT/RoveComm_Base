@@ -451,7 +451,7 @@ sending and parsing RoveComm packets. These are the current implementations of R
 
 | name | dataId | type | count | description |
 | :--- | ------ | ---- | ----- | ----------- |
-| **IMU** | 99100 | `DOUBLE_T` | 10 | [Accel X, Accel Y, Accel Z, Gyro X, Gyro Y, Gyro Z, Quat X, Quat Y, Quat Z, Quat W] |
+| **IMU** | 17100 | `DOUBLE_T` | 10 | [Accel X, Accel Y, Accel Z, Gyro X, Gyro Y, Gyro Z, Quat X, Quat Y, Quat Z, Quat W] |
 
 # Network Devices
 
