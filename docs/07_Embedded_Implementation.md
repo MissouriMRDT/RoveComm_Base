@@ -5,7 +5,7 @@ title: "07. Embedded (Arduino / Microcontroller) Guide"
 
 # Chapter 07: Embedded (Arduino / Microcontroller) Guide
 
-The embedded implementation of RoveComm (`MissouriMRDT/RoveComm_Arduino`) operates on the physical microcontroller boards distributed across the rover chassis. These boards—primarily **Teensy 4.1** (ARM Cortex-M7 running at 600 MHz) and **STM32** controllers running the Arduino framework—directly actuate drive motors, monitor battery cells, control robotic arm joints, and trigger science mechanisms.
+The embedded implementation of RoveComm (`MissouriMRDT/RoveComm_Arduino`) operates on the physical microcontroller boards distributed across the rover chassis. These boards -- primarily **Teensy 4.1** (ARM Cortex-M7 running at 600 MHz) and **STM32** controllers running the Arduino framework -- directly actuate drive motors, monitor battery cells, control robotic arm joints, and trigger science mechanisms.
 
 ---
 

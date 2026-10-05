@@ -52,6 +52,6 @@ bash tools/compile_rovecomm_pandoc.sh
 
 To guarantee clean PDF compilation without LaTeX errors:
 
-- **Strict ASCII Trees**: Directory structures and flowcharts must use ASCII characters (`|--`, `+--`, `\--`, `|`) rather than Unicode box-drawing symbols (`├`, `│`, `└`), as standard `pdflatex` fails on multi-byte unicode box characters.
+- **Strict ASCII Trees**: Directory structures and flowcharts must use ASCII characters (`|--`, `+--`, `\--`, `|`) rather than Unicode box-drawing symbols (`+--`, `|`, `\--`), as standard `pdflatex` fails on multi-byte unicode box characters.
 - **Leading Blank Lines**: All bulleted lists and numbered steps must be preceded by a blank line.
 - **Backtick Shielding**: Shell variables containing dollar signs (`$VAR`, `$HOME`) must be enclosed in code backticks to prevent MathJax / LaTeX from interpreting them as inline math.

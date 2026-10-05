@@ -5,7 +5,7 @@ title: "01. Protocol Specification & Wire Format"
 
 # Chapter 01: Protocol Specification & Wire Format
 
-The **RoveComm** protocol is the custom application-layer binary messaging protocol engineered by the Missouri S&T Mars Rover Design Team (MRDT). It interconnects all computing nodes on the rover and ground control station—including embedded microcontrollers (Teensy 4.1, STM32, SAM), single-board computers (NVIDIA Jetson AGX Orin, Raspberry Pi 5), high-level autonomy software stacks, simulation engines (Unreal Engine 5), and the mission control web dashboard (Blazor BaseStation).
+The **RoveComm** protocol is the custom application-layer binary messaging protocol engineered by the Missouri S&T Mars Rover Design Team (MRDT). It interconnects all computing nodes on the rover and ground control station -- including embedded microcontrollers (Teensy 4.1, STM32, SAM), single-board computers (NVIDIA Jetson AGX Orin, Raspberry Pi 5), high-level autonomy software stacks, simulation engines (Unreal Engine 5), and the mission control web dashboard (Blazor BaseStation).
 
 This chapter defines the low-level wire format, byte framing, data types, system-reserved packets, and network IP routing topology for **RoveComm Version 3**.
 
@@ -19,7 +19,7 @@ RoveComm is engineered around four core tenets:
 
 1. **Minimal Header Overhead**: A fixed 6-byte header allows embedded microcontrollers to parse packets with zero dynamic memory allocation and minimal CPU cycles.
 2. **Deterministic Serialization**: Strict big-endian network byte ordering guarantees binary interoperability across heterogeneous CPU architectures (x86_64, ARM Cortex-A78AE, ARM Cortex-M7, and RISC-V).
-3. **Schema-Driven Network Contract**: The entire team's networking catalog—every board, IP address, command, telemetry stream, error flag, and enum—is declared in a single central repository (`RoveComm_Base/manifest.json`), eliminating packet definition drift across multidisciplinary subteams.
+3. **Schema-Driven Network Contract**: The entire team's networking catalog -- every board, IP address, command, telemetry stream, error flag, and enum -- is declared in a single central repository (`RoveComm_Base/manifest.json`), eliminating packet definition drift across multidisciplinary subteams.
 4. **Dual Transport Support**: Native abstraction over both low-latency connectionless UDP (for high-frequency sensor telemetry and teleoperation drive commands) and connection-oriented TCP (for mission-critical state transitions, file transfers, and E-Stop commands).
 
 ---
@@ -45,8 +45,8 @@ Every RoveComm packet transmitted over Ethernet or Wi-Fi begins with an identica
 | Byte Offset | Field Name | Data Type | Description |
 | :--- | :--- | :--- | :--- |
 | **Byte 0** | `RoveComm Version` | `uint8_t` | Protocol specification version. For current MRDT rovers, this value **MUST** equal `3` (`0x03`). Packets with mismatching versions are rejected. |
-| **Bytes 1–2** | `Data ID` | `uint16_t` | Unique identifier (0–65535) denoting the command, telemetry stream, or error type as registered in `manifest.json`. Big-endian network byte order. |
-| **Bytes 3–4** | `Data Count` | `uint16_t` | Number of elements of type `Data Type` contained in the following payload. Big-endian network byte order. |
+| **Bytes 1-2** | `Data ID` | `uint16_t` | Unique identifier (0-65535) denoting the command, telemetry stream, or error type as registered in `manifest.json`. Big-endian network byte order. |
+| **Bytes 3-4** | `Data Count` | `uint16_t` | Number of elements of type `Data Type` contained in the following payload. Big-endian network byte order. |
 | **Byte 5** | `Data Type` | `uint8_t` | Primitive data type enum (values `0` to `8`) defining how the payload bytes must be decoded. |
 | **Bytes 6+** | `Data Payload` | Variable | The binary array of data elements. Total payload byte size is calculated as $\text{DataCount} \times \text{sizeof}(\text{DataType})$. |
 
@@ -96,7 +96,7 @@ RoveComm defines 9 standard primitive data types mapped to fixed integer identif
 
 ---
 
-## 5. System Reserved Packets (Control IDs 1–6)
+## 5. System Reserved Packets (Control IDs 1-6)
 
 Data IDs `1` through `6` are globally reserved across all boards for protocol control and connection management. They must not be assigned to board-specific commands or telemetry:
 

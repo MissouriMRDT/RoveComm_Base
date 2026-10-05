@@ -124,9 +124,9 @@ function sectionFromUrl(url) {
 In `RoveSoDocs/index.md`, add a feature card under `features:`:
 
 ```yaml
-  - icon: "📡"
+  - icon: ":satellite:"
     title: "RoveComm Protocol Guide"
-    details: "Universal rover communications manual—wire format specifications, manifest ecosystem, multi-language bindings, and diagnostic tester tooling."
+    details: "Universal rover communications manual -- wire format specifications, manifest ecosystem, multi-language bindings, and diagnostic tester tooling."
     link: /rovecomm/_j/
     linkText: "Open RoveComm Guide"
 ```
