@@ -1,0 +1,62 @@
+title: RoveComm Protocol Guide
+description: Central engineering manual and specification for the Missouri S&T Mars Rover Design Team RoveComm protocol.
+
+url: "https://docs.themrdt.org"
+baseurl: "/rovecomm/_j"
+
+remote_theme: "godalming123/minimal"
+plugins:
+  - jekyll-remote-theme
+  - jekyll-optional-front-matter
+
+repository: "MissouriMRDT/RoveComm_Base"
+
+navigation:
+  - link: "/"
+    name: "Home"
+  - link: "/01_Protocol_Specification.html"
+    name: "Protocol Spec"
+  - link: "/02_Transport_Layers.html"
+    name: "Transport Layers"
+  - link: "/03_Manifest_Ecosystem.html"
+    name: "Manifest Ecosystem"
+  - link: "/04_CPP_Implementation.html"
+    name: "C++ Guide"
+  - link: "/05_CSharp_Implementation.html"
+    name: "C# Guide"
+  - link: "/06_Python_Implementation.html"
+    name: "Python Guide"
+  - link: "/07_Embedded_Implementation.html"
+    name: "Embedded Guide"
+  - link: "/08_Tester_Software.html"
+    name: "Tester Software"
+  - link: "/09_Docs_Integration.html"
+    name: "Docs Integration"
+  - link: "https://docs.themrdt.org/rovecomm/_cpp/"
+    name: "C++ Doxygen API"
+  - link: "https://docs.themrdt.org"
+    name: "Return to RoveSoDocs"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+exclude:
+  - vendor
+  - vendor/*
+  - .bundle
+  - .sass-cache
+  - .jekyll-cache
+  - gemfiles
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - "*.pdf"
+  - "RoveComm_Guide_Pandoc.md"
